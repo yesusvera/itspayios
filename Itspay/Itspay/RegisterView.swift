@@ -133,6 +133,11 @@ class RegisterView: UITableViewController {
             return false
         }
         
+        if password != passwordConfirmation {
+            labelErrorPasswordConfirmation.text = "Confirmação de Senha Inválida."
+            return false
+        }
+        
         labelErrorPasswordConfirmation.isHidden = true
         
         return true

@@ -14,7 +14,7 @@
         <scene sceneID="cfB-CC-hVZ">
             <objects>
                 <navigationController id="Qqn-Wh-3qN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="n0a-g8-nvr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="n0a-g8-nvr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,12 +146,15 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geb-sZ-JTZ">
                                                     <rect key="frame" x="20" y="14" width="34" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="YxI-6I-aqV"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR CPF }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T53-hh-EPK">
-                                                    <rect key="frame" x="70" y="16.5" width="140.5" height="17"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF Vazio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T53-hh-EPK">
+                                                    <rect key="frame" x="70" y="16.5" width="514" height="17"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.80784313730000001" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -159,6 +162,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="geb-sZ-JTZ" firstAttribute="centerY" secondItem="wlH-eh-D3W" secondAttribute="centerY" id="A9Y-GQ-pEw"/>
+                                                <constraint firstAttribute="trailing" secondItem="T53-hh-EPK" secondAttribute="trailing" constant="16" id="KBp-mF-JYN"/>
                                                 <constraint firstItem="T53-hh-EPK" firstAttribute="centerY" secondItem="geb-sZ-JTZ" secondAttribute="centerY" id="Pls-Qr-kdj"/>
                                                 <constraint firstItem="geb-sZ-JTZ" firstAttribute="leading" secondItem="wlH-eh-D3W" secondAttribute="leading" constant="20" symbolic="YES" id="QdW-l1-U5D"/>
                                                 <constraint firstItem="T53-hh-EPK" firstAttribute="leading" secondItem="geb-sZ-JTZ" secondAttribute="trailing" constant="16" id="epB-me-FxK"/>
@@ -210,12 +214,15 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SENHA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-mR-7eA">
                                                     <rect key="frame" x="20" y="15" width="60.5" height="21.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60.5" id="Due-Oh-zxj"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR SENHA }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyt-G2-MB1">
-                                                    <rect key="frame" x="96" y="17" width="160.5" height="17"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha Vazia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yyt-G2-MB1">
+                                                    <rect key="frame" x="96" y="17" width="488" height="17"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.80784313730000001" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -224,6 +231,7 @@
                                             <constraints>
                                                 <constraint firstItem="gIM-mR-7eA" firstAttribute="leading" secondItem="9Pr-O1-x90" secondAttribute="leading" constant="20" symbolic="YES" id="3Vm-OM-z0V"/>
                                                 <constraint firstItem="Yyt-G2-MB1" firstAttribute="centerY" secondItem="gIM-mR-7eA" secondAttribute="centerY" id="Eah-AU-VUd"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yyt-G2-MB1" secondAttribute="trailing" constant="16" id="Hu3-gE-Ijb"/>
                                                 <constraint firstItem="gIM-mR-7eA" firstAttribute="centerY" secondItem="9Pr-O1-x90" secondAttribute="centerY" id="Ijn-I9-IoA"/>
                                                 <constraint firstItem="Yyt-G2-MB1" firstAttribute="leading" secondItem="gIM-mR-7eA" secondAttribute="trailing" constant="16" id="aon-QG-ORX"/>
                                             </constraints>
@@ -397,21 +405,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR DATA NASCIMENTO }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQN-q6-ayF">
-                                                    <rect key="frame" x="204" y="16.5" width="244.5" height="17"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de Nascimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-WY-bj8">
+                                                    <rect key="frame" x="20" y="15" width="168" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="168" id="w8n-Ah-me3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de Nascimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-WY-bj8">
-                                                    <rect key="frame" x="20" y="14" width="168" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de Nascimento Vazia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQN-q6-ayF">
+                                                    <rect key="frame" x="204" y="16.5" width="380" height="17"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="oQN-q6-ayF" firstAttribute="centerY" secondItem="3zP-WY-bj8" secondAttribute="centerY" id="DO6-uH-AcC"/>
+                                                <constraint firstAttribute="trailing" secondItem="oQN-q6-ayF" secondAttribute="trailing" constant="16" id="GvW-Ya-X00"/>
                                                 <constraint firstItem="3zP-WY-bj8" firstAttribute="leading" secondItem="nnq-2e-t4h" secondAttribute="leading" constant="20" symbolic="YES" id="J6P-0E-akT"/>
                                                 <constraint firstItem="oQN-q6-ayF" firstAttribute="leading" secondItem="3zP-WY-bj8" secondAttribute="trailing" constant="16" id="fZp-Ld-T7Z"/>
                                                 <constraint firstItem="3zP-WY-bj8" firstAttribute="centerY" secondItem="nnq-2e-t4h" secondAttribute="centerY" id="tLP-Q5-K9v"/>
@@ -462,16 +474,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR CPF }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoP-SR-GeZ">
-                                                    <rect key="frame" x="70" y="16.5" width="140.5" height="17"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsw-IX-fSL">
+                                                    <rect key="frame" x="20" y="15" width="34" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="fVq-1h-9h6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsw-IX-fSL">
-                                                    <rect key="frame" x="20" y="14" width="34" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CPF Vazio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoP-SR-GeZ">
+                                                    <rect key="frame" x="70" y="16.5" width="514" height="17"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -479,6 +494,7 @@
                                                 <constraint firstItem="Hsw-IX-fSL" firstAttribute="centerY" secondItem="qKf-ed-jxg" secondAttribute="centerY" id="73N-aV-oLX"/>
                                                 <constraint firstItem="IoP-SR-GeZ" firstAttribute="leading" secondItem="Hsw-IX-fSL" secondAttribute="trailing" constant="16" id="QCc-Ms-gq7"/>
                                                 <constraint firstItem="Hsw-IX-fSL" firstAttribute="leading" secondItem="qKf-ed-jxg" secondAttribute="leading" constant="20" symbolic="YES" id="Tl3-dW-6pd"/>
+                                                <constraint firstAttribute="trailing" secondItem="IoP-SR-GeZ" secondAttribute="trailing" constant="16" id="nG5-Sy-qoZ"/>
                                                 <constraint firstItem="IoP-SR-GeZ" firstAttribute="centerY" secondItem="Hsw-IX-fSL" secondAttribute="centerY" id="tVh-UC-g6Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -528,13 +544,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPy-u2-ONw">
-                                                    <rect key="frame" x="20" y="14" width="53" height="22"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <rect key="frame" x="20" y="15" width="53" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="53" id="yiN-sg-DKX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR EMAIL }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ell-7Q-jFV">
-                                                    <rect key="frame" x="89" y="17" width="155" height="17"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Vazio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ell-7Q-jFV">
+                                                    <rect key="frame" x="89" y="17" width="495" height="17"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -542,6 +561,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ell-7Q-jFV" firstAttribute="leading" secondItem="VPy-u2-ONw" secondAttribute="trailing" constant="16" id="CkW-mG-IP0"/>
+                                                <constraint firstAttribute="trailing" secondItem="ell-7Q-jFV" secondAttribute="trailing" constant="16" id="M8z-7U-t4R"/>
                                                 <constraint firstItem="VPy-u2-ONw" firstAttribute="centerY" secondItem="fJS-kN-amI" secondAttribute="centerY" id="j9j-tC-sEu"/>
                                                 <constraint firstItem="ell-7Q-jFV" firstAttribute="centerY" secondItem="VPy-u2-ONw" secondAttribute="centerY" id="rJa-hn-fpJ"/>
                                                 <constraint firstItem="VPy-u2-ONw" firstAttribute="leading" secondItem="fJS-kN-amI" secondAttribute="leading" constant="20" symbolic="YES" id="xfg-5c-962"/>
@@ -589,13 +609,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirme seu e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvj-5S-noi">
-                                                    <rect key="frame" x="20" y="15" width="167.5" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <rect key="frame" x="20" y="15.5" width="167.5" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="167.5" id="O3H-bg-SBK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR EMAIL CONFIRMATION }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etW-Re-M73">
-                                                    <rect key="frame" x="203.5" y="17" width="263.5" height="17"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmação de Email Vazia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etW-Re-M73">
+                                                    <rect key="frame" x="203.5" y="17" width="380.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -603,6 +626,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="etW-Re-M73" firstAttribute="centerY" secondItem="dvj-5S-noi" secondAttribute="centerY" id="BNw-wT-i5w"/>
+                                                <constraint firstAttribute="trailing" secondItem="etW-Re-M73" secondAttribute="trailing" constant="16" id="JgK-5g-FaS"/>
                                                 <constraint firstItem="dvj-5S-noi" firstAttribute="leading" secondItem="5v3-6K-KKN" secondAttribute="leading" constant="20" symbolic="YES" id="jva-iZ-832"/>
                                                 <constraint firstItem="dvj-5S-noi" firstAttribute="centerY" secondItem="5v3-6K-KKN" secondAttribute="centerY" id="kHW-xU-1ze"/>
                                                 <constraint firstItem="etW-Re-M73" firstAttribute="leading" secondItem="dvj-5S-noi" secondAttribute="trailing" constant="16" id="wV7-1u-OgY"/>
@@ -650,13 +674,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qu-kq-tYG">
-                                                    <rect key="frame" x="20" y="14.5" width="52" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <rect key="frame" x="20" y="15" width="52" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="52" id="bSw-DY-avm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR SENHA }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-XU-p0F">
-                                                    <rect key="frame" x="87.5" y="16" width="160.5" height="17"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha Vazia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-XU-p0F">
+                                                    <rect key="frame" x="87.5" y="16" width="496.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -665,6 +692,7 @@
                                             <constraints>
                                                 <constraint firstItem="g8w-XU-p0F" firstAttribute="leading" secondItem="8qu-kq-tYG" secondAttribute="trailing" constant="16" id="0HS-Z3-dIV"/>
                                                 <constraint firstItem="8qu-kq-tYG" firstAttribute="centerY" secondItem="972-zc-3zM" secondAttribute="centerY" id="6Cs-DY-7qn"/>
+                                                <constraint firstAttribute="trailing" secondItem="g8w-XU-p0F" secondAttribute="trailing" constant="16" id="CLU-fd-Ro3"/>
                                                 <constraint firstItem="g8w-XU-p0F" firstAttribute="centerY" secondItem="8qu-kq-tYG" secondAttribute="centerY" id="gLZ-up-HQ0"/>
                                                 <constraint firstItem="8qu-kq-tYG" firstAttribute="leading" secondItem="972-zc-3zM" secondAttribute="leading" constant="20" symbolic="YES" id="urD-zw-ltv"/>
                                             </constraints>
@@ -711,13 +739,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirme sua senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djj-Pn-ig8">
-                                                    <rect key="frame" x="20" y="14.5" width="165" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <rect key="frame" x="20" y="15" width="165" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="165" id="8Q6-lk-hEs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{ MSG ERROR SENHA CONFIRMATION }}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yk-W8-chu">
-                                                    <rect key="frame" x="201" y="16" width="269" height="17"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmação de Senha Vazia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yk-W8-chu">
+                                                    <rect key="frame" x="201" y="16" width="383" height="17"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.80392156859999997" green="0.090196078430000007" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -726,6 +757,7 @@
                                             <constraints>
                                                 <constraint firstItem="6Yk-W8-chu" firstAttribute="centerY" secondItem="Djj-Pn-ig8" secondAttribute="centerY" id="LuO-00-F5L"/>
                                                 <constraint firstItem="Djj-Pn-ig8" firstAttribute="leading" secondItem="REY-fa-x89" secondAttribute="leading" constant="20" symbolic="YES" id="OFc-4K-6eJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Yk-W8-chu" secondAttribute="trailing" constant="16" id="dqY-JA-KNK"/>
                                                 <constraint firstItem="6Yk-W8-chu" firstAttribute="leading" secondItem="Djj-Pn-ig8" secondAttribute="trailing" constant="16" id="gU0-nE-ThH"/>
                                                 <constraint firstItem="Djj-Pn-ig8" firstAttribute="centerY" secondItem="REY-fa-x89" secondAttribute="centerY" id="t8i-uY-7fj"/>
                                             </constraints>
