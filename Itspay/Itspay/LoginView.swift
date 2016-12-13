@@ -15,6 +15,9 @@ class LoginView: UITableViewController {
     @IBOutlet weak var textFieldCPF: TextFieldCPFMask!
     @IBOutlet weak var textFieldPassword: UITextField!
     
+    var cpf : String!
+    var password : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +30,12 @@ class LoginView: UITableViewController {
     
     @IBAction func buttonLoginAction(_ sender: UIButton) {
         if isFormValid() {
-            let alertView = UIAlertView.init(title: "Sucesso", message: "Sucesso", delegate: self, cancelButtonTitle: "OK")
-            alertView.show()
+            let loginRequestObject = LoginController.createLoginRequestObject(cpf: cpf, password: password)
+            let url = Repository.getPListValue(.services, key: "login")
+            
+            Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), headers: nil, responseJSON: { (response) in
+                
+            })
         }
     }
     
@@ -36,35 +43,39 @@ class LoginView: UITableViewController {
         labelErrorCPF.isHidden = false
         labelErrorPassword.isHidden = false
         
-        guard let cpf = textFieldCPF.text else {
+        guard let cpfValidation = textFieldCPF.text else {
             labelErrorCPF.text = "CPF Vazio."
             return false
         }
 
-        if cpf.isEmptyOrWhitespace() {
+        if cpfValidation.isEmptyOrWhitespace() {
             labelErrorCPF.text = "CPF Vazio."
             return false
         }
         
-        let cpfValidation = cpf.isCPFValid()
+        let cpfValid = cpfValidation.isCPFValid()
         
-        if !cpfValidation.value {
-            labelErrorCPF.text = cpfValidation.message
+        if !cpfValid.value {
+            labelErrorCPF.text = cpfValid.message
             
             return false
         }
         
+        cpf = cpfValidation
+        
         labelErrorCPF.isHidden = true
         
-        guard let password = textFieldPassword.text else {
+        guard let passwordValidation = textFieldPassword.text else {
             labelErrorPassword.text = "Senha Vazia."
             return false
         }
         
-        if password.isEmptyOrWhitespace() {
+        if passwordValidation.isEmptyOrWhitespace() {
             labelErrorPassword.text = "Senha Vazia."
             return false
         }
+        
+        password = passwordValidation
         
         labelErrorPassword.isHidden = true
         

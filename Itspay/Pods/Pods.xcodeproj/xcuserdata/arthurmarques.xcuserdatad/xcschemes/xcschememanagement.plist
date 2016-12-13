@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>86FEEED62D9FC4BCB8CD33A5C0479615</key>
+		<key>41EBA5516F59A4EDF7C12BE7D4DC14A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>45D6063C6139E20D8F8D8CC5EA26DF03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8AFE4D49732A0FDD4BCE64DF3CC40D7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C75EACA374A7599DB85B3199DA333378</key>
+		<key>E30CA1A9FD95C1FF06C2A8847196943B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

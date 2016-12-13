@@ -10,12 +10,14 @@
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
+		ED599DC41E0070D7004EC753 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC31E0070D7004EC753 /* Connection.swift */; };
+		ED599DC91E007537004EC753 /* Chronology.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC61E007537004EC753 /* Chronology.swift */; };
+		ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */; };
+		ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC81E007537004EC753 /* LoginResponseObject.swift */; };
 		ED791B681E006292002C4A70 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED791B671E006292002C4A70 /* WebView.swift */; };
 		ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED791B691E00629A002C4A70 /* General.storyboard */; };
 		ED791B6C1E0066FA002C4A70 /* services.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED791B6B1E0066FA002C4A70 /* services.plist */; };
 		ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3741DFF85C100EBB73F /* AppDelegate.swift */; };
-		ED8AF3771DFF85C100EBB73F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3761DFF85C100EBB73F /* FirstViewController.swift */; };
-		ED8AF3791DFF85C100EBB73F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3781DFF85C100EBB73F /* SecondViewController.swift */; };
 		ED8AF37C1DFF85C100EBB73F /* Cards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */; };
 		ED8AF37E1DFF85C100EBB73F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8AF37D1DFF85C100EBB73F /* Assets.xcassets */; };
 		ED8AF3811DFF85C100EBB73F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8AF37F1DFF85C100EBB73F /* LaunchScreen.storyboard */; };
@@ -32,6 +34,9 @@
 		ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C41DFF8A8D00EBB73F /* Session.swift */; };
 		ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */; };
 		ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */; };
+		EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */; };
+		EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A781E007D5600C91453 /* LoginController.swift */; };
+		EDAB8A7C1E007E6100C91453 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A7B1E007E6100C91453 /* System.swift */; };
 		EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBDCCF1DFFAD0000EB469A /* MainView.swift */; };
 		F0A284C27688A3D5CB14C2F9 /* Pods_ItspayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,13 +67,15 @@
 		C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itspay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMasks.swift; sourceTree = "<group>"; };
 		ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		ED599DC31E0070D7004EC753 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		ED599DC61E007537004EC753 /* Chronology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chronology.swift; sourceTree = "<group>"; };
+		ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraUltimoAcessso.swift; sourceTree = "<group>"; };
+		ED599DC81E007537004EC753 /* LoginResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseObject.swift; sourceTree = "<group>"; };
 		ED791B671E006292002C4A70 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		ED791B691E00629A002C4A70 /* General.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = General.storyboard; sourceTree = "<group>"; };
 		ED791B6B1E0066FA002C4A70 /* services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = services.plist; sourceTree = "<group>"; };
 		ED8AF3711DFF85C100EBB73F /* Itspay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itspay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8AF3741DFF85C100EBB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED8AF3761DFF85C100EBB73F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		ED8AF3781DFF85C100EBB73F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		ED8AF37B1DFF85C100EBB73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cards.storyboard; sourceTree = "<group>"; };
 		ED8AF37D1DFF85C100EBB73F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED8AF3801DFF85C100EBB73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,6 +97,9 @@
 		ED8AF3C41DFF8A8D00EBB73F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
 		ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequestObject.swift; sourceTree = "<group>"; };
+		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		EDBBDCCF1DFFAD0000EB469A /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +160,25 @@
 			name = Masks;
 			sourceTree = "<group>";
 		};
+		ED599DC21E0070C2004EC753 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				ED599DC31E0070D7004EC753 /* Connection.swift */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		ED599DC51E00752D004EC753 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */,
+				ED599DC61E007537004EC753 /* Chronology.swift */,
+				ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */,
+				ED599DC81E007537004EC753 /* LoginResponseObject.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		ED791B661E00627C002C4A70 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,13 +215,12 @@
 			children = (
 				ED8AF3A91DFF863A00EBB73F /* Utils */,
 				ED8AF3A81DFF863400EBB73F /* Service */,
+				EDAB8A761E007D3100C91453 /* Controller */,
 				ED8AF3A71DFF862F00EBB73F /* Model */,
 				ED8AF3A61DFF862700EBB73F /* View */,
 				ED8AF3B31DFF870800EBB73F /* Persistence */,
 				ED8AF3AA1DFF864700EBB73F /* Files */,
 				ED8AF3741DFF85C100EBB73F /* AppDelegate.swift */,
-				ED8AF3761DFF85C100EBB73F /* FirstViewController.swift */,
-				ED8AF3781DFF85C100EBB73F /* SecondViewController.swift */,
 			);
 			path = Itspay;
 			sourceTree = "<group>";
@@ -228,6 +256,7 @@
 		ED8AF3A71DFF862F00EBB73F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED599DC51E00752D004EC753 /* Login */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -242,6 +271,8 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EDAB8A7A1E007E3200C91453 /* System */,
+				ED599DC21E0070C2004EC753 /* Connection */,
 				ED1A3A001DFFA6FE00D9C878 /* Masks */,
 				ED8AF3CB1DFF8ABE00EBB73F /* TouchID */,
 				ED8AF3C61DFF8AA600EBB73F /* Repository */,
@@ -346,6 +377,22 @@
 				ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */,
 			);
 			name = TouchID;
+			sourceTree = "<group>";
+		};
+		EDAB8A761E007D3100C91453 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EDAB8A781E007D5600C91453 /* LoginController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		EDAB8A7A1E007E3200C91453 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				EDAB8A7B1E007E6100C91453 /* System.swift */,
+			);
+			name = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -591,21 +638,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
+				EDAB8A7C1E007E6100C91453 /* System.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
+				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
+				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED8AF3C21DFF8A6E00EBB73F /* Validation.swift in Sources */,
-				ED8AF3791DFF85C100EBB73F /* SecondViewController.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
+				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
+				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,
 				ED8AF3AE1DFF86B600EBB73F /* LoginView.swift in Sources */,
-				ED8AF3771DFF85C100EBB73F /* FirstViewController.swift in Sources */,
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
+				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
+				EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +730,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -728,6 +781,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -757,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00EC758617B7E9C8A3FE21FF /* Pods-Itspay.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -776,6 +831,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
