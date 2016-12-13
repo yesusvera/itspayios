@@ -142,4 +142,14 @@ class RegisterView: UITableViewController {
         
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWebViewSegue" {
+            let viewController = segue.destination as! WebView
+            viewController.textTitle = "Termos de Uso"
+            
+            let url = URL(string: Repository.getPListValue(.services, key: "termosDeUso"))
+            viewController.selectedURL = url
+        }
+    }
 }

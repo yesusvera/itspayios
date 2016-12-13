@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View-->
+        <scene sceneID="6cL-nQ-XBO">
+            <objects>
+                <viewController storyboardIdentifier="WebView" id="iIP-gu-q3Q" customClass="WebView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ElP-7g-uoY"/>
+                        <viewControllerLayoutGuide type="bottom" id="D5P-vg-SVm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fg4-W5-Rhd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpg-sX-nf0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iIP-gu-q3Q" id="o1R-Ux-V6f"/>
+                                </connections>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="B5X-gw-Lb4">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D5P-vg-SVm" firstAttribute="top" secondItem="qpg-sX-nf0" secondAttribute="bottom" id="Eg8-2Z-HDJ"/>
+                            <constraint firstItem="B5X-gw-Lb4" firstAttribute="centerY" secondItem="fg4-W5-Rhd" secondAttribute="centerY" id="Jaf-R1-cVi"/>
+                            <constraint firstAttribute="trailing" secondItem="qpg-sX-nf0" secondAttribute="trailing" id="U28-7j-Uim"/>
+                            <constraint firstItem="qpg-sX-nf0" firstAttribute="leading" secondItem="fg4-W5-Rhd" secondAttribute="leading" id="tOv-yH-IDE"/>
+                            <constraint firstItem="B5X-gw-Lb4" firstAttribute="centerX" secondItem="fg4-W5-Rhd" secondAttribute="centerX" id="vxU-jC-2I3"/>
+                            <constraint firstItem="qpg-sX-nf0" firstAttribute="top" secondItem="ElP-7g-uoY" secondAttribute="bottom" id="zVZ-M9-N6s"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="B5X-gw-Lb4" id="jC2-PI-JKR"/>
+                        <outlet property="webView" destination="qpg-sX-nf0" id="D35-xa-fca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OC3-5q-ahK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="34"/>
+        </scene>
+    </scenes>
+</document>

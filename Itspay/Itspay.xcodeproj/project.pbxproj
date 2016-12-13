@@ -10,6 +10,9 @@
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
+		ED791B681E006292002C4A70 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED791B671E006292002C4A70 /* WebView.swift */; };
+		ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED791B691E00629A002C4A70 /* General.storyboard */; };
+		ED791B6C1E0066FA002C4A70 /* services.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED791B6B1E0066FA002C4A70 /* services.plist */; };
 		ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3741DFF85C100EBB73F /* AppDelegate.swift */; };
 		ED8AF3771DFF85C100EBB73F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3761DFF85C100EBB73F /* FirstViewController.swift */; };
 		ED8AF3791DFF85C100EBB73F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3781DFF85C100EBB73F /* SecondViewController.swift */; };
@@ -59,6 +62,9 @@
 		C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itspay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMasks.swift; sourceTree = "<group>"; };
 		ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		ED791B671E006292002C4A70 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		ED791B691E00629A002C4A70 /* General.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = General.storyboard; sourceTree = "<group>"; };
+		ED791B6B1E0066FA002C4A70 /* services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = services.plist; sourceTree = "<group>"; };
 		ED8AF3711DFF85C100EBB73F /* Itspay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itspay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8AF3741DFF85C100EBB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED8AF3761DFF85C100EBB73F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +150,15 @@
 			name = Masks;
 			sourceTree = "<group>";
 		};
+		ED791B661E00627C002C4A70 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				ED791B671E006292002C4A70 /* WebView.swift */,
+				ED791B691E00629A002C4A70 /* General.storyboard */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
 		ED8AF3681DFF85C000EBB73F = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +218,7 @@
 		ED8AF3A61DFF862700EBB73F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED791B661E00627C002C4A70 /* General */,
 				ED8AF3AC1DFF867900EBB73F /* Cards */,
 				ED8AF3AB1DFF866D00EBB73F /* Login & Register */,
 			);
@@ -244,6 +260,7 @@
 				ED8AF37D1DFF85C100EBB73F /* Assets.xcassets */,
 				ED8AF37F1DFF85C100EBB73F /* LaunchScreen.storyboard */,
 				ED8AF3821DFF85C100EBB73F /* Info.plist */,
+				ED791B6B1E0066FA002C4A70 /* services.plist */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -451,6 +468,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8AF3A51DFF862500EBB73F /* Login.storyboard in Resources */,
+				ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */,
+				ED791B6C1E0066FA002C4A70 /* services.plist in Resources */,
 				ED8AF3811DFF85C100EBB73F /* LaunchScreen.storyboard in Resources */,
 				ED8AF37E1DFF85C100EBB73F /* Assets.xcassets in Resources */,
 				ED8AF37C1DFF85C100EBB73F /* Cards.storyboard in Resources */,
@@ -572,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
+				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
