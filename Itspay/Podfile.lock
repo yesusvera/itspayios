@@ -1,0 +1,20 @@
+PODS:
+  - CardIO (5.3.2)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - pop (1.0.9)
+
+DEPENDENCIES:
+  - CardIO
+  - ChameleonFramework
+  - pop
+
+SPEC CHECKSUMS:
+  CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+
+PODFILE CHECKSUM: 034690213d6b718dda4eafad157062ab4dcbdb06
+
+COCOAPODS: 1.0.1
