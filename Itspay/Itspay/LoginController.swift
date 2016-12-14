@@ -12,23 +12,25 @@ class LoginController {
     static let sharedInstance = LoginController()
     
     static func createLoginRequestObject(cpf : String, password : String) -> LoginRequestObject {
-        var dictionary = [String:Any?]()
+        var dictionary = [String:Any]()
         
-        dictionary["versaoConhecida"] = nil
+        dictionary["versaoConhecida"] = System.getAppVersion()
         dictionary["platformName"] = "iOS"
-        dictionary["cpf"] = cpf
-        dictionary["plataformVersion"] = nil
+        dictionary["cpf"] = cpf.onlyNumbers()
+        dictionary["plataformVersion"] = System.getOperatingSystemVersion()
         dictionary["deviceId"] = System.getUDID()
-        dictionary["sistemaOperacional"] = System.getOperatingSystemVersion()
-        dictionary["idInstituicao"] = nil
-        dictionary["architectureInfo"] = nil
+        dictionary["sistemaOperacional"] = 0
+        dictionary["idInstituicao"] = 0
+        dictionary["architectureInfo"] = ""
         dictionary["model"] = System.getCurrentDeviceModel()
         dictionary["versaoInstalada"] = System.getAppVersion()
-        dictionary["latitude"] = ""
-        dictionary["origemAcesso"] = ""
+        dictionary["latitude"] = Location.sharedInstance.currentLocation.coordinate.latitude
+        dictionary["origemAcesso"] = 0
         dictionary["senha"] = password
         dictionary["idProcessadora"] = 0
-        dictionary["longitude"] = ""
+        dictionary["longitude"] = Location.sharedInstance.currentLocation.coordinate.longitude
+        
+        print("Login Request Object: \(dictionary)")
         
         return LoginRequestObject(object: dictionary)
     }

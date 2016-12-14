@@ -60,5 +60,7 @@
 		<key>NSExceptionDomains</key>
 		<dict/>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Used to get user location</string>
 </dict>
 </plist>

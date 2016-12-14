@@ -117,4 +117,23 @@ extension String {
     func insert(_ string:String,ind:Int) -> String {
         return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
     }
+    
+    func cpfFormatted() -> String {
+        if self.isCPFValid().value {
+            var string = self.onlyNumbers()
+            
+            string.insert(".", at: string.index(string.startIndex, offsetBy: 3))
+            string.insert(".", at: string.index(string.startIndex, offsetBy: 7))
+            string.insert("-", at: string.index(string.startIndex, offsetBy: 11))
+            
+            return string
+        }
+        
+        return self
+    }
+
+    func onlyNumbers() -> String {
+        return self.replacingOccurrences(of: "[^0-9]", with: "", options: String.CompareOptions.regularExpression, range: nil)
+    }
+
 }

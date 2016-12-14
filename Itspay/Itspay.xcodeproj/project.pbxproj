@@ -38,6 +38,11 @@
 		EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A781E007D5600C91453 /* LoginController.swift */; };
 		EDAB8A7C1E007E6100C91453 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A7B1E007E6100C91453 /* System.swift */; };
 		EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBDCCF1DFFAD0000EB469A /* MainView.swift */; };
+		EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6814F1E00E3C300E9017F /* ErrorObject.swift */; };
+		EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681501E00E3C300E9017F /* FieldErrors.swift */; };
+		EDD681551E00EB9A00E9017F /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681541E00EB9A00E9017F /* General.swift */; };
+		EDD681581E00EC9F00E9017F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD681571E00EC9F00E9017F /* CoreLocation.framework */; };
+		EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681591E00ED1A00E9017F /* Location.swift */; };
 		F0A284C27688A3D5CB14C2F9 /* Pods_ItspayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +106,11 @@
 		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		EDBBDCCF1DFFAD0000EB469A /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EDD6814F1E00E3C300E9017F /* ErrorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
+		EDD681501E00E3C300E9017F /* FieldErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldErrors.swift; sourceTree = "<group>"; };
+		EDD681541E00EB9A00E9017F /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		EDD681571E00EC9F00E9017F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EDD681591E00ED1A00E9017F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD681581E00EC9F00E9017F /* CoreLocation.framework in Frameworks */,
 				ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */,
 				111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */,
 			);
@@ -134,6 +145,7 @@
 		6AFE2308BDDE2C4EFED1B727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDD681571E00EC9F00E9017F /* CoreLocation.framework */,
 				ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */,
 				C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */,
 				99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */,
@@ -256,6 +268,7 @@
 		ED8AF3A71DFF862F00EBB73F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EDD6814E1E00E3B800E9017F /* JSON */,
 				ED599DC51E00752D004EC753 /* Login */,
 			);
 			name = Model;
@@ -271,6 +284,8 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EDD681561E00EC5300E9017F /* Location */,
+				EDD681531E00EB8F00E9017F /* General */,
 				EDAB8A7A1E007E3200C91453 /* System */,
 				ED599DC21E0070C2004EC753 /* Connection */,
 				ED1A3A001DFFA6FE00D9C878 /* Masks */,
@@ -393,6 +408,31 @@
 				EDAB8A7B1E007E6100C91453 /* System.swift */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		EDD6814E1E00E3B800E9017F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				EDD6814F1E00E3C300E9017F /* ErrorObject.swift */,
+				EDD681501E00E3C300E9017F /* FieldErrors.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		EDD681531E00EB8F00E9017F /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EDD681541E00EB9A00E9017F /* General.swift */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		EDD681561E00EC5300E9017F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EDD681591E00ED1A00E9017F /* Location.swift */,
+			);
+			name = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,6 +683,8 @@
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */,
+				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
+				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED8AF3C21DFF8A6E00EBB73F /* Validation.swift in Sources */,
@@ -650,10 +692,12 @@
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
+				EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,
 				ED8AF3AE1DFF86B600EBB73F /* LoginView.swift in Sources */,
+				EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */,
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,

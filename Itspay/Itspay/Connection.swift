@@ -20,13 +20,13 @@ class Connection {
         }
     }
     
-    static func request(_ url : String, method : HTTPMethod, parameters : [String : Any]?, headers : HTTPHeaders?, responseJSON: @escaping (Alamofire.DataResponse<Any>) -> Swift.Void) {
+    static func request(_ url : String, method : HTTPMethod, parameters : [String : Any]?, headers : HTTPHeaders?, dataResponseJSON: @escaping (Alamofire.DataResponse<Any>) -> Swift.Void) {
         let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
         
         data.responseJSON { (response) in
-            print("URL: \(url)\nJSON Response: \(response)")
+            print("URL: \(url)\n\nJSON Response: \(response)\n\n")
             
-            responseJSON(response)
+            dataResponseJSON(response)
         }
     }
 }

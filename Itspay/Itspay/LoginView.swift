@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class LoginView: UITableViewController {
+class LoginView: UITableViewController, CLLocationManagerDelegate {
     @IBOutlet weak var labelErrorCPF: UILabel!
     @IBOutlet weak var labelErrorPassword: UILabel!
     
@@ -21,6 +22,7 @@ class LoginView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
     }
     
     @IBAction func buttonForgotPasswordAction(_ sender: UIButton) {
@@ -33,8 +35,11 @@ class LoginView: UITableViewController {
             let loginRequestObject = LoginController.createLoginRequestObject(cpf: cpf, password: password)
             let url = Repository.getPListValue(.services, key: "login")
             
-            Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), headers: nil, responseJSON: { (response) in
-                
+            Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), headers: nil, dataResponseJSON: { (dataResponse) in
+                if validateDataResponse(dataResponse: dataResponse, viewController: self) {
+                    let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
+                    alertView.show()
+                }
             })
         }
     }
