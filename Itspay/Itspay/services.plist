@@ -6,5 +6,7 @@
 	<string>http://www.financialcartoes.com.br/Download/CONTRATO_DE_CONCESSAO_DE_CREDITO_CARTAO_INDIVIDUAL_COMPLETO_080115.pdf</string>
 	<key>login</key>
 	<string>http://tst.issuer.itspay.com.br/issuer/api/portador/login/auth</string>
+	<key>cadastro</key>
+	<string>http://tst.issuer.itspay.com.br/issuer/api/portador/login</string>
 </dict>
 </plist>

@@ -19,16 +19,33 @@ class LoginController {
         dictionary["cpf"] = cpf.onlyNumbers()
         dictionary["plataformVersion"] = System.getOperatingSystemVersion()
         dictionary["deviceId"] = System.getUDID()
-        dictionary["sistemaOperacional"] = 0
-        dictionary["idInstituicao"] = 0
+        dictionary["sistemaOperacional"] = SISTEMA_OPERACIONAL
+        dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["architectureInfo"] = ""
         dictionary["model"] = System.getCurrentDeviceModel()
         dictionary["versaoInstalada"] = System.getAppVersion()
         dictionary["latitude"] = Location.sharedInstance.currentLocation.coordinate.latitude
-        dictionary["origemAcesso"] = 0
+        dictionary["origemAcesso"] = ORIGEM_ACESSO
         dictionary["senha"] = password
-        dictionary["idProcessadora"] = 0
+        dictionary["idProcessadora"] = ID_PROCESSADORA
         dictionary["longitude"] = Location.sharedInstance.currentLocation.coordinate.longitude
+        
+        print("Login Request Object: \(dictionary)")
+        
+        return LoginRequestObject(object: dictionary)
+    }
+    
+    static func createRegisterLoginObject(email : String, birthday : String, cpf : String, password : String) -> LoginRequestObject {
+        var dictionary = [String:Any]()
+        
+        dictionary["email"] = email
+        dictionary["dataNascimento"] = birthday
+        dictionary["cpf"] = cpf.onlyNumbers()
+        dictionary["senha"] = password
+        dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
+        dictionary["credencial"] = CREDENCIAL
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
         
         print("Login Request Object: \(dictionary)")
         

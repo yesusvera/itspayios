@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterView: UITableViewController {
+class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
     @IBOutlet weak var labelErrorBirthday: UILabel!
     @IBOutlet weak var labelErrorCPF: UILabel!
     @IBOutlet weak var labelErrorEmail: UILabel!
@@ -25,16 +25,37 @@ class RegisterView: UITableViewController {
     
     @IBOutlet weak var switchConfirmationValue: UISwitch!
     
+    let pickerFieldsDataHelper = PickerFieldsDataHelper()
+    
+    var email : String!
+    var birthday : String!
+    var cpf : String!
+    var password : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Cadastro"
+        
+        pickerFieldsDataHelper.delegate = self
+        
+        pickerFieldsDataHelper.addDataHelpers([textFieldBirthday], isDateType: true)
+        
+        pickerFieldsDataHelper.doneButtonTitle = "OK"
+        pickerFieldsDataHelper.initWithTodayDate = true
     }
     
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
-            let alertView = UIAlertView.init(title: "Sucesso", message: "Sucesso", delegate: self, cancelButtonTitle: "OK")
-            alertView.show()
+            let registerLoginObject = LoginController.createRegisterLoginObject(email : email, birthday : birthday, cpf: cpf, password: password)
+            let url = Repository.getPListValue(.services, key: "cadastro")
+            
+            Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), headers: nil, dataResponseJSON: { (dataResponse) in
+                if validateDataResponse(dataResponse: dataResponse, viewController: self) {
+                    let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
+                    alertView.show()
+                }
+            })
         }
     }
     
@@ -46,48 +67,50 @@ class RegisterView: UITableViewController {
         labelErrorPassword.isHidden = false
         labelErrorPasswordConfirmation.isHidden = false
         
-        guard let birthday = textFieldCPF.text else {
+        guard let birthdayForm = textFieldCPF.text else {
             labelErrorBirthday.text = "Data de nascimento Vazia."
             return false
         }
         
-        if birthday.isEmptyOrWhitespace() {
+        if birthdayForm.isEmptyOrWhitespace() {
             labelErrorBirthday.text = "Data de nascimento Vazia."
             return false
         }
         
+        birthday = birthdayForm
         labelErrorBirthday.isHidden = true
         
-        guard let cpf = textFieldCPF.text else {
+        guard let cpfForm = textFieldCPF.text else {
             labelErrorCPF.text = "CPF Vazio."
             return false
         }
         
-        if cpf.isEmptyOrWhitespace() {
+        if cpfForm.isEmptyOrWhitespace() {
             labelErrorCPF.text = "CPF Vazio."
             return false
         }
         
-        let cpfValidation = cpf.isCPFValid()
+        let cpfValidation = cpfForm.isCPFValid()
         
         if !cpfValidation.value {
             labelErrorCPF.text = cpfValidation.message
             return false
         }
         
+        cpf = cpfForm
         labelErrorCPF.isHidden = true
         
-        guard let email = textFieldEmail.text else {
+        guard let emailForm = textFieldEmail.text else {
             labelErrorEmail.text = "Email Vazio."
             return false
         }
         
-        if email.isEmptyOrWhitespace() {
+        if emailForm.isEmptyOrWhitespace() {
             labelErrorEmail.text = "Email Vazio."
             return false
         }
         
-        if !email.isEmail() {
+        if !emailForm.isEmail() {
             labelErrorEmail.text = "Email Inválido."
             return false
         }
@@ -104,19 +127,20 @@ class RegisterView: UITableViewController {
             return false
         }
         
-        if email != emailConfirmation {
+        if emailForm != emailConfirmation {
             labelErrorEmailConfirmation.text = "Confirmação de Email Inválida."
             return false
         }
         
+        email = emailForm
         labelErrorEmailConfirmation.isHidden = true
         
-        guard let password = textFieldPassword.text else {
+        guard let passwordForm = textFieldPassword.text else {
             labelErrorPassword.text = "Senha Vazia."
             return false
         }
         
-        if password.isEmptyOrWhitespace() {
+        if passwordForm.isEmptyOrWhitespace() {
             labelErrorPassword.text = "Senha Vazia."
             return false
         }
@@ -133,14 +157,21 @@ class RegisterView: UITableViewController {
             return false
         }
         
-        if password != passwordConfirmation {
+        if passwordForm != passwordConfirmation {
             labelErrorPasswordConfirmation.text = "Confirmação de Senha Inválida."
             return false
         }
         
+        password = passwordForm
         labelErrorPasswordConfirmation.isHidden = true
         
         return true
+    }
+    
+    func pickerFieldsDataHelper(_ dataHelper: PickerDataHelper, didSelectObject selectedObject: AnyObject?, withTitle title: String?) {
+        if pickerFieldsDataHelper == dataHelper {
+            pickerFieldsDataHelper.refreshDate(dataHelper)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

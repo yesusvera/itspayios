@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PickerFieldsDataHelper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Itspay.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>41EBA5516F59A4EDF7C12BE7D4DC14A5</key>
+		<key>418DFFE0858CB47E0C5DC7ACFA2B20CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>45D6063C6139E20D8F8D8CC5EA26DF03</key>
+		<key>77D85AF022289D3D7D4E008E58AE0265</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7826E2604E9A4758A82BA6CD9378E621</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8AFE4D49732A0FDD4BCE64DF3CC40D7E</key>
+		<key>858DE4868B0A84662318083359853632</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -10,6 +10,7 @@ pod 'ChameleonFramework'
 pod 'CardIO'
 pod 'SwiftyJSON'
 pod 'ObjectMapper', '~> 2.2'
+pod 'PickerFieldsDataHelper'
 
 end
 

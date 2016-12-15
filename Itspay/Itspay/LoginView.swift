@@ -22,7 +22,6 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
     }
     
     @IBAction func buttonForgotPasswordAction(_ sender: UIButton) {

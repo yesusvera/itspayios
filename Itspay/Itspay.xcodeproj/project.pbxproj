@@ -34,6 +34,8 @@
 		ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C41DFF8A8D00EBB73F /* Session.swift */; };
 		ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */; };
 		ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */; };
+		ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9291B51E0233AF00F00F00 /* Constants.swift */; };
+		ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9291B71E02349300F00F00 /* RegisterLoginObject.swift */; };
 		EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */; };
 		EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A781E007D5600C91453 /* LoginController.swift */; };
 		EDAB8A7C1E007E6100C91453 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A7B1E007E6100C91453 /* System.swift */; };
@@ -102,6 +104,8 @@
 		ED8AF3C41DFF8A8D00EBB73F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
 		ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		ED9291B51E0233AF00F00F00 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ED9291B71E02349300F00F00 /* RegisterLoginObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterLoginObject.swift; sourceTree = "<group>"; };
 		EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequestObject.swift; sourceTree = "<group>"; };
 		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		ED599DC51E00752D004EC753 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				ED9291B71E02349300F00F00 /* RegisterLoginObject.swift */,
 				EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */,
 				ED599DC61E007537004EC753 /* Chronology.swift */,
 				ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */,
@@ -284,6 +289,7 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ED9291B41E0233A400F00F00 /* Constants */,
 				EDD681561E00EC5300E9017F /* Location */,
 				EDD681531E00EB8F00E9017F /* General */,
 				EDAB8A7A1E007E3200C91453 /* System */,
@@ -392,6 +398,14 @@
 				ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */,
 			);
 			name = TouchID;
+			sourceTree = "<group>";
+		};
+		ED9291B41E0233A400F00F00 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ED9291B51E0233AF00F00F00 /* Constants.swift */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		EDAB8A761E007D3100C91453 /* Controller */ = {
@@ -682,8 +696,10 @@
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
+				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
+				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
 				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
