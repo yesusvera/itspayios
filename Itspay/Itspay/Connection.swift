@@ -9,8 +9,14 @@
 import UIKit
 import Alamofire
 
+typealias handlerResponseJSON = (Alamofire.DataResponse<Any>) -> Swift.Void
+
 class Connection {
-    static func request(_ url : String, responseJSON: @escaping (Alamofire.DataResponse<Any>) -> Swift.Void) {
+    static let sharedConnection = Connection()
+    
+    var headers : HTTPHeaders?
+    
+    static func request(_ url : String, responseJSON: @escaping handlerResponseJSON) {
         let data = Alamofire.request(url)
         
         data.responseJSON { (response) in
@@ -20,10 +26,10 @@ class Connection {
         }
     }
     
-    static func request(_ url : String, method : HTTPMethod, parameters : [String : Any]?, headers : HTTPHeaders?, dataResponseJSON: @escaping (Alamofire.DataResponse<Any>) -> Swift.Void) {
-        let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+    static func request(_ url : String, method : HTTPMethod, parameters : [String : Any]?, dataResponseJSON: @escaping handlerResponseJSON) {
+        let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: Connection.sharedConnection.headers)
         
-        data.responseJSON { (response) in
+        data.responseJSON { (response) in            
             print("URL: \(url)\n\nJSON Response: \(response)\n\n")
             
             dataResponseJSON(response)

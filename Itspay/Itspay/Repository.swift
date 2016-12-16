@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-//let serviceMainRootDevKey = "ipServicosMainDev" Not used
-let serviceMainRootProdKey = "ipServicosMainProd"
+let serviceMainRootProdKey = "mainServer"
 let serviceMainRootCustomUrlKey = "customUrl"
 
 var pathServices = Bundle.main.path(forResource: "services", ofType: "plist")
@@ -61,26 +60,14 @@ class Repository {
     }
     
     static func createServiceURLFromPListValue(_ plist : PListType, key: String) -> String {
-        var url = "http://"
+        var url = ""
         
         if pathServices != nil {
-            var newUrl = ""
-            if let ip = newHostIp {
-                newUrl = ip
-            } else {
-                let rootKey = serviceMainRoot() //Get root key
-                if rootKey == serviceMainRootCustomUrlKey { //Check if its chosen to be custom
-                    newUrl = getCustomUrlFromSettingsBundle() //Get custom Url vlaue
-                } else { //Get Url value by root key
-                    newUrl = Repository.getPListValue(plist, key: rootKey)
-                }
-            }
-            
-            if newUrl.contains("http") {
-                
-                url = newUrl
-            } else {
-                url += newUrl
+            let rootKey = serviceMainRoot() //Get root key
+            if rootKey == serviceMainRootCustomUrlKey { //Check if its chosen to be custom
+                url = getCustomUrlFromSettingsBundle() //Get custom Url vlaue
+            } else { //Get Url value by root key
+                url = Repository.getPListValue(plist, key: rootKey)
             }
             
             url += "/"

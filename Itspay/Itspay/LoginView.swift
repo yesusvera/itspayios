@@ -32,12 +32,18 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     @IBAction func buttonLoginAction(_ sender: UIButton) {
         if isFormValid() {
             let loginRequestObject = LoginController.createLoginRequestObject(cpf: cpf, password: password)
-            let url = Repository.getPListValue(.services, key: "login")
+            let url = Repository.createServiceURLFromPListValue(.services, key: "login")
             
-            Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), headers: nil, dataResponseJSON: { (dataResponse) in
+            LoadingProgress.startAnimatingInWindow()
+            Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
+                LoadingProgress.stopAnimating()
+                
                 if validateDataResponse(dataResponse: dataResponse, viewController: self) {
-                    let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
-                    alertView.show()
+                    if let value = dataResponse.result.value {
+                        LoginController.sharedInstance.loginResponseObject = LoginResponseObject(object: value)
+                        
+                        self.performSegue(withIdentifier: "CardsSegue", sender: self)
+                    }
                 }
             })
         }

@@ -27,8 +27,26 @@ extension UIViewController {
 }
 
 extension UITextField {
+    fileprivate struct AssociatedKeys {
+        static var isDefaultInputAcessoryViewOn = true
+    }
+    
+    var isDefaultInputAcessoryViewOn : Bool {
+        get {
+            guard let object = objc_getAssociatedObject(self, &AssociatedKeys.isDefaultInputAcessoryViewOn) as? Bool else {
+                return true
+            }
+            return object
+        }
+        set(value) {
+            objc_setAssociatedObject(self, &AssociatedKeys.isDefaultInputAcessoryViewOn, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     open override func draw(_ rect: CGRect) {
-        addInputAccessoryViewDoneButton()
+        if self.isDefaultInputAcessoryViewOn {
+            addInputAccessoryViewDoneButton()
+        }
     }
     
     func addInputAccessoryViewDoneButton() {

@@ -37,6 +37,8 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         
         self.title = "Cadastro"
         
+        textFieldBirthday.isDefaultInputAcessoryViewOn = false
+        
         pickerFieldsDataHelper.delegate = self
         
         pickerFieldsDataHelper.addDataHelpers([textFieldBirthday], isDateType: true)
@@ -48,9 +50,9 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
             let registerLoginObject = LoginController.createRegisterLoginObject(email : email, birthday : birthday, cpf: cpf, password: password)
-            let url = Repository.getPListValue(.services, key: "cadastro")
+            let url = Repository.createServiceURLFromPListValue(.services, key: "cadastro")
             
-            Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), headers: nil, dataResponseJSON: { (dataResponse) in
+            Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
                 if validateDataResponse(dataResponse: dataResponse, viewController: self) {
                     let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
                     alertView.show()
@@ -68,12 +70,12 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         labelErrorPasswordConfirmation.isHidden = false
         
         guard let birthdayForm = textFieldCPF.text else {
-            labelErrorBirthday.text = "Data de nascimento Vazia."
+            labelErrorBirthday.text = "Data de nascimento vazia."
             return false
         }
         
         if birthdayForm.isEmptyOrWhitespace() {
-            labelErrorBirthday.text = "Data de nascimento Vazia."
+            labelErrorBirthday.text = "Data de nascimento vazia."
             return false
         }
         
@@ -81,12 +83,12 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         labelErrorBirthday.isHidden = true
         
         guard let cpfForm = textFieldCPF.text else {
-            labelErrorCPF.text = "CPF Vazio."
+            labelErrorCPF.text = "CPF vazio."
             return false
         }
         
         if cpfForm.isEmptyOrWhitespace() {
-            labelErrorCPF.text = "CPF Vazio."
+            labelErrorCPF.text = "CPF vazio."
             return false
         }
         
@@ -101,34 +103,34 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         labelErrorCPF.isHidden = true
         
         guard let emailForm = textFieldEmail.text else {
-            labelErrorEmail.text = "Email Vazio."
+            labelErrorEmail.text = "Email vazio."
             return false
         }
         
         if emailForm.isEmptyOrWhitespace() {
-            labelErrorEmail.text = "Email Vazio."
+            labelErrorEmail.text = "Email vazio."
             return false
         }
         
         if !emailForm.isEmail() {
-            labelErrorEmail.text = "Email Inválido."
+            labelErrorEmail.text = "Email inválido."
             return false
         }
         
         labelErrorEmail.isHidden = true
         
         guard let emailConfirmation = textFieldEmailConfirmation.text else {
-            labelErrorEmailConfirmation.text = "Confirmação de Email Vazia."
+            labelErrorEmailConfirmation.text = "Confirmação de Email vazia."
             return false
         }
         
         if emailConfirmation.isEmptyOrWhitespace() {
-            labelErrorEmailConfirmation.text = "Confirmação de Email Vazia."
+            labelErrorEmailConfirmation.text = "Confirmação de Email vazia."
             return false
         }
         
         if emailForm != emailConfirmation {
-            labelErrorEmailConfirmation.text = "Confirmação de Email Inválida."
+            labelErrorEmailConfirmation.text = "Confirmação de Email inválida."
             return false
         }
         
@@ -136,29 +138,29 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         labelErrorEmailConfirmation.isHidden = true
         
         guard let passwordForm = textFieldPassword.text else {
-            labelErrorPassword.text = "Senha Vazia."
+            labelErrorPassword.text = "Senha vazia."
             return false
         }
         
         if passwordForm.isEmptyOrWhitespace() {
-            labelErrorPassword.text = "Senha Vazia."
+            labelErrorPassword.text = "Senha vazia."
             return false
         }
         
         labelErrorPassword.isHidden = true
         
         guard let passwordConfirmation = textFieldPasswordConfirmation.text else {
-            labelErrorPasswordConfirmation.text = "Confirmação de Senha Vazia."
+            labelErrorPasswordConfirmation.text = "Confirmação de Senha vazia."
             return false
         }
         
         if passwordConfirmation.isEmptyOrWhitespace() {
-            labelErrorPasswordConfirmation.text = "Confirmação de Senha Vazia."
+            labelErrorPasswordConfirmation.text = "Confirmação de Senha vazia."
             return false
         }
         
         if passwordForm != passwordConfirmation {
-            labelErrorPasswordConfirmation.text = "Confirmação de Senha Inválida."
+            labelErrorPasswordConfirmation.text = "Confirmação de Senha inválida."
             return false
         }
         

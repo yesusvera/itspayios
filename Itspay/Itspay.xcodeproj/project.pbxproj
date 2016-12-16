@@ -14,6 +14,12 @@
 		ED599DC91E007537004EC753 /* Chronology.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC61E007537004EC753 /* Chronology.swift */; };
 		ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */; };
 		ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC81E007537004EC753 /* LoginResponseObject.swift */; };
+		ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */; };
+		ED713DEC1E0303E400E4D8E1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEB1E0303E400E4D8E1 /* MainNavigationController.swift */; };
+		ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */; };
+		ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */; };
+		ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DF01E031F0E00E4D8E1 /* DataValidade.swift */; };
+		ED713DF61E03E62300E4D8E1 /* LoadingProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DF51E03E62300E4D8E1 /* LoadingProgress.swift */; };
 		ED791B681E006292002C4A70 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED791B671E006292002C4A70 /* WebView.swift */; };
 		ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED791B691E00629A002C4A70 /* General.storyboard */; };
 		ED791B6C1E0066FA002C4A70 /* services.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED791B6B1E0066FA002C4A70 /* services.plist */; };
@@ -78,6 +84,12 @@
 		ED599DC61E007537004EC753 /* Chronology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chronology.swift; sourceTree = "<group>"; };
 		ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraUltimoAcessso.swift; sourceTree = "<group>"; };
 		ED599DC81E007537004EC753 /* LoginResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseObject.swift; sourceTree = "<group>"; };
+		ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTabBarController.swift; sourceTree = "<group>"; };
+		ED713DEB1E0303E400E4D8E1 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
+		ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraInclusao.swift; sourceTree = "<group>"; };
+		ED713DF01E031F0E00E4D8E1 /* DataValidade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidade.swift; sourceTree = "<group>"; };
+		ED713DF51E03E62300E4D8E1 /* LoadingProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingProgress.swift; sourceTree = "<group>"; };
 		ED791B671E006292002C4A70 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		ED791B691E00629A002C4A70 /* General.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = General.storyboard; sourceTree = "<group>"; };
 		ED791B6B1E0066FA002C4A70 /* services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = services.plist; sourceTree = "<group>"; };
@@ -196,11 +208,30 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		ED713DED1E031EFA00E4D8E1 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */,
+				ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */,
+				ED713DF01E031F0E00E4D8E1 /* DataValidade.swift */,
+			);
+			name = Cards;
+			sourceTree = "<group>";
+		};
+		ED713DF41E03E5EA00E4D8E1 /* LoadingProgress */ = {
+			isa = PBXGroup;
+			children = (
+				ED713DF51E03E62300E4D8E1 /* LoadingProgress.swift */,
+			);
+			name = LoadingProgress;
+			sourceTree = "<group>";
+		};
 		ED791B661E00627C002C4A70 /* General */ = {
 			isa = PBXGroup;
 			children = (
 				ED791B671E006292002C4A70 /* WebView.swift */,
 				ED791B691E00629A002C4A70 /* General.storyboard */,
+				ED713DEB1E0303E400E4D8E1 /* MainNavigationController.swift */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -273,6 +304,7 @@
 		ED8AF3A71DFF862F00EBB73F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED713DED1E031EFA00E4D8E1 /* Cards */,
 				EDD6814E1E00E3B800E9017F /* JSON */,
 				ED599DC51E00752D004EC753 /* Login */,
 			);
@@ -289,6 +321,7 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ED713DF41E03E5EA00E4D8E1 /* LoadingProgress */,
 				ED9291B41E0233A400F00F00 /* Constants */,
 				EDD681561E00EC5300E9017F /* Location */,
 				EDD681531E00EB8F00E9017F /* General */,
@@ -331,8 +364,9 @@
 		ED8AF3AC1DFF867900EBB73F /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-				ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */,
+				ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */,
 				ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */,
+				ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -692,16 +726,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
+				ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */,
 				EDAB8A7C1E007E6100C91453 /* System.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
+				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
+				ED713DEC1E0303E400E4D8E1 /* MainNavigationController.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
+				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
 				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
+				ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED8AF3C21DFF8A6E00EBB73F /* Validation.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
@@ -718,6 +757,7 @@
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */,
+				ED713DF61E03E62300E4D8E1 /* LoadingProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

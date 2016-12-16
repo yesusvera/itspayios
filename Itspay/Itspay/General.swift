@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 
+let appDelegate = UIApplication.shared.delegate!
+
 //MARK: Instantiate Initial View Controller of Storyboard
 func instantiateInitial(storyboard: String) -> UIViewController {
     return UIStoryboard(name: storyboard, bundle: nil).instantiateInitialViewController()!

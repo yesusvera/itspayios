@@ -11,6 +11,8 @@ import UIKit
 class LoginController {
     static let sharedInstance = LoginController()
     
+    var loginResponseObject : LoginResponseObject!
+    
     static func createLoginRequestObject(cpf : String, password : String) -> LoginRequestObject {
         var dictionary = [String:Any]()
         
@@ -47,8 +49,14 @@ class LoginController {
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
         
-        print("Login Request Object: \(dictionary)")
+        print("Create Register Object: \(dictionary)")
         
         return LoginRequestObject(object: dictionary)
+    }
+    
+    static func logout() {
+        let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
+        
+        Connection.request(url) { (dataResponse) in }
     }
 }
