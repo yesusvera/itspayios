@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PickerFieldsDataHelper
 
 class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
     @IBOutlet weak var labelErrorBirthday: UILabel!
@@ -37,7 +38,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         
         self.title = "Cadastro"
         
-        textFieldBirthday.isDefaultInputAcessoryViewOn = false
+//        textFieldBirthday.isDefaultInputAcessoryViewOn = false
         
         pickerFieldsDataHelper.delegate = self
         
@@ -49,11 +50,11 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
     
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
-            let registerLoginObject = LoginController.createRegisterLoginObject(email : email, birthday : birthday, cpf: cpf, password: password)
+            let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : birthday, cpf: cpf, password: password)
             let url = Repository.createServiceURLFromPListValue(.services, key: "cadastro")
             
             Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
-                if validateDataResponse(dataResponse: dataResponse, viewController: self) {
+                if validateDataResponse(dataResponse, viewController: self) {
                     let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
                     alertView.show()
                 }
@@ -168,12 +169,6 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         labelErrorPasswordConfirmation.isHidden = true
         
         return true
-    }
-    
-    func pickerFieldsDataHelper(_ dataHelper: PickerDataHelper, didSelectObject selectedObject: AnyObject?, withTitle title: String?) {
-        if pickerFieldsDataHelper == dataHelper {
-            pickerFieldsDataHelper.refreshDate(dataHelper)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

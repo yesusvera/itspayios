@@ -10,6 +10,9 @@
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
+		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
+		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
+		ED5322A41E05B291005ACBD2 /* DetailCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCards.swift */; };
 		ED599DC41E0070D7004EC753 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC31E0070D7004EC753 /* Connection.swift */; };
 		ED599DC91E007537004EC753 /* Chronology.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC61E007537004EC753 /* Chronology.swift */; };
 		ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */; };
@@ -35,7 +38,6 @@
 		ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */; };
 		ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3B51DFF89D800EBB73F /* Extensions.swift */; };
 		ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3B81DFF89F600EBB73F /* DateFormatterComponent.swift */; };
-		ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3BB1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift */; };
 		ED8AF3C21DFF8A6E00EBB73F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C11DFF8A6E00EBB73F /* Validation.swift */; };
 		ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C41DFF8A8D00EBB73F /* Session.swift */; };
 		ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */; };
@@ -80,6 +82,9 @@
 		C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itspay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMasks.swift; sourceTree = "<group>"; };
 		ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
+		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		ED5322A31E05B291005ACBD2 /* DetailCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCards.swift; sourceTree = "<group>"; };
 		ED599DC31E0070D7004EC753 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		ED599DC61E007537004EC753 /* Chronology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chronology.swift; sourceTree = "<group>"; };
 		ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraUltimoAcessso.swift; sourceTree = "<group>"; };
@@ -111,7 +116,6 @@
 		ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		ED8AF3B51DFF89D800EBB73F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ED8AF3B81DFF89F600EBB73F /* DateFormatterComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterComponent.swift; sourceTree = "<group>"; };
-		ED8AF3BB1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerFieldsDataHelper.swift; sourceTree = "<group>"; };
 		ED8AF3C11DFF8A6E00EBB73F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		ED8AF3C41DFF8A8D00EBB73F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
@@ -332,7 +336,6 @@
 				ED8AF3C61DFF8AA600EBB73F /* Repository */,
 				ED8AF3C31DFF8A7E00EBB73F /* Session */,
 				ED8AF3BD1DFF8A5000EBB73F /* Validation */,
-				ED8AF3BA1DFF89FB00EBB73F /* Protocols */,
 				ED8AF3B71DFF89DC00EBB73F /* DateFormatter */,
 				ED8AF3B41DFF89CC00EBB73F /* Extensions */,
 			);
@@ -346,6 +349,8 @@
 				ED8AF37F1DFF85C100EBB73F /* LaunchScreen.storyboard */,
 				ED8AF3821DFF85C100EBB73F /* Info.plist */,
 				ED791B6B1E0066FA002C4A70 /* services.plist */,
+				ED53229F1E056C25005ACBD2 /* mocks.plist */,
+				ED5322A11E056CD4005ACBD2 /* config.plist */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			children = (
 				ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */,
 				ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */,
+				ED5322A31E05B291005ACBD2 /* DetailCards.swift */,
 				ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */,
 			);
 			name = Cards;
@@ -392,14 +398,6 @@
 				ED8AF3B81DFF89F600EBB73F /* DateFormatterComponent.swift */,
 			);
 			name = DateFormatter;
-			sourceTree = "<group>";
-		};
-		ED8AF3BA1DFF89FB00EBB73F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				ED8AF3BB1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		ED8AF3BD1DFF8A5000EBB73F /* Validation */ = {
@@ -558,20 +556,20 @@
 					ED8AF3701DFF85C000EBB73F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = XXT2XJVDAC;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					ED8AF3861DFF85C100EBB73F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = XXT2XJVDAC;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = ED8AF3701DFF85C000EBB73F;
 					};
 					ED8AF3911DFF85C100EBB73F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = XXT2XJVDAC;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = ED8AF3701DFF85C000EBB73F;
 					};
@@ -604,7 +602,9 @@
 			files = (
 				ED8AF3A51DFF862500EBB73F /* Login.storyboard in Resources */,
 				ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */,
+				ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */,
 				ED791B6C1E0066FA002C4A70 /* services.plist in Resources */,
+				ED5322A21E056CD4005ACBD2 /* config.plist in Resources */,
 				ED8AF3811DFF85C100EBB73F /* LaunchScreen.storyboard in Resources */,
 				ED8AF37E1DFF85C100EBB73F /* Assets.xcassets in Resources */,
 				ED8AF37C1DFF85C100EBB73F /* Cards.storyboard in Resources */,
@@ -728,12 +728,12 @@
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
 				ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */,
 				EDAB8A7C1E007E6100C91453 /* System.swift in Sources */,
+				ED5322A41E05B291005ACBD2 /* DetailCards.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
-				ED8AF3BC1DFF8A3800EBB73F /* PickerFieldsDataHelper.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
 				ED713DEC1E0303E400E4D8E1 /* MainNavigationController.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,

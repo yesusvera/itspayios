@@ -1,6 +1,5 @@
 //
 //  Extensions.swift
-//  HOMEBROKER
 //
 //  Created by Arthur Augusto Sousa Marques on 8/2/16.
 //  Copyright © 2016 bb. All rights reserved.
@@ -31,7 +30,7 @@ extension UITextField {
         static var isDefaultInputAcessoryViewOn = true
     }
     
-    var isDefaultInputAcessoryViewOn : Bool {
+    @IBInspectable var isDefaultInputAcessoryViewOn : Bool {
         get {
             guard let object = objc_getAssociatedObject(self, &AssociatedKeys.isDefaultInputAcessoryViewOn) as? Bool else {
                 return true
@@ -43,7 +42,7 @@ extension UITextField {
         }
     }
     
-    open override func draw(_ rect: CGRect) {
+    override open func awakeFromNib() {
         if self.isDefaultInputAcessoryViewOn {
             addInputAccessoryViewDoneButton()
         }
@@ -87,5 +86,74 @@ extension UIColor {
         Scanner(string: bString).scanHexInt32(&b)
         
         return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+    }
+}
+
+extension String {
+    func formatCurrency(range : NSRange, string : String) -> String {
+        let oldText = self as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string)
+        var newTextString = newText
+        
+        let digits = NSCharacterSet.decimalDigits
+        var digitText = ""
+        for c in newTextString.unicodeScalars {
+            if digits.contains(c) {
+                digitText += "\(c)"
+            }
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        formatter.locale = Locale(identifier: "pt_BR")
+        
+        let numberFromField = (NSString(string: digitText).doubleValue)/100
+        if let formattedText = formatter.string(for: numberFromField) {
+            return formattedText
+        }
+        return ""
+    }
+    
+    func getCurrencyDouble() -> Double? {
+        return Double(self.replacingOccurrences(of: "R$", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "%", with: ""))
+    }
+    
+    func getCurrencyString() -> String {
+        return self.replacingOccurrences(of: "R$", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
+    }
+    
+    func formatToLocalCurrency() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        formatter.locale = Locale(identifier: "pt_BR")
+        
+        if let value = Double(self) {
+            if let formattedText = formatter.string(for: value) {
+                return formattedText.replacingOccurrences(of: "R$", with: "")
+            }
+        }
+        
+        return self
+    }
+    
+    func formatToCurrencyReal() -> String {
+        let currency = self.formatToLocalCurrency()
+        
+        return "R$ \(currency)"
+    }
+    
+    func formatToLocalCurrency(with threeDecimals : String) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.minimumFractionDigits = 3
+        
+        if let value = Double(threeDecimals) {
+            if let formattedText = formatter.string(for: value) {
+                return formattedText.replacingOccurrences(of: "R$", with: "")
+            }
+        }
+        
+        return threeDecimals
     }
 }

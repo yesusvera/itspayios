@@ -11,7 +11,7 @@ import SwiftyJSON
 public final class FieldErrors: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
-  private struct SerializationKeys {
+  fileprivate struct SerializationKeys {
     static let msg = "msg"
     static let field = "field"
     static let code = "code"

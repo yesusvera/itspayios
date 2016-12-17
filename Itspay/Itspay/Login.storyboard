@@ -459,6 +459,7 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="maskShow" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="mask" value="{ddd}.{ddd}.{ddd}-{dd}"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isDefaultInputAcessoryViewOn" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <outlet property="delegate" destination="hai-Ca-cjI" id="VPo-KN-vJQ"/>

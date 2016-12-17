@@ -11,7 +11,7 @@ import SwiftyJSON
 public final class DataHoraUltimoAcessso: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
-  private struct SerializationKeys {
+  fileprivate struct SerializationKeys {
     static let dayOfWeek = "dayOfWeek"
     static let hour = "hour"
     static let dayOfMonth = "dayOfMonth"

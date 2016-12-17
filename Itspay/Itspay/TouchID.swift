@@ -1,6 +1,5 @@
 //
 //  TouchID.swift
-//  HOMEBROKER
 //
 //  Created by Arthur Augusto on 9/29/15.
 //  Copyright © 2015 bb. All rights reserved.

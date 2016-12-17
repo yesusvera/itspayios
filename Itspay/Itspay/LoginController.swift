@@ -13,7 +13,7 @@ class LoginController {
     
     var loginResponseObject : LoginResponseObject!
     
-    static func createLoginRequestObject(cpf : String, password : String) -> LoginRequestObject {
+    static func createLoginRequestObject(_ cpf : String, password : String) -> LoginRequestObject {
         var dictionary = [String:Any]()
         
         dictionary["versaoConhecida"] = System.getAppVersion()
@@ -37,7 +37,7 @@ class LoginController {
         return LoginRequestObject(object: dictionary)
     }
     
-    static func createRegisterLoginObject(email : String, birthday : String, cpf : String, password : String) -> LoginRequestObject {
+    static func createRegisterLoginObject(_ email : String, birthday : String, cpf : String, password : String) -> LoginRequestObject {
         var dictionary = [String:Any]()
         
         dictionary["email"] = email

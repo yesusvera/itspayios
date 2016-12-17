@@ -12,7 +12,7 @@ import UIKit
 let SCREEN_WIDTH = UIApplication.shared.keyWindow!.frame.size.width
 let SCREEN_HEIGHT = UIApplication.shared.keyWindow!.frame.size.height
 
-public class System: NSObject {
+open class System: NSObject {
     static func getOperatingSystemVersion() -> String {
         let os = ProcessInfo().operatingSystemVersion
         
@@ -41,7 +41,7 @@ public class System: NSObject {
         return UIDevice.current.identifierForVendor!.uuidString
     }
     
-    static func isSystemVersionLessThan(majorVersion: Int) -> Bool {
+    static func isSystemVersionLessThan(_ majorVersion: Int) -> Bool {
         let os = ProcessInfo().operatingSystemVersion
         if os.majorVersion < majorVersion {
             return true

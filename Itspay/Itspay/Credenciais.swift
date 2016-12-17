@@ -11,7 +11,7 @@ import SwiftyJSON
 public final class Credenciais: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
-  private struct SerializationKeys {
+  fileprivate struct SerializationKeys {
     static let codigoSeguranca = "codigoSeguranca"
     static let grupoStatus = "grupoStatus"
     static let credencialVirtual = "credencialVirtual"

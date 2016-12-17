@@ -1,6 +1,5 @@
 //
 //  DateFormatComponent.swift
-//  HOMEBROKER
 //
 //  Created by Arthur Marques on 4/7/16.
 //  Copyright © 2016 bb. All rights reserved.

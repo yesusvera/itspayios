@@ -11,7 +11,7 @@ import SwiftyJSON
 public final class LoginResponseObject: NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
-  private struct SerializationKeys {
+  fileprivate struct SerializationKeys {
     static let requisicaoNotificacaoMensagem = "requisicaoNotificacaoMensagem"
     static let requisitarAtualizacao = "requisitarAtualizacao"
     static let token = "token"

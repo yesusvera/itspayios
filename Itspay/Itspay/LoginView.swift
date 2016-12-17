@@ -31,16 +31,20 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     
     @IBAction func buttonLoginAction(_ sender: UIButton) {
         if isFormValid() {
-            let loginRequestObject = LoginController.createLoginRequestObject(cpf: cpf, password: password)
+            let loginRequestObject = LoginController.createLoginRequestObject(cpf, password: password)
             let url = Repository.createServiceURLFromPListValue(.services, key: "login")
             
             LoadingProgress.startAnimatingInWindow()
             Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
                 LoadingProgress.stopAnimating()
                 
-                if validateDataResponse(dataResponse: dataResponse, viewController: self) {
+                if validateDataResponse(dataResponse, viewController: self) {
                     if let value = dataResponse.result.value {
                         LoginController.sharedInstance.loginResponseObject = LoginResponseObject(object: value)
+                        
+                        if let token = LoginController.sharedInstance.loginResponseObject.token {
+                            Connection.setHeadersAuthorization(with: token)
+                        }
                         
                         self.performSegue(withIdentifier: "CardsSegue", sender: self)
                     }

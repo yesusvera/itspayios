@@ -1,6 +1,5 @@
 //
 //  HBKUtil.swift
-//  HOMEBROKER
 //
 //  Created by Arthur Augusto Sousa Marques on 8/31/15.
 //  Copyright (c) 2015 bb. All rights reserved.
@@ -14,6 +13,7 @@ let serviceMainRootCustomUrlKey = "customUrl"
 
 var pathServices = Bundle.main.path(forResource: "services", ofType: "plist")
 var pathConfig = Bundle.main.path(forResource: "config", ofType: "plist")
+var pathMocks = Bundle.main.path(forResource: "mocks", ofType: "plist")
 
 var newHostIp : String?
 
@@ -48,6 +48,8 @@ class Repository {
             path = pathServices
         } else if plist == .config {
             path = pathConfig
+        } else if plist == .mocks {
+            path = pathMocks
         }
         
         if let path = path {
@@ -128,48 +130,6 @@ class Repository {
         return timerCount
     }
     
-    //MARK: VENDA
-    static func webViewChartCmaPath(_ ativo : String) -> String {
-        var serviceDict: NSDictionary?
-        var url = "https://"
-        
-        if pathServices != nil {
-            serviceDict = NSDictionary(contentsOfFile: pathServices!)
-            url += serviceDict?.object(forKey: "chartCma") as! String
-            url += ativo
-            url += serviceDict?.object(forKey: "chartCmaConfigDetail") as! String
-        }
-        
-        return url
-    }
-    
-    static func webViewChartBovespaPath() -> String {
-        var serviceDict: NSDictionary?
-        var url = "https://"
-        
-        if pathServices != nil {
-            serviceDict = NSDictionary(contentsOfFile: pathServices!)
-            url += serviceDict?.object(forKey: "chartBovespa") as! String
-        }
-        
-        return url
-    }
-    
-    //MARK: PHONES
-    static func getPhonesListPath() -> String {
-        var serviceDict: NSDictionary?
-        var URLCateiras = "https://"
-        
-        if pathServices != nil {
-            serviceDict = NSDictionary(contentsOfFile: pathServices!)
-            URLCateiras += serviceDict?.object(forKey: "ipPhones") as! String
-            URLCateiras += "/"
-            URLCateiras += serviceDict?.object(forKey: "phonesList") as! String
-        }
-        
-        return URLCateiras
-    }
-    
     //MARK: CONFIG
     static func isDebugOn() -> Bool {
         var configDict: NSDictionary?
@@ -186,20 +146,6 @@ class Repository {
     }
     
     //MARK: CONFIG
-    static func ignoreConsultarCodigoInvestidor() -> Bool {
-        var configDict: NSDictionary?
-        
-        if pathConfig != nil {
-            configDict = NSDictionary(contentsOfFile: pathConfig!)
-            let bool = configDict?.object(forKey: "ignoreConsultarCodigoInvestidor") as! Bool
-            if bool == true {
-                return true
-            }
-        }
-        
-        return false
-    }
-    
     static func isLogOn() -> Bool {
         var configDict: NSDictionary?
         
@@ -235,20 +181,6 @@ class Repository {
             configDict = NSDictionary(contentsOfFile: pathConfig!)
             let isMutableIp = configDict?.object(forKey: "isMutableIp") as! Bool
             if isMutableIp == true {
-                return true
-            }
-        }
-        
-        return false
-    }
-    
-    static func isGCSAuthentication() -> Bool {
-        var configDict: NSDictionary?
-        
-        if pathConfig != nil {
-            configDict = NSDictionary(contentsOfFile: pathConfig!)
-            let isGCSAuthentication = configDict?.object(forKey: "isGCSAuthentication") as! Bool
-            if isGCSAuthentication == true {
                 return true
             }
         }

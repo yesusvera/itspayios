@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HFCardCollectionViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,17 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>418DFFE0858CB47E0C5DC7ACFA2B20CB</key>
+		<key>2110FA0FC5DA0AC7F67D2E73C4219892</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77D85AF022289D3D7D4E008E58AE0265</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7826E2604E9A4758A82BA6CD9378E621</key>
+		<key>4600E93DCD6BBB90F2A7BBCF64665879</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +72,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>861BAD78136518B4BCBCE659B43EC736</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>BB2F68C4DB72DDB0A0E5A6BB89FC1258</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE48BFD56FB6738C73E4D22EDF9E13E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>virtualCards1</key>
+	<string>{
+  &quot;apelidoVirtual&quot;: &quot;string&quot;,
+  &quot;codigoSeguranca&quot;: &quot;string&quot;,
+  &quot;contaPagamento&quot;: &quot;string&quot;,
+  &quot;credencialMascarada&quot;: &quot;string&quot;,
+  &quot;credencialMascaradaReduzida&quot;: &quot;string&quot;,
+  &quot;credencialUltimosDigitos&quot;: &quot;string&quot;,
+  &quot;credencialVirtual&quot;: &quot;string&quot;,
+  &quot;dataHoraInclusao&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataSaldo&quot;: &quot;string&quot;,
+  &quot;dataValidade&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataValidadeFmt&quot;: &quot;string&quot;,
+  &quot;descGrupoStatus&quot;: &quot;string&quot;,
+  &quot;descStatus&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;card1@email.com&quot;,
+  &quot;grupoStatus&quot;: 0,
+  &quot;idConta&quot;: 0,
+  &quot;idCredencial&quot;: 0,
+  &quot;idPessoa&quot;: 0,
+  &quot;idPlastico&quot;: 0,
+  &quot;idProduto&quot;: 0,
+  &quot;idProdutoPlataforma&quot;: 0,
+  &quot;limiteDisponivel&quot;: 0,
+  &quot;nomeImpresso&quot;: &quot;Virtual Card 1&quot;,
+  &quot;nomeProduto&quot;: &quot;Card 1&quot;,
+  &quot;preparaDataSaldo&quot;: &quot;2016-12-15T18:51:11.249Z&quot;,
+  &quot;saldo&quot;: 0,
+  &quot;status&quot;: 0,
+  &quot;tipoConta&quot;: 0,
+  &quot;urlImagemProduto&quot;: &quot;Card1&quot;
+}</string>
+	<key>virtualCards2</key>
+	<string>{
+  &quot;apelidoVirtual&quot;: &quot;string&quot;,
+  &quot;codigoSeguranca&quot;: &quot;string&quot;,
+  &quot;contaPagamento&quot;: &quot;string&quot;,
+  &quot;credencialMascarada&quot;: &quot;string&quot;,
+  &quot;credencialMascaradaReduzida&quot;: &quot;string&quot;,
+  &quot;credencialUltimosDigitos&quot;: &quot;string&quot;,
+  &quot;credencialVirtual&quot;: &quot;string&quot;,
+  &quot;dataHoraInclusao&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataSaldo&quot;: &quot;string&quot;,
+  &quot;dataValidade&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataValidadeFmt&quot;: &quot;string&quot;,
+  &quot;descGrupoStatus&quot;: &quot;string&quot;,
+  &quot;descStatus&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;card1@email.com&quot;,
+  &quot;grupoStatus&quot;: 0,
+  &quot;idConta&quot;: 0,
+  &quot;idCredencial&quot;: 0,
+  &quot;idPessoa&quot;: 0,
+  &quot;idPlastico&quot;: 0,
+  &quot;idProduto&quot;: 0,
+  &quot;idProdutoPlataforma&quot;: 0,
+  &quot;limiteDisponivel&quot;: 0,
+  &quot;nomeImpresso&quot;: &quot;Virtual Card 2&quot;,
+  &quot;nomeProduto&quot;: &quot;Card 2&quot;,
+  &quot;preparaDataSaldo&quot;: &quot;2016-12-15T18:51:11.249Z&quot;,
+  &quot;saldo&quot;: 0,
+  &quot;status&quot;: 0,
+  &quot;tipoConta&quot;: 0,
+  &quot;urlImagemProduto&quot;: &quot;Card2&quot;
+}</string>
+	<key>virtualCards3</key>
+	<string>{
+  &quot;apelidoVirtual&quot;: &quot;string&quot;,
+  &quot;codigoSeguranca&quot;: &quot;string&quot;,
+  &quot;contaPagamento&quot;: &quot;string&quot;,
+  &quot;credencialMascarada&quot;: &quot;string&quot;,
+  &quot;credencialMascaradaReduzida&quot;: &quot;string&quot;,
+  &quot;credencialUltimosDigitos&quot;: &quot;string&quot;,
+  &quot;credencialVirtual&quot;: &quot;string&quot;,
+  &quot;dataHoraInclusao&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataSaldo&quot;: &quot;string&quot;,
+  &quot;dataValidade&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataValidadeFmt&quot;: &quot;string&quot;,
+  &quot;descGrupoStatus&quot;: &quot;string&quot;,
+  &quot;descStatus&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;card1@email.com&quot;,
+  &quot;grupoStatus&quot;: 0,
+  &quot;idConta&quot;: 0,
+  &quot;idCredencial&quot;: 0,
+  &quot;idPessoa&quot;: 0,
+  &quot;idPlastico&quot;: 0,
+  &quot;idProduto&quot;: 0,
+  &quot;idProdutoPlataforma&quot;: 0,
+  &quot;limiteDisponivel&quot;: 0,
+  &quot;nomeImpresso&quot;: &quot;Virtual Card 3&quot;,
+  &quot;nomeProduto&quot;: &quot;Card 3&quot;,
+  &quot;preparaDataSaldo&quot;: &quot;2016-12-15T18:51:11.249Z&quot;,
+  &quot;saldo&quot;: 0,
+  &quot;status&quot;: 0,
+  &quot;tipoConta&quot;: 0,
+  &quot;urlImagemProduto&quot;: &quot;Card3&quot;
+}</string>
+	<key>virtualCards4</key>
+	<string>{
+  &quot;apelidoVirtual&quot;: &quot;string&quot;,
+  &quot;codigoSeguranca&quot;: &quot;string&quot;,
+  &quot;contaPagamento&quot;: &quot;string&quot;,
+  &quot;credencialMascarada&quot;: &quot;string&quot;,
+  &quot;credencialMascaradaReduzida&quot;: &quot;string&quot;,
+  &quot;credencialUltimosDigitos&quot;: &quot;string&quot;,
+  &quot;credencialVirtual&quot;: &quot;string&quot;,
+  &quot;dataHoraInclusao&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataSaldo&quot;: &quot;string&quot;,
+  &quot;dataValidade&quot;: {
+    &quot;chronology&quot;: {
+      &quot;calendarType&quot;: &quot;string&quot;,
+      &quot;id&quot;: &quot;string&quot;
+    },
+    &quot;dayOfMonth&quot;: 0,
+    &quot;dayOfWeek&quot;: &quot;MONDAY&quot;,
+    &quot;dayOfYear&quot;: 0,
+    &quot;hour&quot;: 0,
+    &quot;minute&quot;: 0,
+    &quot;month&quot;: &quot;JANUARY&quot;,
+    &quot;monthValue&quot;: 0,
+    &quot;nano&quot;: 0,
+    &quot;second&quot;: 0,
+    &quot;year&quot;: 0
+  },
+  &quot;dataValidadeFmt&quot;: &quot;string&quot;,
+  &quot;descGrupoStatus&quot;: &quot;string&quot;,
+  &quot;descStatus&quot;: &quot;string&quot;,
+  &quot;email&quot;: &quot;card1@email.com&quot;,
+  &quot;grupoStatus&quot;: 0,
+  &quot;idConta&quot;: 0,
+  &quot;idCredencial&quot;: 0,
+  &quot;idPessoa&quot;: 0,
+  &quot;idPlastico&quot;: 0,
+  &quot;idProduto&quot;: 0,
+  &quot;idProdutoPlataforma&quot;: 0,
+  &quot;limiteDisponivel&quot;: 0,
+  &quot;nomeImpresso&quot;: &quot;Virtual Card 4&quot;,
+  &quot;nomeProduto&quot;: &quot;Card 4&quot;,
+  &quot;preparaDataSaldo&quot;: &quot;2016-12-15T18:51:11.249Z&quot;,
+  &quot;saldo&quot;: 0,
+  &quot;status&quot;: 0,
+  &quot;tipoConta&quot;: 0,
+  &quot;urlImagemProduto&quot;: &quot;Card4&quot;
+}</string>
+</dict>
+</plist>

@@ -1,6 +1,5 @@
 //
 //  Session.swift
-//  HOMEBROKER
 //
 //  Created by Arthur Marques on 11/3/15.
 //  Copyright © 2015 bb. All rights reserved.

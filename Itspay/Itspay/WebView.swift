@@ -39,7 +39,7 @@ class WebView: UIViewController, NSURLConnectionDelegate, UIWebViewDelegate {
         self.title = textTitle
         
         //Create Buttons
-        buttonShare = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.buttonShareAction(sender:)))
+        buttonShare = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.barButtonShareAction))
         
         navigationItem.rightBarButtonItems = [buttonShare]
     }
@@ -82,7 +82,7 @@ class WebView: UIViewController, NSURLConnectionDelegate, UIWebViewDelegate {
         print("DidFailWithError: \(error)")
     }
     
-    private func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
+    internal func connection(_ connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
         return protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust
     }
     
@@ -116,7 +116,7 @@ class WebView: UIViewController, NSURLConnectionDelegate, UIWebViewDelegate {
     func barButtonShareAction() {
         let fileSaved = downloadFile()
         //        let urlSavedFile = NSURL(
-        if let data = NSData(contentsOfFile: fileSaved) {
+        if let data = try? Data(contentsOf: URL(fileURLWithPath: fileSaved)) {
             let objectsToShare = [data]
             let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
@@ -141,7 +141,7 @@ class WebView: UIViewController, NSURLConnectionDelegate, UIWebViewDelegate {
         }
     }
     
-    @IBAction func buttonShareAction(sender: UIButton) {
+    @IBAction func buttonShareAction(_ sender: UIButton) {
         barButtonShareAction()
     }
     
@@ -154,16 +154,23 @@ class WebView: UIViewController, NSURLConnectionDelegate, UIWebViewDelegate {
     
     func downloadFile() -> String {
         if let url = selectedURL {
-            let data = NSData(contentsOf: url)
-            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-            let filePath = "\(documentsPath)/temp.pdf"
-            
             do {
-                try data?.write(toFile: filePath, options: .atomicWrite)
+                let data = try Data(contentsOf: url)
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+                let filePath = "\(documentsPath)/temp.pdf"
+                
+                do {
+                    if let file = URL(string: filePath) {
+                        try data.write(to: file, options: .atomicWrite)
+                    }
+                } catch {
+                    print("error")
+                }
+                
+                return filePath
             } catch {
-                print("error")
+                print(error)
             }
-            return filePath
         }
         return ""
     }

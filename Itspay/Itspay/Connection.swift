@@ -30,9 +30,19 @@ class Connection {
         let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: Connection.sharedConnection.headers)
         
         data.responseJSON { (response) in            
-            print("URL: \(url)\n\nJSON Response: \(response)\n\n")
+            print("URL: \(url)\nJSON Response: \(response)\n")
             
             dataResponseJSON(response)
         }
+    }
+    
+    static func setHeadersAuthorization(with token : String) {
+        let headers = [
+            "Authorization": token,
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "application/json"
+        ]
+        
+        Connection.sharedConnection.headers = headers
     }
 }

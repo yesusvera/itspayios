@@ -12,17 +12,17 @@ import Alamofire
 let appDelegate = UIApplication.shared.delegate!
 
 //MARK: Instantiate Initial View Controller of Storyboard
-func instantiateInitial(storyboard: String) -> UIViewController {
+func instantiateInitial(_ storyboard: String) -> UIViewController {
     return UIStoryboard(name: storyboard, bundle: nil).instantiateInitialViewController()!
 }
 
 //MARK: Instantiate View Controller from a Storyboard
-func instantiateFrom(storyboard: String, identifier: String) -> UIViewController {
+func instantiateFrom(_ storyboard: String, identifier: String) -> UIViewController {
     return UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(withIdentifier: identifier)
 }
 
 //MARK: Validate Data Response Alamofire
-func validateDataResponse(dataResponse : Alamofire.DataResponse<Any>, viewController : UIViewController) -> Bool {
+func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, viewController : UIViewController) -> Bool {
     guard let value = dataResponse.result.value else {
         let alertView = UIAlertView.init(title: "Erro", message: "Ocorreu algum erro inesperado.", delegate: viewController, cancelButtonTitle: "OK")
         alertView.show()
