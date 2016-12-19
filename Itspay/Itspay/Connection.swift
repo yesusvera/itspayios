@@ -33,7 +33,7 @@ class Connection {
     }
     
     static func request(_ url : String, method : HTTPMethod, parameters : [String : Any]?, dataResponseJSON: @escaping handlerResponseJSON) {
-        let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: Connection.sharedConnection.headers)
         
         data.responseJSON { (response) in
             Connection.getCookies(response: response)
@@ -59,8 +59,9 @@ class Connection {
     
     static func setHeadersAuthorization(with token : String) {
         let headers = [
-            "Authorization": token,
+            "AuthorizationPortador": token,
             "Content-Type": "application/json",
+            "Accept": "application/json;charset=UTF-8",
             "Cookie": Connection.sharedConnection.stringCookies
         ]
         
