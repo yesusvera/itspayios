@@ -11,6 +11,6 @@
 	<key>isDebugOn</key>
 	<false/>
 	<key>isMockOn</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

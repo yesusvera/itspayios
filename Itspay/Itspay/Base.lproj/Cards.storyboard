@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="878" y="-384"/>
         </scene>
-        <!--Detail Cards-->
+        <!--Detail Cards View-->
         <scene sceneID="9pb-Xi-zKa">
             <objects>
-                <tableViewController storyboardIdentifier="DetailCards" id="4tc-or-nqX" customClass="DetailCards" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailCardsView" id="4tc-or-nqX" customClass="DetailCardsView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="rgx-Bp-Tiu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +115,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1a-qH-BAS">
-                                    <rect key="frame" x="160" y="41.5" width="207" height="21"/>
+                                    <rect key="frame" x="160" y="42" width="207" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalhamento da compra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8K-4I-u0j">
-                                            <rect key="frame" x="8" y="37" width="161.5" height="17"/>
+                                            <rect key="frame" x="8" y="37" width="162" height="17"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -178,6 +178,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="buttonMenuValue" destination="MQr-gq-hgi" id="Tfj-8y-ZPD"/>
                         <outlet property="imageViewCard" destination="Pjg-XA-4X4" id="aHh-8E-joC"/>
                         <outlet property="labelBalance" destination="ltH-1O-f1e" id="tRB-8K-NBc"/>
                         <outlet property="labelCardNumber" destination="BE9-BR-Ap6" id="827-UK-TTN"/>
@@ -199,17 +200,29 @@
                         <action selector="segmentedControlAction:" destination="4tc-or-nqX" eventType="valueChanged" id="GML-hu-VVg"/>
                     </connections>
                 </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MQr-gq-hgi">
+                    <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="menu"/>
+                    <connections>
+                        <action selector="buttonMenuAction:" destination="4tc-or-nqX" eventType="touchUpInside" id="Rnt-ej-w2i"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="1688.8" y="-384.55772113943033"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="cP2-nJ-zIn">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigationController" id="596-46-Uxn" customClass="MainNavigationController" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="596-46-Uxn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DsS-Yj-8MY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="49e-Tb-3d3" kind="relationship" relationship="rootViewController" id="qq4-mZ-aQN"/>
                     </connections>
@@ -254,5 +267,6 @@
     <resources>
         <image name="Card1" width="511" height="236"/>
         <image name="home" width="32" height="32"/>
+        <image name="menu" width="48" height="48"/>
     </resources>
 </document>

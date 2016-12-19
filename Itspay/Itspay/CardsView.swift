@@ -35,12 +35,7 @@ class CardsView: UITableViewController {
             
             self.tableView.reloadData()
         } else {
-            var url = Repository.createServiceURLFromPListValue(.services, key: "virtualCards")
-            url += "/"
-            
-            if let value = LoginController.sharedInstance.loginResponseObject.idLogin {
-                url += "\(value)"
-            }
+            let url = CardsController.createVirtualCardsURLPath()
             
             Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
                 if validateDataResponse(dataResponse, viewController: self) {
@@ -101,7 +96,7 @@ class CardsView: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailCardsSegue" {
-            let viewController = segue.destination as! DetailCards
+            let viewController = segue.destination as! DetailCardsView
             viewController.virtualCard = selectedVirtualCard
         }
     }

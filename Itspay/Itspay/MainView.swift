@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import pop
 
 class MainView: UIViewController {
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        blurView.alpha = 0
+        UIView.animate(withDuration: 0.8) {
+            self.blurView.alpha = 1
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

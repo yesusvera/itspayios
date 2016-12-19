@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SideMenu
 
-class DetailCards: UITableViewController {
+class DetailCardsView: UITableViewController {
     @IBOutlet var segmentedControlValue: UISegmentedControl!
+    @IBOutlet var buttonMenuValue: UIButton!
 
     @IBOutlet weak var imageViewCard: UIImageView!
     
@@ -24,7 +26,34 @@ class DetailCards: UITableViewController {
         
         self.title = "Cartão"
         
+        let viewMenu = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        buttonMenuValue.frame = CGRect(x: 8, y: 0, width: buttonMenuValue.frame.width, height: buttonMenuValue.frame.height)
+        viewMenu.addSubview(buttonMenuValue)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewMenu)
+        
+        configMenuNavigationController()
         updateViewInfo()
+    }
+    
+    func configMenuNavigationController() {
+        let sideMenuTableViewController = instantiateFrom("General", identifier: "SideMenuTableViewController") as! SideMenuTableViewController
+        
+        let sideNavigationController = UISideMenuNavigationController(rootViewController: sideMenuTableViewController)
+        
+        sideNavigationController.leftSide = false
+        
+        SideMenuManager.menuRightNavigationController = sideNavigationController
+        
+        var arraySideMenuObjects = [SideMenuObject]()
+        
+        arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: ""))
+        arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: ""))
+        
+        sideMenuTableViewController.arraySideMenuObjects = arraySideMenuObjects
+        sideMenuTableViewController.tableView.reloadData()
+        
+        SideMenuManager.menuAddPanGestureToPresent(toView: sideNavigationController.navigationBar)
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: sideNavigationController.view)
     }
     
     func updateViewInfo() {
@@ -51,6 +80,10 @@ class DetailCards: UITableViewController {
         
     }
     
+    @IBAction func buttonMenuAction(_ sender: UIButton) {
+        present(SideMenuManager.menuRightNavigationController!, animated: true, completion: nil)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +102,6 @@ class DetailCards: UITableViewController {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 30))
         
         segmentedControlValue.frame = CGRect(x: 8, y: 0, width: header.frame.width-16, height: segmentedControlValue.frame.height)
-        
         header.addSubview(segmentedControlValue)
         
         return header

@@ -118,6 +118,9 @@
                     <navigationItem key="navigationItem" id="pib-ER-Neo">
                         <barButtonItem key="backBarButtonItem" title=" " id="fuV-KI-eST"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="blurView" destination="ob8-jU-ygV" id="enV-e1-GGt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vh3-m4-nTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,7 +257,7 @@
                                                     <rect key="frame" x="20" y="4" width="560" height="42"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="ElF-OK-jsr" id="Qsq-XB-7gU"/>
                                                     </connections>
@@ -724,7 +727,7 @@
                                                     <rect key="frame" x="20" y="4" width="560" height="42"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="hai-Ca-cjI" id="ayI-D9-IsR"/>
                                                     </connections>
@@ -789,7 +792,7 @@
                                                     <rect key="frame" x="20" y="4" width="560" height="42"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="hai-Ca-cjI" id="fPD-x3-rRF"/>
                                                     </connections>

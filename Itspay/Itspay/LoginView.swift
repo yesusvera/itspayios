@@ -42,6 +42,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
                     if let value = dataResponse.result.value {
                         LoginController.sharedInstance.loginResponseObject = LoginResponseObject(object: value)
                         
+                        LoginController.sharedInstance.loginResponseObject.cpf = self.textFieldCPF.text?.onlyNumbers()
+                        
                         if let token = LoginController.sharedInstance.loginResponseObject.token {
                             Connection.setHeadersAuthorization(with: token)
                         }

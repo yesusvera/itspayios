@@ -20,6 +20,7 @@ public final class LoginResponseObject: NSCoding {
     static let idLogin = "idLogin"
     static let requisicaoAtualizacaoMensagem = "requisicaoAtualizacaoMensagem"
     static let versaoMaisRecente = "versaoMaisRecente"
+    static let cpf = "cpf"
   }
 
   // MARK: Properties
@@ -31,6 +32,7 @@ public final class LoginResponseObject: NSCoding {
   public var idLogin: Int?
   public var requisicaoAtualizacaoMensagem: String?
   public var versaoMaisRecente: String?
+  public var cpf: String?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.

@@ -12,13 +12,12 @@
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
-		ED5322A41E05B291005ACBD2 /* DetailCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCards.swift */; };
+		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
 		ED599DC41E0070D7004EC753 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC31E0070D7004EC753 /* Connection.swift */; };
 		ED599DC91E007537004EC753 /* Chronology.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC61E007537004EC753 /* Chronology.swift */; };
 		ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */; };
 		ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC81E007537004EC753 /* LoginResponseObject.swift */; };
 		ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */; };
-		ED713DEC1E0303E400E4D8E1 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEB1E0303E400E4D8E1 /* MainNavigationController.swift */; };
 		ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */; };
 		ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */; };
 		ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DF01E031F0E00E4D8E1 /* DataValidade.swift */; };
@@ -48,6 +47,9 @@
 		EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A781E007D5600C91453 /* LoginController.swift */; };
 		EDAB8A7C1E007E6100C91453 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A7B1E007E6100C91453 /* System.swift */; };
 		EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBDCCF1DFFAD0000EB469A /* MainView.swift */; };
+		EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */; };
+		EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9F8221E07F00900B0DD37 /* SideMenuObject.swift */; };
+		EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9F8241E07F70700B0DD37 /* CardsController.swift */; };
 		EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6814F1E00E3C300E9017F /* ErrorObject.swift */; };
 		EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681501E00E3C300E9017F /* FieldErrors.swift */; };
 		EDD681551E00EB9A00E9017F /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681541E00EB9A00E9017F /* General.swift */; };
@@ -84,13 +86,12 @@
 		ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
-		ED5322A31E05B291005ACBD2 /* DetailCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCards.swift; sourceTree = "<group>"; };
+		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
 		ED599DC31E0070D7004EC753 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		ED599DC61E007537004EC753 /* Chronology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chronology.swift; sourceTree = "<group>"; };
 		ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraUltimoAcessso.swift; sourceTree = "<group>"; };
 		ED599DC81E007537004EC753 /* LoginResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseObject.swift; sourceTree = "<group>"; };
 		ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTabBarController.swift; sourceTree = "<group>"; };
-		ED713DEB1E0303E400E4D8E1 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraInclusao.swift; sourceTree = "<group>"; };
 		ED713DF01E031F0E00E4D8E1 /* DataValidade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidade.swift; sourceTree = "<group>"; };
@@ -126,6 +127,9 @@
 		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		EDBBDCCF1DFFAD0000EB469A /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		EDC9F8221E07F00900B0DD37 /* SideMenuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuObject.swift; sourceTree = "<group>"; };
+		EDC9F8241E07F70700B0DD37 /* CardsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		EDD6814F1E00E3C300E9017F /* ErrorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
 		EDD681501E00E3C300E9017F /* FieldErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldErrors.swift; sourceTree = "<group>"; };
 		EDD681541E00EB9A00E9017F /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
@@ -234,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				ED791B671E006292002C4A70 /* WebView.swift */,
+				EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */,
 				ED791B691E00629A002C4A70 /* General.storyboard */,
-				ED713DEB1E0303E400E4D8E1 /* MainNavigationController.swift */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -308,6 +312,7 @@
 		ED8AF3A71DFF862F00EBB73F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EDC9F8211E07EFF700B0DD37 /* General */,
 				ED713DED1E031EFA00E4D8E1 /* Cards */,
 				EDD6814E1E00E3B800E9017F /* JSON */,
 				ED599DC51E00752D004EC753 /* Login */,
@@ -371,7 +376,7 @@
 			children = (
 				ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */,
 				ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */,
-				ED5322A31E05B291005ACBD2 /* DetailCards.swift */,
+				ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */,
 				ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */,
 			);
 			name = Cards;
@@ -444,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				EDAB8A781E007D5600C91453 /* LoginController.swift */,
+				EDC9F8241E07F70700B0DD37 /* CardsController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -454,6 +460,14 @@
 				EDAB8A7B1E007E6100C91453 /* System.swift */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		EDC9F8211E07EFF700B0DD37 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EDC9F8221E07F00900B0DD37 /* SideMenuObject.swift */,
+			);
+			name = General;
 			sourceTree = "<group>";
 		};
 		EDD6814E1E00E3B800E9017F /* JSON */ = {
@@ -728,16 +742,18 @@
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
 				ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */,
 				EDAB8A7C1E007E6100C91453 /* System.swift in Sources */,
-				ED5322A41E05B291005ACBD2 /* DetailCards.swift in Sources */,
+				ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
+				EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */,
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
-				ED713DEC1E0303E400E4D8E1 /* MainNavigationController.swift in Sources */,
+				EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
 				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
+				EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */,
 				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
 				ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */,

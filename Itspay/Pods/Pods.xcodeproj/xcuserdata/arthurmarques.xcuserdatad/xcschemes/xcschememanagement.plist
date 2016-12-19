@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HFCardCollectionViewLayout.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2110FA0FC5DA0AC7F67D2E73C4219892</key>
+		<key>53DCC158C80EAABF08E46B736FF62A01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4600E93DCD6BBB90F2A7BBCF64665879</key>
+		<key>63B42B19836FA019F7EF02078519AFD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>861BAD78136518B4BCBCE659B43EC736</key>
+		<key>975EA57C3025562F3DF9447744CECB36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB2F68C4DB72DDB0A0E5A6BB89FC1258</key>
+		<key>B74E449693964100EFBED9EB51CAEE68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE48BFD56FB6738C73E4D22EDF9E13E5</key>
+		<key>BB2F68C4DB72DDB0A0E5A6BB89FC1258</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -5,7 +5,7 @@
 	<key>termosDeUso</key>
 	<string>http://www.financialcartoes.com.br/Download/CONTRATO_DE_CONCESSAO_DE_CREDITO_CARTAO_INDIVIDUAL_COMPLETO_080115.pdf</string>
 	<key>mainServer</key>
-	<string>http://tst.issuer.itspay.com.br</string>
+	<string>http://ppp.sinergico.com.br:8080</string>
 	<key>login</key>
 	<string>issuer/api/portador/login/auth</string>
 	<key>cadastro</key>
@@ -14,8 +14,6 @@
 	<string>issuer/api/portador/login/logout</string>
 	<key>credencial</key>
 	<string>issuer/api/portador/credencial</string>
-	<key>virtualCards</key>
-	<string>issuer/api/portador/credencial/virtual/conta</string>
 	<key>newVirtualCard</key>
 	<string>issuer/api/gerador/credencial</string>
 </dict>
