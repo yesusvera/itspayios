@@ -120,7 +120,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** 5816" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE9-BR-Ap6">
+                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** 5816" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE9-BR-Ap6">
                                     <rect key="frame" x="160" y="67" width="207" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -247,6 +247,7 @@
                     <connections>
                         <outlet property="buttonSair" destination="jQD-Ll-hHb" id="rgd-qd-gPy"/>
                         <segue destination="6na-tB-Bih" kind="relationship" relationship="viewControllers" id="6Mi-8w-lCB"/>
+                        <segue destination="Qog-U6-yB0" kind="relationship" relationship="viewControllers" id="f03-IO-Aws"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -263,10 +264,52 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Ajustes-->
+        <scene sceneID="BI2-tm-Zhm">
+            <objects>
+                <viewController id="Qog-U6-yB0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UqN-Lr-YcO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y23-WN-GYs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DqU-aB-31D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIi-9R-8el">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <connections>
+                                    <segue destination="jIe-oT-JBy" kind="embed" id="eC7-6w-kJO"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y23-WN-GYs" firstAttribute="top" secondItem="IIi-9R-8el" secondAttribute="bottom" id="0YV-eT-XpE"/>
+                            <constraint firstAttribute="trailing" secondItem="IIi-9R-8el" secondAttribute="trailing" id="Muz-6N-gFv"/>
+                            <constraint firstItem="IIi-9R-8el" firstAttribute="top" secondItem="DqU-aB-31D" secondAttribute="top" id="aVT-J2-bra"/>
+                            <constraint firstItem="IIi-9R-8el" firstAttribute="leading" secondItem="DqU-aB-31D" secondAttribute="leading" id="rgP-pr-27d"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="settings" id="d1Q-3a-Yca"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="673-5D-gRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872.79999999999995" y="345.87706146926541"/>
+        </scene>
+        <!--PreferencesView-->
+        <scene sceneID="Gka-6Z-Zgv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="General" referencedIdentifier="PreferencesView" id="jIe-oT-JBy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcA-Ok-wwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1496" y="208"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Card1" width="511" height="236"/>
         <image name="home" width="32" height="32"/>
-        <image name="menu" width="48" height="48"/>
+        <image name="menu" width="32" height="32"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>

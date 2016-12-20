@@ -7,26 +7,26 @@
 
 import UIKit
 
-class DateFormatterComponent {
-    static func dateWithFormat(_ format : String, fromTimestamp timestamp : Double) -> String? {
+extension DateFormatter {
+    static func dateWith(_ format : String, from timestamp : Double) -> String? {
         let date = Date(timeIntervalSince1970: timestamp/1000)
         
-        return DateFormatterComponent.stringWithFormat("dd/MM/yyyy", fromDate : date)
+        return DateFormatter.stringWith("dd/MM/yyyy", from : date)
     }
     
-    static func dateWithFormat(_ format : String, fromString string : String) -> Date? {
+    static func dateWith(_ format : String, string : String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.date(from: string)
     }
     
-    static func stringWithFormat(_ format : String, fromDate date : Date) -> String? {
+    static func stringWith(_ format : String, from date : Date) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: date)
     }
     
-    static func stringWithFormat(_ format : String, fromString string : String) -> String {
+    static func stringWith(_ format : String, string : String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         
@@ -36,7 +36,7 @@ class DateFormatterComponent {
         return string
     }
     
-    static func stringDateTimestampWithFormat(_ format : String, fromString string : String) -> String {
+    static func stringDateTimestampWith(_ format : String, from string : String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         
@@ -46,7 +46,7 @@ class DateFormatterComponent {
         return string
     }
     
-    static func getDateWithDetailedDescriptionFromDate(_ date : Date) -> String {
+    static func getDateWithDetailedDescriptionFrom(_ date : Date) -> String {
         let dateFormatterDay = DateFormatter()
         dateFormatterDay.dateFormat = "dd"
         

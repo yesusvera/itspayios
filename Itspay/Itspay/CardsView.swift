@@ -39,13 +39,14 @@ class CardsView: UITableViewController {
             
             Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
                 if validateDataResponse(dataResponse, viewController: self) {
-                    if let value = dataResponse.result.value as? [AnyObject] {
-                        for object in value {
-                            let credenciais = Credenciais(object: object)
+                    if let value = dataResponse.result.value as? NSDictionary {
+                        if let array = value["credenciais"] as? [Any] {
+                            for object in array {
+                                let credenciais = Credenciais(object: object)
                             
-                            self.arrayVirtualCards.append(credenciais)
+                                self.arrayVirtualCards.append(credenciais)
+                            }
                         }
-                        
                         self.tableView.reloadData()
                     }
                 }
@@ -74,6 +75,13 @@ class CardsView: UITableViewController {
         if let imageView = cell.viewWithTag(1) as? UIImageView, let value = virtualCard.urlImagemProduto {
             if Repository.isMockOn() {
                 imageView.image = UIImage(named: value)
+            } else {
+//                Connection.imageFrom(value, downloadResponseData: { (response) in
+//                    if let data = response.result.value {
+//                        imageView.image = UIImage(data: data)
+//                    }
+//                })
+                imageView.image = UIImage(named: "Card\(indexPath.row+1)")
             }
         }
         

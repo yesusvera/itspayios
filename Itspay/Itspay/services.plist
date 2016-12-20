@@ -16,5 +16,7 @@
 	<string>issuer/api/portador/credencial</string>
 	<key>newVirtualCard</key>
 	<string>issuer/api/gerador/credencial</string>
+	<key>images</key>
+	<string>issuer/api/imagem/abrir</string>
 </dict>
 </plist>

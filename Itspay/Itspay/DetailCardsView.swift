@@ -21,6 +21,8 @@ class DetailCardsView: UITableViewController {
     
     var virtualCard : Credenciais!
     
+    var virtualCardStatement : VirtualCardStatement!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +33,38 @@ class DetailCardsView: UITableViewController {
         viewMenu.addSubview(buttonMenuValue)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: viewMenu)
         
+        getDetailVirtualCards()
+        getVirtualCardsStatement()
         configMenuNavigationController()
         updateViewInfo()
+    }
+    
+    func getDetailVirtualCards() {
+        let url = CardsController.createDetailVirtualCardsURLPath(virtualCard)
+        
+        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, viewController: self) {
+                if let value = dataResponse.result.value {
+                    self.virtualCard = Credenciais(object: value)
+                    
+                    self.updateViewInfo()
+                }
+            }
+        })
+    }
+    
+    func getVirtualCardsStatement() {
+        let daysAgo = (15 * (segmentedControlValue.selectedSegmentIndex+1)) * -1
+        
+        let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date(), dataFinal: Date().addDays(daysAgo))
+        
+        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, viewController: self) {
+                if let value = dataResponse.result.value as? NSDictionary {
+                    self.virtualCardStatement = VirtualCardStatement(object: value)
+                }
+            }
+        })
     }
     
     func configMenuNavigationController() {
@@ -64,15 +96,15 @@ class DetailCardsView: UITableViewController {
         }
         
         if let object = virtualCard.saldo {
-            labelBalance.text = "\(object)"
+            labelBalance.text = "\(object)".formatToCurrencyReal()
         }
         
         if let object = virtualCard.nomeImpresso {
             labelName.text = "\(object)"
         }
         
-        if let object = virtualCard.credencialUltimosDigitos {
-            labelCardNumber.text = "**** **** **** \(object)"
+        if let object = virtualCard.credencialMascarada {
+            labelCardNumber.text = "\(object)"
         }
     }
     

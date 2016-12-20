@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 typealias handlerResponseJSON = (Alamofire.DataResponse<Any>) -> Swift.Void
+typealias handlerDownloadResponseData = (Alamofire.DownloadResponse<Data>) -> Swift.Void
 
 class Connection {
     static let sharedConnection = Connection()
@@ -41,6 +42,20 @@ class Connection {
             print("URL: \(url)\nJSON Response: \(response)\n")
             
             dataResponseJSON(response)
+        }
+    }
+    
+    static func imageFrom(_ path : String, downloadResponseData: @escaping handlerDownloadResponseData) {
+        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
+        
+        var url = Repository.createServiceURLFromPListValue(.services, key: "images")
+        
+        url += "/\(path)"
+        
+        Alamofire.download(url, to: destination).responseData { response in
+            print("URL IMAGE: \(url)\nJSON Response: \(response)\n")
+            
+            downloadResponseData(response)
         }
     }
     
