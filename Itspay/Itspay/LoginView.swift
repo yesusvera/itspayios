@@ -21,7 +21,17 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        if let value = UserDefaults.standard.object(forKey: "lastCPFLogged") as? String {
+            textFieldCPF.text = value
+        }
+        
+        textFieldPassword.text = ""
     }
     
     @IBAction func buttonForgotPasswordAction(_ sender: UIButton) {
@@ -43,6 +53,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
                         LoginController.sharedInstance.loginResponseObject = LoginResponseObject(object: value)
                         
                         LoginController.sharedInstance.loginResponseObject.cpf = self.textFieldCPF.text?.onlyNumbers()
+                        
+                        UserDefaults.standard.set(self.textFieldCPF.text, forKey: "lastCPFLogged")
                         
                         if let token = LoginController.sharedInstance.loginResponseObject.token {
                             Connection.setHeadersAuthorization(with: token)
