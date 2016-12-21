@@ -25,8 +25,6 @@ class Connection {
         let data = Alamofire.request(url)
         
         data.responseJSON { (response) in
-            Connection.getCookies(response: response)
-            
             print("URL: \(url)\nJSON Response: \(response)")
             
             responseJSON(response)
@@ -68,6 +66,12 @@ class Connection {
                 for cookie in Connection.sharedConnection.cookies {
                     Connection.sharedConnection.stringCookies += "\(cookie.name)=\(cookie.value);"
                 }
+                
+                if LoginController.sharedInstance.loginResponseObject != nil {
+                    if let token = LoginController.sharedInstance.loginResponseObject.token {
+                        Connection.setHeadersAuthorization(with: token)
+                    }
+                }
             }
         }
     }
@@ -85,7 +89,8 @@ class Connection {
     
     static func removeSession() {
         Connection.sharedConnection.headers = nil
-        Connection.sharedConnection.cookies = [HTTPCookie]()
-        Connection.sharedConnection.stringCookies = ""
+//        Connection.sharedConnection.cookies = [HTTPCookie]()
+//        Connection.sharedConnection.stringCookies = ""
+        LoginController.sharedInstance.loginResponseObject = nil
     }
 }

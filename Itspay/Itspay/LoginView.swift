@@ -114,8 +114,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
                     
                     LoginController.sharedInstance.loginResponseObject.cpf = self.textFieldCPF.text?.onlyNumbers()
                     
-                    UserDefaults.standard.set(self.textFieldCPF.text, forKey: "lastCPFLogged")
-                    UserDefaults.standard.set(self.textFieldPassword.text, forKey: "lastPasswordLogged")
+                    UserDefaults.standard.set(self.cpf, forKey: "lastCPFLogged")
+                    UserDefaults.standard.set(self.password, forKey: "lastPasswordLogged")
                     
                     if TouchID.isTouchIDAvaiable().isAvaiable {
                         UserDefaults.standard.set(self.switchTouchIdValue.isOn, forKey: "isTouchIdOn")

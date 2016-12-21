@@ -13,6 +13,8 @@ class CardsView: UITableViewController {
     
     var selectedVirtualCard : Credenciais!
     
+    var countServiceCallTimes = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,11 +53,19 @@ class CardsView: UITableViewController {
                 if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                     if let value = dataResponse.result.value as? NSDictionary {
                         if let array = value["credenciais"] as? [Any] {
+                            self.countServiceCallTimes = 0
+                            
                             for object in array {
                                 let credenciais = Credenciais(object: object)
                             
                                 self.arrayVirtualCards.append(credenciais)
                             }
+                        } else {
+                            if self.countServiceCallTimes < 3 {
+                                self.getVirtualCards()
+                            }
+                            
+                            self.countServiceCallTimes += 1
                         }
                         self.tableView.reloadData()
                     }

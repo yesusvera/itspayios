@@ -57,8 +57,8 @@ class LoginController {
     static func logout() {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
         
-        Connection.removeSession()
-        
-        Connection.request(url) { (dataResponse) in }
+        Connection.request(url) { (dataResponse) in
+            Connection.removeSession()
+        }
     }
 }
