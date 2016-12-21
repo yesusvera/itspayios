@@ -112,6 +112,38 @@ class TextFieldCPFMask: UITextField, UITextFieldDelegate {
     }
 }
 
+class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.delegate = self
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var appendString = ""
+        
+        if range.length == 0 {
+            switch range.location {
+            case 4:
+                appendString = "."
+            case 9:
+                appendString = "."
+            case 14:
+                appendString = "."
+            default:
+                break
+            }
+        }
+        
+        text?.append(appendString)
+        
+        if text?.characters.count > 18 && range.length == 0 {
+            return false
+        }
+        
+        return true
+    }
+}
+
 extension String {
     func insert(_ string:String,ind:Int) -> String {
         return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))

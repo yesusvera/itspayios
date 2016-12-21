@@ -19,11 +19,20 @@ extension String {
 
     //validate PhoneNumber
     func isPhoneNumber() -> Bool {
-        let charcter  = CharacterSet(charactersIn: "+0123456789").inverted
+        let character  = CharacterSet(charactersIn: "+0123456789").inverted
         var filtered : String!
-        let inputString = self.components(separatedBy: charcter)
+        let inputString = self.components(separatedBy: character)
         filtered = inputString.joined(separator: "")
         return self == filtered
+    }
+    
+    //validate CardNumber
+    func isCardNumber() -> Bool {
+        let character  = CharacterSet(charactersIn: "0123456789").inverted
+        var filtered : String!
+        let inputString = self.components(separatedBy: character)
+        filtered = inputString.joined(separator: "")
+        return filtered.characters.count == 16
     }
     
     func isEmptyOrWhitespace() -> Bool {

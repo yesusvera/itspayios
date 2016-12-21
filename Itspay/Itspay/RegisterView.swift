@@ -9,7 +9,8 @@
 import UIKit
 import PickerFieldsDataHelper
 
-class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
+class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardIOPaymentViewControllerDelegate {
+    @IBOutlet weak var labelErrorCardNumber: UILabel!
     @IBOutlet weak var labelErrorBirthday: UILabel!
     @IBOutlet weak var labelErrorCPF: UILabel!
     @IBOutlet weak var labelErrorEmail: UILabel!
@@ -23,11 +24,15 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
     @IBOutlet weak var textFieldEmailConfirmation: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldPasswordConfirmation: UITextField!
+    @IBOutlet weak var textFieldCardNumber: TextFieldCardNumberMask!
     
     @IBOutlet weak var switchConfirmationValue: UISwitch!
     
+    @IBOutlet weak var buttonCameraValue: UIButton!
+    
     let pickerFieldsDataHelper = PickerFieldsDataHelper()
     
+    var cardNumber : String!
     var email : String!
     var birthday : String!
     var cpf : String!
@@ -38,7 +43,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
         
         self.title = "Cadastro"
         
-//        textFieldBirthday.isDefaultInputAcessoryViewOn = false
+        CardIOUtilities.preloadCardIO()
         
         pickerFieldsDataHelper.delegate = self
         
@@ -55,20 +60,49 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
             
             Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
                 if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                    let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
-                    alertView.show()
+                    self.performSegue(withIdentifier: "CardsSegue", sender: self)
                 }
             })
         }
     }
     
+    @IBAction func buttonCameraAction(_ sender: UIButton) {
+        if let paymentViewController = CardIOPaymentViewController.init(paymentDelegate: self) {
+            self.present(paymentViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
+        paymentViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func userDidProvide(_ cardInfo: CardIOCreditCardInfo!, in paymentViewController: CardIOPaymentViewController!) {
+        print("Received card info. Number: \(cardInfo.redactedCardNumber), expiry: \(cardInfo.expiryMonth)/\(cardInfo.expiryYear), cvv: \(cardInfo.cvv)")
+        
+        textFieldCardNumber.text = cardInfo.redactedCardNumber
+        
+        paymentViewController.dismiss(animated: true, completion: nil)
+    }
+    
     func isFormValid() -> Bool {
+        labelErrorCardNumber.isHidden = false
         labelErrorBirthday.isHidden = false
         labelErrorCPF.isHidden = false
         labelErrorEmail.isHidden = false
         labelErrorEmailConfirmation.isHidden = false
         labelErrorPassword.isHidden = false
         labelErrorPasswordConfirmation.isHidden = false
+        
+        guard let cardNumberForm = textFieldCardNumber.text else {
+            return false
+        }
+        
+        if cardNumberForm.isEmptyOrWhitespace() || !cardNumberForm.isCardNumber() {
+            return false
+        }
+        
+        cardNumber = cardNumberForm
+        labelErrorCardNumber.isHidden = true
         
         guard let birthdayForm = textFieldCPF.text else {
             labelErrorBirthday.text = "Data de nascimento vazia."

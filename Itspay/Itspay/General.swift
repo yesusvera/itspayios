@@ -25,7 +25,7 @@ func instantiateFrom(_ storyboard: String, identifier: String) -> UIViewControll
 func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, showAlert : Bool, viewController : UIViewController) -> Bool {
     guard let value = dataResponse.result.value else {
         if showAlert {
-            UIAlertController.init(title: "Erro", message: "Ocorreu algum erro inesperado.", preferredStyle: .alert).show(viewController, sender: viewController)
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Ocorreu algum erro inesperado.", viewController: viewController)
         }
         
         return false
@@ -35,7 +35,7 @@ func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, showAler
     
     if let msgError = errorObject.msg {
         if showAlert {
-            UIAlertController.init(title: "Erro", message: msgError, preferredStyle: .alert).show(viewController, sender: viewController)
+            AlertComponent.showSimpleAlert(title: "Erro", message: msgError, viewController: viewController)
         }
         
         return false
