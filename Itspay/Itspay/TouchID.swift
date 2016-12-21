@@ -20,42 +20,37 @@ class TouchID {
         let reasonString = "A autenticação pela biometria é necessária para efetuar o login"
         
         // Check if the device can evaluate the policy.
-        do {
-            try context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: nil)
-            [context .evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success: Bool, evalPolicyError: NSError?) -> Void in
-                
+        
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success, error) in
                 if success {
-                    // If authentication was successful then load the data.
                     OperationQueue.main.addOperation({ () -> Void in
                         handlerAuthenticationResult(true, "SUCCESS TOUCH ID", false)
                     })
-                }
-                else{
-                    // If authentication failed then show a message to the console with a short description.
-                    // In case that the error is a user fallback, then show the password alert view.
-                    print(evalPolicyError?.localizedDescription)
-                    
-                    switch evalPolicyError!.code {
-                        case LAError.Code.systemCancel.rawValue:
-                            print("Authentication was cancelled by the system")
-                        case LAError.Code.userCancel.rawValue:
-                            print("Authentication was cancelled by the user")
-                        case LAError.Code.userFallback.rawValue:
-                            print("User selected to enter custom password")
-                            OperationQueue.main.addOperation({ () -> Void in
-                                handlerAuthenticationResult(false, "Usuário selecionado para entrar com senha personalizada", true)
-                            })
-                        default:
-                            print("Authentication failed")
-                            OperationQueue.main.addOperation({ () -> Void in
-                                handlerAuthenticationResult(false, "Erro no reconhecimento da biometria.", false)
-                            })
+                } else {
+                    if let error = error as? NSError {
+                        print(error.localizedDescription)
+                        
+                        switch error.code {
+                            case LAError.Code.systemCancel.rawValue:
+                                print("Authentication was cancelled by the system")
+                            case LAError.Code.userCancel.rawValue:
+                                print("Authentication was cancelled by the user")
+                            case LAError.Code.userFallback.rawValue:
+                                print("User selected to enter custom password")
+                                OperationQueue.main.addOperation({ () -> Void in
+                                    handlerAuthenticationResult(false, "Usuário selecionado para entrar com senha personalizada", true)
+                                })
+                            default:
+                                print("Authentication failed")
+                                OperationQueue.main.addOperation({ () -> Void in
+                                    handlerAuthenticationResult(false, "Erro no reconhecimento da biometria.", false)
+                                })
+                        }
                     }
                 }
-                
-            } as! (Bool, Error?) -> Void)]
-        } catch let error1 as NSError {
-            error = error1
+            })
+        } else {
             var errorMessage = "Erro no reconhecimento da biometria."
             
             // If the security policy cannot be evaluated then show a short message depending on the error.

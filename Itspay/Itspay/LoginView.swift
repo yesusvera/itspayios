@@ -27,6 +27,11 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let isTouchID = UserDefaults.standard.object(forKey: "isTouchIdOn") as? Bool {
+            isTouchIdOn = isTouchID
+            
+            switchTouchIdValue.isOn = isTouchIdOn
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,12 +72,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func buttonLoginAction(_ sender: UIButton) {
-        if let isTouchID = UserDefaults.standard.object(forKey: "isTouchIdOn") as? Bool {
-            isTouchIdOn = isTouchID
-        }
-        
         if isFormValid() {
-            if isTouchIdOn {
+            if switchTouchIdValue.isOn {
                 authenticateTouchId()
             } else {
                 doLogin()
@@ -84,8 +85,6 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
         TouchID.authenticateUserTouchID { (result, message, isPasswordNeeded) -> () in
             if isPasswordNeeded == true {
                 self.isTouchIdOn = true
-                
-                AlertComponent.showSimpleAlert(title: "Erro", message: "Erro ao recuperar a senha. Você precisa realizar o login com a senha.", viewController: self)
             } else {
                 if !result {
                     AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
@@ -158,9 +157,9 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
         
         labelErrorCPF.isHidden = true
         
-        if isTouchIdOn {
+        if switchTouchIdValue.isOn {
             if let value = UserDefaults.standard.object(forKey: "lastPasswordLogged") as? String {
-                textFieldPassword.text = value
+                password = value
             }
             
             labelErrorPassword.isHidden = true
