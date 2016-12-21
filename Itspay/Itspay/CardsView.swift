@@ -66,7 +66,7 @@ class CardsView: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 106
+        return 160
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
