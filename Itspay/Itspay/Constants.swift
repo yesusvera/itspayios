@@ -17,3 +17,8 @@ var ORIGEM_ACESSO = 1
 var SISTEMA_OPERACIONAL = 1
 var ORIGEM_CADASTRO_LOGIN = 1
 var CREDENCIAL = 1
+
+var PHONE_SAC = "08009406020"
+var PHONE_OUVIDORIA = "(37)35129797"
+
+var EMAIL_SAC = "sac@financialcartoes.com.br"

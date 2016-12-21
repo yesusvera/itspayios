@@ -166,7 +166,7 @@
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zhn-Ol-ap6">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Insira seu novo email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zhn-Ol-ap6">
                                                     <rect key="frame" x="16" y="37" width="343" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="W8h-Qh-ZGa"/>
@@ -478,6 +478,7 @@
                         <outlet property="textFieldEmail" destination="Zhn-Ol-ap6" id="iJj-Ok-DKL"/>
                         <outlet property="textFieldNewPassword" destination="VPd-eB-Q4d" id="hxN-Se-gFt"/>
                         <outlet property="textFieldNewPasswordConfirmation" destination="mYA-2A-Bmc" id="Ncp-VB-ubf"/>
+                        <segue destination="iIP-gu-q3Q" kind="show" identifier="showWebViewSegue" id="aHa-JJ-DsK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hW-sM-tke" userLabel="First Responder" sceneMemberID="firstResponder"/>
