@@ -115,15 +115,10 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
                     LoginController.sharedInstance.loginResponseObject.cpf = self.textFieldCPF.text?.onlyNumbers()
                     
                     UserDefaults.standard.set(self.textFieldCPF.text, forKey: "lastCPFLogged")
+                    UserDefaults.standard.set(self.textFieldPassword.text, forKey: "lastPasswordLogged")
                     
                     if TouchID.isTouchIDAvaiable().isAvaiable {
                         UserDefaults.standard.set(self.switchTouchIdValue.isOn, forKey: "isTouchIdOn")
-                        
-                        if self.switchTouchIdValue.isOn {
-                            UserDefaults.standard.set(self.textFieldPassword.text, forKey: "lastPasswordLogged")
-                        } else {
-                            UserDefaults.standard.set("", forKey: "lastPasswordLogged")
-                        }
                     }
                     
                     if let token = LoginController.sharedInstance.loginResponseObject.token {
