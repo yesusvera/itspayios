@@ -22,10 +22,11 @@ func instantiateFrom(_ storyboard: String, identifier: String) -> UIViewControll
 }
 
 //MARK: Validate Data Response Alamofire
-func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, viewController : UIViewController) -> Bool {
+func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, showAlert : Bool, viewController : UIViewController) -> Bool {
     guard let value = dataResponse.result.value else {
-        let alertView = UIAlertView.init(title: "Erro", message: "Ocorreu algum erro inesperado.", delegate: viewController, cancelButtonTitle: "OK")
-        alertView.show()
+        if showAlert {
+            UIAlertController.init(title: "Erro", message: "Ocorreu algum erro inesperado.", preferredStyle: .alert).show(viewController, sender: viewController)
+        }
         
         return false
     }
@@ -33,8 +34,9 @@ func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, viewCont
     let errorObject = ErrorObject(object: value)
     
     if let msgError = errorObject.msg {
-        let alertView = UIAlertView.init(title: "Erro", message: msgError, delegate: viewController, cancelButtonTitle: "OK")
-        alertView.show()
+        if showAlert {
+            UIAlertController.init(title: "Erro", message: msgError, preferredStyle: .alert).show(viewController, sender: viewController)
+        }
         
         return false
     }

@@ -13,6 +13,9 @@
 		ED3913281E088899001B506D /* DataTransacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3913261E088899001B506D /* DataTransacao.swift */; };
 		ED3913291E088899001B506D /* VirtualCardStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3913271E088899001B506D /* VirtualCardStatement.swift */; };
 		ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39132A1E0971A8001B506D /* PreferencesView.swift */; };
+		ED39132E1E098607001B506D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39132D1E098607001B506D /* CartView.swift */; };
+		ED3913301E09865B001B506D /* HighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39132F1E09865B001B506D /* HighlightsView.swift */; };
+		ED3913321E09868B001B506D /* MarketPlace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3913311E09868B001B506D /* MarketPlace.storyboard */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -90,6 +93,9 @@
 		ED3913261E088899001B506D /* DataTransacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransacao.swift; sourceTree = "<group>"; };
 		ED3913271E088899001B506D /* VirtualCardStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualCardStatement.swift; sourceTree = "<group>"; };
 		ED39132A1E0971A8001B506D /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		ED39132D1E098607001B506D /* CartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		ED39132F1E09865B001B506D /* HighlightsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightsView.swift; sourceTree = "<group>"; };
+		ED3913311E09868B001B506D /* MarketPlace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MarketPlace.storyboard; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -200,6 +206,16 @@
 				ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */,
 			);
 			name = Masks;
+			sourceTree = "<group>";
+		};
+		ED39132C1E09859C001B506D /* MarketPlace */ = {
+			isa = PBXGroup;
+			children = (
+				ED39132D1E098607001B506D /* CartView.swift */,
+				ED39132F1E09865B001B506D /* HighlightsView.swift */,
+				ED3913311E09868B001B506D /* MarketPlace.storyboard */,
+			);
+			name = MarketPlace;
 			sourceTree = "<group>";
 		};
 		ED599DC21E0070C2004EC753 /* Connection */ = {
@@ -313,6 +329,7 @@
 			children = (
 				ED791B661E00627C002C4A70 /* General */,
 				ED8AF3AC1DFF867900EBB73F /* Cards */,
+				ED39132C1E09859C001B506D /* MarketPlace */,
 				ED8AF3AB1DFF866D00EBB73F /* Login & Register */,
 			);
 			name = View;
@@ -624,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8AF3A51DFF862500EBB73F /* Login.storyboard in Resources */,
+				ED3913321E09868B001B506D /* MarketPlace.storyboard in Resources */,
 				ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */,
 				ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */,
 				ED791B6C1E0066FA002C4A70 /* services.plist in Resources */,
@@ -763,6 +781,7 @@
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
 				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
 				EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */,
+				ED39132E1E098607001B506D /* CartView.swift in Sources */,
 				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
 				ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */,
@@ -784,6 +803,7 @@
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
+				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,
 				EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */,
 				ED713DF61E03E62300E4D8E1 /* LoadingProgress.swift in Sources */,
 			);
@@ -945,7 +965,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XXT2XJVDAC;
 				INFOPLIST_FILE = Itspay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bb.aasmarques.Itspay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -965,7 +985,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XXT2XJVDAC;
 				INFOPLIST_FILE = Itspay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bb.aasmarques.Itspay;
 				PRODUCT_NAME = "$(TARGET_NAME)";

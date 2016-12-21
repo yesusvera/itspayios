@@ -54,7 +54,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate {
             let url = Repository.createServiceURLFromPListValue(.services, key: "cadastro")
             
             Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
-                if validateDataResponse(dataResponse, viewController: self) {
+                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
                     let alertView = UIAlertView.init(title: "Sucesso", message: "Login Efetuado.", delegate: self, cancelButtonTitle: "OK")
                     alertView.show()
                 }

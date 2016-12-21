@@ -17,9 +17,17 @@ class CardsView: UITableViewController {
         super.viewDidLoad()
         
         getVirtualCards()
+        
+        self.refreshControl = UIRefreshControl(frame: CGRect.zero)
+        
+        self.refreshControl?.addTarget(self, action: #selector(self.getVirtualCards), for: .valueChanged)
+        
+        self.tableView.addSubview(self.refreshControl!)
     }
     
     func getVirtualCards() {
+        arrayVirtualCards = [Credenciais]()
+        
         if Repository.isMockOn() {
             for i in 1...4 {
                 let virtualCardsJSON = Repository.getPListValue(.mocks, key: "virtualCards\(i)")
@@ -38,7 +46,9 @@ class CardsView: UITableViewController {
             let url = CardsController.createVirtualCardsURLPath()
             
             Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-                if validateDataResponse(dataResponse, viewController: self) {
+                self.refreshControl?.endRefreshing()
+                
+                if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                     if let value = dataResponse.result.value as? NSDictionary {
                         if let array = value["credenciais"] as? [Any] {
                             for object in array {
@@ -56,7 +66,7 @@ class CardsView: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 106
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,6 +100,10 @@ class CardsView: UITableViewController {
         }
         
         if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCard.nomeImpresso {
+            label.text = "\(value)"
+        }
+        
+        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCard.credencialMascarada {
             label.text = "\(value)"
         }
         

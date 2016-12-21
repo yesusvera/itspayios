@@ -48,7 +48,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
             Connection.request(url, method: .post, parameters: loginRequestObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
                 LoadingProgress.stopAnimating()
                 
-                if validateDataResponse(dataResponse, viewController: self) {
+                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
                     if let value = dataResponse.result.value {
                         LoginController.sharedInstance.loginResponseObject = LoginResponseObject(object: value)
                         

@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ChameleonFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +47,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>53DCC158C80EAABF08E46B736FF62A01</key>
+		<key>17CB08E7EE2B47591E19C8C725D9FC69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63B42B19836FA019F7EF02078519AFD7</key>
+		<key>34B6ECAA68645B37C5C8DBAE53F7A4ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3D91F6EB15C293F9874DD06B48CA59CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D7AD76DEED49C09A4BCA13E36DE1C83</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -68,21 +73,6 @@
 			<true/>
 		</dict>
 		<key>858DE4868B0A84662318083359853632</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>975EA57C3025562F3DF9447744CECB36</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B74E449693964100EFBED9EB51CAEE68</key>
 		<dict>
 			<key>primary</key>
 			<true/>

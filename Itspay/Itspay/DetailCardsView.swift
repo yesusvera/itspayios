@@ -43,7 +43,7 @@ class DetailCardsView: UITableViewController {
         let url = CardsController.createDetailVirtualCardsURLPath(virtualCard)
         
         Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, viewController: self) {
+            if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value {
                     self.virtualCard = Credenciais(object: value)
                     
@@ -59,7 +59,7 @@ class DetailCardsView: UITableViewController {
         let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date(), dataFinal: Date().addDays(daysAgo))
         
         Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, viewController: self) {
+            if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? NSDictionary {
                     self.virtualCardStatement = VirtualCardStatement(object: value)
                 }
