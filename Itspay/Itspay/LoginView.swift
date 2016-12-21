@@ -73,6 +73,11 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     
     @IBAction func buttonLoginAction(_ sender: UIButton) {
         if isFormValid() {
+            guard let _ = UserDefaults.standard.object(forKey: "isTouchIdOn") else {
+                doLogin()
+                return
+            }
+            
             if switchTouchIdValue.isOn {
                 authenticateTouchId()
             } else {
