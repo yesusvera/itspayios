@@ -17,6 +17,7 @@
 		ED3913301E09865B001B506D /* HighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39132F1E09865B001B506D /* HighlightsView.swift */; };
 		ED3913321E09868B001B506D /* MarketPlace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3913311E09868B001B506D /* MarketPlace.storyboard */; };
 		ED39133B1E0AE1F7001B506D /* AlertComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39133A1E0AE1F7001B506D /* AlertComponent.swift */; };
+		ED3A02E11E0B0E91000BCE53 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED3A02E01E0B0E91000BCE53 /* Settings.bundle */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -99,6 +100,7 @@
 		ED3913311E09868B001B506D /* MarketPlace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MarketPlace.storyboard; sourceTree = "<group>"; };
 		ED3913351E0AD6EF001B506D /* Itspay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Itspay-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED39133A1E0AE1F7001B506D /* AlertComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertComponent.swift; sourceTree = "<group>"; };
+		ED3A02E01E0B0E91000BCE53 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				ED791B6B1E0066FA002C4A70 /* services.plist */,
 				ED53229F1E056C25005ACBD2 /* mocks.plist */,
 				ED5322A11E056CD4005ACBD2 /* config.plist */,
+				ED3A02E01E0B0E91000BCE53 /* Settings.bundle */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 			files = (
 				ED8AF3A51DFF862500EBB73F /* Login.storyboard in Resources */,
 				ED3913321E09868B001B506D /* MarketPlace.storyboard in Resources */,
+				ED3A02E11E0B0E91000BCE53 /* Settings.bundle in Resources */,
 				ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */,
 				ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */,
 				ED791B6C1E0066FA002C4A70 /* services.plist in Resources */,

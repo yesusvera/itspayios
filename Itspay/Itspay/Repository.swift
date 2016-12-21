@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-let serviceMainRootProdKey = "mainServer"
+let serviceMainServerKey = "mainServer"
+let serviceSecondServerKey = "secondServer"
+let serviceThirdServerKey = "thirdServer"
 let serviceMainRootCustomUrlKey = "customUrl"
 
 var pathServices = Bundle.main.path(forResource: "services", ofType: "plist")
@@ -29,12 +31,10 @@ class Repository {
     static func serviceMainRoot() -> String {
         //Settings Bundle - Check if 'environment' is set, and use url key if true
         let standardUserDefaults = UserDefaults.standard
-        if let environmentDict = standardUserDefaults.dictionary(forKey: "environment") {
-            if let url = environmentDict["url"] as? String {
-                return url
-            }
+        if let url = standardUserDefaults.object(forKey: "environment") as? String {
+            return url
         }
-        return serviceMainRootProdKey //Default, if not set
+        return serviceMainServerKey //Default, if not set
     }
     
     static func setNewHostIp(_ ip: String) {
