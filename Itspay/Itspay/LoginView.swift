@@ -157,14 +157,14 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
         
         labelErrorCPF.isHidden = true
         
-        if switchTouchIdValue.isOn {
-            if let value = UserDefaults.standard.object(forKey: "lastPasswordLogged") as? String {
+        if let value = UserDefaults.standard.object(forKey: "lastPasswordLogged") as? String {
+            if switchTouchIdValue.isOn {
                 password = value
+                
+                labelErrorPassword.isHidden = true
+                
+                return true
             }
-            
-            labelErrorPassword.isHidden = true
-            
-            return true
         }
         
         guard let passwordValidation = textFieldPassword.text else {
