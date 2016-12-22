@@ -47,4 +47,12 @@ class SideMenuTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sideMenu = arraySideMenuObjects[indexPath.row]
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init("didSelectSideMenuItemObserver"), object: sideMenu)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

@@ -26,6 +26,8 @@ class DetailCardsView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didSelectSideMenuItemObserver(_:)), name: NSNotification.Name.init("didSelectSideMenuItemObserver"), object: nil)
+        
         self.title = "Cartão"
         
         let viewMenu = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -37,6 +39,26 @@ class DetailCardsView: UITableViewController {
         getVirtualCardsStatement()
         configMenuNavigationController()
         updateViewInfo()
+    }
+    
+    func didSelectSideMenuItemObserver(_ notification : Notification) {
+        dismiss(animated: true, completion: nil)
+        
+        if let object = notification.object as? SideMenuObject {
+            if object.menuType == .transfer {
+                self.performSegue(withIdentifier: "TransferSegue", sender: self)
+            } else if object.menuType == .charge {
+                self.performSegue(withIdentifier: "ChargeSegue", sender: self)
+            } else if object.menuType == .card {
+                self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+            } else if object.menuType == .security {
+                self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+            } else if object.menuType == .rates {
+                self.performSegue(withIdentifier: "RatesSegue", sender: self)
+            } else if object.menuType == .logout {
+                print("logout")
+            }
+        }
     }
     
     func getDetailVirtualCards() {
@@ -78,9 +100,20 @@ class DetailCardsView: UITableViewController {
         
         var arraySideMenuObjects = [SideMenuObject]()
         
-        arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: ""))
-        arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: ""))
-        
+        if let idProduto = virtualCard.idProduto {
+            if idProduto == 2 || idProduto == 3 {
+                arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
+                arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+            } else {
+                arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
+                arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
+                arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
+                arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
+                arraySideMenuObjects.append(SideMenuObject(title: "Tarifas", imagePath: "cash", menuType: .rates))
+                arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+            }
+        }
+
         sideMenuTableViewController.arraySideMenuObjects = arraySideMenuObjects
         sideMenuTableViewController.tableView.reloadData()
         
@@ -105,6 +138,10 @@ class DetailCardsView: UITableViewController {
         
         if let object = virtualCard.credencialMascarada {
             labelCardNumber.text = "\(object)"
+        }
+        
+        if let object = virtualCard.nomeProduto {
+            self.title = object
         }
     }
     
@@ -151,5 +188,12 @@ class DetailCardsView: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TransferSegue" {
+            let viewController = segue.destination as! TransferMainView
+            viewController.virtualCard = virtualCard
+        }
     }
 }

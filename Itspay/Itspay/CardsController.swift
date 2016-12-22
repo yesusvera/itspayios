@@ -46,4 +46,29 @@ class CardsController {
         return url
     }
 
+    static func createSearchTariffURLPath(_ credencial : Credenciais) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "buscarTarifas")
+        
+        if let value = credencial.idConta {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
+    
+    static func createTariffProfileURLPath(_ credencial : Credenciais, tarifa : Int) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "perfilTarifario")
+        
+        if let value = credencial.idConta {
+            url += "/\(value)"
+        }
+        
+        url += "/tarifa/\(tarifa)"
+        
+        return url
+    }
+    
+    static func createBanksListURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "bancos")
+    }
 }

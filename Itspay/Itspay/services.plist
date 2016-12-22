@@ -22,5 +22,11 @@
 	<string>issuer/api/gerador/credencial</string>
 	<key>images</key>
 	<string>issuer/api/imagem/abrir</string>
+	<key>buscarTarifas</key>
+	<string>issuer/api/portador/conta/buscar-tarifas/conta</string>
+	<key>perfilTarifario</key>
+	<string>issuer/api/perfiltarifario/conta</string>
+	<key>bancos</key>
+	<string>issuer/api/banco</string>
 </dict>
 </plist>
