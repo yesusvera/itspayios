@@ -104,8 +104,8 @@ class Connection {
     static func setDataHeadersAuthorization(with token : String) {
         let headers = [
             "AuthorizationPortador": token,
-            "Content-Type": "text/html; charset=UTF-8",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+//            "Content-Type": "text/html; charset=UTF-8",
+//            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Cookie": Connection.sharedConnection.stringCookies
         ]
         

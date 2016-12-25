@@ -77,7 +77,17 @@ class CardsView: UITableViewController {
     func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView) {
         let url = CardsController.createOpenPlasticURLPath(virtualCard)
         
+        var superview = UIView()
+        
+        if let view = imageView.superview {
+            superview = view
+            
+            LoadingProgress.startAnimating(in: superview)
+        }
+        
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
+            LoadingProgress.stopAnimating(in: superview)
+            
             if let data = dataResponse {
                 if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
                     imageView.image = UIImage(data: dataImage)
@@ -113,7 +123,7 @@ class CardsView: UITableViewController {
 //                        imageView.image = UIImage(data: data)
 //                    }
 //                })
-
+                
                 self.openPlastics(virtualCard, in: imageView)
             }
         }

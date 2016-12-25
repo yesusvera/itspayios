@@ -8,6 +8,8 @@
 
 import UIKit
 
+var LOADING_PROGRESS_VIEW_TAG = 900
+
 class LoadingProgress {
     static var sharedInstance = LoadingProgress()
     
@@ -39,12 +41,20 @@ class LoadingProgress {
     }
 
     static func startAnimating(in view : UIView) {
-        LoadingProgress.sharedInstance.loadingView = LoadingProgress.initLoadingView(view.frame)
-        
-        view.addSubview(LoadingProgress.sharedInstance.loadingView)
+        let loadingView = LoadingProgress.initLoadingView(view.frame)
+        loadingView.tag = LOADING_PROGRESS_VIEW_TAG
+        view.addSubview(loadingView)
     }
     
     static func stopAnimating() {
         LoadingProgress.sharedInstance.loadingView.removeFromSuperview()
+    }
+    
+    static func stopAnimating(in view : UIView) {
+        for subview in view.subviews {
+            if subview.tag == LOADING_PROGRESS_VIEW_TAG {
+                subview.removeFromSuperview()
+            }
+        }
     }
 }
