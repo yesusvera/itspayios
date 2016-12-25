@@ -73,6 +73,18 @@ class CardsView: UITableViewController {
             })
         }
     }
+    
+    func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView) {
+        let url = CardsController.createOpenPlasticURLPath(virtualCard)
+        
+        Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
+            if let data = dataResponse {
+                if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
+                    imageView.image = UIImage(data: dataImage)
+                }
+            }
+        })
+    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -92,16 +104,17 @@ class CardsView: UITableViewController {
 
         let virtualCard = arrayVirtualCards[indexPath.row]
         
-        if let imageView = cell.viewWithTag(1) as? UIImageView, let value = virtualCard.urlImagemProduto {
+        if let imageView = cell.viewWithTag(1) as? UIImageView {
             if Repository.isMockOn() {
-                imageView.image = UIImage(named: value)
+                imageView.image = UIImage(named: "Card\(indexPath.row+1)")
             } else {
 //                Connection.imageFrom(value, downloadResponseData: { (response) in
 //                    if let data = response.result.value {
 //                        imageView.image = UIImage(data: data)
 //                    }
 //                })
-                imageView.image = UIImage(named: "Card\(indexPath.row+1)")
+
+                self.openPlastics(virtualCard, in: imageView)
             }
         }
         

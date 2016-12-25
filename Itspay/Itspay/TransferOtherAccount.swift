@@ -25,14 +25,19 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
     
     var tariffProfile = Double(0)
     
+    var agency = ""
+    var account = ""
+    var idBank = 0
+    var price = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerFieldsDataHelper.delegate = self
         
-        pickerFieldsDataHelper.addDataHelpers([textFieldBank], isDateType: false)
-        
         pickerFieldsDataHelper.doneButtonTitle = "OK"
+        
+        pickerFieldsDataHelper.addDataHelpers([textFieldBank], isDateType: false)
         
         updateViewInfo()
         getTariffProfile()
@@ -49,7 +54,7 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
         }
 
         if let object = virtualCard.saldo {
-            textFieldPrice.text = "\(object)"
+            textFieldPrice.text = "\(object)".formatToCurrencyReal()
         }
         
         textFieldTariff.text = "\(tariffProfile)".formatToLocalCurrency()
@@ -62,6 +67,8 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? Double {
                     self.tariffProfile = value
+                    
+                    self.updateViewInfo()
                 }
             }
         }
@@ -86,6 +93,53 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
     }
     
     @IBAction func buttonTransferAction(_ sender: UIButton) {
+        if isFormValid() {
+            let url = CardsController.createBankTransferURLPath(agency, account: account, idBank: idBank, price: price)
+            
+            LoadingProgress.startAnimatingInWindow()
+            Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
+                LoadingProgress.stopAnimating()
+                
+                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                    if let _ = dataResponse.result.value {
+                        
+                    }
+                }
+            })
+        } else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "* Preencha todos os campos obrigatórios.", viewController: self)
+        }
+    }
+    
+    func isFormValid() -> Bool {
+        guard let agencyValidation = textFieldAgency.text else {
+            return false
+        }
         
+        agency = agencyValidation
+        
+        guard let accountValidation = textFieldAccount.text else {
+            return false
+        }
+        
+        account = accountValidation
+        
+        guard let bank = pickerFieldsDataHelper.selectedObjectForTextField(textFieldBank) as? Bank else {
+            return false
+        }
+
+        guard let idBankValidation = bank.idBanco else {
+            return false
+        }
+
+        idBank = idBankValidation
+        
+        guard let priceValidation = textFieldPrice.text else {
+            return false
+        }
+        
+        price = priceValidation.formatToLocalCurrency()
+        
+        return true
     }
 }

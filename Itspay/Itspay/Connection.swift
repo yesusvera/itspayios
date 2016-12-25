@@ -17,6 +17,8 @@ class Connection {
     
     var headers : HTTPHeaders?
     
+    var dataHeaders : HTTPHeaders?
+    
     var cookies = [HTTPCookie]()
     
     var stringCookies = ""
@@ -40,6 +42,16 @@ class Connection {
             print("URL: \(url)\nJSON Response: \(response)\n")
             
             dataResponseJSON(response)
+        }
+    }
+    
+    static func requestData(_ url : String, method : HTTPMethod, parameters : [String : Any]?, dataResponse: @escaping (Data?) -> ()) {
+        let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: Connection.sharedConnection.dataHeaders)
+        
+        data.response { (response) in
+            print("URL: \(url)\nJSON Response: \(response)\n")
+            
+            dataResponse(response.data)
         }
     }
     
@@ -85,12 +97,23 @@ class Connection {
         ]
         
         Connection.sharedConnection.headers = headers
+        
+        Connection.setDataHeadersAuthorization(with: token)
+    }
+
+    static func setDataHeadersAuthorization(with token : String) {
+        let headers = [
+            "AuthorizationPortador": token,
+            "Content-Type": "text/html; charset=UTF-8",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Cookie": Connection.sharedConnection.stringCookies
+        ]
+        
+        Connection.sharedConnection.dataHeaders = headers
     }
     
     static func removeSession() {
         Connection.sharedConnection.headers = nil
-//        Connection.sharedConnection.cookies = [HTTPCookie]()
-//        Connection.sharedConnection.stringCookies = ""
         LoginController.sharedInstance.loginResponseObject = nil
     }
 }

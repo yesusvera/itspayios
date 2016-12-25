@@ -112,6 +112,71 @@ class TextFieldCPFMask: UITextField, UITextFieldDelegate {
     }
 }
 
+class TextFieldBankMask: UITextField, UITextFieldDelegate {
+    @IBInspectable var maxCharacteres = 5
+    @IBInspectable var isDigitAvaiable = true
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.delegate = self
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string != "" {
+            if isDigitAvaiable {
+                textField.text = maskAgencyAccount(textField, max: maxCharacteres)
+            }
+            
+            if textField.text!.characters.count == maxCharacteres-1 {
+                textField.text = "\(textField.text!)\(string)"
+            }
+            
+            if textField.text!.characters.count > maxCharacteres-1 {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func maskAgencyAccount(_ textField: UITextField!, max: Int) -> String {
+        if ((textField.text!).characters.count > 0) && ((textField.text!).characters.count < max) {
+            textField.text = textField.text!.replacingOccurrences(of: "-", with: "", options: .backwards, range: nil)
+            let str : NSMutableString = NSMutableString(string: textField.text!)
+            str.insert("-", at: (textField.text!).characters.count)
+            return str as String
+        }
+        
+        return textField.text!
+    }
+}
+
+class TextFieldCurrencyMask: UITextField, UITextFieldDelegate {
+    @IBInspectable var isRealVisible = true
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.delegate = self
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string != "" {
+            textField.text = textField.text!.formatCurrency(range: range, string: string)
+            
+            if isRealVisible {
+                textField.text = "R$ \(textField.text!.replacingOccurrences(of: "R$", with: ""))"
+            } else {
+                textField.text = textField.text!.replacingOccurrences(of: "R$", with: "")
+            }
+            
+            return false
+        }
+        return true
+    }
+}
+
 class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -166,5 +231,4 @@ extension String {
     func onlyNumbers() -> String {
         return self.replacingOccurrences(of: "[^0-9]", with: "", options: String.CompareOptions.regularExpression, range: nil)
     }
-
 }

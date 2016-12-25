@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>termosDeUso</key>
+	<key>useTerms</key>
 	<string>http://www.financialcartoes.com.br/Download/CONTRATO_DE_CONCESSAO_DE_CREDITO_CARTAO_INDIVIDUAL_COMPLETO_080115.pdf</string>
 	<key>mainServer</key>
 	<string>http://tst.issuer.itspay.com.br</string>
@@ -12,7 +12,7 @@
 	<string>http://tst.api.itspay.com.br</string>
 	<key>login</key>
 	<string>issuer/api/portador/login/auth</string>
-	<key>cadastro</key>
+	<key>register</key>
 	<string>issuer/api/portador/login</string>
 	<key>logout</key>
 	<string>issuer/api/portador/login/logout</string>
@@ -22,11 +22,19 @@
 	<string>issuer/api/gerador/credencial</string>
 	<key>images</key>
 	<string>issuer/api/imagem/abrir</string>
-	<key>buscarTarifas</key>
+	<key>searchTariff</key>
 	<string>issuer/api/portador/conta/buscar-tarifas/conta</string>
-	<key>perfilTarifario</key>
+	<key>tariffProfile</key>
 	<string>issuer/api/perfiltarifario/conta</string>
-	<key>bancos</key>
+	<key>banks</key>
 	<string>issuer/api/banco</string>
+	<key>cardTransfer</key>
+	<string>issuer/api/portador/conta/transferencia</string>
+	<key>bankTransfer</key>
+	<string>issuer/api/agencia</string>
+	<key>openPlastic</key>
+	<string>issuer/api/plastico/abrir/mobile</string>
+	<key>email</key>
+	<string>issuer/api/portador/login/10/101/buscar-email</string>
 </dict>
 </plist>

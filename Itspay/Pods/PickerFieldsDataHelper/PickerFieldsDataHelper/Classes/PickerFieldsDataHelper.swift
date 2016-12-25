@@ -42,7 +42,7 @@ open class PickerFieldsDataHelper: NSObject, PickerFieldsDataHelperDelegate, UIP
     //Show first item with nil object
     open var useDefaultFirstItem = true
     open var initWithDefaultFirstItemSelected = true //if useDefaultFirstItem is true
-    open var defaultFirstItemTitle = "Select..." //Use if useDefaultFirstItem is true
+    open var defaultFirstItemTitle = "Selecione" //Use if useDefaultFirstItem is true
     
     //Date Type
     open var dateFormat = "dd/MM/yyyy"

@@ -54,6 +54,16 @@ class LoginController {
         return LoginRequestObject(object: dictionary)
     }
     
+    static func createEmailURLPath() -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "email")
+        
+        if let value = LoginController.sharedInstance.loginResponseObject.cpf {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
+    
     static func logout() {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
         

@@ -56,7 +56,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
             let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : birthday, cpf: cpf, password: password)
-            let url = Repository.createServiceURLFromPListValue(.services, key: "cadastro")
+            let url = Repository.createServiceURLFromPListValue(.services, key: "register")
             
             Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
                 if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
@@ -210,7 +210,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
             let viewController = segue.destination as! WebView
             viewController.textTitle = "Termos de Uso"
             
-            let url = URL(string: Repository.getPListValue(.services, key: "termosDeUso"))
+            let url = URL(string: Repository.getPListValue(.services, key: "useTerms"))
             viewController.selectedURL = url
         }
     }

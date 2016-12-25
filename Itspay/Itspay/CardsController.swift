@@ -33,6 +33,16 @@ class CardsController {
         
         return url
     }
+    
+    static func createOpenPlasticURLPath(_ credencial : Credenciais) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "openPlastic")
+        
+        if let value = credencial.idPlastico {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
 
     static func createVirtualCardStatementURLPath(_ credencial : Credenciais, dataInicial : Date, dataFinal : Date) -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "credencial")
@@ -47,7 +57,7 @@ class CardsController {
     }
 
     static func createSearchTariffURLPath(_ credencial : Credenciais) -> String {
-        var url = Repository.createServiceURLFromPListValue(.services, key: "buscarTarifas")
+        var url = Repository.createServiceURLFromPListValue(.services, key: "searchTariff")
         
         if let value = credencial.idConta {
             url += "/\(value)"
@@ -57,7 +67,7 @@ class CardsController {
     }
     
     static func createTariffProfileURLPath(_ credencial : Credenciais, tarifa : Int) -> String {
-        var url = Repository.createServiceURLFromPListValue(.services, key: "perfilTarifario")
+        var url = Repository.createServiceURLFromPListValue(.services, key: "tariffProfile")
         
         if let value = credencial.idConta {
             url += "/\(value)"
@@ -69,6 +79,17 @@ class CardsController {
     }
     
     static func createBanksListURLPath() -> String {
-        return Repository.createServiceURLFromPListValue(.services, key: "bancos")
+        return Repository.createServiceURLFromPListValue(.services, key: "banks")
+    }
+    
+    static func createBankTransferURLPath(_ agency : String, account : String, idBank : Int, price : String) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "bankTransfer")
+        
+        url += "/\(agency)"
+        url += "/conta/\(account)"
+        url += "/banco/\(idBank)"
+        url += "/valorTransferencia/\(price)"
+        
+        return url
     }
 }

@@ -20,16 +20,34 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
     var isEmailEditing = false
     var isPasswordEditing = false
     
+    var email = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Ajustes Gerais"
         
+        getEmail()
         updateViewInfo()
     }
     
     func updateViewInfo() {
+        self.textFieldEmail.text = email
+    }
+    
+    func getEmail() {
+        let url = LoginController.createEmailURLPath()
         
+        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                if let value = dataResponse.result.value as? NSDictionary {
+                    if let email = value["email"] as? String {
+                        self.email = email
+                        self.updateViewInfo()
+                    }
+                }
+            }
+        })
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
@@ -123,7 +141,7 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
             let viewController = segue.destination as! WebView
             viewController.textTitle = "Termos de Uso"
             
-            let url = URL(string: Repository.getPListValue(.services, key: "termosDeUso"))
+            let url = URL(string: Repository.getPListValue(.services, key: "useTerms"))
             viewController.selectedURL = url
         }
     }
