@@ -195,20 +195,23 @@ class DetailCardsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 44
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 30))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 44))
         
-        segmentedControlValue.frame = CGRect(x: 8, y: 0, width: header.frame.width-16, height: segmentedControlValue.frame.height)
+        header.backgroundColor = UIColor.white
+        
+        segmentedControlValue.frame = CGRect(x: 8, y: 8, width: header.frame.width-16, height: segmentedControlValue.frame.height)
+        
         header.addSubview(segmentedControlValue)
         
         return header
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 70
+        return viewFooter.frame.height
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -222,6 +225,8 @@ class DetailCardsView: UITableViewController {
 
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+        } else {
+            cell.backgroundColor = UIColor.white
         }
         
         let virtualCardStatement = arrayVirtualCardStatement[indexPath.row]
