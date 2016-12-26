@@ -126,8 +126,6 @@ class DetailCardsView: UITableViewController {
     }
     
     func getVirtualCardsStatement() {
-        arrayVirtualCardStatement = [VirtualCardStatement]()
-        
         let daysAgo = (15 * (segmentedControlValue.selectedSegmentIndex+1)) * -1
         
         let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date().addDays(daysAgo), dataFinal: Date())
@@ -140,6 +138,8 @@ class DetailCardsView: UITableViewController {
             
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? [Any] {
+                    self.arrayVirtualCardStatement = [VirtualCardStatement]()
+                    
                     for object in value {
                         let virtualCardStatement = VirtualCardStatement(object: object)
                         

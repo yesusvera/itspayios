@@ -28,9 +28,9 @@ class CardsView: UITableViewController {
     }
     
     func getVirtualCards() {
-        arrayVirtualCards = [Credenciais]()
-        
         if Repository.isMockOn() {
+            arrayVirtualCards = [Credenciais]()
+            
             for i in 1...4 {
                 let virtualCardsJSON = Repository.getPListValue(.mocks, key: "virtualCards\(i)")
                 
@@ -54,6 +54,8 @@ class CardsView: UITableViewController {
                     if let value = dataResponse.result.value as? NSDictionary {
                         if let array = value["credenciais"] as? [Any] {
                             self.countServiceCallTimes = 0
+                            
+                            self.arrayVirtualCards = [Credenciais]()
                             
                             for object in array {
                                 let credenciais = Credenciais(object: object)
