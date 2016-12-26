@@ -38,5 +38,7 @@
 	<string>issuer/api/portador/login/10/101/buscar-email</string>
 	<key>changeEmail</key>
 	<string>issuer/api/portador/login/trocar-email</string>
+	<key>changePassword</key>
+	<string>issuer/api/portador/login/trocar-senha</string>
 </dict>
 </plist>

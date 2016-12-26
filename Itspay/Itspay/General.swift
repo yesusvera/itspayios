@@ -35,7 +35,13 @@ func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, showAler
     
     if let msgError = errorObject.msg {
         if showAlert {
-            AlertComponent.showSimpleAlert(title: "Erro", message: msgError, viewController: viewController)
+            var title = "Erro"
+            
+            if msgError.contains("sucess") {
+                title = "Sucesso"
+            }
+            
+            AlertComponent.showSimpleAlert(title: title, message: msgError, viewController: viewController)
         }
         
         return false

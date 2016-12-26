@@ -21,6 +21,8 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
     var isPasswordEditing = false
     
     var email = ""
+    var password = ""
+    var newPassword = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,37 +52,79 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         })
     }
     
+    @IBAction func buttonAction(_ sender: UIButton) {
+        if isEmailEditing {
+            if isEmailFormValid() {
+                updateEmail()
+            }
+        } else {
+            if isPasswordFormValid() {
+                updatePassword()
+            }
+        }
+    }
+    
     func updateEmail() {
         let url = LoginController.createChangeEmailURLPath()
         
-        Connection.request(url, method: .put, parameters: LoginController.createChanceEmailParametersDictionary(email), dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                if let value = dataResponse.result.value as? NSDictionary {
-                    if let msg = value["msg"] as? String {
-                        AlertComponent.showSimpleAlert(title: "Sucesso", message: msg, viewController: self)
-                    }
-                }
-            } else {
-                if let value = dataResponse.result.value as? NSDictionary {
-                    if let msg = value["msg"] as? String {
-                        AlertComponent.showSimpleAlert(title: "Sucesso", message: msg, viewController: self)
-                    }
-                }
-            }
+        Connection.request(url, method: .put, parameters: LoginController.createChangeEmailParametersDictionary(email), dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {    }
         })
     }
     
-    @IBAction func buttonAction(_ sender: UIButton) {
-        if isEmailEditing {
-            guard let emailValidation = textFieldEmail.text else {
-                AlertComponent.showSimpleAlert(title: "Erro", message: "Email inválido.", viewController: self)
-                return
-            }
-
-            email = emailValidation
+    func updatePassword() {
+        let url = LoginController.createChangePasswordURLPath()
+        
+        Connection.request(url, method: .put, parameters: LoginController.createChangePasswordParametersDictionary(password, newPassword: newPassword), dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {    }
             
-            updateEmail()
+            self.clearAllFields()
+        })
+    }
+    
+    func clearAllFields() {
+        textFieldCurrentPassword.text = ""
+        textFieldNewPassword.text = ""
+        textFieldNewPasswordConfirmation.text = ""
+    }
+    
+    func isEmailFormValid() -> Bool {
+        guard let emailValidation = textFieldEmail.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Email inválido.", viewController: self)
+            return false
         }
+        
+        email = emailValidation
+        
+        return true
+    }
+    
+    func isPasswordFormValid() -> Bool {
+        guard let passwordValidation = textFieldCurrentPassword.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Senha atual inválida.", viewController: self)
+            return false
+        }
+        
+        password = passwordValidation
+        
+        guard let newPasswordValidation = textFieldNewPassword.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Nova senha inválida.", viewController: self)
+            return false
+        }
+        
+        guard let newPasswordConfirmationValidation = textFieldNewPasswordConfirmation.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Confirmação de senha inválida.", viewController: self)
+            return false
+        }
+        
+        if newPasswordValidation != newPasswordConfirmationValidation {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "As senhas devem ser iguais.", viewController: self)
+            return false
+        }
+        
+        newPassword = newPasswordValidation
+        
+        return true
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

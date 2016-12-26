@@ -68,7 +68,7 @@ class LoginController {
         return Repository.createServiceURLFromPListValue(.services, key: "changeEmail")
     }
     
-    static func createChanceEmailParametersDictionary(_ email : String) -> [String:Any] {
+    static func createChangeEmailParametersDictionary(_ email : String) -> [String:Any] {
         var dictionary = [String:Any]()
         
         if let cpf = LoginController.sharedInstance.loginResponseObject.cpf {
@@ -76,6 +76,26 @@ class LoginController {
         }
         
         dictionary["email"] = email
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        return dictionary
+    }
+    
+    static func createChangePasswordURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "changePassword")
+    }
+    
+    static func createChangePasswordParametersDictionary(_ password : String, newPassword : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let cpf = LoginController.sharedInstance.loginResponseObject.cpf {
+            dictionary["cpf"] = cpf
+        }
+        
+        dictionary["senha"] = password
+        dictionary["novaSenha"] = newPassword
+        dictionary["confirmaSenha"] = newPassword
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
         
