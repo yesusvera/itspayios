@@ -27,6 +27,8 @@
 		<key>NSExceptionDomains</key>
 		<dict/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Câmera usada para cadastrar cartão de crédito</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Localização usada para capturar a localização do dispositivo</string>
 	<key>UILaunchStoryboardName</key>
@@ -62,7 +64,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Câmera usada para cadastrar cartão de crédito</string>
 </dict>
 </plist>

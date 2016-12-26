@@ -47,6 +47,12 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isTouchIdOn {
+            if indexPath.row == 2 || indexPath.row == 3 {
+                return 0
+            }
+        }
+        
         if indexPath.row == 5 {
             if !TouchID.isTouchIDAvaiable().isAvaiable {
                 labelTouchId.isHidden = true
@@ -58,6 +64,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
             labelTouchId.isHidden = false
             switchTouchIdValue.isHidden = false
         }
+        
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
@@ -89,10 +96,16 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     func authenticateTouchId() {
         TouchID.authenticateUserTouchID { (result, message, isPasswordNeeded) -> () in
             if isPasswordNeeded == true {
-                self.isTouchIdOn = true
+                self.isTouchIdOn = false
+                
+                self.tableView.reloadData()
             } else {
                 if !result {
+                    self.isTouchIdOn = false
+                    
                     AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
+                    
+                    self.tableView.reloadData()
                 } else {
                     self.doLogin()
                 }

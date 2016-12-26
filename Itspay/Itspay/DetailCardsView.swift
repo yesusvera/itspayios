@@ -54,7 +54,7 @@ class DetailCardsView: UITableViewController {
     }
     
     func updateViewInfo() {
-        CardsController.openPlastics(virtualCard, in: imageViewCard, showLoading: true)
+        CardsController.openPlastics(virtualCard, in: imageViewCard, showLoading: false)
         
         if let object = virtualCard.saldo {
             labelBalance.text = "\(object)".formatToCurrencyReal()
@@ -130,11 +130,11 @@ class DetailCardsView: UITableViewController {
         
         let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date().addDays(daysAgo), dataFinal: Date())
         
-        LoadingProgress.startAnimating(in: self.view)
+        LoadingProgress.startAnimatingInWindow()
         Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
             self.refreshControl?.endRefreshing()
             
-            LoadingProgress.stopAnimating(in: self.view)
+            LoadingProgress.stopAnimating()
             
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? [Any] {

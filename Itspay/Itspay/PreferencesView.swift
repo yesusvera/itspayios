@@ -50,8 +50,37 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         })
     }
     
-    @IBAction func buttonAction(_ sender: UIButton) {
+    func updateEmail() {
+        let url = LoginController.createChangeEmailURLPath()
         
+        Connection.request(url, method: .put, parameters: LoginController.createChanceEmailParametersDictionary(email), dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                if let value = dataResponse.result.value as? NSDictionary {
+                    if let msg = value["msg"] as? String {
+                        AlertComponent.showSimpleAlert(title: "Sucesso", message: msg, viewController: self)
+                    }
+                }
+            } else {
+                if let value = dataResponse.result.value as? NSDictionary {
+                    if let msg = value["msg"] as? String {
+                        AlertComponent.showSimpleAlert(title: "Sucesso", message: msg, viewController: self)
+                    }
+                }
+            }
+        })
+    }
+    
+    @IBAction func buttonAction(_ sender: UIButton) {
+        if isEmailEditing {
+            guard let emailValidation = textFieldEmail.text else {
+                AlertComponent.showSimpleAlert(title: "Erro", message: "Email inválido.", viewController: self)
+                return
+            }
+
+            email = emailValidation
+            
+            updateEmail()
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,8 +117,6 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
                 
                 if MFMailComposeViewController.canSendMail() {
                     self.present(mailComposeViewController, animated: true, completion: nil)
-                } else {
-                    self.showSendMailErrorAlert()
                 }
             }
         }
@@ -97,23 +124,6 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         tableView.beginUpdates()
         tableView.reloadData()
         tableView.endUpdates()
-    }
-    
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
-        
-        mailComposerVC.setToRecipients([EMAIL_SAC])
-        
-        return mailComposerVC
-    }
-    
-    func showSendMailErrorAlert() {
-//        AlertComponent.showSimpleAlert(title: "Erro", message: "Não foi possível enviar o email. Por favor cheque a configuração de email no seu dispositivo e tente novamente.", viewController: self)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,6 +144,19 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         }
         
         return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients([EMAIL_SAC])
+        
+        return mailComposerVC
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

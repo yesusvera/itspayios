@@ -2,7 +2,7 @@
 //  DateFormatComponent.swift
 //
 //  Created by Arthur Marques on 4/7/16.
-//  Copyright © 2016 bb. All rights reserved.
+//  Copyright © 2016 ItsPay. All rights reserved.
 //
 
 import UIKit

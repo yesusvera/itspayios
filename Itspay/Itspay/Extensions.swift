@@ -2,7 +2,7 @@
 //  Extensions.swift
 //
 //  Created by Arthur Augusto Sousa Marques on 8/2/16.
-//  Copyright © 2016 bb. All rights reserved.
+//  Copyright © 2016 ItsPay. All rights reserved.
 //
 
 import UIKit

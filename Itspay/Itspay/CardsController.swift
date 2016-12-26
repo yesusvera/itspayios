@@ -98,19 +98,13 @@ class CardsController {
     static func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView, showLoading : Bool) {
         let url = CardsController.createOpenPlasticURLPath(virtualCard)
         
-        var superview = UIView()
-        
         if showLoading {
-            if let view = imageView.superview {
-                superview = view
-                
-                LoadingProgress.startAnimating(in: superview)
-            }
+            LoadingProgress.startAnimating(in: imageView)
         }
         
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
             if showLoading {
-                LoadingProgress.stopAnimating(in: superview)
+                LoadingProgress.stopAnimating(in: imageView)
             }
             
             if let data = dataResponse {

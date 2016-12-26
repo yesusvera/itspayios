@@ -2,7 +2,7 @@
 //  TextFieldPhoneMask.swift
 //
 //  Created by Allan Alves on 9/5/16.
-//  Copyright © 2016 bb. All rights reserved.
+//  Copyright © 2016 ItsPay. All rights reserved.
 //
 
 import UIKit

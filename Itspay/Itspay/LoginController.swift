@@ -64,6 +64,24 @@ class LoginController {
         return url
     }
     
+    static func createChangeEmailURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "changeEmail")
+    }
+    
+    static func createChanceEmailParametersDictionary(_ email : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let cpf = LoginController.sharedInstance.loginResponseObject.cpf {
+            dictionary["documento"] = cpf
+        }
+        
+        dictionary["email"] = email
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        return dictionary
+    }
+    
     static func logout() {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
         

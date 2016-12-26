@@ -2,7 +2,7 @@
 //  TouchID.swift
 //
 //  Created by Arthur Augusto on 9/29/15.
-//  Copyright © 2015 bb. All rights reserved.
+//  Copyright © 2015 ItsPay. All rights reserved.
 //
 
 import Foundation

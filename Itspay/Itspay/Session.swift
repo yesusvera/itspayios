@@ -2,7 +2,7 @@
 //  Session.swift
 //
 //  Created by Arthur Marques on 11/3/15.
-//  Copyright © 2015 bb. All rights reserved.
+//  Copyright © 2015 ItsPay. All rights reserved.
 //
 
 import Foundation
