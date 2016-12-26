@@ -30,7 +30,7 @@ public final class VirtualCardStatement: NSCoding {
   public var dataTransacao: DataTransacao?
   public var dataTransacaoFmt: String?
   public var descTransacao: String?
-  public var valorTransacao: Int?
+  public var valorTransacao: Float?
   public var dataTransacaoFmtMes: String?
   public var descSeguimento: String?
 
@@ -53,7 +53,7 @@ public final class VirtualCardStatement: NSCoding {
     dataTransacao = DataTransacao(json: json[SerializationKeys.dataTransacao])
     dataTransacaoFmt = json[SerializationKeys.dataTransacaoFmt].string
     descTransacao = json[SerializationKeys.descTransacao].string
-    valorTransacao = json[SerializationKeys.valorTransacao].int
+    valorTransacao = json[SerializationKeys.valorTransacao].float
     dataTransacaoFmtMes = json[SerializationKeys.dataTransacaoFmtMes].string
     descSeguimento = json[SerializationKeys.descSeguimento].string
   }
@@ -83,7 +83,7 @@ public final class VirtualCardStatement: NSCoding {
     self.dataTransacao = aDecoder.decodeObject(forKey: SerializationKeys.dataTransacao) as? DataTransacao
     self.dataTransacaoFmt = aDecoder.decodeObject(forKey: SerializationKeys.dataTransacaoFmt) as? String
     self.descTransacao = aDecoder.decodeObject(forKey: SerializationKeys.descTransacao) as? String
-    self.valorTransacao = aDecoder.decodeObject(forKey: SerializationKeys.valorTransacao) as? Int
+    self.valorTransacao = aDecoder.decodeObject(forKey: SerializationKeys.valorTransacao) as? Float
     self.dataTransacaoFmtMes = aDecoder.decodeObject(forKey: SerializationKeys.dataTransacaoFmtMes) as? String
     self.descSeguimento = aDecoder.decodeObject(forKey: SerializationKeys.descSeguimento) as? String
   }

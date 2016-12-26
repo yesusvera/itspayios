@@ -48,10 +48,12 @@ class CardsController {
         var url = Repository.createServiceURLFromPListValue(.services, key: "credencial")
         
         if let value = credencial.idCredencial {
-            url += "/\(value)/detalhes"
+            url += "/\(value)"
         }
         
-        url += "/extrato/data_inicial/\(DateFormatter.stringWith("dd/MM/yyyy", from: dataInicial))/data_final/\(DateFormatter.stringWith("dd/MM/yyyy", from: dataFinal))"
+        if let initialDate = DateFormatter.stringWith("yyyy-MM-dd", from: dataInicial), let endDate = DateFormatter.stringWith("yyyy-MM-dd", from: dataFinal) {
+            url += "/extrato/data_inicial/\(initialDate)/data_final/\(endDate)"
+        }
         
         return url
     }
@@ -91,5 +93,31 @@ class CardsController {
         url += "/valorTransferencia/\(price)"
         
         return url
+    }
+    
+    static func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView, showLoading : Bool) {
+        let url = CardsController.createOpenPlasticURLPath(virtualCard)
+        
+        var superview = UIView()
+        
+        if showLoading {
+            if let view = imageView.superview {
+                superview = view
+                
+                LoadingProgress.startAnimating(in: superview)
+            }
+        }
+        
+        Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
+            if showLoading {
+                LoadingProgress.stopAnimating(in: superview)
+            }
+            
+            if let data = dataResponse {
+                if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
+                    imageView.image = UIImage(data: dataImage)
+                }
+            }
+        })
     }
 }

@@ -19,9 +19,15 @@ class DetailCardsView: UITableViewController {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelCardNumber: UILabel!
     
+    @IBOutlet var viewHeader: UIView!
+    @IBOutlet var viewFooter: UIView!
+    
+    @IBOutlet weak var labelCurrentBalance: UILabel!
+    @IBOutlet weak var labelTransactionDate: UILabel!
+    
     var virtualCard : Credenciais!
     
-    var virtualCardStatement : VirtualCardStatement!
+    var arrayVirtualCardStatement = [VirtualCardStatement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,55 +45,39 @@ class DetailCardsView: UITableViewController {
         getVirtualCardsStatement()
         configMenuNavigationController()
         updateViewInfo()
+        
+        self.refreshControl = UIRefreshControl(frame: CGRect.zero)
+        
+        self.refreshControl?.addTarget(self, action: #selector(self.getVirtualCardsStatement), for: .valueChanged)
+        
+        self.tableView.addSubview(self.refreshControl!)
     }
     
-    func didSelectSideMenuItemObserver(_ notification : Notification) {
-        dismiss(animated: true, completion: nil)
+    func updateViewInfo() {
+        CardsController.openPlastics(virtualCard, in: imageViewCard, showLoading: true)
         
-        if let object = notification.object as? SideMenuObject {
-            if object.menuType == .transfer {
-                self.performSegue(withIdentifier: "TransferSegue", sender: self)
-            } else if object.menuType == .charge {
-                self.performSegue(withIdentifier: "ChargeSegue", sender: self)
-            } else if object.menuType == .card {
-                self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-            } else if object.menuType == .security {
-                self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-            } else if object.menuType == .rates {
-                self.performSegue(withIdentifier: "RatesSegue", sender: self)
-            } else if object.menuType == .logout {
-                print("logout")
-            }
+        if let object = virtualCard.saldo {
+            labelBalance.text = "\(object)".formatToCurrencyReal()
+            labelCurrentBalance.text = "\(object)".formatToCurrencyReal()
+        }
+        
+        if let object = virtualCard.dataValidadeFmt {
+            labelTransactionDate.text = "\(object)"
+        }
+        
+        if let object = virtualCard.nomeImpresso {
+            labelName.text = "\(object)"
+        }
+        
+        if let object = virtualCard.credencialMascarada {
+            labelCardNumber.text = "\(object)"
+        }
+        
+        if let object = virtualCard.nomeProduto {
+            self.title = object
         }
     }
     
-    func getDetailVirtualCards() {
-        let url = CardsController.createDetailVirtualCardsURLPath(virtualCard)
-        
-        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
-                if let value = dataResponse.result.value {
-                    self.virtualCard = Credenciais(object: value)
-                    
-                    self.updateViewInfo()
-                }
-            }
-        })
-    }
-    
-    func getVirtualCardsStatement() {
-        let daysAgo = (15 * (segmentedControlValue.selectedSegmentIndex+1)) * -1
-        
-        let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date(), dataFinal: Date().addDays(daysAgo))
-        
-        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
-                if let value = dataResponse.result.value as? NSDictionary {
-                    self.virtualCardStatement = VirtualCardStatement(object: value)
-                }
-            }
-        })
-    }
     
     func configMenuNavigationController() {
         let sideMenuTableViewController = instantiateFrom("General", identifier: "SideMenuTableViewController") as! SideMenuTableViewController
@@ -113,7 +103,7 @@ class DetailCardsView: UITableViewController {
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
             }
         }
-
+        
         sideMenuTableViewController.arraySideMenuObjects = arraySideMenuObjects
         sideMenuTableViewController.tableView.reloadData()
         
@@ -121,32 +111,69 @@ class DetailCardsView: UITableViewController {
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: sideNavigationController.view)
     }
     
-    func updateViewInfo() {
-        if let object = virtualCard.urlImagemProduto {
-            if Repository.isMockOn() {
-                imageViewCard.image = UIImage(named: object)
+    func getDetailVirtualCards() {
+        let url = CardsController.createDetailVirtualCardsURLPath(virtualCard)
+        
+        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                if let value = dataResponse.result.value {
+                    self.virtualCard = Credenciais(object: value)
+                    
+                    self.updateViewInfo()
+                }
             }
-        }
+        })
+    }
+    
+    func getVirtualCardsStatement() {
+        arrayVirtualCardStatement = [VirtualCardStatement]()
         
-        if let object = virtualCard.saldo {
-            labelBalance.text = "\(object)".formatToCurrencyReal()
-        }
+        let daysAgo = (15 * (segmentedControlValue.selectedSegmentIndex+1)) * -1
         
-        if let object = virtualCard.nomeImpresso {
-            labelName.text = "\(object)"
-        }
+        let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date().addDays(daysAgo), dataFinal: Date())
         
-        if let object = virtualCard.credencialMascarada {
-            labelCardNumber.text = "\(object)"
-        }
+        LoadingProgress.startAnimating(in: self.view)
+        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
+            self.refreshControl?.endRefreshing()
+            
+            LoadingProgress.stopAnimating(in: self.view)
+            
+            if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                if let value = dataResponse.result.value as? [Any] {
+                    for object in value {
+                        let virtualCardStatement = VirtualCardStatement(object: object)
+                        
+                        self.arrayVirtualCardStatement.append(virtualCardStatement)
+                    }
+                    
+                    self.tableView.reloadData()
+                }
+            }
+        })
+    }
+    
+    func didSelectSideMenuItemObserver(_ notification : Notification) {
+        dismiss(animated: true, completion: nil)
         
-        if let object = virtualCard.nomeProduto {
-            self.title = object
+        if let object = notification.object as? SideMenuObject {
+            if object.menuType == .transfer {
+                self.performSegue(withIdentifier: "TransferSegue", sender: self)
+            } else if object.menuType == .charge {
+                self.performSegue(withIdentifier: "ChargeSegue", sender: self)
+            } else if object.menuType == .card {
+                self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+            } else if object.menuType == .security {
+                self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+            } else if object.menuType == .rates {
+                self.performSegue(withIdentifier: "RatesSegue", sender: self)
+            } else if object.menuType == .logout {
+                print("logout")
+            }
         }
     }
     
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
-        
+        getVirtualCardsStatement()
     }
     
     @IBAction func buttonMenuAction(_ sender: UIButton) {
@@ -160,7 +187,11 @@ class DetailCardsView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return arrayVirtualCardStatement.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 128
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -175,16 +206,62 @@ class DetailCardsView: UITableViewController {
         
         return header
     }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        viewFooter.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: viewFooter.frame.height)
+        
+        return viewFooter
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCardsCellIdentifier", for: indexPath)
 
-        if let _ = cell.viewWithTag(1) as? UILabel {
-            
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
         }
         
-        if let _ = cell.viewWithTag(2) as? UILabel {
-            
+        let virtualCardStatement = arrayVirtualCardStatement[indexPath.row]
+        
+        var isSignalPositive = true
+        var color = UIColor.colorFrom(hex: COLOR_GREEN_HEX)
+        
+        if let value = virtualCardStatement.sinal {
+            if value < 0 {
+                isSignalPositive = false
+            }
+        }
+
+        if !isSignalPositive {
+            color = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        }
+        
+        if let label = cell.viewWithTag(1) as? UILabel, let value = virtualCardStatement.dataTransacaoFmt {
+            label.text = "\(value)"
+            label.textColor = color
+        }
+        
+        if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCardStatement.descLocal {
+            label.text = "\(value)"
+            label.textColor = color
+        }
+        
+        if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCardStatement.valorTransacao {
+            label.text = "\(value)".formatToCurrencyReal()
+            label.textColor = color
+        }
+        
+        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCardStatement.descSeguimento {
+            label.text = "\(value)"
+            label.textColor = color
+        }
+        
+        if let label = cell.viewWithTag(5) as? UILabel, let value = virtualCardStatement.descTransacao {
+            label.text = "\(value)"
+            label.textColor = color
         }
 
         return cell
