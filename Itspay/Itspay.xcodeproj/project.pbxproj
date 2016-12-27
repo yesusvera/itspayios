@@ -31,6 +31,11 @@
 		ED599DC91E007537004EC753 /* Chronology.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC61E007537004EC753 /* Chronology.swift */; };
 		ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */; };
 		ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED599DC81E007537004EC753 /* LoginResponseObject.swift */; };
+		ED6FC3641E11BF7200AD4562 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3631E11BF7200AD4562 /* Ticket.swift */; };
+		ED6FC3691E11F95600AD4562 /* RequestVirtualCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3681E11F95600AD4562 /* RequestVirtualCardsView.swift */; };
+		ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */; };
+		ED6FC36D1E12061900AD4562 /* NewVirtualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */; };
+		ED6FC36F1E120A4400AD4562 /* MessageErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */; };
 		ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */; };
 		ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */; };
 		ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */; };
@@ -60,6 +65,7 @@
 		EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */; };
 		EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A781E007D5600C91453 /* LoginController.swift */; };
 		EDAB8A7C1E007E6100C91453 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A7B1E007E6100C91453 /* System.swift */; };
+		EDB8CADC1E119A5F00BC8089 /* ChargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB8CADB1E119A5F00BC8089 /* ChargeView.swift */; };
 		EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBDCCF1DFFAD0000EB469A /* MainView.swift */; };
 		EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */; };
 		EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9F8221E07F00900B0DD37 /* SideMenuObject.swift */; };
@@ -120,6 +126,11 @@
 		ED599DC61E007537004EC753 /* Chronology.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chronology.swift; sourceTree = "<group>"; };
 		ED599DC71E007537004EC753 /* DataHoraUltimoAcessso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraUltimoAcessso.swift; sourceTree = "<group>"; };
 		ED599DC81E007537004EC753 /* LoginResponseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseObject.swift; sourceTree = "<group>"; };
+		ED6FC3631E11BF7200AD4562 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		ED6FC3681E11F95600AD4562 /* RequestVirtualCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVirtualCardsView.swift; sourceTree = "<group>"; };
+		ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResquestNewVirtualCardView.swift; sourceTree = "<group>"; };
+		ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVirtualCard.swift; sourceTree = "<group>"; };
+		ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageErrorView.swift; sourceTree = "<group>"; };
 		ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTabBarController.swift; sourceTree = "<group>"; };
 		ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraInclusao.swift; sourceTree = "<group>"; };
@@ -155,6 +166,7 @@
 		EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequestObject.swift; sourceTree = "<group>"; };
 		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		EDB8CADB1E119A5F00BC8089 /* ChargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeView.swift; sourceTree = "<group>"; };
 		EDBBDCCF1DFFAD0000EB469A /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		EDC9F8221E07F00900B0DD37 /* SideMenuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuObject.swift; sourceTree = "<group>"; };
@@ -246,6 +258,8 @@
 		ED3A02E31E0C008B000BCE53 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				ED6FC3671E11F92100AD4562 /* VirtualCardsList */,
+				EDB8CADA1E119A4300BC8089 /* Charge */,
 				ED3A02EE1E0C5875000BCE53 /* Rates */,
 				ED3A02EB1E0C4E0D000BCE53 /* Security */,
 				ED3A02E61E0C00B9000BCE53 /* Transfer */,
@@ -299,9 +313,20 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		ED6FC3671E11F92100AD4562 /* VirtualCardsList */ = {
+			isa = PBXGroup;
+			children = (
+				ED6FC3681E11F95600AD4562 /* RequestVirtualCardsView.swift */,
+				ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */,
+			);
+			name = VirtualCardsList;
+			sourceTree = "<group>";
+		};
 		ED713DED1E031EFA00E4D8E1 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */,
+				ED6FC3631E11BF7200AD4562 /* Ticket.swift */,
 				ED3A02F11E0C6AD5000BCE53 /* Bank.swift */,
 				ED3913261E088899001B506D /* DataTransacao.swift */,
 				ED3913271E088899001B506D /* VirtualCardStatement.swift */,
@@ -326,6 +351,7 @@
 				ED791B671E006292002C4A70 /* WebView.swift */,
 				EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */,
 				ED39132A1E0971A8001B506D /* PreferencesView.swift */,
+				ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */,
 				ED791B691E00629A002C4A70 /* General.storyboard */,
 			);
 			name = General;
@@ -390,8 +416,8 @@
 			isa = PBXGroup;
 			children = (
 				ED791B661E00627C002C4A70 /* General */,
-				ED8AF3AC1DFF867900EBB73F /* Cards */,
 				ED39132C1E09859C001B506D /* MarketPlace */,
+				ED8AF3AC1DFF867900EBB73F /* Cards */,
 				ED8AF3AB1DFF866D00EBB73F /* Login & Register */,
 			);
 			name = View;
@@ -552,6 +578,14 @@
 				EDAB8A7B1E007E6100C91453 /* System.swift */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		EDB8CADA1E119A4300BC8089 /* Charge */ = {
+			isa = PBXGroup;
+			children = (
+				EDB8CADB1E119A5F00BC8089 /* ChargeView.swift */,
+			);
+			name = Charge;
 			sourceTree = "<group>";
 		};
 		EDC9F8211E07EFF700B0DD37 /* General */ = {
@@ -849,7 +883,9 @@
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
 				EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */,
+				EDB8CADC1E119A5F00BC8089 /* ChargeView.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
+				ED6FC36F1E120A4400AD4562 /* MessageErrorView.swift in Sources */,
 				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
 				EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */,
 				ED39132E1E098607001B506D /* CartView.swift in Sources */,
@@ -865,6 +901,8 @@
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,
 				ED3A02EA1E0C011B000BCE53 /* TransferOtherAccount.swift in Sources */,
+				ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */,
+				ED6FC3641E11BF7200AD4562 /* Ticket.swift in Sources */,
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */,
@@ -879,6 +917,8 @@
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,
 				EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */,
+				ED6FC3691E11F95600AD4562 /* RequestVirtualCardsView.swift in Sources */,
+				ED6FC36D1E12061900AD4562 /* NewVirtualCard.swift in Sources */,
 				ED713DF61E03E62300E4D8E1 /* LoadingProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

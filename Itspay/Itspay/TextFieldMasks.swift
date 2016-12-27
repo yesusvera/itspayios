@@ -33,6 +33,9 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 class TextFieldPhoneMask: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.keyboardType = .decimalPad
+        
         self.delegate = self
     }
     
@@ -83,6 +86,9 @@ class TextFieldPhoneMask: UITextField, UITextFieldDelegate {
 class TextFieldCPFMask: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.keyboardType = .decimalPad
+        
         self.delegate = self
     }
     
@@ -118,6 +124,8 @@ class TextFieldBankMask: UITextField, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.keyboardType = .decimalPad
         
         self.delegate = self
     }
@@ -158,6 +166,8 @@ class TextFieldCurrencyMask: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.keyboardType = .decimalPad
+        
         self.delegate = self
     }
     
@@ -180,6 +190,9 @@ class TextFieldCurrencyMask: UITextField, UITextFieldDelegate {
 class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.keyboardType = .decimalPad
+        
         self.delegate = self
     }
     

@@ -40,5 +40,9 @@
 	<string>issuer/api/portador/login/trocar-email</string>
 	<key>changePassword</key>
 	<string>issuer/api/portador/login/trocar-senha</string>
+	<key>generateTicketCharge</key>
+	<string>issuer/api/boleto/carga/gerar-linha-digitavel</string>
+	<key>virtualCardsAccount</key>
+	<string>issuer/api/portador/credencial/virtual/conta</string>
 </dict>
 </plist>

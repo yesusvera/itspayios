@@ -95,16 +95,57 @@ class CardsController {
         return url
     }
     
+    static func createVirtualCardsListURLPath(_ virtualCard : Credenciais) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "virtualCardsAccount")
+        
+        if let value = virtualCard.idConta {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
+    
+    static func createNewVirtualCardURLPath(_ virtualCard : Credenciais) -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "newVirtualCard")
+    }
+    
+    static func createNewVirtualCardParameters(_ virtualCard : Credenciais, cardName : String, months : Int)-> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.idConta {
+            dictionary["idConta"] = value
+        }
+
+        if let value = virtualCard.idPessoa {
+            dictionary["idPessoa"] = value
+        }
+        
+        dictionary["virtualApelido"] = cardName
+        dictionary["virtualMesesValidade"] = months
+        dictionary["idUsuario"] = ID_USUARIO
+        dictionary["virtual"] = true
+        
+        return dictionary
+    }
+    
     static func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView, showLoading : Bool) {
         let url = CardsController.createOpenPlasticURLPath(virtualCard)
         
+        var superview = UIView()
+        
         if showLoading {
-            LoadingProgress.startAnimating(in: imageView)
+            if let view = imageView.superview {
+                superview = view
+            } else {
+                superview = imageView
+            }
+            
+            LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
         }
         
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
             if showLoading {
-                LoadingProgress.stopAnimating(in: imageView)
+                LoadingProgress.stopAnimating(in: superview)
             }
             
             if let data = dataResponse {
@@ -113,5 +154,39 @@ class CardsController {
                 }
             }
         })
+    }
+
+    static func createGenerateTicketChargeURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "generateTicketCharge")
+    }
+    
+    static func createGenerateTicketChargeParameters(_ virtualCard : Credenciais, price : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+
+        if let value = virtualCard.contaPagamento {
+            dictionary["contaPagamento"] = value
+        }
+        
+        if let value = LoginController.sharedInstance.loginResponseObject.cpf {
+            dictionary["documentoPortador"] = value
+        }
+        
+        if let value = virtualCard.idProduto {
+            dictionary["idProduto"] = value
+        }
+        
+        if let value = virtualCard.email {
+            dictionary["emailDestino"] = value
+        }
+        
+        if let value = DateFormatter.stringWith("yyyy-MM-dd'T'HH:mm:ss", from: Date()) {
+            dictionary["vencimento"] = value
+        }
+        
+        dictionary["valor"] = price.getCurrencyDouble()
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+
+        return dictionary
     }
 }

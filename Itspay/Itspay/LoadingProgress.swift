@@ -15,10 +15,14 @@ class LoadingProgress {
     
     var loadingView = UIView()
     
-    static func initLoadingView(_ rect: CGRect) -> UIView {
+    static func initLoadingView(_ rect: CGRect, isAlphaReduced : Bool) -> UIView {
         let loadingView = UIView(frame: rect)
         
-        loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        if isAlphaReduced {
+            loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        } else {
+            loadingView.backgroundColor = UIColor.clear
+        }
         
         let activityIndicator = UIActivityIndicatorView()
 
@@ -34,14 +38,14 @@ class LoadingProgress {
     
     static func startAnimatingInWindow() {
         if let window = appDelegate.window {
-            LoadingProgress.sharedInstance.loadingView = LoadingProgress.initLoadingView((window?.frame)!)
+            LoadingProgress.sharedInstance.loadingView = LoadingProgress.initLoadingView((window?.frame)!, isAlphaReduced: true)
             
             window?.addSubview(LoadingProgress.sharedInstance.loadingView)
         }
     }
 
-    static func startAnimating(in view : UIView) {
-        let loadingView = LoadingProgress.initLoadingView(view.frame)
+    static func startAnimating(in view : UIView, isAlphaReduced : Bool) {
+        let loadingView = LoadingProgress.initLoadingView(view.frame, isAlphaReduced: isAlphaReduced)
         loadingView.tag = LOADING_PROGRESS_VIEW_TAG
         view.addSubview(loadingView)
     }

@@ -49,3 +49,18 @@ func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, showAler
     
     return true
 }
+
+func getDataResponseMessage(_ dataResponse : Alamofire.DataResponse<Any>) -> String {
+    guard let value = dataResponse.result.value else {
+        return "Ocorreu algum erro inesperado."
+    }
+    
+    let errorObject = ErrorObject(object: value)
+    
+    if let msgError = errorObject.msg {
+        return msgError
+    }
+    
+    return ""
+}
+

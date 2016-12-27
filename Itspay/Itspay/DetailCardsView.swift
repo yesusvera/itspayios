@@ -25,6 +25,8 @@ class DetailCardsView: UITableViewController {
     @IBOutlet weak var labelCurrentBalance: UILabel!
     @IBOutlet weak var labelTransactionDate: UILabel!
     
+    var messageErrorView : MessageErrorView!
+    
     var virtualCard : Credenciais!
     
     var arrayVirtualCardStatement = [VirtualCardStatement]()
@@ -58,6 +60,10 @@ class DetailCardsView: UITableViewController {
         
         if let object = virtualCard.saldo {
             labelBalance.text = "\(object)".formatToCurrencyReal()
+            labelBalance.layer.shadowOffset = CGSize(width: 0, height: 0)
+            labelBalance.layer.shadowOpacity = 1
+            labelBalance.layer.shadowRadius = 6
+
             labelCurrentBalance.text = "\(object)".formatToCurrencyReal()
         }
         
@@ -67,10 +73,16 @@ class DetailCardsView: UITableViewController {
         
         if let object = virtualCard.nomeImpresso {
             labelName.text = "\(object)"
+            labelName.layer.shadowOffset = CGSize(width: 0, height: 0)
+            labelName.layer.shadowOpacity = 1
+            labelName.layer.shadowRadius = 6
         }
         
         if let object = virtualCard.credencialMascarada {
             labelCardNumber.text = "\(object)"
+            labelCardNumber.layer.shadowOffset = CGSize(width: 0, height: 0)
+            labelCardNumber.layer.shadowOpacity = 1
+            labelCardNumber.layer.shadowRadius = 6
         }
         
         if let object = virtualCard.nomeProduto {
@@ -146,6 +158,12 @@ class DetailCardsView: UITableViewController {
                         self.arrayVirtualCardStatement.append(virtualCardStatement)
                     }
                     
+                    if self.arrayVirtualCardStatement.count == 0 {
+                        self.messageErrorView.updateView("Sem movimentação nesse período")
+                    } else {
+                        self.messageErrorView.updateView("")
+                    }
+                    
                     self.tableView.reloadData()
                 }
             }
@@ -191,7 +209,7 @@ class DetailCardsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 128
+        return 70
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -211,23 +229,24 @@ class DetailCardsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return viewFooter.frame.height
+        if arrayVirtualCardStatement.count > 0 {
+            return viewFooter.frame.height
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        viewFooter.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: viewFooter.frame.height)
+        if arrayVirtualCardStatement.count > 0 {
+            viewFooter.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: viewFooter.frame.height)
+            
+            return viewFooter
+        }
         
-        return viewFooter
+        return nil
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCardsCellIdentifier", for: indexPath)
-
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-        } else {
-            cell.backgroundColor = UIColor.white
-        }
         
         let virtualCardStatement = arrayVirtualCardStatement[indexPath.row]
         
@@ -246,29 +265,25 @@ class DetailCardsView: UITableViewController {
         
         if let label = cell.viewWithTag(1) as? UILabel, let value = virtualCardStatement.dataTransacaoFmt {
             label.text = "\(value)"
-            label.textColor = color
+            label.adjustsFontSizeToFitWidth = true
         }
         
         if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCardStatement.descLocal {
             label.text = "\(value)"
-            label.textColor = color
+            label.adjustsFontSizeToFitWidth = true
         }
         
         if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCardStatement.valorTransacao {
             label.text = "\(value)".formatToCurrencyReal()
             label.textColor = color
+            label.adjustsFontSizeToFitWidth = true
         }
         
         if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCardStatement.descSeguimento {
             label.text = "\(value)"
-            label.textColor = color
+            label.adjustsFontSizeToFitWidth = true
         }
         
-        if let label = cell.viewWithTag(5) as? UILabel, let value = virtualCardStatement.descTransacao {
-            label.text = "\(value)"
-            label.textColor = color
-        }
-
         return cell
     }
     
@@ -276,6 +291,14 @@ class DetailCardsView: UITableViewController {
         if segue.identifier == "TransferSegue" {
             let viewController = segue.destination as! TransferMainView
             viewController.virtualCard = virtualCard
+        } else if segue.identifier == "ChargeSegue" {
+            let viewController = segue.destination as! ChargeView
+            viewController.virtualCard = virtualCard
+        } else if segue.identifier == "RequestCardSegue" {
+            let viewController = segue.destination as! RequestVirtualCardsView
+            viewController.virtualCard = virtualCard
+        } else if segue.identifier == "MessageErrorSegue" {
+            messageErrorView = segue.destination as! MessageErrorView
         }
     }
 }

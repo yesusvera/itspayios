@@ -17,4 +17,14 @@ class AlertComponent {
         
         viewController.present(alertController, animated: true, completion: nil)
     }
+    
+    static func showAlert(title : String, message : String, actions: [UIAlertAction], viewController : UIViewController) {
+        let alertController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        
+        for action in actions {
+            alertController.addAction(action)
+        }
+        
+        viewController.present(alertController, animated: true, completion: nil)
+    }
 }
