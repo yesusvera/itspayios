@@ -44,5 +44,11 @@
 	<string>issuer/api/boleto/carga/gerar-linha-digitavel</string>
 	<key>virtualCardsAccount</key>
 	<string>issuer/api/portador/credencial/virtual/conta</string>
+	<key>securitySettings</key>
+	<string>issuer/api/portador/credencial/status-habilitacao</string>
+	<key>comunicateLost</key>
+	<string>issuer/api/portador/credencial/avisar-perda</string>
+	<key>comunicateSteal</key>
+	<string>issuer/api/portador/credencial/avisar-roubo</string>
 </dict>
 </plist>

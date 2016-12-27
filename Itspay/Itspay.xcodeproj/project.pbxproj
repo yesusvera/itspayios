@@ -36,6 +36,8 @@
 		ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */; };
 		ED6FC36D1E12061900AD4562 /* NewVirtualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */; };
 		ED6FC36F1E120A4400AD4562 /* MessageErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */; };
+		ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3701E12D84000AD4562 /* Tariff.swift */; };
+		ED6FC3731E12DCB000AD4562 /* SecuritySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3721E12DCB000AD4562 /* SecuritySettings.swift */; };
 		ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */; };
 		ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */; };
 		ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */; };
@@ -131,6 +133,8 @@
 		ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResquestNewVirtualCardView.swift; sourceTree = "<group>"; };
 		ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVirtualCard.swift; sourceTree = "<group>"; };
 		ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageErrorView.swift; sourceTree = "<group>"; };
+		ED6FC3701E12D84000AD4562 /* Tariff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
+		ED6FC3721E12DCB000AD4562 /* SecuritySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuritySettings.swift; sourceTree = "<group>"; };
 		ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTabBarController.swift; sourceTree = "<group>"; };
 		ED713DEE1E031F0E00E4D8E1 /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		ED713DEF1E031F0E00E4D8E1 /* DataHoraInclusao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraInclusao.swift; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 		ED713DED1E031EFA00E4D8E1 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				ED6FC3721E12DCB000AD4562 /* SecuritySettings.swift */,
+				ED6FC3701E12D84000AD4562 /* Tariff.swift */,
 				ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */,
 				ED6FC3631E11BF7200AD4562 /* Ticket.swift */,
 				ED3A02F11E0C6AD5000BCE53 /* Bank.swift */,
@@ -867,6 +873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED6FC3731E12DCB000AD4562 /* SecuritySettings.swift in Sources */,
 				ED3A02E81E0C00F8000BCE53 /* TransferFinancialCard.swift in Sources */,
 				ED3A02E51E0C00B7000BCE53 /* TransferMainView.swift in Sources */,
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
@@ -876,6 +883,7 @@
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */,
+				ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */,
 				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */,

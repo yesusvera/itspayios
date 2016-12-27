@@ -792,6 +792,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="qtm-ez-5rA">
+                            <rect key="frame" x="0.0" y="72" width="375" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJO-z2-Lor">
+                                    <rect key="frame" x="16" y="0.0" width="343" height="70"/>
+                                    <connections>
+                                        <segue destination="xRa-lw-ewO" kind="embed" identifier="MessageErrorSegue" id="0dc-7e-8GR"/>
+                                    </connections>
+                                </containerView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="fJO-z2-Lor" firstAttribute="leading" secondItem="qtm-ez-5rA" secondAttribute="leading" constant="16" id="7qN-5C-04S"/>
+                                <constraint firstAttribute="trailing" secondItem="fJO-z2-Lor" secondAttribute="trailing" constant="16" id="9hp-yU-IcI"/>
+                                <constraint firstItem="fJO-z2-Lor" firstAttribute="top" secondItem="qtm-ez-5rA" secondAttribute="top" id="NyA-gm-v0d"/>
+                                <constraint firstAttribute="bottom" secondItem="fJO-z2-Lor" secondAttribute="bottom" id="hFu-0Y-zYO"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RatesCellIdentifier" id="5Cd-2Q-1Ph">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1963,6 +1982,6 @@
         <image name="settings" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r3g-Xr-XVe"/>
+        <segue reference="0dc-7e-8GR"/>
     </inferredMetricsTieBreakers>
 </document>

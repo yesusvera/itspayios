@@ -128,6 +128,48 @@ class CardsController {
         return dictionary
     }
     
+    static func createSecuritySettingsURLPath(_ virtualCard : Credenciais) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "securitySettings")
+        
+        if let value = virtualCard.idCredencial {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
+    
+    static func createComunicateLostURLPath(_ virtualCard : Credenciais) -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "comunicateLost")
+    }
+    
+    static func createComunicateLostParameters(_ virtualCard : Credenciais)-> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencial"] = value
+        }
+        
+        dictionary["idUsuario"] = ID_USUARIO
+        
+        return dictionary
+    }
+    
+    static func createComunicateStealURLPath(_ virtualCard : Credenciais) -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "comunicateSteal")
+    }
+    
+    static func createComunicateStealParameters(_ virtualCard : Credenciais)-> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencial"] = value
+        }
+        
+        dictionary["idUsuario"] = ID_USUARIO
+        
+        return dictionary
+    }
+    
     static func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView, showLoading : Bool) {
         let url = CardsController.createOpenPlasticURLPath(virtualCard)
         

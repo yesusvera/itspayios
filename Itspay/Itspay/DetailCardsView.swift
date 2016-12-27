@@ -185,7 +185,9 @@ class DetailCardsView: UITableViewController {
             } else if object.menuType == .rates {
                 self.performSegue(withIdentifier: "RatesSegue", sender: self)
             } else if object.menuType == .logout {
-                print("logout")
+                LoginController.logout()
+                
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -296,6 +298,12 @@ class DetailCardsView: UITableViewController {
             viewController.virtualCard = virtualCard
         } else if segue.identifier == "RequestCardSegue" {
             let viewController = segue.destination as! RequestVirtualCardsView
+            viewController.virtualCard = virtualCard
+        } else if segue.identifier == "RatesSegue" {
+            let viewController = segue.destination as! RatesView
+            viewController.virtualCard = virtualCard
+        } else if segue.identifier == "SecuritySettingsSegue" {
+            let viewController = segue.destination as! SecuritySettingsView
             viewController.virtualCard = virtualCard
         } else if segue.identifier == "MessageErrorSegue" {
             messageErrorView = segue.destination as! MessageErrorView
