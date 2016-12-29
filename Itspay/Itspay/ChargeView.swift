@@ -62,7 +62,7 @@ class ChargeView: UITableViewController {
             }
         }
         
-        buttonValue.isHidden = true
+        buttonValue.setTitle("Enviar boleto para email", for: .normal)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.shareAction(_:)))
         
@@ -92,22 +92,38 @@ class ChargeView: UITableViewController {
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
-        if isFormValid() {
-            let url = CardsController.createGenerateTicketChargeURLPath()
+        if !isTicketGenerated {
+            if isFormValid() {
+                let url = CardsController.createGenerateTicketChargeURLPath()
+                
+                let parameters = CardsController.createGenerateTicketChargeParameters(virtualCard, price : price)
+                
+                LoadingProgress.startAnimatingInWindow()
+                Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
+                    LoadingProgress.stopAnimating()
+                    if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                        if let value = dataResponse.result.value {
+                            self.isTicketGenerated = true
+                            
+                            self.ticket = Ticket(object: value)
+                            
+                            self.updateViewTicketGenerated()
+                        }
+                    }
+                }
+            }
+        } else {
+            let url = CardsController.createSendTicketEmailURLPath()
             
             let parameters = CardsController.createGenerateTicketChargeParameters(virtualCard, price : price)
             
             LoadingProgress.startAnimatingInWindow()
             Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
                 LoadingProgress.stopAnimating()
-                if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
-                    if let value = dataResponse.result.value {
-                        self.isTicketGenerated = true
-                        
-                        self.ticket = Ticket(object: value)
-                        
-                        self.updateViewTicketGenerated()
-                    }
+                if !validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                    let message = getDataResponseMessage(dataResponse)
+                    
+                    AlertComponent.showSimpleAlert(title: "Successo", message: message, viewController: self)
                 }
             }
         }

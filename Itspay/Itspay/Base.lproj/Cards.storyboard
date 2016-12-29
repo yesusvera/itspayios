@@ -1508,7 +1508,7 @@
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome do Favorecido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFw-Yc-s5n">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome do Favorecido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFw-Yc-s5n">
                                                     <rect key="frame" x="16" y="29" width="343" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1537,7 +1537,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-Ht-hgX">
-                                                    <rect key="frame" x="16" y="8" width="168" height="21"/>
+                                                    <rect key="frame" x="16" y="8" width="167.5" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Valor ">
                                                             <attributes>
@@ -1555,7 +1555,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="R$ 0,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3q-bH-jhc" customClass="TextFieldCurrencyMask" customModule="Itspay" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="29" width="168" height="30"/>
+                                                    <rect key="frame" x="16" y="29" width="167.5" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1564,13 +1564,13 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarifa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cii-hw-4ky">
-                                                    <rect key="frame" x="192" y="8" width="167" height="21"/>
+                                                    <rect key="frame" x="191.5" y="8" width="167.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="R$ 1,50" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-Ac-czo" customClass="TextFieldCurrencyMask" customModule="Itspay" customModuleProvider="target">
-                                                    <rect key="frame" x="192" y="29" width="167" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="R$ 1,50" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-Ac-czo" customClass="TextFieldCurrencyMask" customModule="Itspay" customModuleProvider="target">
+                                                    <rect key="frame" x="191.5" y="29" width="167.5" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>

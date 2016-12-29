@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransferFinancialCard: UITableViewController {
+class TransferFinancialCard: UITableViewController, TextFieldMaskDelegate {
     @IBOutlet weak var textFieldCardNumber: TextFieldCardNumberMask!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPrice: TextFieldCurrencyMask!
@@ -17,22 +17,30 @@ class TransferFinancialCard: UITableViewController {
     
     var virtualCard : Credenciais!
     
+    var carrierInfo : CarrierInfo?
+    
     var tariffProfile = Double(0)
+    
+    var password = ""
+    
+    var cardNumber = ""
+    
+    var price = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textFieldCardNumber.textFieldMaskDelegate = self
         
         updateViewInfo()
         getTariffProfile()
     }
     
     func updateViewInfo() {
-        if let object = virtualCard.nomeImpresso {
-            textFieldName.text = "\(object)"
-        }
-        
-        if let object = virtualCard.saldo {
-            textFieldPrice.text = "\(object)".formatToCurrencyReal()
+        if let carrierInfo = carrierInfo {
+            if let object = carrierInfo.nome {
+                textFieldName.text = "\(object)"
+            }
         }
         
         textFieldTariff.text = "\(tariffProfile)".formatToLocalCurrency()
@@ -52,7 +60,76 @@ class TransferFinancialCard: UITableViewController {
         }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == textFieldCardNumber {
+            getCarrierInfo()
+        }
+    }
+    
+    func getCarrierInfo() {
+        if isCardNumberValid() {
+            let url = CardsController.createCarrierInfoURLPath()
+            
+            let parameters = CardsController.createCarrierInfoParameters(cardNumber: textFieldCardNumber.text!.onlyNumbers())
+            
+            Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
+                if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                    if let value = dataResponse.result.value {
+                        self.carrierInfo = CarrierInfo(object: value)
+                        
+                        self.updateViewInfo()
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func buttonTransferAction(_ sender: UIButton) {
+        if isFormValid() {
+            let url = CardsController.createCardTransferURLPath()
+            
+            let parameters = CardsController.createCardTransferParameters(virtualCard, cardNumber: cardNumber, password : password, price: price)
+            
+            Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
+                if !validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                    let message = getDataResponseMessage(dataResponse)
+                    
+                    AlertComponent.showSimpleAlert(title: "Sucesso", message: message, viewController: self)
+                }
+            }
+        }
+    }
+    
+    func isFormValid() -> Bool {
+        if !isCardNumberValid() {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Número do Cartão inválido.", viewController: self)
+            return false
+        }
         
+        guard let priceValidation = textFieldPrice.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Valor inválido.", viewController: self)
+            return false
+        }
+        
+        price = priceValidation
+        
+        guard let passwordValidation = textFieldPassword.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Senha inválida.", viewController: self)
+            return false
+        }
+        
+        password = passwordValidation
+        
+        return true
+    }
+    
+    func isCardNumberValid() -> Bool {
+        guard let cardNumberValidation = textFieldCardNumber.text else {
+            return false
+        }
+        
+        cardNumber = cardNumberValidation
+        
+        return true
     }
 }

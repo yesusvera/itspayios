@@ -30,6 +30,8 @@
 	<string>issuer/api/banco</string>
 	<key>cardTransfer</key>
 	<string>issuer/api/portador/conta/transferencia</string>
+	<key>carrierInfo</key>
+	<string>issuer/api/portador/credencial/info-portador</string>
 	<key>bankTransfer</key>
 	<string>issuer/api/agencia</string>
 	<key>openPlastic</key>
@@ -42,6 +44,8 @@
 	<string>issuer/api/portador/login/trocar-senha</string>
 	<key>generateTicketCharge</key>
 	<string>issuer/api/boleto/carga/gerar-linha-digitavel</string>
+	<key>sendTicketEmail</key>
+	<string>issuer/api/boleto/carga/enviar-boleto-email</string>
 	<key>virtualCardsAccount</key>
 	<string>issuer/api/portador/credencial/virtual/conta</string>
 	<key>securitySettings</key>

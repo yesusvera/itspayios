@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import CryptoSwift
 
 class CardsController {
     static let sharedInstance = CardsController()
@@ -93,6 +94,49 @@ class CardsController {
         url += "/valorTransferencia/\(price)"
         
         return url
+    }
+    
+    static func createCarrierInfoURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "carrierInfo")
+    }
+    
+    static func createCarrierInfoParameters(cardNumber : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+    
+        if let data = cardNumber.data(using: .utf8) {
+            dictionary["credencial"] = data.sha512().toHexString()
+        }
+        
+        return dictionary
+    }
+    
+    static func createCardTransferURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "cardTransfer")
+    }
+    
+    static func createCardTransferParameters(_ virtualCard : Credenciais, cardNumber : String, password : String, price : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.contaPagamento {
+            dictionary["contaOrigem"] = value
+        }
+        
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencialOrigem"] = value
+        }
+        
+        if let data = cardNumber.data(using: .utf8) {
+            dictionary["credencialDestino"] = data.sha512().toHexString()
+        }
+        
+        if let data = password.data(using: .utf8) {
+            dictionary["pinCredencialOrigem"] = data.sha512().toHexString()
+        }
+        
+        dictionary["valorTransferencia"] = price.getCurrencyDouble()
+        dictionary["idInstituicaoOrigem"] = ID_INSTITUICAO
+        
+        return dictionary
     }
     
     static func createVirtualCardsListURLPath(_ virtualCard : Credenciais) -> String {
@@ -254,5 +298,9 @@ class CardsController {
         dictionary["idProcessadora"] = ID_PROCESSADORA
 
         return dictionary
+    }
+    
+    static func createSendTicketEmailURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "sendTicketEmail")
     }
 }

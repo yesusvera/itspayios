@@ -188,6 +188,8 @@ class TextFieldCurrencyMask: UITextField, UITextFieldDelegate {
 }
 
 class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
+    var textFieldMaskDelegate : TextFieldMaskDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -196,7 +198,38 @@ class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
         self.delegate = self
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let textFieldMaskDelegate = textFieldMaskDelegate {
+            if let method = textFieldMaskDelegate.textFieldDidBeginEditing {
+                method(textField)
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let textFieldMaskDelegate = textFieldMaskDelegate {
+            if let method = textFieldMaskDelegate.textFieldDidEndEditing {
+                method(textField)
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let textFieldMaskDelegate = textFieldMaskDelegate {
+            if let method = textFieldMaskDelegate.textFieldShouldReturn {
+                return method(textField)
+            }
+        }
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let textFieldMaskDelegate = textFieldMaskDelegate {
+            if let method = textFieldMaskDelegate.textField {
+                return method(textField, range, string)
+            }
+        }
+        
         var appendString = ""
         
         if range.length == 0 {
@@ -222,26 +255,9 @@ class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
     }
 }
 
-extension String {
-    func insert(_ string:String,ind:Int) -> String {
-        return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
-    }
-    
-    func cpfFormatted() -> String {
-        if self.isCPFValid().value {
-            var string = self.onlyNumbers()
-            
-            string.insert(".", at: string.index(string.startIndex, offsetBy: 3))
-            string.insert(".", at: string.index(string.startIndex, offsetBy: 7))
-            string.insert("-", at: string.index(string.startIndex, offsetBy: 11))
-            
-            return string
-        }
-        
-        return self
-    }
-
-    func onlyNumbers() -> String {
-        return self.replacingOccurrences(of: "[^0-9]", with: "", options: String.CompareOptions.regularExpression, range: nil)
-    }
+@objc protocol TextFieldMaskDelegate {
+    @objc optional func textFieldDidBeginEditing(_ textField: UITextField)
+    @objc optional func textFieldDidEndEditing(_ textField: UITextField)
+    @objc optional func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    @objc optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
 }

@@ -77,6 +77,7 @@
 		EDD681551E00EB9A00E9017F /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681541E00EB9A00E9017F /* General.swift */; };
 		EDD681581E00EC9F00E9017F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD681571E00EC9F00E9017F /* CoreLocation.framework */; };
 		EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681591E00ED1A00E9017F /* Location.swift */; };
+		EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60EA1E15845300C24A4E /* CarrierInfo.swift */; };
 		F0A284C27688A3D5CB14C2F9 /* Pods_ItspayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,7 @@
 		EDD681541E00EB9A00E9017F /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		EDD681571E00EC9F00E9017F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EDD681591E00ED1A00E9017F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		EDFB60EA1E15845300C24A4E /* CarrierInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrierInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 		ED713DED1E031EFA00E4D8E1 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				EDFB60EA1E15845300C24A4E /* CarrierInfo.swift */,
 				ED6FC3721E12DCB000AD4562 /* SecuritySettings.swift */,
 				ED6FC3701E12D84000AD4562 /* Tariff.swift */,
 				ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */,
@@ -905,6 +908,7 @@
 				ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED3913281E088899001B506D /* DataTransacao.swift in Sources */,
+				EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,
 				ED3A02EA1E0C011B000BCE53 /* TransferOtherAccount.swift in Sources */,
