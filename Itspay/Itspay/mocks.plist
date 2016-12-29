@@ -250,5 +250,64 @@
   &quot;tipoConta&quot;: 0,
   &quot;urlImagemProduto&quot;: &quot;Card4&quot;
 }</string>
+	<key>arrayProducts</key>
+	<string>[
+    {
+        &quot;titulo&quot; : &quot;Vinho&quot;,
+        &quot;precoAntigo&quot; : &quot;&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 11,90&quot;,
+        &quot;precoParcelado&quot; : &quot;&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 0,
+        &quot;urlImagem&quot; : &quot;Product1&quot;
+    },
+    {
+        &quot;titulo&quot; : &quot;Geladeira Consul (450 Litros)&quot;,
+        &quot;precoAntigo&quot; : &quot;R$ 1749,90&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 1399,00&quot;,
+        &quot;precoParcelado&quot; : &quot;12x de R$ 116,66&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 12,
+        &quot;urlImagem&quot; : &quot;Product2&quot;
+    },
+    {
+        &quot;titulo&quot; : &quot;Arroz Tio João&quot;,
+        &quot;precoAntigo&quot; : &quot;R$ 10,29&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 9,29&quot;,
+        &quot;precoParcelado&quot; : &quot;3x de R$ 3,10&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 3,
+        &quot;urlImagem&quot; : &quot;Product3&quot;
+    },
+    {
+        &quot;titulo&quot; : &quot;Camisa Regata Masculina&quot;,
+        &quot;precoAntigo&quot; : &quot;&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 29,90&quot;,
+        &quot;precoParcelado&quot; : &quot;3x de R$ 9,97&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 3,
+        &quot;urlImagem&quot; : &quot;Product4&quot;
+    },
+    {
+        &quot;titulo&quot; : &quot;Fraldas Pampers&quot;,
+        &quot;precoAntigo&quot; : &quot;R$ 37,90&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 31,90&quot;,
+        &quot;precoParcelado&quot; : &quot;3x de R$ 10,63&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 3,
+        &quot;urlImagem&quot; : &quot;Product5&quot;
+    },
+    {
+        &quot;titulo&quot; : &quot;Caixa Heineken 12un&quot;,
+        &quot;precoAntigo&quot; : &quot;R$ 28,80&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 23,40&quot;,
+        &quot;precoParcelado&quot; : &quot;3x de R$ 7,80&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 3,
+        &quot;urlImagem&quot; : &quot;Product6&quot;
+    },
+    {
+        &quot;titulo&quot; : &quot;Microondas Eletrolux&quot;,
+        &quot;precoAntigo&quot; : &quot;R$ 630,55&quot;,
+        &quot;precoAtual&quot; : &quot;R$ 567,15&quot;,
+        &quot;precoParcelado&quot; : &quot;9x de R$ 63,02&quot;,
+        &quot;quantidadeVezesParcelamento&quot; : 0,
+        &quot;urlImagem&quot; : &quot;Product7&quot;
+    }
+]</string>
 </dict>
 </plist>

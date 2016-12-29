@@ -193,7 +193,11 @@ class CardsController {
             if let data = dataResponse {
                 if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
                     imageView.image = UIImage(data: dataImage)
+                } else {
+                    imageView.image = UIImage(named: "CardDefault")
                 }
+            } else {
+                imageView.image = UIImage(named: "CardDefault")
             }
         })
     }

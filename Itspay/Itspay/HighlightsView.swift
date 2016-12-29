@@ -8,62 +8,73 @@
 
 import UIKit
 
-class HighlightsView: UITableViewController {
-
+class HighlightsView: UICollectionViewController {
+    var arrayProducts = [Product]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HighlightsCellIdentifier", for: indexPath)
         
-        if let viewLeft = cell.viewWithTag(1) {
-            if let label = viewLeft.viewWithTag(1) as? UILabel {
-                label.text = ""
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.itemSize = CGSize(width: SCREEN_WIDTH/2, height: 220)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        collectionView!.collectionViewLayout = layout
+        
+        searchHighlightedProducts()
+    }
+    
+    func searchHighlightedProducts() {
+//        if Repository.isMockOn() {
+        if let array = Repository.getPListValue(.mocks, key: "arrayProducts").jsonObject() as? [Any] {
+            for object in array {
+                arrayProducts.append(Product(object: object))
             }
-            if let imageView = viewLeft.viewWithTag(2) as? UIImageView {
-                
-            }
-            if let label = viewLeft.viewWithTag(3) as? UILabel {
-                label.text = ""
-            }
-            if let label = viewLeft.viewWithTag(4) as? UILabel {
-                label.text = ""
-            }
-            if let label = viewLeft.viewWithTag(5) as? UILabel {
-                label.text = ""
-            }
+            
+            self.collectionView?.reloadData()
         }
+//        }
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arrayProducts.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HighlightsCellIdentifier", for: indexPath)
         
-        if let viewRight = cell.viewWithTag(2) {
-            if let label = viewRight.viewWithTag(1) as? UILabel {
-                label.text = ""
-            }
-            if let imageView = viewRight.viewWithTag(2) as? UIImageView {
-                
-            }
-            if let label = viewRight.viewWithTag(3) as? UILabel {
-                label.text = ""
-            }
-            if let label = viewRight.viewWithTag(4) as? UILabel {
-                label.text = ""
-            }
-            if let label = viewRight.viewWithTag(5) as? UILabel {
-                label.text = ""
-            }
+        let product = arrayProducts[indexPath.row]
+        
+        if let label = cell.viewWithTag(1) as? UILabel, let value = product.titulo {
+            label.text = "\(value)"
         }
 
+        if let imageView = cell.viewWithTag(2) as? UIImageView, let value = product.urlImagem {
+            imageView.image = UIImage(named: value)
+        }
+        
+        if let label = cell.viewWithTag(3) as? UILabel, let value = product.precoAntigo {
+            label.text = "\(value)"
+        }
+        
+        if let label = cell.viewWithTag(4) as? UILabel, let value = product.precoAtual {
+            label.text = "\(value)"
+        }
+
+        if let label = cell.viewWithTag(5) as? UILabel, let value = product.precoParcelado {
+            label.text = "\(value)"
+        }
+        
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }

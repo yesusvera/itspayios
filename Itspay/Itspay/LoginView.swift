@@ -75,6 +75,10 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     @IBAction func switchTouchIdAction(_ sender: UISwitch) {
         if sender.isOn {
             AlertComponent.showSimpleAlert(title: "Atenção", message: "Para ativar o TouchID você deve primeiro realizar o login com a sua senha para que a partir do próximo login neste dispositivo este possa ser feito pelo TouchID.", viewController: self)
+        } else {
+            isTouchIdOn = false
+            
+            self.tableView.reloadData()
         }
     }
     
@@ -172,7 +176,11 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
         
         if let value = UserDefaults.standard.object(forKey: "lastPasswordLogged") as? String {
             if switchTouchIdValue.isOn {
-                password = value
+                if textFieldPassword.text == "" {
+                    password = value
+                } else {
+                    password = textFieldPassword.text!
+                }
                 
                 labelErrorPassword.isHidden = true
                 

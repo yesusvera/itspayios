@@ -157,4 +157,17 @@ extension String {
         
         return threeDecimals
     }
+    
+    func jsonObject() -> Any? {
+        if let data = self.data(using: .utf8) {
+            do {
+                let object = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                
+                return object
+            } catch {
+            }
+        }
+        
+        return nil
+    }
 }

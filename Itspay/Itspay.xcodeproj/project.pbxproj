@@ -24,6 +24,7 @@
 		ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */; };
 		ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EF1E0C5889000BCE53 /* RatesView.swift */; };
 		ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02F11E0C6AD5000BCE53 /* Bank.swift */; };
+		ED4B3CA21E143E8800D4C1CE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B3CA11E143E8800D4C1CE /* Product.swift */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -121,6 +122,7 @@
 		ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuritySettingsView.swift; sourceTree = "<group>"; };
 		ED3A02EF1E0C5889000BCE53 /* RatesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
 		ED3A02F11E0C6AD5000BCE53 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		ED4B3CA11E143E8800D4C1CE /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -297,6 +299,14 @@
 			name = Rates;
 			sourceTree = "<group>";
 		};
+		ED4B3CA01E143E7700D4C1CE /* MarketPlace */ = {
+			isa = PBXGroup;
+			children = (
+				ED4B3CA11E143E8800D4C1CE /* Product.swift */,
+			);
+			name = MarketPlace;
+			sourceTree = "<group>";
+		};
 		ED599DC21E0070C2004EC753 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +442,7 @@
 		ED8AF3A71DFF862F00EBB73F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED4B3CA01E143E7700D4C1CE /* MarketPlace */,
 				EDC9F8211E07EFF700B0DD37 /* General */,
 				ED713DED1E031EFA00E4D8E1 /* Cards */,
 				EDD6814E1E00E3B800E9017F /* JSON */,
@@ -914,6 +925,7 @@
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */,
+				ED4B3CA21E143E8800D4C1CE /* Product.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
