@@ -253,7 +253,7 @@
                                                     <rect key="frame" x="20" y="4" width="560" height="42"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="ElF-OK-jsr" id="Qsq-XB-7gU"/>
                                                     </connections>
@@ -845,7 +845,7 @@
                                                     <rect key="frame" x="20" y="4" width="560" height="42"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="hai-Ca-cjI" id="ayI-D9-IsR"/>
                                                     </connections>
@@ -910,7 +910,7 @@
                                                     <rect key="frame" x="20" y="4" width="560" height="42"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="hai-Ca-cjI" id="fPD-x3-rRF"/>
                                                     </connections>
@@ -1080,6 +1080,6 @@
         <image name="camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oht-7W-me4"/>
+        <segue reference="HPq-jk-izp"/>
     </inferredMetricsTieBreakers>
 </document>

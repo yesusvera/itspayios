@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>VHBoomMenuButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17CB08E7EE2B47591E19C8C725D9FC69</key>
+		<key>57EDAB734937CA1CB0DCAEE56AFBCB65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34B6ECAA68645B37C5C8DBAE53F7A4ED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D91F6EB15C293F9874DD06B48CA59CC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5D7AD76DEED49C09A4BCA13E36DE1C83</key>
+		<key>6F638E2966F4D8BC1D5562104A6CA428</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,6 +78,21 @@
 			<true/>
 		</dict>
 		<key>E30CA1A9FD95C1FF06C2A8847196943B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F138F07A321CEB5136A39DC6B5558C3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F49EF81DC140539ED6723AA066643643</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCA820E019F250A1BD72102C6592263A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

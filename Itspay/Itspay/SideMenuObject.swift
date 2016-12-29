@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SideMenuType {
+enum SideMenuType : Int {
     case transfer
     case charge
     case card
