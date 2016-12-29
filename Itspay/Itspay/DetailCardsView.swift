@@ -59,6 +59,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         boomMenuButton = VHBoomMenuButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         boomMenuButton.boomDelegate = self
+        boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
         
         boomMenuButton.buttonEnum = .VHButtonTextInsideCircle
         boomMenuButton.boomButtonBuilders = NSMutableArray()

@@ -12,8 +12,8 @@ enum SideMenuType : Int {
     case transfer
     case charge
     case card
-    case security
     case rates
+    case security
     case logout
 }
 

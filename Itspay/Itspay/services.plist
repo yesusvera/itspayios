@@ -46,6 +46,8 @@
 	<string>issuer/api/portador/credencial/virtual/conta</string>
 	<key>securitySettings</key>
 	<string>issuer/api/portador/credencial/status-habilitacao</string>
+	<key>securitySettingsChangeState</key>
+	<string>issuer/api/portador/credencial/trocar-estado</string>
 	<key>comunicateLost</key>
 	<string>issuer/api/portador/credencial/avisar-perda</string>
 	<key>comunicateSteal</key>

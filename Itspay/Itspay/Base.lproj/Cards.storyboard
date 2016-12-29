@@ -2052,23 +2052,6 @@
             </objects>
             <point key="canvasLocation" x="4121" y="-1059"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="vfp-VF-4bu">
-            <objects>
-                <viewController id="Xht-LV-uzz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u8J-C4-JeT"/>
-                        <viewControllerLayoutGuide type="bottom" id="lFN-kE-2Hj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Pda-dv-RPJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jGs-Oh-S37" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="card" width="37" height="37"/>
@@ -2078,6 +2061,6 @@
         <image name="settings" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pvh-8p-gav"/>
+        <segue reference="r3g-Xr-XVe"/>
     </inferredMetricsTieBreakers>
 </document>

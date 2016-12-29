@@ -135,6 +135,8 @@ class SecuritySettingsView: UITableViewController {
             labelNotificationsAlert.text = "Desabilitado"
             labelNotificationsAlert.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         }
+        
+        changeState(tipoEstado: TIPO_ESTADO_NOTIFICATOINS_ALERT)
     }
     
     @IBAction func switchCardBlockAction(_ sender: UISwitch) {
@@ -145,6 +147,8 @@ class SecuritySettingsView: UITableViewController {
             labelCardBlock.text = "Bloqueado"
             labelCardBlock.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         }
+        
+        changeState(tipoEstado: TIPO_ESTADO_CARD_BLOCK)
     }
     
     @IBAction func switchUseAbroadAction(_ sender: UISwitch) {
@@ -155,6 +159,8 @@ class SecuritySettingsView: UITableViewController {
             labelUseAbroad.text = "Desabilitado"
             labelUseAbroad.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         }
+        
+        changeState(tipoEstado: TIPO_ESTADO_USE_ABROAD)
     }
     
     @IBAction func switchUseInternetAction(_ sender: UISwitch) {
@@ -165,6 +171,8 @@ class SecuritySettingsView: UITableViewController {
             labelUseInternet.text = "Desabilitado"
             labelUseInternet.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         }
+        
+        changeState(tipoEstado: TIPO_ESTADO_USE_INTERNET)
     }
     
     @IBAction func switchSakeAction(_ sender: UISwitch) {
@@ -175,10 +183,12 @@ class SecuritySettingsView: UITableViewController {
             labelSake.text = "Desabilitado"
             labelSake.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         }
+        
+        changeState(tipoEstado: TIPO_ESTADO_SAKE)
     }
     
     @IBAction func segmentedControlLostStealingAction(_ sender: UISegmentedControl) {
-    
+        
     }
     
     @IBAction func buttonComunicateAction(_ sender: UIButton) {
@@ -200,9 +210,24 @@ class SecuritySettingsView: UITableViewController {
             }
         }
         
-        let noAction = UIAlertAction.init(title: "Não", style: .default) { (action) in }
+        let noAction = UIAlertAction(title: "Não", style: .default) { (action) in }
         
         AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController: self)
+    }
+    
+    func changeState(tipoEstado : Int) {
+        let url = CardsController.createSecuritySettingsChangeStateURLPath()
+        
+        let parameters = CardsController.createSecuritySettingsChangeStateParameters(virtualCard, tipoEstado: tipoEstado)
+        
+        LoadingProgress.startAnimatingInWindow()
+        Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
+            LoadingProgress.stopAnimating()
+          
+            if !validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                
+            }
+        })
     }
     
     func comunicateLost() {

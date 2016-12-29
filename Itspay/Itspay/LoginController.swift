@@ -102,6 +102,45 @@ class LoginController {
         return dictionary
     }
     
+    static func handleRequestAlertsLogin(_ viewController : UIViewController, handlerAlert : @escaping (_ isUpdate: Bool?,_ alertAction: Bool?) -> Swift.Void) {
+        if let value = LoginController.sharedInstance.loginResponseObject.requisitarAtualizacao {
+            if value {
+                if let message = LoginController.sharedInstance.loginResponseObject.requisicaoAtualizacaoMensagem {
+                    let yesAction = UIAlertAction(title: "Sim", style: .default, handler: { (action) in
+                        handlerAlert(true, true)
+                    })
+                    let noAction = UIAlertAction(title: "Não", style: .default) { (action) in
+                        handlerAlert(true, false)
+                    }
+                    
+                    AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController: viewController)
+                    
+                    return
+                }
+            } else {
+                if let value = LoginController.sharedInstance.loginResponseObject.requisitarPermissaoNotificacao {
+                    if value {
+                        if let message = LoginController.sharedInstance.loginResponseObject.requisicaoNotificacaoMensagem {
+                            let yesAction = UIAlertAction(title: "Sim", style: .default, handler: { (action) in
+                                handlerAlert(false, true)
+                            })
+                            let noAction = UIAlertAction(title: "Não", style: .default) { (action) in
+                                handlerAlert(false, false)
+                            }
+                            
+                            AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController:
+                                viewController)
+                            
+                            return
+                        }
+                    }
+                }
+            }
+        }
+        
+        handlerAlert(nil, nil)
+    }
+    
     static func logout() {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
         

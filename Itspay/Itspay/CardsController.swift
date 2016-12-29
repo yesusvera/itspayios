@@ -138,6 +138,26 @@ class CardsController {
         return url
     }
     
+    static func createSecuritySettingsChangeStateURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "securitySettingsChangeState")
+    }
+    
+    static func createSecuritySettingsChangeStateParameters(_ virtualCard : Credenciais, tipoEstado : Int)-> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencial"] = value
+        }
+        
+        if let value = virtualCard.idPessoa {
+            dictionary["idUsuario"] = value
+        }
+        
+        dictionary["tipoEstado"] = tipoEstado
+        
+        return dictionary
+    }
+    
     static func createComunicateLostURLPath(_ virtualCard : Credenciais) -> String {
         return Repository.createServiceURLFromPListValue(.services, key: "comunicateLost")
     }
