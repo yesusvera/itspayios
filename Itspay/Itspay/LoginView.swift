@@ -193,8 +193,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
             return false
         }
         
-        if passwordValidation.isEmptyOrWhitespace() {
-            labelErrorPassword.text = "Senha Vazia."
+        if !passwordValidation.isPasswordValid() {
+            labelErrorPassword.text = "Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres."
             return false
         }
         

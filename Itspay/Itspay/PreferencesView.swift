@@ -108,7 +108,12 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         password = passwordValidation
         
         guard let newPasswordValidation = textFieldNewPassword.text else {
-            AlertComponent.showSimpleAlert(title: "Erro", message: "Nova senha inválida.", viewController: self)
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Nova Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres.", viewController: self)
+            return false
+        }
+        
+        if !newPasswordValidation.isPasswordValid() {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Nova Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres.", viewController: self)
             return false
         }
         

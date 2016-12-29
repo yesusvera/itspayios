@@ -59,7 +59,6 @@
 		ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */; };
 		ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3B51DFF89D800EBB73F /* Extensions.swift */; };
 		ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3B81DFF89F600EBB73F /* DateFormatterComponent.swift */; };
-		ED8AF3C21DFF8A6E00EBB73F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C11DFF8A6E00EBB73F /* Validation.swift */; };
 		ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C41DFF8A8D00EBB73F /* Session.swift */; };
 		ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */; };
 		ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */; };
@@ -163,7 +162,6 @@
 		ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		ED8AF3B51DFF89D800EBB73F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ED8AF3B81DFF89F600EBB73F /* DateFormatterComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterComponent.swift; sourceTree = "<group>"; };
-		ED8AF3C11DFF8A6E00EBB73F /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		ED8AF3C41DFF8A8D00EBB73F /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		ED8AF3C81DFF8ABC00EBB73F /* TouchID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchID.swift; sourceTree = "<group>"; };
 		ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -472,7 +470,6 @@
 				ED8AF3CB1DFF8ABE00EBB73F /* TouchID */,
 				ED8AF3C61DFF8AA600EBB73F /* Repository */,
 				ED8AF3C31DFF8A7E00EBB73F /* Session */,
-				ED8AF3BD1DFF8A5000EBB73F /* Validation */,
 				ED8AF3B71DFF89DC00EBB73F /* DateFormatter */,
 				ED8AF3B41DFF89CC00EBB73F /* Extensions */,
 				ED3913351E0AD6EF001B506D /* Itspay-Bridging-Header.h */,
@@ -538,14 +535,6 @@
 				ED8AF3B81DFF89F600EBB73F /* DateFormatterComponent.swift */,
 			);
 			name = DateFormatter;
-			sourceTree = "<group>";
-		};
-		ED8AF3BD1DFF8A5000EBB73F /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				ED8AF3C11DFF8A6E00EBB73F /* Validation.swift */,
-			);
-			name = Validation;
 			sourceTree = "<group>";
 		};
 		ED8AF3C31DFF8A7E00EBB73F /* Session */ = {
@@ -915,7 +904,6 @@
 				ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */,
 				ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
-				ED8AF3C21DFF8A6E00EBB73F /* Validation.swift in Sources */,
 				ED3913281E088899001B506D /* DataTransacao.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,

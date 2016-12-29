@@ -177,8 +177,8 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
             return false
         }
         
-        if passwordForm.isEmptyOrWhitespace() {
-            labelErrorPassword.text = "Senha vazia."
+        if !passwordForm.isPasswordValid() {
+            labelErrorPassword.text = "Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres."
             return false
         }
         
