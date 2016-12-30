@@ -49,7 +49,7 @@ class Connection {
         let data = Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: Connection.sharedConnection.dataHeaders)
         
         data.response { (response) in
-            print("URL: \(url)\nJSON Response: \(response)\n")
+            print("URL: \(url)")
             
             dataResponse(response.data)
         }
@@ -63,7 +63,7 @@ class Connection {
         url += "/\(path)"
         
         Alamofire.download(url, to: destination).responseData { response in
-            print("URL IMAGE: \(url)\nJSON Response: \(response)\n")
+            print("URL IMAGE: \(url)\nData Response: \(response)\n")
             
             downloadResponseData(response)
         }

@@ -56,5 +56,9 @@
 	<string>issuer/api/portador/credencial/avisar-perda</string>
 	<key>comunicateSteal</key>
 	<string>issuer/api/portador/credencial/avisar-roubo</string>
+	<key>productPartner</key>
+	<string>issuer/api/mktplace/portador/parceiro-produto</string>
+	<key>productImage</key>
+	<string>issuer/api/mktplace/administrativo/imagem/sku</string>
 </dict>
 </plist>

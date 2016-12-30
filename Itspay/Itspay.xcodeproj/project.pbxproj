@@ -24,7 +24,6 @@
 		ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */; };
 		ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EF1E0C5889000BCE53 /* RatesView.swift */; };
 		ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02F11E0C6AD5000BCE53 /* Bank.swift */; };
-		ED4B3CA21E143E8800D4C1CE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B3CA11E143E8800D4C1CE /* Product.swift */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -78,6 +77,16 @@
 		EDD681581E00EC9F00E9017F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD681571E00EC9F00E9017F /* CoreLocation.framework */; };
 		EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD681591E00ED1A00E9017F /* Location.swift */; };
 		EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60EA1E15845300C24A4E /* CarrierInfo.swift */; };
+		EDFB60F51E15F06500C24A4E /* Caracteristicas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60EC1E15F06500C24A4E /* Caracteristicas.swift */; };
+		EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60ED1E15F06500C24A4E /* Categorias.swift */; };
+		EDFB60F71E15F06500C24A4E /* DataHoraStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60EE1E15F06500C24A4E /* DataHoraStatus.swift */; };
+		EDFB60F81E15F06500C24A4E /* Imagens.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60EF1E15F06500C24A4E /* Imagens.swift */; };
+		EDFB60F91E15F06500C24A4E /* PalavrasChaves.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F01E15F06500C24A4E /* PalavrasChaves.swift */; };
+		EDFB60FA1E15F06500C24A4E /* ProductPartner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F11E15F06500C24A4E /* ProductPartner.swift */; };
+		EDFB60FB1E15F06500C24A4E /* Produtos.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F21E15F06500C24A4E /* Produtos.swift */; };
+		EDFB60FC1E15F06500C24A4E /* Referencias.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F31E15F06500C24A4E /* Referencias.swift */; };
+		EDFB60FD1E15F06500C24A4E /* Unidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F41E15F06500C24A4E /* Unidades.swift */; };
+		EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */; };
 		F0A284C27688A3D5CB14C2F9 /* Pods_ItspayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,7 +131,6 @@
 		ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuritySettingsView.swift; sourceTree = "<group>"; };
 		ED3A02EF1E0C5889000BCE53 /* RatesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
 		ED3A02F11E0C6AD5000BCE53 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
-		ED4B3CA11E143E8800D4C1CE /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -182,6 +190,16 @@
 		EDD681571E00EC9F00E9017F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EDD681591E00ED1A00E9017F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EDFB60EA1E15845300C24A4E /* CarrierInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrierInfo.swift; sourceTree = "<group>"; };
+		EDFB60EC1E15F06500C24A4E /* Caracteristicas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Caracteristicas.swift; sourceTree = "<group>"; };
+		EDFB60ED1E15F06500C24A4E /* Categorias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categorias.swift; sourceTree = "<group>"; };
+		EDFB60EE1E15F06500C24A4E /* DataHoraStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraStatus.swift; sourceTree = "<group>"; };
+		EDFB60EF1E15F06500C24A4E /* Imagens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imagens.swift; sourceTree = "<group>"; };
+		EDFB60F01E15F06500C24A4E /* PalavrasChaves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalavrasChaves.swift; sourceTree = "<group>"; };
+		EDFB60F11E15F06500C24A4E /* ProductPartner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPartner.swift; sourceTree = "<group>"; };
+		EDFB60F21E15F06500C24A4E /* Produtos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Produtos.swift; sourceTree = "<group>"; };
+		EDFB60F31E15F06500C24A4E /* Referencias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referencias.swift; sourceTree = "<group>"; };
+		EDFB60F41E15F06500C24A4E /* Unidades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unidades.swift; sourceTree = "<group>"; };
+		EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,7 +320,15 @@
 		ED4B3CA01E143E7700D4C1CE /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
-				ED4B3CA11E143E8800D4C1CE /* Product.swift */,
+				EDFB60EC1E15F06500C24A4E /* Caracteristicas.swift */,
+				EDFB60ED1E15F06500C24A4E /* Categorias.swift */,
+				EDFB60EE1E15F06500C24A4E /* DataHoraStatus.swift */,
+				EDFB60EF1E15F06500C24A4E /* Imagens.swift */,
+				EDFB60F01E15F06500C24A4E /* PalavrasChaves.swift */,
+				EDFB60F11E15F06500C24A4E /* ProductPartner.swift */,
+				EDFB60F21E15F06500C24A4E /* Produtos.swift */,
+				EDFB60F31E15F06500C24A4E /* Referencias.swift */,
+				EDFB60F41E15F06500C24A4E /* Unidades.swift */,
 			);
 			name = MarketPlace;
 			sourceTree = "<group>";
@@ -577,6 +603,7 @@
 			children = (
 				EDAB8A781E007D5600C91453 /* LoginController.swift */,
 				EDC9F8241E07F70700B0DD37 /* CardsController.swift */,
+				EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -877,9 +904,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED6FC3731E12DCB000AD4562 /* SecuritySettings.swift in Sources */,
+				EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */,
 				ED3A02E81E0C00F8000BCE53 /* TransferFinancialCard.swift in Sources */,
 				ED3A02E51E0C00B7000BCE53 /* TransferMainView.swift in Sources */,
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
+				EDFB60F51E15F06500C24A4E /* Caracteristicas.swift in Sources */,
 				ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */,
 				EDAB8A7C1E007E6100C91453 /* System.swift in Sources */,
 				ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */,
@@ -887,15 +916,19 @@
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */,
 				ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */,
+				EDFB60FA1E15F06500C24A4E /* ProductPartner.swift in Sources */,
 				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */,
 				ED39133B1E0AE1F7001B506D /* AlertComponent.swift in Sources */,
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
+				EDFB60FC1E15F06500C24A4E /* Referencias.swift in Sources */,
 				EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */,
 				EDB8CADC1E119A5F00BC8089 /* ChargeView.swift in Sources */,
+				EDFB60F81E15F06500C24A4E /* Imagens.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
+				EDFB60FD1E15F06500C24A4E /* Unidades.swift in Sources */,
 				ED6FC36F1E120A4400AD4562 /* MessageErrorView.swift in Sources */,
 				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
 				EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */,
@@ -915,9 +948,11 @@
 				ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */,
 				ED6FC3641E11BF7200AD4562 /* Ticket.swift in Sources */,
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
+				EDFB60F91E15F06500C24A4E /* PalavrasChaves.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */,
-				ED4B3CA21E143E8800D4C1CE /* Product.swift in Sources */,
+				EDFB60F71E15F06500C24A4E /* DataHoraStatus.swift in Sources */,
+				EDFB60FB1E15F06500C24A4E /* Produtos.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
@@ -926,6 +961,7 @@
 				EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */,
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
+				EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,
 				EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */,

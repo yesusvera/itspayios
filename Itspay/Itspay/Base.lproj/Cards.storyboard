@@ -140,7 +140,7 @@
                             <outlet property="delegate" destination="6na-tB-Bih" id="qYh-zh-tOV"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Cartões" image="card" id="76L-dp-0SA"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Cartões" image="card" id="76L-dp-0SA"/>
                     <connections>
                         <segue destination="4tc-or-nqX" kind="show" identifier="DetailCardsSegue" id="fLG-Z1-3az"/>
                     </connections>
@@ -600,7 +600,7 @@
                             <constraint firstItem="IIi-9R-8el" firstAttribute="leading" secondItem="DqU-aB-31D" secondAttribute="leading" id="rgP-pr-27d"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" image="settings" id="d1Q-3a-Yca"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Ajustes" image="settings" id="d1Q-3a-Yca"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="673-5D-gRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -624,16 +624,59 @@
                                     <segue destination="BXT-SP-W6N" kind="embed" id="ewI-iL-98T"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOk-Gs-DtV">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e88-hg-cOH">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="B4X-rg-baX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As melhores ofertas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnX-uI-ubY">
+                                        <rect key="frame" x="16" y="14" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Wd-NJ-eUI">
+                                        <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="A3b-46-Dme"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="e88-hg-cOH" secondAttribute="trailing" id="07l-Tz-fFV"/>
+                                    <constraint firstAttribute="height" constant="50" id="CIM-cd-IFZ"/>
+                                    <constraint firstItem="1Wd-NJ-eUI" firstAttribute="leading" secondItem="bOk-Gs-DtV" secondAttribute="leading" id="ENb-fh-HhA"/>
+                                    <constraint firstAttribute="trailing" secondItem="UnX-uI-ubY" secondAttribute="trailing" constant="16" id="Xjp-L0-Tj2"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Wd-NJ-eUI" secondAttribute="bottom" id="bst-5p-mbU"/>
+                                    <constraint firstItem="UnX-uI-ubY" firstAttribute="leading" secondItem="bOk-Gs-DtV" secondAttribute="leading" constant="16" id="dKd-1a-3su"/>
+                                    <constraint firstAttribute="bottom" secondItem="e88-hg-cOH" secondAttribute="bottom" id="eNk-cF-gCq"/>
+                                    <constraint firstItem="e88-hg-cOH" firstAttribute="top" secondItem="bOk-Gs-DtV" secondAttribute="top" id="eYm-jg-cQ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Wd-NJ-eUI" secondAttribute="trailing" id="g92-Ll-dDg"/>
+                                    <constraint firstItem="UnX-uI-ubY" firstAttribute="centerY" secondItem="bOk-Gs-DtV" secondAttribute="centerY" id="o0e-cD-mBd"/>
+                                    <constraint firstItem="e88-hg-cOH" firstAttribute="leading" secondItem="bOk-Gs-DtV" secondAttribute="leading" id="swA-VQ-oqV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="XSE-ER-TFs" secondAttribute="trailing" id="9Ta-d8-ebS"/>
                             <constraint firstItem="vTq-QO-PaD" firstAttribute="top" secondItem="XSE-ER-TFs" secondAttribute="bottom" id="9V6-v3-ret"/>
+                            <constraint firstItem="bOk-Gs-DtV" firstAttribute="leading" secondItem="9UN-fu-6NA" secondAttribute="leading" id="OtF-cV-t7S"/>
                             <constraint firstItem="XSE-ER-TFs" firstAttribute="top" secondItem="WHp-O4-85U" secondAttribute="bottom" id="PWq-tI-F6H"/>
+                            <constraint firstAttribute="trailing" secondItem="bOk-Gs-DtV" secondAttribute="trailing" id="k5f-UU-8Tv"/>
+                            <constraint firstItem="bOk-Gs-DtV" firstAttribute="top" secondItem="WHp-O4-85U" secondAttribute="bottom" id="qHA-4d-5tg"/>
                             <constraint firstItem="XSE-ER-TFs" firstAttribute="leading" secondItem="9UN-fu-6NA" secondAttribute="leading" id="qT3-Oj-ksa"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Destaques" image="favorite" id="bJk-dx-tck"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Destaques" image="favorite" id="bJk-dx-tck"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Js-a2-L4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -690,7 +733,7 @@
                             <constraint firstItem="oKw-vV-4VR" firstAttribute="top" secondItem="paG-yK-eop" secondAttribute="bottom" id="iEi-yp-w8g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Carrinho" image="cart" id="m2W-eT-0Fm"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Carrinho" image="cart" id="m2W-eT-0Fm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpH-yg-e0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1537,7 +1580,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-Ht-hgX">
-                                                    <rect key="frame" x="16" y="8" width="167.5" height="21"/>
+                                                    <rect key="frame" x="16" y="8" width="168" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Valor ">
                                                             <attributes>
@@ -1555,7 +1598,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="R$ 0,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i3q-bH-jhc" customClass="TextFieldCurrencyMask" customModule="Itspay" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="29" width="167.5" height="30"/>
+                                                    <rect key="frame" x="16" y="29" width="168" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1564,13 +1607,13 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarifa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cii-hw-4ky">
-                                                    <rect key="frame" x="191.5" y="8" width="167.5" height="21"/>
+                                                    <rect key="frame" x="192" y="8" width="167" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="R$ 1,50" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvM-Ac-czo" customClass="TextFieldCurrencyMask" customModule="Itspay" customModuleProvider="target">
-                                                    <rect key="frame" x="191.5" y="29" width="167.5" height="30"/>
+                                                    <rect key="frame" x="192" y="29" width="167" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
