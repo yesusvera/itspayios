@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureNavigationBar() {
         UINavigationBar.appearance().isOpaque = false
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().barTintColor = UIColor.black
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UINavigationBar.appearance().tintColor]
         

@@ -27,7 +27,9 @@ class MarketPlaceController {
         return url
     }
     
-    static func getProductImage(_ product : Produtos, in imageView : UIImageView, showLoading : Bool) {
+    static func getMainProductImage(_ product : Produtos, in imageView : UIImageView, showLoading : Bool) {
+        imageView.image = UIImage(named: "image_placeholder")
+        
         if let array = product.imagens {
             var image : Imagens?
             
@@ -66,6 +68,38 @@ class MarketPlaceController {
                     }
                 })
             }
+        }
+    }
+    
+    static func getProductImage(_ image : Imagens, in imageView : UIImageView, showLoading : Bool) {
+        imageView.image = UIImage(named: "image_placeholder")
+        
+        if let url = image.idImagem {
+            let url = MarketPlaceController.createProductImageURLPath("\(url)")
+            
+            var superview = UIView()
+            
+            if showLoading {
+                if let view = imageView.superview {
+                    superview = view
+                } else {
+                    superview = imageView
+                }
+                
+                LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
+            }
+            
+            Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
+                if showLoading {
+                    LoadingProgress.stopAnimating(in: superview)
+                }
+                
+                if let data = dataResponse {
+                    if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
+                        imageView.image = UIImage(data: dataImage)
+                    }
+                }
+            })
         }
     }
 }

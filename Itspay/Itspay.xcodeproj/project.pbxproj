@@ -87,6 +87,7 @@
 		EDFB60FC1E15F06500C24A4E /* Referencias.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F31E15F06500C24A4E /* Referencias.swift */; };
 		EDFB60FD1E15F06500C24A4E /* Unidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60F41E15F06500C24A4E /* Unidades.swift */; };
 		EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */; };
+		EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB61001E17E2EF00C24A4E /* DetailProductView.swift */; };
 		F0A284C27688A3D5CB14C2F9 /* Pods_ItspayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -200,6 +201,7 @@
 		EDFB60F31E15F06500C24A4E /* Referencias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referencias.swift; sourceTree = "<group>"; };
 		EDFB60F41E15F06500C24A4E /* Unidades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unidades.swift; sourceTree = "<group>"; };
 		EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceController.swift; sourceTree = "<group>"; };
+		EDFB61001E17E2EF00C24A4E /* DetailProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,8 +266,9 @@
 		ED39132C1E09859C001B506D /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
-				ED39132D1E098607001B506D /* CartView.swift */,
 				ED39132F1E09865B001B506D /* HighlightsView.swift */,
+				EDFB61001E17E2EF00C24A4E /* DetailProductView.swift */,
+				ED39132D1E098607001B506D /* CartView.swift */,
 				ED3913311E09868B001B506D /* MarketPlace.storyboard */,
 			);
 			name = MarketPlace;
@@ -954,6 +957,7 @@
 				EDFB60F71E15F06500C24A4E /* DataHoraStatus.swift in Sources */,
 				EDFB60FB1E15F06500C24A4E /* Produtos.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
+				EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,

@@ -301,3 +301,24 @@ extension String {
         return self.replacingOccurrences(of: "[^0-9]", with: "", options: String.CompareOptions.regularExpression, range: nil)
     }
 }
+
+extension NSAttributedString {
+    static func strikedText(_ text: String, color : UIColor) -> NSAttributedString {
+        let textAttributes = [
+            NSForegroundColorAttributeName: color,
+            NSStrikethroughStyleAttributeName: 1
+        ] as [String : Any]
+        
+        return NSAttributedString(string: text, attributes: textAttributes)
+    }
+    
+    static func strokeText(_ text: String, color : UIColor, strokeColor : UIColor) -> NSAttributedString {
+        let textAttributes = [
+            NSForegroundColorAttributeName: color,
+            NSStrokeColorAttributeName: strokeColor,
+            NSStrokeWidthAttributeName: 1.0
+        ] as [String : Any]
+        
+        return NSAttributedString(string: text, attributes: textAttributes)
+    }
+}

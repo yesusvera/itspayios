@@ -10,7 +10,9 @@ import UIKit
 
 class HighlightsView: UICollectionViewController {
     var arrayProductPartner = [ProductPartner]()
-    var arrayProducts = [Produtos]()
+
+    var selectedProductPartner : ProductPartner!
+    var selectedProduct : Produtos!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +36,17 @@ class HighlightsView: UICollectionViewController {
     func searchHighlightedProducts() {
         let url = MarketPlaceController.createProductPartnerURLPath()
         
+        LoadingProgress.startAnimatingInWindow()
         Connection.request(url, method: .get, parameters: nil) { (dataResponse) in
+            LoadingProgress.stopAnimating()
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? [Any] {
                     self.arrayProductPartner = [ProductPartner]()
-                    self.arrayProducts = [Produtos]()
                     
                     for object in value {
                         let productPartner = ProductPartner(object: object)
                         
                         self.arrayProductPartner.append(productPartner)
-                        
-                        if let array = productPartner.produtos {
-                            self.arrayProducts.append(contentsOf: array)
-                        }
                     }
                     
                     self.collectionView?.reloadData()
@@ -75,6 +74,8 @@ class HighlightsView: UICollectionViewController {
         
         let productPartner = arrayProductPartner[indexPath.section]
         
+        let arrayProducts = productPartner.produtos!
+        
         let product = arrayProducts[indexPath.row]
         
         if let label = cell.viewWithTag(1) as? UILabel, let value = product.nomeProduto {
@@ -82,13 +83,13 @@ class HighlightsView: UICollectionViewController {
         }
 
         if let imageView = cell.viewWithTag(2) as? UIImageView {
-            MarketPlaceController.getProductImage(product, in: imageView, showLoading: true)
+            MarketPlaceController.getMainProductImage(product, in: imageView, showLoading: true)
         }
         
         if let array = product.referencias {
             if let object = array.first {
                 if let label = cell.viewWithTag(3) as? UILabel, let value = object.precoDe {
-                    label.text = "\(value)".formatToCurrencyReal()
+                    label.attributedText = NSAttributedString.strikedText("\(value)".formatToCurrencyReal(), color: UIColor.lightGray)
                 }
                 
                 if let label = cell.viewWithTag(4) as? UILabel, let value = object.precoPor {
@@ -105,6 +106,21 @@ class HighlightsView: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productPartner = arrayProductPartner[indexPath.section]
         
+        let arrayProducts = productPartner.produtos!
+        
+        selectedProductPartner = productPartner
+        selectedProduct = arrayProducts[indexPath.row]
+        
+        self.performSegue(withIdentifier: "DetailProductSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailProductSegue" {
+            let viewController = segue.destination as! DetailProductView
+            viewController.productPartner = selectedProductPartner
+            viewController.product = selectedProduct
+        }
     }
 }
