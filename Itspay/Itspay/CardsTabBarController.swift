@@ -32,15 +32,13 @@ class CardsTabBarController: UITabBarController {
     }
     
     func updateCartBadges() {
-        if let tabBarController = self.tabBarController {
-            if let items = tabBarController.tabBar.items {
-                let tabBarItem = items[2]
-                
-                if MarketPlaceController.sharedInstance.cartProductsReferences.count > 0 {
-                    tabBarItem.badgeValue = "\(MarketPlaceController.sharedInstance.cartProductsReferences.count)"
-                } else {
-                    tabBarItem.badgeValue = ""
-                }
+        if let items = self.tabBar.items {
+            let tabBarItem = items[2]
+            
+            if MarketPlaceController.sharedInstance.cartProductsReferences.count > 0 {
+                tabBarItem.badgeValue = "\(MarketPlaceController.sharedInstance.cartProductsReferences.count)"
+            } else {
+                tabBarItem.badgeValue = ""
             }
         }
     }
