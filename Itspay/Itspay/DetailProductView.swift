@@ -88,7 +88,7 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func buttonAddCartAction(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "ProductReferencesSegue", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -141,5 +141,12 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
     
     func updateTotal() {
         total = Double(amount) * price
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProductReferencesSegue" {
+            let viewController = segue.destination as! ProductReferencesView
+            viewController.product = product
+        }
     }
 }

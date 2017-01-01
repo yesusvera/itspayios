@@ -8,6 +8,79 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Launch Screen View-->
+        <scene sceneID="g00-vN-biP">
+            <objects>
+                <viewController storyboardIdentifier="LaunchScreenView" id="0VA-n5-oWQ" customClass="LaunchScreenView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xNm-f6-QPb"/>
+                        <viewControllerLayoutGuide type="bottom" id="waz-VZ-m4k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mom-Ci-w5S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-Am-feH" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="0.0" y="228" width="375" height="211"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_financial" translatesAutoresizingMaskIntoConstraints="NO" id="ZxS-s1-yOk" customClass="SpringImageView" customModule="Spring">
+                                        <rect key="frame" x="132.5" y="16" width="110" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="Jgl-eV-CFz"/>
+                                            <constraint firstAttribute="height" constant="110" id="Ok7-9P-QPb"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqb-Q3-uhx">
+                                        <rect key="frame" x="77.5" y="126" width="220" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="ADY-KB-GNY"/>
+                                            <constraint firstAttribute="width" constant="220" id="mXA-hj-Xk1"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.93725490199999995" green="0.23921568630000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="financial_text"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Mqb-Q3-uhx" firstAttribute="top" secondItem="ZxS-s1-yOk" secondAttribute="bottom" id="0x7-gU-3ns"/>
+                                    <constraint firstItem="ZxS-s1-yOk" firstAttribute="top" secondItem="iKN-Am-feH" secondAttribute="top" constant="16" id="CV9-iP-6Ws"/>
+                                    <constraint firstItem="Mqb-Q3-uhx" firstAttribute="centerX" secondItem="ZxS-s1-yOk" secondAttribute="centerX" id="LmU-dG-jg9"/>
+                                    <constraint firstItem="ZxS-s1-yOk" firstAttribute="centerX" secondItem="iKN-Am-feH" secondAttribute="centerX" id="Yo2-vf-VVe"/>
+                                    <constraint firstAttribute="height" constant="211" id="iDe-uT-XdM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomOut"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="damping">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="velocity">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iKN-Am-feH" secondAttribute="trailing" id="6ar-9k-6oD"/>
+                            <constraint firstItem="iKN-Am-feH" firstAttribute="centerY" secondItem="mom-Ci-w5S" secondAttribute="centerY" id="KDn-il-f1h"/>
+                            <constraint firstItem="iKN-Am-feH" firstAttribute="leading" secondItem="mom-Ci-w5S" secondAttribute="leading" id="ZKV-aM-geB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="ZxS-s1-yOk" id="RD7-Xq-jc6"/>
+                        <outlet property="springView" destination="iKN-Am-feH" id="JF4-wp-fia"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eep-Xy-eeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282.39999999999998" y="-671.51424287856082"/>
+        </scene>
         <!--Web View-->
         <scene sceneID="6cL-nQ-XBO">
             <objects>
@@ -1023,4 +1096,8 @@
             <point key="canvasLocation" x="-283" y="2162"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="financial_text" width="342" height="103"/>
+        <image name="logo_financial" width="180" height="192"/>
+    </resources>
 </document>

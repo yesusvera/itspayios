@@ -26,6 +26,29 @@ class CardsTabBarController: UITabBarController {
         super.viewDidLoad()
 
         configureNavigationBar()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateCartBadges), name: NSNotification.Name.init("updateCartBadges"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.selectTabBarIndexObsever), name: NSNotification.Name.init("selectTabBarIndexObsever"), object: nil)
+    }
+    
+    func updateCartBadges() {
+        if let tabBarController = self.tabBarController {
+            if let items = tabBarController.tabBar.items {
+                let tabBarItem = items[2]
+                
+                if MarketPlaceController.sharedInstance.cartProductsReferences.count > 0 {
+                    tabBarItem.badgeValue = "\(MarketPlaceController.sharedInstance.cartProductsReferences.count)"
+                } else {
+                    tabBarItem.badgeValue = ""
+                }
+            }
+        }
+    }
+    
+    func selectTabBarIndexObsever(notification : Notification) {
+        if let index = notification.object as? Int {
+            self.selectedIndex = index
+        }
     }
     
     func configureNavigationBar() {

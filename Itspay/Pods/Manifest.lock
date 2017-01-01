@@ -4,8 +4,8 @@ PODS:
   - CryptoSwift (0.6.6)
   - ObjectMapper (2.2.2)
   - PickerFieldsDataHelper (0.1.0)
-  - pop (1.0.9)
   - SideMenu (2.0.7)
+  - Spring (1.0.3)
   - SwiftyJSON (3.1.3)
   - VHBoomMenuButton (1.0.2)
 
@@ -15,10 +15,20 @@ DEPENDENCIES:
   - CryptoSwift
   - ObjectMapper (~> 2.2)
   - PickerFieldsDataHelper
-  - pop
   - SideMenu
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
   - VHBoomMenuButton (~> 1.0.2)
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift3
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -26,11 +36,11 @@ SPEC CHECKSUMS:
   CryptoSwift: 88592381b73f36e192124539390a7c9bacda76af
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   PickerFieldsDataHelper: 5b9ab3dec6bde85d9736d06a78692ce30bd373f5
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SideMenu: c5d3c3bc855b96bc2059e0b1ec346ecb54e80447
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   VHBoomMenuButton: 5fdd6b5180140b5b96b0827c7052a08ecd61ee96
 
-PODFILE CHECKSUM: 93a2dfdc914cb2dd171d26e4ff2c9327dba189cb
+PODFILE CHECKSUM: a6a86aa5be210684b0e3620cc74b7c986bcaa55a
 
 COCOAPODS: 1.0.1

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '89726B41307505C53E7E40322588F780'
+               BlueprintIdentifier = 'ACBCBC9DD12D757BA870464655F568B0'
                BlueprintName = 'VHBoomMenuButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'VHBoomMenuButton.framework'>

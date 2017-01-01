@@ -11,6 +11,8 @@ import UIKit
 class MarketPlaceController {
     static let sharedInstance = MarketPlaceController()
     
+    var cartProductsReferences = [Referencias]()
+    
     static func createProductPartnerURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "productPartner")
         
@@ -101,5 +103,9 @@ class MarketPlaceController {
                 }
             })
         }
+    }
+    
+    static func addProductReferenceToCart(_ reference : Referencias) {
+        MarketPlaceController.sharedInstance.cartProductsReferences.append(reference)
     }
 }

@@ -3,9 +3,9 @@ platform :ios, '10.1’
 use_frameworks!
 
 target ‘Itspay’ do
-    
+
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 pod 'Alamofire', '~> 4.0'
-pod 'pop'    
 pod 'SwiftyJSON'
 pod 'ObjectMapper', '~> 2.2'
 pod 'PickerFieldsDataHelper'

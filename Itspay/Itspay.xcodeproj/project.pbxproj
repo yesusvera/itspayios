@@ -24,6 +24,8 @@
 		ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */; };
 		ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EF1E0C5889000BCE53 /* RatesView.swift */; };
 		ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02F11E0C6AD5000BCE53 /* Bank.swift */; };
+		ED4F9F6A1E19653C00F99162 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */; };
+		ED4F9F6C1E19705700F99162 /* ProductReferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -132,6 +134,8 @@
 		ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuritySettingsView.swift; sourceTree = "<group>"; };
 		ED3A02EF1E0C5889000BCE53 /* RatesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
 		ED3A02F11E0C6AD5000BCE53 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductReferencesView.swift; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 				ED39132F1E09865B001B506D /* HighlightsView.swift */,
 				EDFB61001E17E2EF00C24A4E /* DetailProductView.swift */,
 				ED39132D1E098607001B506D /* CartView.swift */,
+				ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */,
 				ED3913311E09868B001B506D /* MarketPlace.storyboard */,
 			);
 			name = MarketPlace;
@@ -334,6 +339,15 @@
 				EDFB60F41E15F06500C24A4E /* Unidades.swift */,
 			);
 			name = MarketPlace;
+			sourceTree = "<group>";
+		};
+		ED4F9F681E193C9D00F99162 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */,
+				ED8AF37F1DFF85C100EBB73F /* LaunchScreen.storyboard */,
+			);
+			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		ED599DC21E0070C2004EC753 /* Connection */ = {
@@ -465,6 +479,7 @@
 				ED39132C1E09859C001B506D /* MarketPlace */,
 				ED8AF3AC1DFF867900EBB73F /* Cards */,
 				ED8AF3AB1DFF866D00EBB73F /* Login & Register */,
+				ED4F9F681E193C9D00F99162 /* LaunchScreen */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -513,7 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				ED8AF37D1DFF85C100EBB73F /* Assets.xcassets */,
-				ED8AF37F1DFF85C100EBB73F /* LaunchScreen.storyboard */,
 				ED8AF3821DFF85C100EBB73F /* Info.plist */,
 				ED791B6B1E0066FA002C4A70 /* services.plist */,
 				ED53229F1E056C25005ACBD2 /* mocks.plist */,
@@ -954,6 +968,7 @@
 				EDFB60F91E15F06500C24A4E /* PalavrasChaves.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */,
+				ED4F9F6A1E19653C00F99162 /* LaunchScreenView.swift in Sources */,
 				EDFB60F71E15F06500C24A4E /* DataHoraStatus.swift in Sources */,
 				EDFB60FB1E15F06500C24A4E /* Produtos.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
@@ -965,6 +980,7 @@
 				EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */,
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
+				ED4F9F6C1E19705700F99162 /* ProductReferencesView.swift in Sources */,
 				EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,

@@ -7,14 +7,20 @@
 //
 
 import UIKit
-import pop
 
 class MainView: UIViewController {
     @IBOutlet weak var blurView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let launchScreenView = instantiateFrom("General", identifier: "LaunchScreenView") as! LaunchScreenView
+        launchScreenView.startLaunchScreen(in: self)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.animateBlurFade), name: NSNotification.Name.init("animateBlurFade"), object: nil)
+    }
+    
+    func animateBlurFade() {
         blurView.alpha = 0
         UIView.animate(withDuration: 0.8) {
             self.blurView.alpha = 1
