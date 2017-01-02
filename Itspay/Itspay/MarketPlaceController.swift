@@ -43,8 +43,8 @@ class MarketPlaceController {
                 }
             }
             
-            if let image = image, let url = image.idImagem {
-                let url = MarketPlaceController.createProductImageURLPath("\(url)")
+            if let image = image, let idImagem = image.idImagem {
+                let url = MarketPlaceController.createProductImageURLPath("\(idImagem)")
                 
                 var superview = UIView()
                 
@@ -76,8 +76,8 @@ class MarketPlaceController {
     static func getProductImage(_ image : Imagens, in imageView : UIImageView, showLoading : Bool) {
         imageView.image = UIImage(named: "image_placeholder")
         
-        if let url = image.idImagem {
-            let url = MarketPlaceController.createProductImageURLPath("\(url)")
+        if let idImagem = image.idImagem {
+            let url = MarketPlaceController.createProductImageURLPath("\(idImagem)")
             
             var superview = UIView()
             
@@ -105,7 +105,64 @@ class MarketPlaceController {
         }
     }
     
+    static func getProduct(with idImage : Int, in imageView : UIImageView, showLoading : Bool) {
+        imageView.image = UIImage(named: "image_placeholder")
+        
+        let url = MarketPlaceController.createProductImageURLPath("\(idImage)")
+        
+        var superview = UIView()
+        
+        if showLoading {
+            if let view = imageView.superview {
+                superview = view
+            } else {
+                superview = imageView
+            }
+            
+            LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
+        }
+        
+        Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
+            if showLoading {
+                LoadingProgress.stopAnimating(in: superview)
+            }
+            
+            if let data = dataResponse {
+                if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
+                    imageView.image = UIImage(data: dataImage)
+                }
+            }
+        })
+    }
+    
     static func addProductReferenceToCart(_ reference : Referencias) {
         MarketPlaceController.sharedInstance.cartProductsReferences.append(reference)
+    }
+    
+    static func splitReferencesByPartners(_ references : [Referencias]) -> [[Referencias]] {
+        var array = [[Referencias]]()
+
+        var partners = [String]()
+        for reference in references {
+            if let value = reference.nomeParceiro {
+                if !partners.contains(value) {
+                    partners.append(value)
+                }
+            }
+        }
+        
+        for partner in partners {
+            var newArray = [Referencias]()
+            for reference in references {
+                if let value = reference.nomeParceiro {
+                    if value == partner {
+                        newArray.append(reference)
+                    }
+                }
+            }
+            array.append(newArray)
+        }
+        
+        return array
     }
 }

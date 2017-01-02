@@ -47,6 +47,7 @@ public final class Produtos: NSCoding {
   public var idProcessadora: Int?
   public var url: String?
   public var idProduto: String?
+  public var nomeParceiro: String?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.

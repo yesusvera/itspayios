@@ -26,6 +26,7 @@
 		ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02F11E0C6AD5000BCE53 /* Bank.swift */; };
 		ED4F9F6A1E19653C00F99162 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */; };
 		ED4F9F6C1E19705700F99162 /* ProductReferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */; };
+		ED4F9F6F1E19C68C00F99162 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F6E1E19C68C00F99162 /* Button.swift */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -136,6 +137,7 @@
 		ED3A02F11E0C6AD5000BCE53 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductReferencesView.swift; sourceTree = "<group>"; };
+		ED4F9F6E1E19C68C00F99162 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -350,6 +352,14 @@
 			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		ED4F9F6D1E19C67D00F99162 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				ED4F9F6E1E19C68C00F99162 /* Button.swift */,
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
 		ED599DC21E0070C2004EC753 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +516,7 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ED4F9F6D1E19C67D00F99162 /* Button */,
 				ED3913391E0AE148001B506D /* AlertComponent */,
 				ED713DF41E03E5EA00E4D8E1 /* LoadingProgress */,
 				ED9291B41E0233A400F00F00 /* Constants */,
@@ -921,6 +932,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED6FC3731E12DCB000AD4562 /* SecuritySettings.swift in Sources */,
+				ED4F9F6F1E19C68C00F99162 /* Button.swift in Sources */,
 				EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */,
 				ED3A02E81E0C00F8000BCE53 /* TransferFinancialCard.swift in Sources */,
 				ED3A02E51E0C00B7000BCE53 /* TransferMainView.swift in Sources */,

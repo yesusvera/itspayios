@@ -11,6 +11,8 @@ import UIKit
 class ProductReferencesView: UITableViewController {
     var product : Produtos!
     
+    var amount = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,6 +64,8 @@ class ProductReferencesView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let reference = product.referencias![indexPath.row]
+    
+        reference.quantidade = amount
         
         MarketPlaceController.addProductReferenceToCart(reference)
         

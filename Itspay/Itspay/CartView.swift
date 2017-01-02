@@ -11,9 +11,13 @@ import UIKit
 class CartView: UITableViewController {
     var messageErrorView : MessageErrorView!
     
+    var arrayCart = [[Referencias]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        arrayCart = MarketPlaceController.splitReferencesByPartners(MarketPlaceController.sharedInstance.cartProductsReferences)
+        
         showCartMessage()
     }
     
@@ -26,7 +30,7 @@ class CartView: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return arrayCart.count
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -37,12 +41,49 @@ class CartView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MarketPlaceController.sharedInstance.cartProductsReferences.count
+        let array = arrayCart[section]
+        
+        return array.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let array = arrayCart[section]
+        
+        if let first = array.first {
+            return first.nomeParceiro
+        }
+        
+        return nil
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCellIdentifier", for: indexPath)
         
+        let array = arrayCart[indexPath.section]
+        
+        let reference = array[indexPath.row]
+        
+        if let imageView = cell.viewWithTag(1) as? UIImageView, let value = reference.idImagem {
+            MarketPlaceController.getProduct(with: value, in: imageView, showLoading: true)
+        }
+        
+        if let label = cell.viewWithTag(2) as? UILabel, let value = reference.nomeProduto {
+            label.text = "\(value)"
+        }
+        
+        if let label = cell.viewWithTag(3) as? UILabel, let value = reference.precoPor {
+            label.text = "\(value)".formatToCurrencyReal()
+        }
+        
+        if let label = cell.viewWithTag(4) as? UILabel, let value = reference.quantidade {
+            label.text = "\(value)"
+        }
+        
+        if let label = cell.viewWithTag(5) as? UILabel, let value = reference.quantidade, let object = reference.precoPor {
+            let total = Float(value) * object
+                
+            label.text = "\(total)".formatToCurrencyReal()
+        }
         
         return cell
     }

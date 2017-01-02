@@ -147,6 +147,7 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
         if segue.identifier == "ProductReferencesSegue" {
             let viewController = segue.destination as! ProductReferencesView
             viewController.product = product
+            viewController.amount = amount
         }
     }
 }

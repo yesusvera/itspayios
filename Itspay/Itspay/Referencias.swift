@@ -37,6 +37,10 @@ public final class Referencias: NSCoding {
   public var idParceiro: Int?
   public var idProduto: String?
   public var idReferenciaSKU: Int?
+  public var idImagem: Int?
+  public var nomeProduto: String?
+  public var nomeParceiro: String?
+  public var quantidade: Int?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
