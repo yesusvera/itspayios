@@ -20,37 +20,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackBahamas" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-Af-ZGR">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKN-Am-feH" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="0.0" y="228" width="375" height="211"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_financial" translatesAutoresizingMaskIntoConstraints="NO" id="ZxS-s1-yOk" customClass="SpringImageView" customModule="Spring">
-                                        <rect key="frame" x="132.5" y="16" width="110" height="110"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BahamasLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ZxS-s1-yOk" customClass="SpringImageView" customModule="Spring">
+                                        <rect key="frame" x="52.5" y="51.5" width="270" height="108"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="110" id="Jgl-eV-CFz"/>
-                                            <constraint firstAttribute="height" constant="110" id="Ok7-9P-QPb"/>
+                                            <constraint firstAttribute="width" constant="270" id="KzJ-bM-6Nq"/>
+                                            <constraint firstAttribute="height" constant="108" id="nb3-p5-Ng2"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqb-Q3-uhx">
-                                        <rect key="frame" x="77.5" y="126" width="220" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="ADY-KB-GNY"/>
-                                            <constraint firstAttribute="width" constant="220" id="mXA-hj-Xk1"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.93725490199999995" green="0.23921568630000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="financial_text"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isActionButton" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Mqb-Q3-uhx" firstAttribute="top" secondItem="ZxS-s1-yOk" secondAttribute="bottom" id="0x7-gU-3ns"/>
-                                    <constraint firstItem="ZxS-s1-yOk" firstAttribute="top" secondItem="iKN-Am-feH" secondAttribute="top" constant="16" id="CV9-iP-6Ws"/>
-                                    <constraint firstItem="Mqb-Q3-uhx" firstAttribute="centerX" secondItem="ZxS-s1-yOk" secondAttribute="centerX" id="LmU-dG-jg9"/>
+                                    <constraint firstItem="ZxS-s1-yOk" firstAttribute="centerY" secondItem="iKN-Am-feH" secondAttribute="centerY" id="YXz-il-cxp"/>
                                     <constraint firstItem="ZxS-s1-yOk" firstAttribute="centerX" secondItem="iKN-Am-feH" secondAttribute="centerX" id="Yo2-vf-VVe"/>
                                     <constraint firstAttribute="height" constant="211" id="iDe-uT-XdM"/>
                                 </constraints>
@@ -71,8 +60,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="iKN-Am-feH" secondAttribute="trailing" id="6ar-9k-6oD"/>
+                            <constraint firstItem="PPx-Af-ZGR" firstAttribute="top" secondItem="xNm-f6-QPb" secondAttribute="bottom" id="9YM-eV-1K8"/>
                             <constraint firstItem="iKN-Am-feH" firstAttribute="centerY" secondItem="mom-Ci-w5S" secondAttribute="centerY" id="KDn-il-f1h"/>
+                            <constraint firstItem="waz-VZ-m4k" firstAttribute="top" secondItem="PPx-Af-ZGR" secondAttribute="bottom" id="MKP-fo-a0K"/>
+                            <constraint firstItem="PPx-Af-ZGR" firstAttribute="leading" secondItem="mom-Ci-w5S" secondAttribute="leading" id="TeY-Gw-rBQ"/>
                             <constraint firstItem="iKN-Am-feH" firstAttribute="leading" secondItem="mom-Ci-w5S" secondAttribute="leading" id="ZKV-aM-geB"/>
+                            <constraint firstAttribute="trailing" secondItem="PPx-Af-ZGR" secondAttribute="trailing" id="ZqP-fa-YaX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -588,6 +581,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7J-7C-aZU">
                                 <rect key="frame" x="16" y="234" width="343" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="poE-wT-vkb"/>
                                 </constraints>
@@ -596,7 +590,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="W7J-7C-aZU" firstAttribute="centerX" secondItem="Adn-UH-sgy" secondAttribute="centerX" id="7X5-xo-QZW"/>
                             <constraint firstItem="W7J-7C-aZU" firstAttribute="leading" secondItem="Adn-UH-sgy" secondAttribute="leading" constant="16" id="H3S-gd-qWA"/>
@@ -1094,7 +1088,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="financial_text" width="342" height="103"/>
-        <image name="logo_financial" width="180" height="192"/>
+        <image name="BackBahamas" width="757" height="1343"/>
+        <image name="BahamasLogo" width="473" height="189"/>
     </resources>
 </document>

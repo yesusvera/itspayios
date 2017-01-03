@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class Button: UIButton {
     @IBInspectable var isActionButton : Bool = true {
         didSet {

@@ -46,28 +46,7 @@ class HighlightsView: UICollectionViewController {
                     for object in value {
                         let productPartner = ProductPartner(object: object)
                         
-                        if let produtos = productPartner.produtos {
-                            for product in produtos {
-                                product.nomeParceiro = productPartner.nomeParceiro
-                                
-                                var idImagem = 0
-                                if let imagens = product.imagens {
-                                    for imagem in imagens {
-                                        if let id = imagem.idImagem {
-                                            idImagem = id
-                                        }
-                                    }
-                                }
-                                
-                                if let referencias = product.referencias {
-                                    for referencia in referencias {
-                                        referencia.idImagem = idImagem
-                                        referencia.nomeParceiro = product.nomeParceiro
-                                        referencia.nomeProduto = product.nomeProduto
-                                    }
-                                }
-                            }
-                        }
+                        MarketPlaceController.configureProductPartner(productPartner)
                         
                         self.arrayProductPartner.append(productPartner)
                     }

@@ -165,4 +165,34 @@ class MarketPlaceController {
         
         return array
     }
+    
+    static func configureProductPartner(_ productPartner : ProductPartner) {
+        if let produtos = productPartner.produtos {
+            for product in produtos {
+                product.nomeParceiro = productPartner.nomeParceiro
+                
+                var arrayIdImagens = [Int]()
+                if let imagens = product.imagens {
+                    for imagem in imagens {
+                        if let idImagem = imagem.idImagem {
+                            arrayIdImagens.append(idImagem)
+                        }
+                    }
+                }
+                
+                if let referencias = product.referencias {
+                    var count = 0
+                    for referencia in referencias {
+                        if count < arrayIdImagens.count {
+                            referencia.idImagem = arrayIdImagens[count]
+                        }
+                        referencia.nomeParceiro = product.nomeParceiro
+                        referencia.nomeProduto = product.nomeProduto
+                        
+                        count += 1
+                    }
+                }
+            }
+        }
+    }
 }

@@ -38,7 +38,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         
         if let value = UserDefaults.standard.object(forKey: "lastCPFLogged") as? String {
-            textFieldCPF.text = value
+            textFieldCPF.text = value.cpfFormatted()
         }
         
         textFieldPassword.text = ""

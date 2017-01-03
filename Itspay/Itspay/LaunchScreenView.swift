@@ -28,8 +28,6 @@ class LaunchScreenView: UIViewController {
     }
     
     func stopLaunchScreen() {
-        NotificationCenter.default.post(name: NSNotification.Name.init("animateBlurFade"), object: nil)
-        
         self.view.removeFromSuperview()
     }
 }

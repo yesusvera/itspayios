@@ -8,11 +8,12 @@
 
 import UIKit
 
-class DetailProductView: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDelegate {
     @IBOutlet weak var labelAmount: UILabel!
     @IBOutlet weak var stepperAmount: UIStepper!
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var carouselProducts: iCarousel!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var labelProductName: UILabel!
     @IBOutlet weak var labelProductDescription: UILabel!
@@ -54,11 +55,15 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
         
         updateViewInfo()
+        configureCarousel()
+        
+        if let array = product.imagens {
+            pageControl.numberOfPages = array.count
+        }
     }
     
     func updateViewInfo() {
         self.title = "Detalhes do Produto"
-        
         
         if let value = product.nomeProduto {
             labelProductName.text = "\(value)"
@@ -87,6 +92,11 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
         }
     }
     
+    func configureCarousel() {
+        carouselProducts.bounceDistance = 0.2
+        carouselProducts.decelerationRate = 1.0
+    }
+    
     @IBAction func buttonAddCartAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "ProductReferencesSegue", sender: self)
     }
@@ -107,11 +117,7 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
         return viewFooter
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfItems(in carousel: iCarousel) -> Int {
         if let array = product.imagens {
             return array.count
         }
@@ -119,18 +125,27 @@ class DetailProductView: UITableViewController, UICollectionViewDelegate, UIColl
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailProductCellIdentifier", for: indexPath)
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: -16, width: SCREEN_WIDTH, height: carouselProducts.frame.height))
+        view.backgroundColor = UIColor.clear
         
-        if let array = product.imagens {
-            let imagem = array[indexPath.row]
-            
-            if let imageView = cell.viewWithTag(1) as? UIImageView {
-                MarketPlaceController.getProductImage(imagem, in: imageView, showLoading: true)
-            }
-        }
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.height*0.7, height: view.frame.height*0.7))
         
-        return cell
+        imageView.backgroundColor = UIColor.clear
+        imageView.center = view.center
+        imageView.contentMode = .scaleAspectFit
+        
+        let imagem = product.imagens![index]
+        
+        MarketPlaceController.getProductImage(imagem, in: imageView, showLoading: true)
+        
+        view.addSubview(imageView)
+        
+        return view
+    }
+    
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        pageControl.currentPage = carousel.currentItemIndex
     }
     
     @IBAction func stepperAmountAction(_ sender: UIStepper) {

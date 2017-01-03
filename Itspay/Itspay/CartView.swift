@@ -9,6 +9,8 @@
 import UIKit
 
 class CartView: UITableViewController {
+    @IBOutlet var viewEmptyCart: UIView!
+    
     var messageErrorView : MessageErrorView!
     
     var arrayCart = [[Referencias]]()
@@ -16,14 +18,31 @@ class CartView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reloadView()
+    }
+    
+    func reloadView() {
         arrayCart = MarketPlaceController.splitReferencesByPartners(MarketPlaceController.sharedInstance.cartProductsReferences)
         
         showCartMessage()
+        
+        self.tableView.reloadData()
     }
     
     func showCartMessage() {
+        viewEmptyCart.removeFromSuperview()
+        
         if MarketPlaceController.sharedInstance.cartProductsReferences.count == 0 {
             self.messageErrorView.updateView("Você não adicionou nenhum produto ao carrinho.")
+            
+            viewEmptyCart.center = CGPoint(x: self.view.center.x, y: self.view.center.y - viewEmptyCart.frame.height/2)
+            
+            self.view.addSubview(viewEmptyCart)
         } else {
             self.messageErrorView.updateView("")
         }
@@ -31,13 +50,6 @@ class CartView: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return arrayCart.count
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if MarketPlaceController.sharedInstance.cartProductsReferences.count == 0 {
-            return 0
-        }
-        return SCREEN_HEIGHT
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,6 +98,34 @@ class CartView: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let removeItem = UITableViewRowAction(style: .normal, title: "Remover") { (action, indexPath) -> Void in
+            if (indexPath.row * self.arrayCart.count) < MarketPlaceController.sharedInstance.cartProductsReferences.count {
+                MarketPlaceController.sharedInstance.cartProductsReferences.remove(at: (indexPath.row * self.arrayCart.count))
+                
+                self.reloadView()
+            }
+        }
+        
+        removeItem.backgroundColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        
+        let editItem = UITableViewRowAction(style: .normal, title: "Editar") { (action, indexPath) -> Void in
+            
+        }
+        
+        editItem.backgroundColor = UIColor.colorFrom(hex: COLOR_BLUE_HEX)
+        
+        return [removeItem, editItem]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
