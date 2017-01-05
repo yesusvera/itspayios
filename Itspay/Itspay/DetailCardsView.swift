@@ -21,7 +21,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     @IBOutlet weak var labelCardNumber: UILabel!
     
     @IBOutlet var viewHeader: UIView!
-    @IBOutlet var viewFooter: UIView!
     
     @IBOutlet weak var labelCurrentBalance: UILabel!
     @IBOutlet weak var labelTransactionDate: UILabel!
@@ -56,7 +55,11 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     }
     
     func configBoomMenuButton() {
-        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: SCREEN_WIDTH-50-16, y: SCREEN_HEIGHT-114-16, width: 50, height: 50))
+        
+        self.view.addSubview(boomMenuButton)
+        
+        boomMenuButton.boomEnum = .parabola_3
         boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         boomMenuButton.boomDelegate = self
         boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
@@ -79,7 +82,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.font = UIFont.boldSystemFont(ofSize: 11)
                     builder?.lines = 2
                     builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Ajustes de Segurança"
+                    builder?.textContent = "Ajustes"
                     builder?.rotateImage = true
                     builder?.rotateText = true
                     builder?.shadowOffset = CGSize(width: 5, height: 5)
@@ -214,20 +217,32 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     }
     
     func onBoomClicked(_ index: Int32) {
-        if index.hashValue == SideMenuType.transfer.rawValue {
-            self.performSegue(withIdentifier: "TransferSegue", sender: self)
-        } else if index.hashValue == SideMenuType.charge.rawValue {
-            self.performSegue(withIdentifier: "ChargeSegue", sender: self)
-        } else if index.hashValue == SideMenuType.card.rawValue {
-            self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-        } else if index.hashValue == SideMenuType.security.rawValue {
-            self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-        } else if index.hashValue == SideMenuType.rates.rawValue {
-            self.performSegue(withIdentifier: "RatesSegue", sender: self)
-        } else if index.hashValue == SideMenuType.logout.rawValue {
-            LoginController.logout()
-            
-            self.dismiss(animated: true, completion: nil)
+        if let idProduto = virtualCard.idProduto {
+            if idProduto == 2 || idProduto == 3 {
+                if index.hashValue == 0 {
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else {
+                    LoginController.logout()
+                    
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                if index.hashValue == SideMenuType.transfer.rawValue {
+                    self.performSegue(withIdentifier: "TransferSegue", sender: self)
+                } else if index.hashValue == SideMenuType.charge.rawValue {
+                    self.performSegue(withIdentifier: "ChargeSegue", sender: self)
+                } else if index.hashValue == SideMenuType.card.rawValue {
+                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                } else if index.hashValue == SideMenuType.security.rawValue {
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == SideMenuType.rates.rawValue {
+                    self.performSegue(withIdentifier: "RatesSegue", sender: self)
+                } else if index.hashValue == SideMenuType.logout.rawValue {
+                    LoginController.logout()
+                    
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -273,7 +288,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             self.title = object
         }
     }
-    
     
     func configMenuNavigationController() {
         let sideMenuTableViewController = instantiateFrom("General", identifier: "SideMenuTableViewController") as! SideMenuTableViewController
@@ -408,44 +422,13 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         header.backgroundColor = UIColor.white
         
         segmentedControlValue.frame = CGRect(x: 8, y: 8, width: header.frame.width-16, height: segmentedControlValue.frame.height)
+        segmentedControlValue.tintColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         
         header.addSubview(segmentedControlValue)
         
         return header
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        var viewHeight = boomMenuButton.frame.height
-        
-        if arrayVirtualCardStatement.count > 0 {
-            viewHeight += viewFooter.frame.height + 8
-        }
-        
-        return viewHeight
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView()
-        
-        var viewHeight = boomMenuButton.frame.height
-        
-        boomMenuButton.frame = CGRect(x: SCREEN_WIDTH-boomMenuButton.frame.width-16, y: 0, width: boomMenuButton.frame.width, height: boomMenuButton.frame.height)
-        
-        view.addSubview(boomMenuButton)
-        
-        if arrayVirtualCardStatement.count > 0 {
-            viewFooter.frame = CGRect(x: 0, y: boomMenuButton.frame.maxY+8, width: SCREEN_WIDTH, height: viewFooter.frame.height)
-            
-            viewHeight += viewFooter.frame.height + 8
-            
-            view.addSubview(viewFooter)
-        }
-        
-        view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: viewHeight)
-        
-        return view
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCardsCellIdentifier", for: indexPath)
         
@@ -474,8 +457,13 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             label.adjustsFontSizeToFitWidth = true
         }
         
-        if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCardStatement.valorTransacao {
-            label.text = "\(value)".formatToCurrencyReal()
+        if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCardStatement.valorTransacao, let signal = virtualCardStatement.sinal {
+            if signal >= 0 {
+                label.text = "+\(value)".formatToCurrencyReal()
+            } else {
+                label.text = "-\(value)".formatToCurrencyReal()
+            }
+            
             label.textColor = color
             label.adjustsFontSizeToFitWidth = true
         }

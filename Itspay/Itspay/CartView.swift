@@ -10,10 +10,23 @@ import UIKit
 
 class CartView: UITableViewController {
     @IBOutlet var viewEmptyCart: UIView!
+    @IBOutlet weak var labelTotal: UILabel!
+    
+    @IBOutlet weak var viewFooter: UIView!
+    
+    var totalPrice = Double(0) {
+        didSet {
+            labelTotal.text = "\(totalPrice)".formatToCurrencyReal()
+        }
+    }
     
     var messageErrorView : MessageErrorView!
     
     var arrayCart = [[Referencias]]()
+    
+    var productPartnerEdit : ProductPartner!
+    var productEdit : Produtos!
+    var referenceSelected : Referencias!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +36,16 @@ class CartView: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        MarketPlaceController.sharedInstance.referenceEditing = nil
+        
         reloadView()
     }
     
     func reloadView() {
+        totalPrice = 0
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init("updateCartBadges"), object: nil)
+        
         arrayCart = MarketPlaceController.splitReferencesByPartners(MarketPlaceController.sharedInstance.cartProductsReferences)
         
         showCartMessage()
@@ -43,7 +62,11 @@ class CartView: UITableViewController {
             viewEmptyCart.center = CGPoint(x: self.view.center.x, y: self.view.center.y - viewEmptyCart.frame.height/2)
             
             self.view.addSubview(viewEmptyCart)
+            
+            viewFooter.isHidden = true
         } else {
+            viewFooter.isHidden = false
+            
             self.messageErrorView.updateView("")
         }
     }
@@ -62,7 +85,9 @@ class CartView: UITableViewController {
         let array = arrayCart[section]
         
         if let first = array.first {
-            return first.nomeParceiro
+            if let productPartner = first.productPartner  {
+                return productPartner.nomeParceiro
+            }
         }
         
         return nil
@@ -79,7 +104,7 @@ class CartView: UITableViewController {
             MarketPlaceController.getProduct(with: value, in: imageView, showLoading: true)
         }
         
-        if let label = cell.viewWithTag(2) as? UILabel, let value = reference.nomeProduto {
+        if let label = cell.viewWithTag(2) as? UILabel, let product = reference.product, let value = product.nomeProduto {
             label.text = "\(value)"
         }
         
@@ -93,7 +118,9 @@ class CartView: UITableViewController {
         
         if let label = cell.viewWithTag(5) as? UILabel, let value = reference.quantidade, let object = reference.precoPor {
             let total = Float(value) * object
-                
+            
+            self.totalPrice += Double(total)
+            
             label.text = "\(total)".formatToCurrencyReal()
         }
         
@@ -116,7 +143,18 @@ class CartView: UITableViewController {
         removeItem.backgroundColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
         
         let editItem = UITableViewRowAction(style: .normal, title: "Editar") { (action, indexPath) -> Void in
+            let array = self.arrayCart[indexPath.section]
             
+            let reference = array[indexPath.row]
+            
+            if let productPartner = reference.productPartner, let product = reference.product {
+                MarketPlaceController.sharedInstance.referenceEditing = reference
+                
+                self.productPartnerEdit = productPartner
+                self.productEdit = product
+                
+                self.performSegue(withIdentifier: "DetailProductSegue", sender: self)
+            }
         }
         
         editItem.backgroundColor = UIColor.colorFrom(hex: COLOR_BLUE_HEX)
@@ -128,9 +166,20 @@ class CartView: UITableViewController {
         
     }
     
+    @IBAction func buttonContinueAction(_ sender: Button) {
+        self.performSegue(withIdentifier: "ShippingFormsSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MessageErrorSegue" {
             messageErrorView = segue.destination as! MessageErrorView
+        } else if segue.identifier == "DetailProductSegue" {
+            let viewController = segue.destination as! DetailProductView
+            viewController.productPartner = productPartnerEdit
+            viewController.product = productEdit
+        } else if segue.identifier == "ShippingFormsSegue" {
+            let viewController = segue.destination as! ShippingFormsView
+            viewController.reference = referenceSelected
         }
     }
 }

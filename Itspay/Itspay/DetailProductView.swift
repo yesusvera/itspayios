@@ -32,7 +32,7 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     
     var productPartner : ProductPartner!
     var product : Produtos!
-    
+        
     var price = Double(0) {
         didSet {
             updateTotal()
@@ -53,7 +53,7 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         updateViewInfo()
         configureCarousel()
         
@@ -108,13 +108,21 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return viewHeader
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50
+        return viewFooter.frame.height
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return viewFooter
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 3 {
+            return SCREEN_HEIGHT - viewHeader.frame.height-carouselProducts.frame.height-viewFooter.frame.height-44-44-44-100
+        }
+        
+        return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
     func numberOfItems(in carousel: iCarousel) -> Int {

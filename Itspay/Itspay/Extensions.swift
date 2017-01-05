@@ -330,3 +330,25 @@ extension NSAttributedString {
         return NSAttributedString(string: text, attributes: textAttributes)
     }
 }
+
+extension Array {
+    func contains(_ object : AnyObject) -> Bool {
+        if self.isEmpty {
+            return false
+        }
+        
+        let array = NSArray(array: self)
+        
+        return array.contains(object)
+    }
+    
+    func index(of object : AnyObject) -> Int? {
+        if self.contains(object) {
+            let array = NSArray(array: self)
+            
+            return array.index(of: object)
+        }
+        
+        return nil
+    }
+}

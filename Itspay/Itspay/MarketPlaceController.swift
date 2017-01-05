@@ -13,6 +13,8 @@ class MarketPlaceController {
     
     var cartProductsReferences = [Referencias]()
     
+    var referenceEditing : Referencias?
+    
     static func createProductPartnerURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "productPartner")
         
@@ -25,6 +27,30 @@ class MarketPlaceController {
         var url = Repository.createServiceURLFromPListValue(.services, key: "productImage")
         
         url += "/\(image)"
+        
+        return url
+    }
+    
+    static func createAddressesURLPath() -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "addresses")
+        
+        if let value = LoginController.sharedInstance.loginResponseObject.cpf {
+            url += "/\(value)"
+        }
+        
+        url += "/pessoa/\(TIPO_PESSOA)/processadora/\(ID_PROCESSADORA)/instituicao/\(ID_INSTITUICAO)/status/\(STATUS)"
+        
+        return url
+    }
+    
+    static func createShippingFormsURLPath(_ productPartner : ProductPartner, idAddress : Int) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "shippingForms")
+        
+        if let value = productPartner.idParceiro {
+            url += "/\(value)"
+        }
+        
+        url += "/endereco/\(idAddress)"
         
         return url
     }
@@ -136,7 +162,16 @@ class MarketPlaceController {
     }
     
     static func addProductReferenceToCart(_ reference : Referencias) {
-        MarketPlaceController.sharedInstance.cartProductsReferences.append(reference)
+        if let referenceEditing = MarketPlaceController.sharedInstance.referenceEditing {
+            if let index = MarketPlaceController.sharedInstance.cartProductsReferences.index(of: referenceEditing) {
+                MarketPlaceController.sharedInstance.cartProductsReferences.remove(at: index)
+                MarketPlaceController.sharedInstance.cartProductsReferences.insert(reference, at: index)
+            } else {
+                MarketPlaceController.sharedInstance.cartProductsReferences.append(reference)
+            }
+        } else {
+            MarketPlaceController.sharedInstance.cartProductsReferences.append(reference)
+        }
     }
     
     static func splitReferencesByPartners(_ references : [Referencias]) -> [[Referencias]] {
@@ -144,7 +179,7 @@ class MarketPlaceController {
 
         var partners = [String]()
         for reference in references {
-            if let value = reference.nomeParceiro {
+            if let productPartner = reference.productPartner, let value = productPartner.nomeParceiro {
                 if !partners.contains(value) {
                     partners.append(value)
                 }
@@ -154,7 +189,7 @@ class MarketPlaceController {
         for partner in partners {
             var newArray = [Referencias]()
             for reference in references {
-                if let value = reference.nomeParceiro {
+                if let productPartner = reference.productPartner, let value = productPartner.nomeParceiro {
                     if value == partner {
                         newArray.append(reference)
                     }
@@ -169,8 +204,6 @@ class MarketPlaceController {
     static func configureProductPartner(_ productPartner : ProductPartner) {
         if let produtos = productPartner.produtos {
             for product in produtos {
-                product.nomeParceiro = productPartner.nomeParceiro
-                
                 var arrayIdImagens = [Int]()
                 if let imagens = product.imagens {
                     for imagem in imagens {
@@ -186,8 +219,8 @@ class MarketPlaceController {
                         if count < arrayIdImagens.count {
                             referencia.idImagem = arrayIdImagens[count]
                         }
-                        referencia.nomeParceiro = product.nomeParceiro
-                        referencia.nomeProduto = product.nomeProduto
+                        referencia.product = product
+                        referencia.productPartner = productPartner
                         
                         count += 1
                     }

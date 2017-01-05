@@ -72,7 +72,7 @@ class RequestVirtualCardsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 154
+        return 160
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,6 +118,7 @@ class RequestVirtualCardsView: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ResquestNewVirtualCardSegue" {
             let viewController = segue.destination as! ResquestNewVirtualCardView
+            viewController.requestCardViewController = self
             viewController.virtualCard = virtualCard
         } else if segue.identifier == "MessageErrorSegue" {
             messageErrorView = segue.destination as! MessageErrorView

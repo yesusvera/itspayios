@@ -95,7 +95,7 @@ class Repository {
         
         if pathServices != nil {
             serviceDict = NSDictionary(contentsOfFile: pathServices!)
-            url += "\(serviceDict?.object(forKey: "InvestimentoBBAppStore") as! String)"
+            url += "\(serviceDict?.object(forKey: "") as! String)"
         }
         
         return url

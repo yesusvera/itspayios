@@ -13,9 +13,12 @@ class ResquestNewVirtualCardView: UITableViewController {
 
     @IBOutlet weak var segmentedControlValue: UISegmentedControl!
 
+    var requestCardViewController : UIViewController!
+    
     var virtualCard : Credenciais!
     
-    var generatedVirtualCard : NewVirtualCard!
+    var cardName = ""
+    var months = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,28 +31,23 @@ class ResquestNewVirtualCardView: UITableViewController {
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
-        guard let cardName = textFieldCardName.text else {
+        guard let cardNameValidation = textFieldCardName.text else {
             AlertComponent.showSimpleAlert(title: "Erro", message: "Nome para o cartão inválido.", viewController: self)
             
             return
         }
         
-        let url = CardsController.createNewVirtualCardURLPath(virtualCard)
-        
-        let parameters = CardsController.createNewVirtualCardParameters(virtualCard, cardName: cardName, months: segmentedControlValue.selectedSegmentIndex+1)
-        
-        Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                if let value = dataResponse.result.value {
-                    self.generatedVirtualCard = NewVirtualCard(object: value)
-                    
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: { (result) in
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                    
-                    AlertComponent.showAlert(title: "Sucesso", message: "Novo cartão virtual foi gerado.", actions: [okAction], viewController: self)
-                }
-            }
-        })
+        cardName = cardNameValidation
+        months = segmentedControlValue.selectedSegmentIndex+1
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RequestNewVirtualCardTermsSegue" {
+            let viewController = segue.destination as! RequestNewVirtualCardTermsView
+            viewController.virtualCard = virtualCard
+            viewController.requestCardViewController = requestCardViewController
+            viewController.cardName = cardName
+            viewController.months = months
+        }
     }
 }

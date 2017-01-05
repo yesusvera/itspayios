@@ -141,6 +141,16 @@ class LoginController {
         handlerAlert(nil, nil)
     }
     
+    static func createRecoverPasswordParameters(_ cpf : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        dictionary["documento"] = cpf
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        return dictionary
+    }
+    
     static func logout() {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
         

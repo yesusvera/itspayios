@@ -69,7 +69,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func buttonForgotPasswordAction(_ sender: UIButton) {
-        AlertComponent.showSimpleAlert(title: "Esqueci minha senha", message: "Esqueci minha senha", viewController: self)
+        self.performSegue(withIdentifier: "ForgotPassowordSegue", sender: self)
     }
     
     @IBAction func switchTouchIdAction(_ sender: UISwitch) {

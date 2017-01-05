@@ -42,6 +42,8 @@
 	<string>issuer/api/portador/login/trocar-email</string>
 	<key>changePassword</key>
 	<string>issuer/api/portador/login/trocar-senha</string>
+	<key>recoverPassword</key>
+	<string>issuer/api/portador/login/recuperar-senha</string>
 	<key>generateTicketCharge</key>
 	<string>issuer/api/boleto/carga/gerar-linha-digitavel</string>
 	<key>sendTicketEmail</key>
@@ -60,5 +62,9 @@
 	<string>issuer/api/mktplace/portador/parceiro-produto</string>
 	<key>productImage</key>
 	<string>issuer/api/mktplace/administrativo/imagem/sku</string>
+	<key>addresses</key>
+	<string>issuer/api/endereco</string>
+	<key>shippingForms</key>
+	<string>issuer/api/mktplace/portador/formas-envio</string>
 </dict>
 </plist>

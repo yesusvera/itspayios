@@ -19,6 +19,8 @@ class Button: UIButton {
             self.backgroundColor = UIColor.colorFrom(hex: COLOR_BUTTON_HEX)
             self.tintColor = UIColor.white
             self.setTitleColor(UIColor.white, for: .normal)
+            self.layer.masksToBounds = true
+            self.layer.cornerRadius = 5
         }
     }
 }

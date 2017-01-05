@@ -25,6 +25,8 @@ class CardsTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tabBar.tintColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        
         configureNavigationBar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateCartBadges), name: NSNotification.Name.init("updateCartBadges"), object: nil)

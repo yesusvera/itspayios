@@ -214,6 +214,7 @@ class CardsController {
         }
         
         dictionary["idUsuario"] = ID_USUARIO
+        dictionary["status"] = STATUS_LOST
         
         return dictionary
     }
@@ -230,6 +231,7 @@ class CardsController {
         }
         
         dictionary["idUsuario"] = ID_USUARIO
+        dictionary["status"] = STATUS_STEAL
         
         return dictionary
     }
