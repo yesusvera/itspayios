@@ -5,11 +5,11 @@
 	<key>useTerms</key>
 	<string>http://www.financialcartoes.com.br/Download/CONTRATO_DE_CONCESSAO_DE_CREDITO_CARTAO_INDIVIDUAL_COMPLETO_080115.pdf</string>
 	<key>mainServer</key>
-	<string>http://tst.issuer.itspay.com.br</string>
+	<string>http://tst.api.itspay.com.br</string>
 	<key>secondServer</key>
 	<string>http://ppp.sinergico.com.br:8080</string>
 	<key>thirdServer</key>
-	<string>http://tst.api.itspay.com.br</string>
+	<string>http://tst.issuer.itspay.com.br</string>
 	<key>login</key>
 	<string>issuer/api/portador/login/auth</string>
 	<key>register</key>

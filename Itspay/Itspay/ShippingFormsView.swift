@@ -16,19 +16,9 @@ class ShippingFormsView: UITableViewController {
 
         self.title = "Formas de Entrega"
         
-        getAddresses()
-    }
-    
-    func getAddresses() {
-        let url = MarketPlaceController.createAddressesURLPath()
-        
-        LoadingProgress.startAnimatingInWindow()
-        Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-            LoadingProgress.stopAnimating()
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                
-            }
-        })
+        if let first = MarketPlaceController.sharedInstance.cartProductsReferences.first {
+            reference = first
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -44,5 +34,14 @@ class ShippingFormsView: UITableViewController {
         }
         
         return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddressChooseSegue" {
+            let viewController = segue.destination as! AddressChooseView
+            if let productPartner = reference.productPartner {
+                viewController.productPartner = productPartner
+            }
+        }
     }
 }

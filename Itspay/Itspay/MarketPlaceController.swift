@@ -15,6 +15,8 @@ class MarketPlaceController {
     
     var referenceEditing : Referencias?
     
+    var arrayAddresses = [Address]()
+    
     static func createProductPartnerURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "productPartner")
         
@@ -38,19 +40,23 @@ class MarketPlaceController {
             url += "/\(value)"
         }
         
-        url += "/pessoa/\(TIPO_PESSOA)/processadora/\(ID_PROCESSADORA)/instituicao/\(ID_INSTITUICAO)/status/\(STATUS)"
+        url += "/pessoa/\(TIPO_PESSOA)/processadora/\(ID_PROCESSADORA)/instituicao/\(ID_INSTITUICAO)/status/\(STATUS)/"
         
         return url
     }
     
-    static func createShippingFormsURLPath(_ productPartner : ProductPartner, idAddress : Int) -> String {
+    static func createShippingFormsURLPath(_ productPartner : ProductPartner, address : Address) -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "shippingForms")
         
         if let value = productPartner.idParceiro {
             url += "/\(value)"
         }
         
-        url += "/endereco/\(idAddress)"
+        url += "/endereco"
+
+        if let value = address.idEndereco {
+            url += "/\(value)"
+        }
         
         return url
     }

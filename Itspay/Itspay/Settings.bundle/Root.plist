@@ -30,9 +30,9 @@
 			</array>
 			<key>Titles</key>
 			<array>
-				<string>ItsPay Issuer</string>
-				<string>PPP Sinergico</string>
 				<string>ItsPay API</string>
+				<string>PPP Sinergico</string>
+				<string>ItsPay Issuer</string>
 				<string>Outro Servidor</string>
 			</array>
 		</dict>

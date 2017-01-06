@@ -54,10 +54,32 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         self.tableView.addSubview(self.refreshControl!)
     }
     
-    func configBoomMenuButton() {
-        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: SCREEN_WIDTH-50-16, y: SCREEN_HEIGHT-114-16, width: 50, height: 50))
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.view.addSubview(boomMenuButton)
+        configBoomMenuButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let window = appDelegate.window {
+            if let subviews = window?.subviews {
+                for subview in subviews {
+                    if let boomView = subview as? VHBoomMenuButton {
+                        boomView.removeFromSuperview()
+                    }
+                }
+            }
+        }
+    }
+    
+    func configBoomMenuButton() {
+        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: SCREEN_WIDTH-50-16, y: SCREEN_HEIGHT-50-16, width: 50, height: 50))
+        
+        if let window = appDelegate.window {
+            window?.addSubview(boomMenuButton)
+        }
         
         boomMenuButton.boomEnum = .parabola_3
         boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)

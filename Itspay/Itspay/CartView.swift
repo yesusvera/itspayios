@@ -162,10 +162,6 @@ class CartView: UITableViewController {
         return [removeItem, editItem]
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
     @IBAction func buttonContinueAction(_ sender: Button) {
         self.performSegue(withIdentifier: "ShippingFormsSegue", sender: self)
     }
@@ -178,8 +174,7 @@ class CartView: UITableViewController {
             viewController.productPartner = productPartnerEdit
             viewController.product = productEdit
         } else if segue.identifier == "ShippingFormsSegue" {
-            let viewController = segue.destination as! ShippingFormsView
-            viewController.reference = referenceSelected
+            
         }
     }
 }
