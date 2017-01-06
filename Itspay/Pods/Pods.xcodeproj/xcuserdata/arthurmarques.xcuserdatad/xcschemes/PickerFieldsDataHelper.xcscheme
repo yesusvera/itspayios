@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '858DE4868B0A84662318083359853632'
+               BlueprintIdentifier = 'C2F366C2A42099FE1D8AE4312984CDBD'
                BlueprintName = 'PickerFieldsDataHelper'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'PickerFieldsDataHelper.framework'>

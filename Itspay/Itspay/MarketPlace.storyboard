@@ -13,7 +13,7 @@
         <scene sceneID="BHc-NX-2e0">
             <objects>
                 <collectionViewController storyboardIdentifier="HighlightsView" id="1H5-9r-h2B" customClass="HighlightsView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UeX-UP-b30">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="UeX-UP-b30">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -129,12 +129,61 @@
                         </connections>
                     </collectionView>
                     <connections>
+                        <outlet property="containerMessageError" destination="Fwn-PU-oE1" id="xij-qo-1dC"/>
+                        <outlet property="viewHeader" destination="w84-4A-4eA" id="bQ6-MD-kSA"/>
                         <segue destination="q9o-Af-559" kind="show" identifier="DetailProductSegue" id="PSd-Ai-AJY"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWB-HT-3bM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w84-4A-4eA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvG-WQ-KBz">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="871-Pf-VMt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <blurEffect style="light"/>
+                        </visualEffectView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As melhores ofertas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoz-l0-g0O">
+                            <rect key="frame" x="16" y="14" width="343" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Voz-fB-UwX">
+                            <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="JAj-ei-vw7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Voz-fB-UwX" secondAttribute="trailing" id="6Dh-SD-rld"/>
+                        <constraint firstItem="aoz-l0-g0O" firstAttribute="centerY" secondItem="w84-4A-4eA" secondAttribute="centerY" id="Bsf-NQ-eE2"/>
+                        <constraint firstAttribute="height" constant="50" id="GLE-cS-58g"/>
+                        <constraint firstItem="hvG-WQ-KBz" firstAttribute="top" secondItem="w84-4A-4eA" secondAttribute="top" id="HhS-pp-9pF"/>
+                        <constraint firstAttribute="trailing" secondItem="hvG-WQ-KBz" secondAttribute="trailing" id="I2w-Z4-aHP"/>
+                        <constraint firstAttribute="trailing" secondItem="aoz-l0-g0O" secondAttribute="trailing" constant="16" id="Oxi-gh-9Mr"/>
+                        <constraint firstItem="Voz-fB-UwX" firstAttribute="leading" secondItem="w84-4A-4eA" secondAttribute="leading" id="P2o-JQ-gvR"/>
+                        <constraint firstItem="aoz-l0-g0O" firstAttribute="leading" secondItem="w84-4A-4eA" secondAttribute="leading" constant="16" id="Xim-su-5KC"/>
+                        <constraint firstAttribute="bottom" secondItem="hvG-WQ-KBz" secondAttribute="bottom" id="jMC-26-ocr"/>
+                        <constraint firstAttribute="bottom" secondItem="Voz-fB-UwX" secondAttribute="bottom" id="nzi-K4-x0G"/>
+                        <constraint firstItem="hvG-WQ-KBz" firstAttribute="leading" secondItem="w84-4A-4eA" secondAttribute="leading" id="tLU-Gu-EA3"/>
+                    </constraints>
+                </view>
+                <containerView opaque="NO" contentMode="scaleToFill" id="Fwn-PU-oE1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <connections>
+                        <segue destination="jbN-g3-aEv" kind="embed" identifier="MessageErrorSegue" id="wgn-sZ-IZv"/>
+                    </connections>
+                </containerView>
             </objects>
-            <point key="canvasLocation" x="-127" y="188"/>
+            <point key="canvasLocation" x="-250" y="188"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="xdm-sE-pjF">
@@ -424,7 +473,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zge-sG-tcZ">
-                                            <rect key="frame" x="16" y="27" width="343" height="17"/>
+                                            <rect key="frame" x="16" y="26" width="343" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -467,7 +516,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retirar no Endereço do Vendedor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZI-8T-mYh">
-                                                    <rect key="frame" x="16" y="13.5" width="343" height="17"/>
+                                                    <rect key="frame" x="16" y="14" width="343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -488,7 +537,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entregar no meu Endereço" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-l7-GhR">
-                                                    <rect key="frame" x="16" y="13.5" width="343" height="17"/>
+                                                    <rect key="frame" x="16" y="14" width="343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -715,6 +764,7 @@
         <image name="image_placeholder" width="86" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UKK-Fh-o7u"/>
+        <segue reference="PSd-Ai-AJY"/>
+        <segue reference="wgn-sZ-IZv"/>
     </inferredMetricsTieBreakers>
 </document>

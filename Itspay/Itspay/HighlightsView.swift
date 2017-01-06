@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import PARTagPicker
 
-class HighlightsView: UICollectionViewController {
+class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
+    @IBOutlet var viewHeader: UIView!
+    
+    @IBOutlet var containerMessageError: UIView!
+    
+    var messageErrorView : MessageErrorView!
+    
+    var tagPicker = PARTagPickerViewController()
+    
+    var allTags = [String]()
+    
     var arrayProductPartner = [ProductPartner]()
+    var arrayProductPartnerFiltered = [ProductPartner]()
 
     var selectedProductPartner : ProductPartner!
     var selectedProduct : Produtos!
@@ -17,20 +29,119 @@ class HighlightsView: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureErrorMessageView()
+        
+        configureTagPicker()
         configureCollectionViewLayout()
         
         searchHighlightedProducts()
     }
     
+    func configureErrorMessageView() {
+        messageErrorView.updateView("Nenhum produto encontrado.")
+    }
+    
+    func configureTagPicker() {
+        tagPicker.view.backgroundColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
+        tagPicker.view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: COLLECTION_VIEW_HEIGHT)
+        tagPicker.view.autoresizingMask = .flexibleWidth
+        tagPicker.delegate = self
+        tagPicker.visibilityState = .topAndBottom
+        
+        tagPicker.allowsNewTags = true
+        
+        tagPicker.placeholderText = "Adicione um item"
+        
+        tagPicker.font = UIFont.systemFont(ofSize: 14)
+        
+        useTagsCustomColors()
+        
+        self.addChildViewController(tagPicker)
+    }
+    
+    func addTagPickerToView() {
+        tagPicker.view.removeFromSuperview()
+        
+        allTags = MarketPlaceController.createAllTagsArray(from: arrayProductPartner)
+        
+        tagPicker.allTags = allTags
+        
+        tagPicker.reloadCollectionViews()
+        
+        self.view.addSubview(tagPicker.view)
+    }
+    
+    func useTagsCustomColors() {
+        let myColors = PARTagColorReference()
+        
+        myColors.chosenTagBorderColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        myColors.chosenTagBackgroundColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        myColors.chosenTagTextColor = UIColor.white
+        
+        myColors.defaultTagBorderColor = UIColor.colorFrom(hex: COLOR_YELLOW_HEX)
+        myColors.defaultTagBackgroundColor = UIColor.colorFrom(hex: COLOR_YELLOW_HEX)
+        myColors.defaultTagTextColor = UIColor.white
+        
+        tagPicker.tagColorRef = myColors
+    }
+    
+    func configureHeaderView() {
+        viewHeader.frame = CGRect(x: 0, y: tagPicker.view.frame.maxY+50, width: SCREEN_WIDTH, height: viewHeader.frame.height)
+        
+        self.view.addSubview(viewHeader)
+    }
+    
     func configureCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         
-        layout.sectionInset = UIEdgeInsets(top: -10, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: COLLECTION_VIEW_HEIGHT+32, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: SCREEN_WIDTH/2, height: 220)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
         collectionView!.collectionViewLayout = layout
+    }
+    
+    func tagPicker(_ tagPicker: PARTagPickerViewController!, visibilityChangedTo state: PARTagPickerVisibilityState) {
+        var newHeight = CGFloat(0)
+        
+        if state == .topAndBottom {
+            newHeight = 2 * COLLECTION_VIEW_HEIGHT
+        } else if state == .topOnly {
+            newHeight = COLLECTION_VIEW_HEIGHT
+        }
+        
+        var frame = self.tagPicker.view.frame
+        
+        frame.size.height = newHeight
+        
+        UIView.animate(withDuration: 0.5) {
+            self.tagPicker.view.frame = frame
+        }
+    }
+    
+    func chosenTagsWereUpdated(inTagPicker tagPicker: PARTagPickerViewController!) {
+        guard let chosenTags = tagPicker.chosenTags as? [String] else {
+            return
+        }
+        
+        if chosenTags.count == 0 {
+            arrayProductPartnerFiltered = [ProductPartner]()
+            arrayProductPartnerFiltered.append(contentsOf: arrayProductPartner)
+        } else {
+            let array = MarketPlaceController.filterProductPartner(arrayProductPartner, with : chosenTags)
+            
+            arrayProductPartnerFiltered = [ProductPartner]()
+            arrayProductPartnerFiltered.append(contentsOf: array)
+            
+            updateErrorMessageView()
+        }
+        
+        self.collectionView?.reloadData()
+    }
+    
+    func updateErrorMessageView() {
+        containerMessageError.isHidden = arrayProductPartnerFiltered.count != 0
     }
     
     func searchHighlightedProducts() {
@@ -51,6 +162,10 @@ class HighlightsView: UICollectionViewController {
                         self.arrayProductPartner.append(productPartner)
                     }
                     
+                    self.arrayProductPartnerFiltered = [ProductPartner]()
+                    self.arrayProductPartnerFiltered.append(contentsOf: self.arrayProductPartner)
+                    
+                    self.addTagPickerToView()
                     self.collectionView?.reloadData()
                 }
             }
@@ -58,11 +173,11 @@ class HighlightsView: UICollectionViewController {
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return arrayProductPartner.count
+        return arrayProductPartnerFiltered.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let productPartner = arrayProductPartner[section]
+        let productPartner = arrayProductPartnerFiltered[section]
         
         if let array = productPartner.produtos {
             return array.count
@@ -74,7 +189,7 @@ class HighlightsView: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HighlightsCellIdentifier", for: indexPath)
         
-        let productPartner = arrayProductPartner[indexPath.section]
+        let productPartner = arrayProductPartnerFiltered[indexPath.section]
         
         let arrayProducts = productPartner.produtos!
         
@@ -108,7 +223,7 @@ class HighlightsView: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productPartner = arrayProductPartner[indexPath.section]
+        let productPartner = arrayProductPartnerFiltered[indexPath.section]
         
         let arrayProducts = productPartner.produtos!
         
@@ -119,7 +234,9 @@ class HighlightsView: UICollectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailProductSegue" {
+        if segue.identifier == "MessageErrorSegue" {
+            messageErrorView = segue.destination as! MessageErrorView
+        } else if segue.identifier == "DetailProductSegue" {
             let viewController = segue.destination as! DetailProductView
             viewController.productPartner = selectedProductPartner
             viewController.product = selectedProduct

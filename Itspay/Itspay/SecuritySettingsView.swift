@@ -283,6 +283,14 @@ class SecuritySettingsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let idProduto = virtualCard.idProduto {
+            if idProduto == 2 || idProduto == 3 {
+                if indexPath.row > 6 && indexPath.row <= 9 {
+                    return 0
+                }
+            }
+        }
+        
         if !isUpdateCardPasswordOpen {
             if indexPath.row > 0 && indexPath.row < 5 {
                 return 0

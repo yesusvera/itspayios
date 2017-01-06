@@ -228,4 +228,64 @@ class MarketPlaceController {
             }
         }
     }
+    
+    static func createAllTagsArray(from array : [ProductPartner]) -> [String] {
+        var allTags = [String]()
+        
+        for productPartner in array {
+            if let products = productPartner.produtos {
+                for product in products {
+                    if let value = product.tipoProduto {
+                        allTags.append(value)
+                    }
+                }
+            }
+        }
+        
+        return allTags
+    }
+    
+    static func filterProductPartner(_ array : [ProductPartner], with tags : [String]) -> [ProductPartner] {
+        var arrayProductPartnerCopy = [ProductPartner]()
+        
+        for productPartner in array {
+            let productPartnerCopy = ProductPartner(object: productPartner.dictionaryRepresentation())
+            
+            var arrayProducts = [Produtos]()
+            
+            if let products = productPartner.produtos {
+                for product in products {
+                    var found = false
+                    if let value = product.tipoProduto {
+                        for tag in tags {
+                            if value.lowercased().contains(tag.lowercased()) {
+                                arrayProducts.append(product)
+                                found = true
+                                
+                                break
+                            }
+                        }
+                    }
+                    
+                    if !found {
+                        if let value = product.nomeProduto {
+                            for tag in tags {
+                                if value.lowercased().contains(tag.lowercased()) {
+                                    arrayProducts.append(product)
+                                    found = true
+                                    
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            productPartnerCopy.produtos = arrayProducts
+            arrayProductPartnerCopy.append(productPartnerCopy)
+        }
+        
+        return arrayProductPartnerCopy
+    }
 }
