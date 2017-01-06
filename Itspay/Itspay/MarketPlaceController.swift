@@ -238,6 +238,14 @@ class MarketPlaceController {
                     if let value = product.tipoProduto {
                         allTags.append(value)
                     }
+                    
+                    if let categories = product.categorias {
+                        for category in categories {
+                            if let value = category.descricao {
+                                allTags.append(value)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -275,6 +283,22 @@ class MarketPlaceController {
                                     found = true
                                     
                                     break
+                                }
+                            }
+                        }
+                    }
+                    
+                    if !found {
+                        if let categories = product.categorias {
+                            for category in categories {
+                                if let value = category.descricao {
+                                    for tag in tags {
+                                        if value.lowercased().contains(tag.lowercased()) {
+                                            arrayProducts.append(product)
+                                            
+                                            break
+                                        }
+                                    }
                                 }
                             }
                         }
