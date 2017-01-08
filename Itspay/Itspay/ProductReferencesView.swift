@@ -26,7 +26,32 @@ class ProductReferencesView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        if let array = product.referencias {
+            let reference = array[indexPath.row]
+            
+            if let name = product.nomeProduto, let caracteristicas = reference.caracteristicas {
+                var text = name
+                
+                for object in caracteristicas {
+                    if let valor = object.valor {
+                        text += " \(valor)"
+                    }
+                }
+                
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 70))
+                label.numberOfLines = 5
+                label.text = text
+                label.sizeToFit()
+                
+                if label.frame.height < 44 {
+                    return 44
+                }
+                
+                return label.frame.height
+            }
+            
+        }
+        return 44
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

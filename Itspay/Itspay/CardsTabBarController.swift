@@ -36,7 +36,7 @@ class CardsTabBarController: UITabBarController {
     
     func updateCartBadges() {
         if let items = self.tabBar.items {
-            let tabBarItem = items[2]
+            let tabBarItem = items[3]
             
             if MarketPlaceController.sharedInstance.cartProductsReferences.count > 0 {
                 tabBarItem.badgeValue = "\(MarketPlaceController.sharedInstance.cartProductsReferences.count)"

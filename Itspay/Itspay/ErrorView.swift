@@ -78,6 +78,9 @@ class ErrorView : UIView {
                     if msgError != "" {
                         self.isHidden = false
                         errorView.isHidden = false
+                    } else {
+                        self.isHidden = true
+                        errorView.isHidden = true
                     }
                 }
             }
