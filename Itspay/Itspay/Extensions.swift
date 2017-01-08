@@ -308,6 +308,23 @@ extension String {
     func onlyNumbers() -> String {
         return self.replacingOccurrences(of: "[^0-9]", with: "", options: String.CompareOptions.regularExpression, range: nil)
     }
+    
+    func cardNumberFormatted() -> String {
+        var string = ""
+        
+        var count = 0
+        for number in self.characters {
+            if count != 0 && count % 4 == 0 {
+                string += " "
+            }
+            
+            string += "\(number)"
+            
+            count += 1
+        }
+        
+        return string
+    }
 }
 
 extension NSAttributedString {
@@ -350,5 +367,13 @@ extension Array {
         }
         
         return nil
+    }
+}
+
+extension UILabel {
+    func addShadow(with offset : CGSize, opacity : Float, radius : CGFloat) {
+        self.layer.shadowOffset = offset
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = radius
     }
 }

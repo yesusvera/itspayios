@@ -58,13 +58,17 @@
 	<string>issuer/api/portador/credencial/avisar-perda</string>
 	<key>comunicateSteal</key>
 	<string>issuer/api/portador/credencial/avisar-roubo</string>
+	<key>addresses</key>
+	<string>issuer/api/endereco</string>
 	<key>productPartner</key>
 	<string>issuer/api/mktplace/portador/parceiro-produto</string>
 	<key>productImage</key>
 	<string>issuer/api/mktplace/administrativo/imagem/sku</string>
-	<key>addresses</key>
-	<string>issuer/api/endereco</string>
 	<key>shippingForms</key>
 	<string>issuer/api/mktplace/portador/formas-envio</string>
+	<key>myRequests</key>
+	<string>issuer/api/mktplace/portador/pedido/pessoa</string>
+	<key>myRequestDetails</key>
+	<string>issuer/api/mktplace/portador/pedido</string>
 </dict>
 </plist>

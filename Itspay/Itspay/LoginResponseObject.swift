@@ -21,6 +21,7 @@ public final class LoginResponseObject: NSCoding {
     static let requisicaoAtualizacaoMensagem = "requisicaoAtualizacaoMensagem"
     static let versaoMaisRecente = "versaoMaisRecente"
     static let cpf = "cpf"
+    static let possuiMarketPlace = "possuiMarketPlace"
   }
 
   // MARK: Properties
@@ -33,6 +34,7 @@ public final class LoginResponseObject: NSCoding {
   public var requisicaoAtualizacaoMensagem: String?
   public var versaoMaisRecente: String?
   public var cpf: String?
+  public var possuiMarketPlace : Bool? = true
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -55,6 +57,7 @@ public final class LoginResponseObject: NSCoding {
     idLogin = json[SerializationKeys.idLogin].int
     requisicaoAtualizacaoMensagem = json[SerializationKeys.requisicaoAtualizacaoMensagem].string
     versaoMaisRecente = json[SerializationKeys.versaoMaisRecente].string
+    possuiMarketPlace = json[SerializationKeys.possuiMarketPlace].boolValue
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -70,6 +73,7 @@ public final class LoginResponseObject: NSCoding {
     if let value = idLogin { dictionary[SerializationKeys.idLogin] = value }
     if let value = requisicaoAtualizacaoMensagem { dictionary[SerializationKeys.requisicaoAtualizacaoMensagem] = value }
     if let value = versaoMaisRecente { dictionary[SerializationKeys.versaoMaisRecente] = value }
+    dictionary[SerializationKeys.possuiMarketPlace] = possuiMarketPlace
     return dictionary
   }
 
@@ -83,6 +87,7 @@ public final class LoginResponseObject: NSCoding {
     self.idLogin = aDecoder.decodeObject(forKey: SerializationKeys.idLogin) as? Int
     self.requisicaoAtualizacaoMensagem = aDecoder.decodeObject(forKey: SerializationKeys.requisicaoAtualizacaoMensagem) as? String
     self.versaoMaisRecente = aDecoder.decodeObject(forKey: SerializationKeys.versaoMaisRecente) as? String
+    self.possuiMarketPlace = aDecoder.decodeBool(forKey: SerializationKeys.possuiMarketPlace)
   }
 
   public func encode(with aCoder: NSCoder) {
@@ -94,6 +99,7 @@ public final class LoginResponseObject: NSCoding {
     aCoder.encode(idLogin, forKey: SerializationKeys.idLogin)
     aCoder.encode(requisicaoAtualizacaoMensagem, forKey: SerializationKeys.requisicaoAtualizacaoMensagem)
     aCoder.encode(versaoMaisRecente, forKey: SerializationKeys.versaoMaisRecente)
+    aCoder.encode(possuiMarketPlace, forKey: SerializationKeys.possuiMarketPlace)
   }
 
 }

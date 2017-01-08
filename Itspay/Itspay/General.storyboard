@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="228" width="375" height="211"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BahamasLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ZxS-s1-yOk" customClass="SpringImageView" customModule="Spring">
-                                        <rect key="frame" x="52.5" y="51.5" width="270" height="108"/>
+                                        <rect key="frame" x="53" y="52" width="270" height="108"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="270" id="KzJ-bM-6Nq"/>
                                             <constraint firstAttribute="height" constant="108" id="nb3-p5-Ng2"/>
@@ -191,7 +191,7 @@
         <scene sceneID="8sm-h9-1vm">
             <objects>
                 <navigationController storyboardIdentifier="SideMenuNavigationController" id="BdS-3b-P5S" customClass="UISideMenuNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z5A-dx-AQR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z5A-dx-AQR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -566,45 +566,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hW-sM-tke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-282.39999999999998" y="1468.5157421289357"/>
-        </scene>
-        <!--Message Error View-->
-        <scene sceneID="mkI-Id-V6w">
-            <objects>
-                <viewController storyboardIdentifier="MessageErrorView" id="Vkc-a3-5bk" customClass="MessageErrorView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="t4Y-YZ-DIc"/>
-                        <viewControllerLayoutGuide type="bottom" id="qIt-Iy-OWG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Adn-UH-sgy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7J-7C-aZU">
-                                <rect key="frame" x="16" y="234" width="343" height="200"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="poE-wT-vkb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="W7J-7C-aZU" firstAttribute="centerX" secondItem="Adn-UH-sgy" secondAttribute="centerX" id="7X5-xo-QZW"/>
-                            <constraint firstItem="W7J-7C-aZU" firstAttribute="leading" secondItem="Adn-UH-sgy" secondAttribute="leading" constant="16" id="H3S-gd-qWA"/>
-                            <constraint firstItem="W7J-7C-aZU" firstAttribute="centerY" secondItem="Adn-UH-sgy" secondAttribute="centerY" id="TSN-7k-Ohv"/>
-                            <constraint firstAttribute="trailing" secondItem="W7J-7C-aZU" secondAttribute="trailing" constant="16" id="fOP-6o-Tnv"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="labelError" destination="W7J-7C-aZU" id="cb7-et-mWf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hIn-my-bzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="513" y="1469"/>
         </scene>
         <!--Security Settings View-->
         <scene sceneID="BA6-xd-kUT">

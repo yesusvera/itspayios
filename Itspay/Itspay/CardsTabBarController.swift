@@ -31,6 +31,7 @@ class CardsTabBarController: UITabBarController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateCartBadges), name: NSNotification.Name.init("updateCartBadges"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.selectTabBarIndexObsever), name: NSNotification.Name.init("selectTabBarIndexObsever"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.expiredSessionObserver), name: NSNotification.Name.init("expiredSessionObserver"), object: nil)
     }
     
     func updateCartBadges() {
@@ -40,7 +41,7 @@ class CardsTabBarController: UITabBarController {
             if MarketPlaceController.sharedInstance.cartProductsReferences.count > 0 {
                 tabBarItem.badgeValue = "\(MarketPlaceController.sharedInstance.cartProductsReferences.count)"
             } else {
-                tabBarItem.badgeValue = ""
+                tabBarItem.badgeValue = nil
             }
         }
     }
@@ -49,6 +50,17 @@ class CardsTabBarController: UITabBarController {
         if let index = notification.object as? Int {
             self.selectedIndex = index
         }
+    }
+    
+    func expiredSessionObserver() {
+        let login = UIAlertAction(title: "Fazer Login", style: .default) { (completion) in
+            LoginController.logout(self)
+        }
+        
+        let ok = UIAlertAction(title: "Ok", style: .default) { (completion) in
+        }
+        
+        AlertComponent.showAlert(title: "", message: "A Sessão expirou.", actions: [login, ok], viewController: self)
     }
     
     func configureNavigationBar() {
@@ -74,8 +86,6 @@ class CardsTabBarController: UITabBarController {
     }
     
     @IBAction func buttonSairAction(_ sender: UIButton) {
-        LoginController.logout()
-        
-        self.dismiss(animated: true, completion: nil)
+        LoginController.logout(self)
     }
 }

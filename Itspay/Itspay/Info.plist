@@ -66,5 +66,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>kredit front.ttf</string>
+		<string>HALTER__.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -41,6 +41,10 @@ class Connection {
             
             print("URL: \(url)\nJSON Response: \(response)\n")
             
+            if response.response?.statusCode == 403 {
+                NotificationCenter.default.post(name: NSNotification.Name.init("expiredSessionObserver"), object: nil)
+            }
+            
             dataResponseJSON(response)
         }
     }

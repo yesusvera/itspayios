@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iHn-Bn-jyW" customClass="ErrorView" customModule="Itspay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-R2-Q3c">
+                    <rect key="frame" x="16" y="324" width="343" height="20.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-Yu-P9o">
+                    <rect key="frame" x="162" y="266" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Jpi-5C-tGs"/>
+                        <constraint firstAttribute="height" constant="50" id="xI9-WN-pFZ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4ow-R2-Q3c" firstAttribute="top" secondItem="dhn-Yu-P9o" secondAttribute="bottom" constant="8" id="F0h-E1-JkX"/>
+                <constraint firstItem="4ow-R2-Q3c" firstAttribute="leading" secondItem="iHn-Bn-jyW" secondAttribute="leading" constant="16" id="R8X-uV-sxA"/>
+                <constraint firstItem="dhn-Yu-P9o" firstAttribute="centerX" secondItem="4ow-R2-Q3c" secondAttribute="centerX" id="SjS-tc-6QT"/>
+                <constraint firstAttribute="trailing" secondItem="4ow-R2-Q3c" secondAttribute="trailing" constant="16" id="iIJ-4J-v6f"/>
+                <constraint firstItem="4ow-R2-Q3c" firstAttribute="centerX" secondItem="iHn-Bn-jyW" secondAttribute="centerX" id="lB1-kP-NQ3"/>
+                <constraint firstItem="4ow-R2-Q3c" firstAttribute="centerY" secondItem="iHn-Bn-jyW" secondAttribute="centerY" id="ov3-VN-gMQ"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="dhn-Yu-P9o" id="RbW-8y-gck"/>
+                <outlet property="labelError" destination="4ow-R2-Q3c" id="nnE-Oa-ZXg"/>
+            </connections>
+        </view>
+    </objects>
+</document>

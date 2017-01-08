@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Product3.jpg",
+      "filename" : "priceTag.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "priceTag@2x.png",
       "scale" : "2x"
     },
     {

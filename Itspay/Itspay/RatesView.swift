@@ -9,15 +9,17 @@
 import UIKit
 
 class RatesView: UITableViewController {
+    @IBOutlet weak var errorView: ErrorView!
+    
     var arrayTariffs = [Tariff]()
     
     var virtualCard : Credenciais!
     
-    var messageErrorView : MessageErrorView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        errorView.instantiate(in: self.view, addToView: true)
+        
         self.title = "Tarifas"
         
         searchTariffs()
@@ -46,9 +48,9 @@ class RatesView: UITableViewController {
                         }
                         
                         if self.arrayTariffs.count == 0 {
-                            self.messageErrorView.updateView("O cartão não possui tarifas.")
+                            self.errorView.msgError = "O cartão não possui tarifas."
                         } else {
-                            self.messageErrorView.updateView("")
+                            self.errorView.msgError = ""
                         }
                         
                         self.tableView.reloadData()
@@ -81,11 +83,5 @@ class RatesView: UITableViewController {
         }
         
         return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MessageErrorSegue" {
-            messageErrorView = segue.destination as! MessageErrorView
-        }
     }
 }

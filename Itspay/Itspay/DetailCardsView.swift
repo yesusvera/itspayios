@@ -25,9 +25,9 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     @IBOutlet weak var labelCurrentBalance: UILabel!
     @IBOutlet weak var labelTransactionDate: UILabel!
     
-    var boomMenuButton = VHBoomMenuButton()
+    @IBOutlet weak var errorView: ErrorView!
     
-    var messageErrorView : MessageErrorView!
+    var boomMenuButton = VHBoomMenuButton()
     
     var virtualCard : Credenciais!
     
@@ -35,6 +35,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        errorView.instantiate(in: self.view, addToView: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didSelectSideMenuItemObserver(_:)), name: NSNotification.Name.init("didSelectSideMenuItemObserver"), object: nil)
         
@@ -244,9 +246,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 if index.hashValue == 0 {
                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
                 } else {
-                    LoginController.logout()
-                    
-                    self.dismiss(animated: true, completion: nil)
+                    LoginController.logout(self)
                 }
             } else {
                 if index.hashValue == SideMenuType.transfer.rawValue {
@@ -260,9 +260,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 } else if index.hashValue == SideMenuType.rates.rawValue {
                     self.performSegue(withIdentifier: "RatesSegue", sender: self)
                 } else if index.hashValue == SideMenuType.logout.rawValue {
-                    LoginController.logout()
-                    
-                    self.dismiss(animated: true, completion: nil)
+                    LoginController.logout(self)
                 }
             }
         }
@@ -379,9 +377,9 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     }
                     
                     if self.arrayVirtualCardStatement.count == 0 {
-                        self.messageErrorView.updateView("Sem movimentação nesse período")
+                        self.errorView.msgError = "Sem movimentação nesse período"
                     } else {
-                        self.messageErrorView.updateView("")
+                        self.errorView.msgError = ""
                     }
                     
                     self.tableView.reloadData()
@@ -405,9 +403,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             } else if object.menuType == .rates {
                 self.performSegue(withIdentifier: "RatesSegue", sender: self)
             } else if object.menuType == .logout {
-                LoginController.logout()
-                
-                self.dismiss(animated: true, completion: nil)
+                LoginController.logout(self)
             }
         }
     }
@@ -514,8 +510,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         } else if segue.identifier == "SecuritySettingsSegue" {
             let viewController = segue.destination as! SecuritySettingsView
             viewController.virtualCard = virtualCard
-        } else if segue.identifier == "MessageErrorSegue" {
-            messageErrorView = segue.destination as! MessageErrorView
         }
     }
 }

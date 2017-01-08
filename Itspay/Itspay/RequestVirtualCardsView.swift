@@ -9,15 +9,17 @@
 import UIKit
 
 class RequestVirtualCardsView: UITableViewController {
+    @IBOutlet weak var errorView: ErrorView!
+    
     var arrayVirtualCards = [Credenciais]()
     
     var virtualCard : Credenciais!
     
-    var messageErrorView : MessageErrorView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        errorView.instantiate(in: self.view, addToView: false)
+        
         self.title = "Seus Cartões Virtual"
         
         self.refreshControl = UIRefreshControl(frame: CGRect.zero)
@@ -51,9 +53,9 @@ class RequestVirtualCardsView: UITableViewController {
                         }
                         
                         if self.arrayVirtualCards.count == 0 {
-                            self.messageErrorView.updateView("Você ainda não possui cartões. Quando solicitá-los, eles aparecerão aqui")
+                            self.errorView.msgError = "Você ainda não possui cartões. Quando solicitá-los, eles aparecerão aqui"
                         } else {
-                            self.messageErrorView.updateView("")
+                            self.errorView.msgError = ""
                         }
                         
                         self.tableView.reloadData()
@@ -88,28 +90,34 @@ class RequestVirtualCardsView: UITableViewController {
             }
         }
         
-        if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCard.dataValidadeFmt {
-            label.text = "Validade: \(value)"
-            
-            label.layer.shadowOffset = CGSize(width: 0, height: 0)
-            label.layer.shadowOpacity = 1
-            label.layer.shadowRadius = 6
-        }
-        
-        if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCard.apelidoVirtual {
+        if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCard.apelidoVirtual {
             label.text = "\(value)"
             
-            label.layer.shadowOffset = CGSize(width: 0, height: 0)
-            label.layer.shadowOpacity = 1
-            label.layer.shadowRadius = 6
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
         }
         
-        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCard.credencialMascarada {
+        if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCard.credencialVirtual {
+            label.text = value.cardNumberFormatted()
+            
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
+        }
+        
+        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCard.dataValidadeFmt {
             label.text = "\(value)"
             
-            label.layer.shadowOffset = CGSize(width: 0, height: 0)
-            label.layer.shadowOpacity = 1
-            label.layer.shadowRadius = 6
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
+        }
+        
+        if let label = cell.viewWithTag(5) as? UILabel, let value = virtualCard.codigoSeguranca {
+            label.text = "\(value)"
+            
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
+        }
+        
+        if let label = cell.viewWithTag(6) as? UILabel, let value = virtualCard.nomeImpresso {
+            label.text = "\(value)"
+            
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
         }
         
         return cell
@@ -120,8 +128,6 @@ class RequestVirtualCardsView: UITableViewController {
             let viewController = segue.destination as! ResquestNewVirtualCardView
             viewController.requestCardViewController = self
             viewController.virtualCard = virtualCard
-        } else if segue.identifier == "MessageErrorSegue" {
-            messageErrorView = segue.destination as! MessageErrorView
         }
     }
 }

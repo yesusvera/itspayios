@@ -9,16 +9,18 @@
 import UIKit
 
 class CardsView: UITableViewController {
+    @IBOutlet weak var errorView: ErrorView!
+    
     var arrayVirtualCards = [Credenciais]()
     
     var selectedVirtualCard : Credenciais!
-    
-    var messageErrorView : MessageErrorView!
     
     var countServiceCallTimes = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        errorView.instantiate(in: self.view, addToView: false)
         
         getVirtualCards()
         
@@ -66,9 +68,9 @@ class CardsView: UITableViewController {
                             }
                             
                             if self.arrayVirtualCards.count == 0 {
-                                self.messageErrorView.updateView("Nenhum cartão encontrado.")
+                                self.errorView.msgError = "Nenhum cartão encontrado."
                             } else {
-                                self.messageErrorView.updateView("")
+                                self.errorView.msgError = ""
                             }
                         } else {
                             if self.countServiceCallTimes < 3 {
@@ -81,7 +83,7 @@ class CardsView: UITableViewController {
                         self.tableView.reloadData()
                     }
                 } else {
-                    self.messageErrorView.updateView(getDataResponseMessage(dataResponse))
+                    self.errorView.msgError = getDataResponseMessage(dataResponse)
                 }
             })
         }
@@ -116,25 +118,19 @@ class CardsView: UITableViewController {
         if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCard.saldo {
             label.text = "\(value)".formatToCurrencyReal()
             
-            label.layer.shadowOffset = CGSize(width: 0, height: 0)
-            label.layer.shadowOpacity = 1
-            label.layer.shadowRadius = 6
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
         }
         
         if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCard.nomeImpresso {
             label.text = "\(value)"
             
-            label.layer.shadowOffset = CGSize(width: 0, height: 0)
-            label.layer.shadowOpacity = 1
-            label.layer.shadowRadius = 6
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
         }
         
         if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCard.credencialMascarada {
             label.text = "\(value)"
             
-            label.layer.shadowOffset = CGSize(width: 0, height: 0)
-            label.layer.shadowOpacity = 1
-            label.layer.shadowRadius = 6
+            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
         }
         
         return cell
@@ -150,8 +146,6 @@ class CardsView: UITableViewController {
         if segue.identifier == "DetailCardsSegue" {
             let viewController = segue.destination as! DetailCardsView
             viewController.virtualCard = selectedVirtualCard
-        } else if segue.identifier == "MessageErrorSegue" {
-            messageErrorView = segue.destination as! MessageErrorView
         }
     }
 }

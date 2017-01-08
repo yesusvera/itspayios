@@ -36,6 +36,14 @@
 		ED525FFE1E2040F300881184 /* ShippingFormsChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED525FFD1E2040F300881184 /* ShippingFormsChooseView.swift */; };
 		ED5260001E2044F000881184 /* AddressChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED525FFF1E2044F000881184 /* AddressChooseView.swift */; };
 		ED5260021E20488600881184 /* ShippingForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5260011E20488600881184 /* ShippingForm.swift */; };
+		ED5260041E204CC000881184 /* MyRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5260031E204CC000881184 /* MyRequestsView.swift */; };
+		ED5260071E208CFE00881184 /* DataHoraPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5260051E208CFE00881184 /* DataHoraPedido.swift */; };
+		ED5260081E208CFE00881184 /* MyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5260061E208CFE00881184 /* MyRequest.swift */; };
+		ED52600A1E208E3E00881184 /* MyRequestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5260091E208E3E00881184 /* MyRequestDetailView.swift */; };
+		ED52600D1E226A9900881184 /* HALTER__.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED52600C1E226A9900881184 /* HALTER__.ttf */; };
+		ED52600F1E226EE500881184 /* kredit front.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED52600E1E226EE500881184 /* kredit front.ttf */; };
+		ED5260111E22742500881184 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED5260101E22742500881184 /* ErrorView.xib */; };
+		ED5260131E22749700881184 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5260121E22749700881184 /* ErrorView.swift */; };
 		ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED53229F1E056C25005ACBD2 /* mocks.plist */; };
 		ED5322A21E056CD4005ACBD2 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED5322A11E056CD4005ACBD2 /* config.plist */; };
 		ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */; };
@@ -47,7 +55,6 @@
 		ED6FC3691E11F95600AD4562 /* RequestVirtualCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3681E11F95600AD4562 /* RequestVirtualCardsView.swift */; };
 		ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */; };
 		ED6FC36D1E12061900AD4562 /* NewVirtualCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */; };
-		ED6FC36F1E120A4400AD4562 /* MessageErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */; };
 		ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3701E12D84000AD4562 /* Tariff.swift */; };
 		ED6FC3731E12DCB000AD4562 /* SecuritySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FC3721E12DCB000AD4562 /* SecuritySettings.swift */; };
 		ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */; };
@@ -157,6 +164,14 @@
 		ED525FFD1E2040F300881184 /* ShippingFormsChooseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingFormsChooseView.swift; sourceTree = "<group>"; };
 		ED525FFF1E2044F000881184 /* AddressChooseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressChooseView.swift; sourceTree = "<group>"; };
 		ED5260011E20488600881184 /* ShippingForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingForm.swift; sourceTree = "<group>"; };
+		ED5260031E204CC000881184 /* MyRequestsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRequestsView.swift; sourceTree = "<group>"; };
+		ED5260051E208CFE00881184 /* DataHoraPedido.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHoraPedido.swift; sourceTree = "<group>"; };
+		ED5260061E208CFE00881184 /* MyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRequest.swift; sourceTree = "<group>"; };
+		ED5260091E208E3E00881184 /* MyRequestDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRequestDetailView.swift; sourceTree = "<group>"; };
+		ED52600C1E226A9900881184 /* HALTER__.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HALTER__.ttf; sourceTree = "<group>"; };
+		ED52600E1E226EE500881184 /* kredit front.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "kredit front.ttf"; sourceTree = "<group>"; };
+		ED5260101E22742500881184 /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		ED5260121E22749700881184 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		ED53229F1E056C25005ACBD2 /* mocks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mocks.plist; sourceTree = "<group>"; };
 		ED5322A11E056CD4005ACBD2 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCardsView.swift; sourceTree = "<group>"; };
@@ -168,7 +183,6 @@
 		ED6FC3681E11F95600AD4562 /* RequestVirtualCardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestVirtualCardsView.swift; sourceTree = "<group>"; };
 		ED6FC36A1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResquestNewVirtualCardView.swift; sourceTree = "<group>"; };
 		ED6FC36C1E12061900AD4562 /* NewVirtualCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVirtualCard.swift; sourceTree = "<group>"; };
-		ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageErrorView.swift; sourceTree = "<group>"; };
 		ED6FC3701E12D84000AD4562 /* Tariff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
 		ED6FC3721E12DCB000AD4562 /* SecuritySettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuritySettings.swift; sourceTree = "<group>"; };
 		ED713DE91E02FA6800E4D8E1 /* CardsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsTabBarController.swift; sourceTree = "<group>"; };
@@ -298,6 +312,8 @@
 				ED525FF51E1DE64B00881184 /* ShippingFormsView.swift */,
 				ED525FFF1E2044F000881184 /* AddressChooseView.swift */,
 				ED525FFD1E2040F300881184 /* ShippingFormsChooseView.swift */,
+				ED5260031E204CC000881184 /* MyRequestsView.swift */,
+				ED5260091E208E3E00881184 /* MyRequestDetailView.swift */,
 				ED3913311E09868B001B506D /* MarketPlace.storyboard */,
 			);
 			name = MarketPlace;
@@ -352,6 +368,8 @@
 		ED4B3CA01E143E7700D4C1CE /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
+				ED5260051E208CFE00881184 /* DataHoraPedido.swift */,
+				ED5260061E208CFE00881184 /* MyRequest.swift */,
 				ED5260011E20488600881184 /* ShippingForm.swift */,
 				ED525FF71E203BE000881184 /* Address.swift */,
 				ED525FF81E203BE000881184 /* TipoEndereco.swift */,
@@ -392,6 +410,15 @@
 				ED525FEF1E1BFBD000881184 /* iCarousel.m */,
 			);
 			name = iCarousel;
+			sourceTree = "<group>";
+		};
+		ED52600B1E226A8800881184 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ED52600E1E226EE500881184 /* kredit front.ttf */,
+				ED52600C1E226A9900881184 /* HALTER__.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		ED599DC21E0070C2004EC753 /* Connection */ = {
@@ -456,8 +483,9 @@
 				ED791B671E006292002C4A70 /* WebView.swift */,
 				EDC9F81F1E07EF5800B0DD37 /* SideMenuTableViewController.swift */,
 				ED39132A1E0971A8001B506D /* PreferencesView.swift */,
-				ED6FC36E1E120A4400AD4562 /* MessageErrorView.swift */,
 				ED791B691E00629A002C4A70 /* General.storyboard */,
+				ED5260121E22749700881184 /* ErrorView.swift */,
+				ED5260101E22742500881184 /* ErrorView.xib */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -574,6 +602,7 @@
 		ED8AF3AA1DFF864700EBB73F /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED52600B1E226A8800881184 /* Fonts */,
 				ED8AF37D1DFF85C100EBB73F /* Assets.xcassets */,
 				ED8AF3821DFF85C100EBB73F /* Info.plist */,
 				ED791B6B1E0066FA002C4A70 /* services.plist */,
@@ -849,8 +878,11 @@
 				ED791B6C1E0066FA002C4A70 /* services.plist in Resources */,
 				ED5322A21E056CD4005ACBD2 /* config.plist in Resources */,
 				ED8AF3811DFF85C100EBB73F /* LaunchScreen.storyboard in Resources */,
+				ED5260111E22742500881184 /* ErrorView.xib in Resources */,
+				ED52600F1E226EE500881184 /* kredit front.ttf in Resources */,
 				ED8AF37E1DFF85C100EBB73F /* Assets.xcassets in Resources */,
 				ED8AF37C1DFF85C100EBB73F /* Cards.storyboard in Resources */,
+				ED52600D1E226A9900881184 /* HALTER__.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,6 +1004,7 @@
 				ED525FFA1E203BE000881184 /* TipoEndereco.swift in Sources */,
 				ED4F9F6F1E19C68C00F99162 /* Button.swift in Sources */,
 				EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */,
+				ED5260131E22749700881184 /* ErrorView.swift in Sources */,
 				ED3A02E81E0C00F8000BCE53 /* TransferFinancialCard.swift in Sources */,
 				ED3A02E51E0C00B7000BCE53 /* TransferMainView.swift in Sources */,
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
@@ -988,18 +1021,19 @@
 				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
 				ED599DC91E007537004EC753 /* Chronology.swift in Sources */,
 				EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */,
+				ED5260081E208CFE00881184 /* MyRequest.swift in Sources */,
 				ED39133B1E0AE1F7001B506D /* AlertComponent.swift in Sources */,
 				ED525FF91E203BE000881184 /* Address.swift in Sources */,
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
 				ED525FF61E1DE64B00881184 /* ShippingFormsView.swift in Sources */,
 				EDFB60FC1E15F06500C24A4E /* Referencias.swift in Sources */,
+				ED52600A1E208E3E00881184 /* MyRequestDetailView.swift in Sources */,
 				EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */,
 				EDB8CADC1E119A5F00BC8089 /* ChargeView.swift in Sources */,
 				EDFB60F81E15F06500C24A4E /* Imagens.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
 				EDFB60FD1E15F06500C24A4E /* Unidades.swift in Sources */,
-				ED6FC36F1E120A4400AD4562 /* MessageErrorView.swift in Sources */,
 				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
 				EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */,
 				ED39132E1E098607001B506D /* CartView.swift in Sources */,
@@ -1038,7 +1072,9 @@
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
 				ED525FF01E1BFBD000881184 /* iCarousel.m in Sources */,
 				ED4F9F6C1E19705700F99162 /* ProductReferencesView.swift in Sources */,
+				ED5260041E204CC000881184 /* MyRequestsView.swift in Sources */,
 				ED5260001E2044F000881184 /* AddressChooseView.swift in Sources */,
+				ED5260071E208CFE00881184 /* DataHoraPedido.swift in Sources */,
 				EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,

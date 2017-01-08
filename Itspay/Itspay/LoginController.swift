@@ -151,11 +151,13 @@ class LoginController {
         return dictionary
     }
     
-    static func logout() {
+    static func logout(_ viewController : UIViewController) {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")
         
         Connection.request(url) { (dataResponse) in
             Connection.removeSession()
         }
+        
+        viewController.dismiss(animated: true, completion: nil)
     }
 }

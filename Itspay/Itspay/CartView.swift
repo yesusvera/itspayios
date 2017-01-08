@@ -9,7 +9,8 @@
 import UIKit
 
 class CartView: UITableViewController {
-    @IBOutlet var viewEmptyCart: UIView!
+    @IBOutlet var errorView: ErrorView!
+    
     @IBOutlet weak var labelTotal: UILabel!
     
     @IBOutlet weak var viewFooter: UIView!
@@ -20,8 +21,6 @@ class CartView: UITableViewController {
         }
     }
     
-    var messageErrorView : MessageErrorView!
-    
     var arrayCart = [[Referencias]]()
     
     var productPartnerEdit : ProductPartner!
@@ -31,6 +30,7 @@ class CartView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        errorView.instantiate(in: self.view, addToView: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,20 +54,14 @@ class CartView: UITableViewController {
     }
     
     func showCartMessage() {
-        viewEmptyCart.removeFromSuperview()
-        
         if MarketPlaceController.sharedInstance.cartProductsReferences.count == 0 {
-            self.messageErrorView.updateView("Você não adicionou nenhum produto ao carrinho.")
-            
-            viewEmptyCart.center = CGPoint(x: self.view.center.x, y: self.view.center.y - viewEmptyCart.frame.height/2)
-            
-            self.view.addSubview(viewEmptyCart)
+            errorView.msgError = "Você não adicionou nenhum produto ao carrinho."
             
             viewFooter.isHidden = true
         } else {
             viewFooter.isHidden = false
             
-            self.messageErrorView.updateView("")
+            errorView.msgError = ""
         }
     }
     
@@ -167,9 +161,7 @@ class CartView: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MessageErrorSegue" {
-            messageErrorView = segue.destination as! MessageErrorView
-        } else if segue.identifier == "DetailProductSegue" {
+        if segue.identifier == "DetailProductSegue" {
             let viewController = segue.destination as! DetailProductView
             viewController.productPartner = productPartnerEdit
             viewController.product = productEdit

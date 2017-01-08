@@ -42,7 +42,6 @@ class ShippingFormsChooseView: UITableViewController {
                 }
             }
         })
-
     }
 
     // MARK: - Table view data source
@@ -54,6 +53,10 @@ class ShippingFormsChooseView: UITableViewController {
         return arrayShippingForms.count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShippingFormsChooseCellIdentifier", for: indexPath)
 

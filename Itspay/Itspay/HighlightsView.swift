@@ -12,9 +12,7 @@ import PARTagPicker
 class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     @IBOutlet var viewHeader: UIView!
     
-    @IBOutlet var containerMessageError: UIView!
-    
-    var messageErrorView : MessageErrorView!
+    @IBOutlet var errorView: ErrorView!
     
     var tagPicker = PARTagPickerViewController()
     
@@ -26,19 +24,35 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     var selectedProductPartner : ProductPartner!
     var selectedProduct : Produtos!
     
+    var possuiMarketPlace = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureErrorMessageView()
+        errorView.instantiate(in: self.view, addToView: true)
         
-        configureTagPicker()
-        configureCollectionViewLayout()
+        if let value = LoginController.sharedInstance.loginResponseObject.possuiMarketPlace {
+            possuiMarketPlace = value
+        }
         
-        searchHighlightedProducts()
+        if possuiMarketPlace {
+            configureErrorMessageView("Nenhum produto encontrado.")
+            
+            configureTagPicker()
+            configureCollectionViewLayout()
+            
+            searchHighlightedProducts()
+        }
     }
     
-    func configureErrorMessageView() {
-        messageErrorView.updateView("Nenhum produto encontrado.")
+    override func viewWillAppear(_ animated: Bool) {
+        if !possuiMarketPlace {
+            configureErrorMessageView("Você não possui acesso à loja.")
+        }
+    }
+    
+    func configureErrorMessageView(_ message : String) {
+        errorView.msgError = message
     }
     
     func configureTagPicker() {
@@ -141,7 +155,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     }
     
     func updateErrorMessageView() {
-        containerMessageError.isHidden = arrayProductPartnerFiltered.count != 0
+        errorView.isHidden = arrayProductPartnerFiltered.count != 0
     }
     
     func searchHighlightedProducts() {
@@ -164,6 +178,8 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
                     
                     self.arrayProductPartnerFiltered = [ProductPartner]()
                     self.arrayProductPartnerFiltered.append(contentsOf: self.arrayProductPartner)
+                    
+                    self.updateErrorMessageView()
                     
                     self.addTagPickerToView()
                     self.collectionView?.reloadData()
@@ -234,9 +250,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MessageErrorSegue" {
-            messageErrorView = segue.destination as! MessageErrorView
-        } else if segue.identifier == "DetailProductSegue" {
+        if segue.identifier == "DetailProductSegue" {
             let viewController = segue.destination as! DetailProductView
             viewController.productPartner = selectedProductPartner
             viewController.product = selectedProduct

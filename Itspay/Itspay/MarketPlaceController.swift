@@ -61,6 +61,28 @@ class MarketPlaceController {
         return url
     }
     
+    static func createMyRequestsURLPath() -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "myRequests")
+        
+        if let value = LoginController.sharedInstance.loginResponseObject.cpf {
+            url += "/\(value)"
+        }
+        
+        url += "/processadora/\(ID_PROCESSADORA)/instituicao/\(ID_INSTITUICAO)"
+        
+        return url
+    }
+    
+    static func createMyRequestDetailsURLPath(_ myRequest : MyRequest) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "myRequestDetails")
+        
+        if let value = myRequest.idPedido {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
+    
     static func getMainProductImage(_ product : Produtos, in imageView : UIImageView, showLoading : Bool) {
         imageView.image = UIImage(named: "image_placeholder")
         
