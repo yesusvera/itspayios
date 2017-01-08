@@ -10,6 +10,9 @@
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
+		ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */; };
+		ED36D9E71E22AD3A002EA07F /* MyRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E51E22AD3A002EA07F /* MyRequestDetail.swift */; };
+		ED36D9E91E22AFE7002EA07F /* ShippingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */; };
 		ED3913281E088899001B506D /* DataTransacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3913261E088899001B506D /* DataTransacao.swift */; };
 		ED3913291E088899001B506D /* VirtualCardStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3913271E088899001B506D /* VirtualCardStatement.swift */; };
 		ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39132A1E0971A8001B506D /* PreferencesView.swift */; };
@@ -136,6 +139,9 @@
 		C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itspay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMasks.swift; sourceTree = "<group>"; };
 		ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItensPedido.swift; sourceTree = "<group>"; };
+		ED36D9E51E22AD3A002EA07F /* MyRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRequestDetail.swift; sourceTree = "<group>"; };
+		ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingItemView.swift; sourceTree = "<group>"; };
 		ED3913261E088899001B506D /* DataTransacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransacao.swift; sourceTree = "<group>"; };
 		ED3913271E088899001B506D /* VirtualCardStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualCardStatement.swift; sourceTree = "<group>"; };
 		ED39132A1E0971A8001B506D /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
@@ -314,6 +320,7 @@
 				ED525FFD1E2040F300881184 /* ShippingFormsChooseView.swift */,
 				ED5260031E204CC000881184 /* MyRequestsView.swift */,
 				ED5260091E208E3E00881184 /* MyRequestDetailView.swift */,
+				ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */,
 				ED3913311E09868B001B506D /* MarketPlace.storyboard */,
 			);
 			name = MarketPlace;
@@ -368,6 +375,8 @@
 		ED4B3CA01E143E7700D4C1CE /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
+				ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */,
+				ED36D9E51E22AD3A002EA07F /* MyRequestDetail.swift */,
 				ED5260051E208CFE00881184 /* DataHoraPedido.swift */,
 				ED5260061E208CFE00881184 /* MyRequest.swift */,
 				ED5260011E20488600881184 /* ShippingForm.swift */,
@@ -1005,6 +1014,7 @@
 				ED4F9F6F1E19C68C00F99162 /* Button.swift in Sources */,
 				EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */,
 				ED5260131E22749700881184 /* ErrorView.swift in Sources */,
+				ED36D9E91E22AFE7002EA07F /* ShippingItemView.swift in Sources */,
 				ED3A02E81E0C00F8000BCE53 /* TransferFinancialCard.swift in Sources */,
 				ED3A02E51E0C00B7000BCE53 /* TransferMainView.swift in Sources */,
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
@@ -1062,6 +1072,7 @@
 				EDFB60F71E15F06500C24A4E /* DataHoraStatus.swift in Sources */,
 				EDFB60FB1E15F06500C24A4E /* Produtos.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
+				ED36D9E71E22AD3A002EA07F /* MyRequestDetail.swift in Sources */,
 				EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
@@ -1075,6 +1086,7 @@
 				ED5260041E204CC000881184 /* MyRequestsView.swift in Sources */,
 				ED5260001E2044F000881184 /* AddressChooseView.swift in Sources */,
 				ED5260071E208CFE00881184 /* DataHoraPedido.swift in Sources */,
+				ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */,
 				EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,
