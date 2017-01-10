@@ -78,5 +78,7 @@
 	<string>issuer/api/portador/credencial</string>
 	<key>installmentPayment</key>
 	<string>issuer/api/mktplace/portador/parcelas</string>
+	<key>makeOrder</key>
+	<string>issuer/api/mktplace/portador/pedido</string>
 </dict>
 </plist>

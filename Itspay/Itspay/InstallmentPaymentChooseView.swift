@@ -13,6 +13,10 @@ class InstallmentPaymentChooseView: UITableViewController {
     
     var productPartner : ProductPartner!
     
+    var address : Address!
+    
+    var shippingForm : ShippingForm?
+    
     var arrayInstallmentPayments = [InstallmentPayment]()
 
     var selectedInstallmentPayment : InstallmentPayment!
@@ -80,9 +84,18 @@ class InstallmentPaymentChooseView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedInstallmentPayment = arrayInstallmentPayments[indexPath.row]
+        
+        self.performSegue(withIdentifier: "ShippingSummarySegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ShippingSummarySegue" {
+            let viewController = segue.destination as! ShippingSummaryView
+            viewController.installmentPayment = selectedInstallmentPayment
+            viewController.productPartner = productPartner
+            viewController.address = address
+            viewController.virtualCard = virtualCard
+            viewController.shippingForm = shippingForm
+        }
     }
 }

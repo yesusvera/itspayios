@@ -113,6 +113,7 @@ class MyRequestDetailView: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShippingItemSegue" {
             shippingItemView = segue.destination as! ShippingItemView
+            shippingItemView.isBuying = false
         }
     }
 }

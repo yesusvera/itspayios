@@ -117,6 +117,89 @@ class MarketPlaceController {
         return url
     }
     
+    static func createMakeOrderURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "makeOrder")
+    }
+    
+    static func createMakeOrderParameters(_ productPartner : ProductPartner, virtualCard : Credenciais, arrayItens : [Referencias], address : Address, shippingForm : ShippingForm?, installmentPayment : InstallmentPayment, password : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.idConta {
+            dictionary["idConta"] = value
+        }
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencial"] = value
+        }
+        if let value = address.idEndereco {
+            dictionary["idEndereco"] = value
+        }
+        if let value = productPartner.idParceiro {
+            dictionary["idParceiro"] = value
+        }
+        
+        var itens = [[String:Any]]()
+        
+        for item in arrayItens {
+            var object = [String:Any]()
+            
+            if let value = item.idProduto {
+                object["idProduto"] = value
+            }
+            if let value = item.idReferenciaSKU {
+                object["idReferenciaSKU"] = value
+            }
+            if let value = item.idSKU {
+                object["idSKU"] = value
+            }
+            if let value = item.quantidade {
+                object["quantidadeItem"] = value
+            }
+            
+            itens.append(object)
+        }
+        
+        dictionary["itens"] = itens
+        
+        if let value = installmentPayment.quantidadeParcelas {
+            dictionary["quantidadeParcelas"] = value
+        }
+        
+        if let shippingForm = shippingForm {
+            if let value = shippingForm.titulo {
+                var tipo = 1
+                if !value.contains("Normal") {
+                    tipo = 2
+                }
+                dictionary["tipoEntrega"] = tipo
+            }
+            if let value = shippingForm.valor {
+                dictionary["valorFrete"] = value
+            }
+        } else {
+            dictionary["tipoEntrega"] = 0
+            dictionary["valorFrete"] = 0
+        }
+        
+        dictionary["senhaCredencial"] = password
+        
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        return dictionary
+    }
+    
+    static func getProductPartnerAddress(_ productPartner : ProductPartner) -> Address? {
+        var address : Address?
+        
+        if let unidades = productPartner.unidades {
+            if let first = unidades.first {
+                address = Address(object: first.dictionaryRepresentation())
+            }
+        }
+        
+        return address
+    }
+
     static func getMainProductImage(_ product : Produtos, in imageView : UIImageView, showLoading : Bool) {
         imageView.image = UIImage(named: "image_placeholder")
         

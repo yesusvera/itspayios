@@ -42,6 +42,10 @@ class ShippingFormsView: UITableViewController {
             if let productPartner = reference.productPartner {
                 viewController.productPartner = productPartner
             }
+        } else if segue.identifier == "ShippingChooseCardSegue" {
+            let viewController = segue.destination as! ShippingChooseCardView
+            viewController.productPartner = reference.productPartner!
+            viewController.address = MarketPlaceController.getProductPartnerAddress(reference.productPartner!)
         }
     }
 }

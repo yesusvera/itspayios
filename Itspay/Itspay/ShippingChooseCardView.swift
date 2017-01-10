@@ -13,7 +13,9 @@ class ShippingChooseCardView: UITableViewController {
     
     var productPartner : ProductPartner!
     
-    var shippingForm : ShippingForm!
+    var address : Address!
+    
+    var shippingForm : ShippingForm?
     
     var myRequest : MyRequest?
     
@@ -117,6 +119,8 @@ class ShippingChooseCardView: UITableViewController {
             let viewController = segue.destination as! InstallmentPaymentChooseView
             viewController.virtualCard = selectedVirtualCard
             viewController.productPartner = productPartner
+            viewController.address = address
+            viewController.shippingForm = shippingForm
         }
     }
 }

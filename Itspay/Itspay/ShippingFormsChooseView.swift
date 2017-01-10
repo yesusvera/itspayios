@@ -89,6 +89,10 @@ class ShippingFormsChooseView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         shippingFormSelected = arrayShippingForms[indexPath.row]
         
+        if let value = shippingFormSelected.valor {
+            MarketPlaceController.sharedInstance.totalPrice += Double(value)
+        }
+        
         self.performSegue(withIdentifier: "ShippingChooseCardSegue", sender: self)
     }
     
@@ -97,6 +101,7 @@ class ShippingFormsChooseView: UITableViewController {
             let viewController = segue.destination as! ShippingChooseCardView
             viewController.shippingForm = shippingFormSelected
             viewController.productPartner = productPartner
+            viewController.address = address
         }
     }
 }
