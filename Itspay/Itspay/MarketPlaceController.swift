@@ -17,6 +17,8 @@ class MarketPlaceController {
     
     var arrayAddresses = [Address]()
     
+    var totalPrice = Double(0)
+    
     static func createProductPartnerURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "productPartner")
         
@@ -60,6 +62,26 @@ class MarketPlaceController {
         
         return url
     }
+
+    static func createShippingCredencialURLPath(_ myRequest : MyRequest) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "shippingCredencial")
+        
+        if let value = myRequest.idCredencial {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
+
+    static func createShippingAccountURLPath(_ myRequest : MyRequest) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "shippingAccount")
+        
+        if let value = myRequest.idConta {
+            url += "/\(value)"
+        }
+        
+        return url
+    }
     
     static func createMyRequestsURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "myRequests")
@@ -79,6 +101,18 @@ class MarketPlaceController {
         if let value = myRequest.idPedido {
             url += "/\(value)"
         }
+        
+        return url
+    }
+    
+    static func createInstallmentPaymentURLPath(_ productPartner : ProductPartner) -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "installmentPayment")
+        
+        if let value = productPartner.idParceiro {
+            url += "/\(value)"
+        }
+        
+        url += "/valor/\(MarketPlaceController.sharedInstance.totalPrice)"
         
         return url
     }

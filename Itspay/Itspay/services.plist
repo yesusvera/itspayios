@@ -66,9 +66,17 @@
 	<string>issuer/api/mktplace/administrativo/imagem/sku</string>
 	<key>shippingForms</key>
 	<string>issuer/api/mktplace/portador/formas-envio</string>
+	<key>shippingCredencial</key>
+	<string>issuer/api/mktplace/portador/pedido/credencial</string>
+	<key>shippingAccount</key>
+	<string>issuer/api/mktplace/portador/pedido/conta</string>
 	<key>myRequests</key>
 	<string>issuer/api/mktplace/portador/pedido/pessoa</string>
 	<key>myRequestDetails</key>
 	<string>issuer/api/mktplace/portador/pedido</string>
+	<key>unlockedCards</key>
+	<string>issuer/api/portador/credencial</string>
+	<key>installmentPayment</key>
+	<string>issuer/api/mktplace/portador/parcelas</string>
 </dict>
 </plist>

@@ -10,9 +10,12 @@ import UIKit
 
 class ShippingFormsChooseView: UITableViewController {
     var address : Address!
+    
     var productPartner : ProductPartner!
     
     var arrayShippingForms = [ShippingForm]()
+    
+    var shippingFormSelected : ShippingForm!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,8 +86,18 @@ class ShippingFormsChooseView: UITableViewController {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        shippingFormSelected = arrayShippingForms[indexPath.row]
         
+        self.performSegue(withIdentifier: "ShippingChooseCardSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShippingChooseCardSegue" {
+            let viewController = segue.destination as! ShippingChooseCardView
+            viewController.shippingForm = shippingFormSelected
+            viewController.productPartner = productPartner
+        }
     }
 }
     

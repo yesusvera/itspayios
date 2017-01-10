@@ -13,6 +13,9 @@
 		ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */; };
 		ED36D9E71E22AD3A002EA07F /* MyRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E51E22AD3A002EA07F /* MyRequestDetail.swift */; };
 		ED36D9E91E22AFE7002EA07F /* ShippingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */; };
+		ED36D9EB1E245480002EA07F /* ShippingChooseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9EA1E245480002EA07F /* ShippingChooseCardView.swift */; };
+		ED36D9ED1E245F05002EA07F /* InstallmentPaymentChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9EC1E245F05002EA07F /* InstallmentPaymentChooseView.swift */; };
+		ED36D9EF1E246018002EA07F /* InstallmentPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9EE1E246018002EA07F /* InstallmentPayment.swift */; };
 		ED3913281E088899001B506D /* DataTransacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3913261E088899001B506D /* DataTransacao.swift */; };
 		ED3913291E088899001B506D /* VirtualCardStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3913271E088899001B506D /* VirtualCardStatement.swift */; };
 		ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39132A1E0971A8001B506D /* PreferencesView.swift */; };
@@ -142,6 +145,9 @@
 		ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItensPedido.swift; sourceTree = "<group>"; };
 		ED36D9E51E22AD3A002EA07F /* MyRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRequestDetail.swift; sourceTree = "<group>"; };
 		ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingItemView.swift; sourceTree = "<group>"; };
+		ED36D9EA1E245480002EA07F /* ShippingChooseCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingChooseCardView.swift; sourceTree = "<group>"; };
+		ED36D9EC1E245F05002EA07F /* InstallmentPaymentChooseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallmentPaymentChooseView.swift; sourceTree = "<group>"; };
+		ED36D9EE1E246018002EA07F /* InstallmentPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallmentPayment.swift; sourceTree = "<group>"; };
 		ED3913261E088899001B506D /* DataTransacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTransacao.swift; sourceTree = "<group>"; };
 		ED3913271E088899001B506D /* VirtualCardStatement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualCardStatement.swift; sourceTree = "<group>"; };
 		ED39132A1E0971A8001B506D /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
@@ -318,9 +324,11 @@
 				ED525FF51E1DE64B00881184 /* ShippingFormsView.swift */,
 				ED525FFF1E2044F000881184 /* AddressChooseView.swift */,
 				ED525FFD1E2040F300881184 /* ShippingFormsChooseView.swift */,
+				ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */,
+				ED36D9EA1E245480002EA07F /* ShippingChooseCardView.swift */,
 				ED5260031E204CC000881184 /* MyRequestsView.swift */,
 				ED5260091E208E3E00881184 /* MyRequestDetailView.swift */,
-				ED36D9E81E22AFE7002EA07F /* ShippingItemView.swift */,
+				ED36D9EC1E245F05002EA07F /* InstallmentPaymentChooseView.swift */,
 				ED3913311E09868B001B506D /* MarketPlace.storyboard */,
 			);
 			name = MarketPlace;
@@ -375,6 +383,7 @@
 		ED4B3CA01E143E7700D4C1CE /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
+				ED36D9EE1E246018002EA07F /* InstallmentPayment.swift */,
 				ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */,
 				ED36D9E51E22AD3A002EA07F /* MyRequestDetail.swift */,
 				ED5260051E208CFE00881184 /* DataHoraPedido.swift */,
@@ -1025,6 +1034,7 @@
 				ED525FF41E1D85C600881184 /* ForgotPassowordView.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
+				ED36D9ED1E245F05002EA07F /* InstallmentPaymentChooseView.swift in Sources */,
 				ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */,
 				ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */,
 				EDFB60FA1E15F06500C24A4E /* ProductPartner.swift in Sources */,
@@ -1064,6 +1074,7 @@
 				ED6FC3641E11BF7200AD4562 /* Ticket.swift in Sources */,
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
 				EDFB60F91E15F06500C24A4E /* PalavrasChaves.swift in Sources */,
+				ED36D9EB1E245480002EA07F /* ShippingChooseCardView.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				ED525FFE1E2040F300881184 /* ShippingFormsChooseView.swift in Sources */,
 				ED525FF21E1D45CF00881184 /* RequestNewVirtualCardTermsView.swift in Sources */,
@@ -1075,6 +1086,7 @@
 				ED36D9E71E22AD3A002EA07F /* MyRequestDetail.swift in Sources */,
 				EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
+				ED36D9EF1E246018002EA07F /* InstallmentPayment.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,
 				ED8AF3AE1DFF86B600EBB73F /* LoginView.swift in Sources */,

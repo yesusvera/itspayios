@@ -58,6 +58,18 @@ class CardsController {
         
         return url
     }
+    
+    static func createUnlockedCardURLPath() -> String {
+        var url = Repository.createServiceURLFromPListValue(.services, key: "unlockedCards")
+        
+        if let value = LoginController.sharedInstance.loginResponseObject.cpf {
+            url += "/\(value)"
+        }
+        
+        url += "/pessoa/\(TIPO_PESSOA)/processadora/\(ID_PROCESSADORA)/instituicao/\(ID_INSTITUICAO)/desbloqueadas"
+        
+        return url
+    }
 
     static func createSearchTariffURLPath(_ credencial : Credenciais) -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "searchTariff")

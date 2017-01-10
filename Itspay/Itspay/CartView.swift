@@ -18,6 +18,8 @@ class CartView: UITableViewController {
     var totalPrice = Double(0) {
         didSet {
             labelTotal.text = "\(totalPrice)".formatToCurrencyReal()
+            
+            MarketPlaceController.sharedInstance.totalPrice = totalPrice
         }
     }
     
