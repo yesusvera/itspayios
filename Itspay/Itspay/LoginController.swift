@@ -13,6 +13,9 @@ class LoginController {
     
     var loginResponseObject : LoginResponseObject!
     
+    var oneSignalUserId : String?
+    var oneSignalToken : String?
+    
     static func createLoginRequestObject(_ cpf : String, password : String) -> LoginRequestObject {
         var dictionary = [String:Any]()
         
@@ -118,20 +121,40 @@ class LoginController {
                     return
                 }
             } else {
-                if let value = LoginController.sharedInstance.loginResponseObject.requisitarPermissaoNotificacao {
-                    if value {
-                        if let message = LoginController.sharedInstance.loginResponseObject.requisicaoNotificacaoMensagem {
-                            let yesAction = UIAlertAction(title: "Sim", style: .default, handler: { (action) in
-                                handlerAlert(false, true)
-                            })
-                            let noAction = UIAlertAction(title: "Não", style: .default) { (action) in
-                                handlerAlert(false, false)
+                if let isNotificationsOn = UserDefaults.standard.object(forKey: "isNotificationsOn") as? Bool {
+                    if !isNotificationsOn {
+                        if let value = LoginController.sharedInstance.loginResponseObject.requisitarPermissaoNotificacao {
+                            if value {
+                                if let message = LoginController.sharedInstance.loginResponseObject.requisicaoNotificacaoMensagem {
+                                    let yesAction = UIAlertAction(title: "Sim", style: .default, handler: { (action) in
+                                        UserDefaults.standard.set(true, forKey: "isNotificationsOn")
+                                        
+                                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "registerNotifications"), object: nil)
+                                        
+                                        let url = createEnableNotificationsURLPath()
+                                        
+                                        let parameters = createEnableNotificationsParameters()
+                                        
+                                        Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
+                                            let message = getDataResponseMessage(dataResponse)
+                                            
+                                            print(message)
+                                        }
+                                        
+                                        handlerAlert(false, true)
+                                    })
+                                    let noAction = UIAlertAction(title: "Não", style: .default) { (action) in
+                                        UserDefaults.standard.set(false, forKey: "isNotificationsOn")
+                                        
+                                        handlerAlert(false, false)
+                                    }
+                                    
+                                    AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController:
+                                        viewController)
+                                    
+                                    return
+                                }
                             }
-                            
-                            AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController:
-                                viewController)
-                            
-                            return
                         }
                     }
                 }
@@ -139,6 +162,26 @@ class LoginController {
         }
         
         handlerAlert(nil, nil)
+    }
+    
+    static func createEnableNotificationsURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "enableNotifications")
+    }
+    
+    static func createEnableNotificationsParameters() -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        dictionary["deviceId"] = System.getUDID()
+        
+        if let value = LoginController.sharedInstance.loginResponseObject.idLogin {
+            dictionary["idLogin"] = value
+        }
+        
+        if let value = LoginController.sharedInstance.oneSignalUserId {
+            dictionary["serviceDeviceId"] = value
+        }
+        
+        return dictionary
     }
     
     static func createRecoverPasswordParameters(_ cpf : String) -> [String:Any] {

@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackBahamas" translatesAutoresizingMaskIntoConstraints="NO" id="1xb-gm-NsX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="-2" y="-2" width="379" height="671"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01o-Eo-GZD">
                                 <rect key="frame" x="0.0" y="228" width="375" height="211"/>
@@ -46,11 +46,11 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="01o-Eo-GZD" secondAttribute="trailing" id="5tC-Ju-kBM"/>
                             <constraint firstItem="01o-Eo-GZD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9g6-O2-nnL"/>
-                            <constraint firstItem="1xb-gm-NsX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="GJ5-iC-iVe"/>
+                            <constraint firstItem="1xb-gm-NsX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-2" id="GJ5-iC-iVe"/>
                             <constraint firstItem="01o-Eo-GZD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="L1o-Zb-hNY"/>
-                            <constraint firstAttribute="trailing" secondItem="1xb-gm-NsX" secondAttribute="trailing" id="hB6-3z-vBa"/>
-                            <constraint firstItem="1xb-gm-NsX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="lgk-wl-hPT"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1xb-gm-NsX" secondAttribute="bottom" id="m8H-3M-hoj"/>
+                            <constraint firstAttribute="trailing" secondItem="1xb-gm-NsX" secondAttribute="trailing" constant="-2" id="hB6-3z-vBa"/>
+                            <constraint firstItem="1xb-gm-NsX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-2" id="lgk-wl-hPT"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1xb-gm-NsX" secondAttribute="bottom" constant="-2" id="m8H-3M-hoj"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -13,7 +13,7 @@
         <scene sceneID="cfB-CC-hVZ">
             <objects>
                 <navigationController id="Qqn-Wh-3qN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0a-g8-nvr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0a-g8-nvr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackBahamas" translatesAutoresizingMaskIntoConstraints="NO" id="139-Fh-co6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="-2" y="-2" width="379" height="671"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBE-ZI-nV7">
                                 <rect key="frame" x="16" y="220" width="343" height="355"/>
@@ -87,18 +87,18 @@
                             <constraint firstItem="kFS-lf-D81" firstAttribute="leading" secondItem="bKV-hv-tz5" secondAttribute="leading" constant="16" id="3aH-qs-YHf"/>
                             <constraint firstItem="GHr-ce-tRj" firstAttribute="top" secondItem="sBE-ZI-nV7" secondAttribute="bottom" constant="16" id="9af-xs-Vj7"/>
                             <constraint firstItem="Jhb-fC-iOX" firstAttribute="top" secondItem="6TE-SS-NeW" secondAttribute="bottom" constant="32" id="DXH-rz-gJ6"/>
-                            <constraint firstItem="LCe-BD-OaC" firstAttribute="top" secondItem="139-Fh-co6" secondAttribute="bottom" id="GTu-pF-Bcj"/>
+                            <constraint firstItem="LCe-BD-OaC" firstAttribute="top" secondItem="139-Fh-co6" secondAttribute="bottom" constant="-2" id="GTu-pF-Bcj"/>
                             <constraint firstAttribute="trailing" secondItem="sBE-ZI-nV7" secondAttribute="trailing" constant="16" id="O3H-oj-Vy8"/>
                             <constraint firstAttribute="trailing" secondItem="kFS-lf-D81" secondAttribute="trailing" constant="16" id="OFG-hy-huT"/>
-                            <constraint firstAttribute="trailing" secondItem="139-Fh-co6" secondAttribute="trailing" id="OjJ-WW-400"/>
-                            <constraint firstItem="139-Fh-co6" firstAttribute="leading" secondItem="bKV-hv-tz5" secondAttribute="leading" id="RHV-Qs-8A6"/>
+                            <constraint firstAttribute="trailing" secondItem="139-Fh-co6" secondAttribute="trailing" constant="-2" id="OjJ-WW-400"/>
+                            <constraint firstItem="139-Fh-co6" firstAttribute="leading" secondItem="bKV-hv-tz5" secondAttribute="leading" constant="-2" id="RHV-Qs-8A6"/>
                             <constraint firstItem="LCe-BD-OaC" firstAttribute="top" secondItem="kFS-lf-D81" secondAttribute="bottom" constant="16" id="Szc-MJ-PJj"/>
                             <constraint firstItem="Jhb-fC-iOX" firstAttribute="centerX" secondItem="139-Fh-co6" secondAttribute="centerX" id="UPI-Ed-PEK"/>
                             <constraint firstItem="GHr-ce-tRj" firstAttribute="leading" secondItem="bKV-hv-tz5" secondAttribute="leadingMargin" constant="16" id="gT8-Co-N35"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GHr-ce-tRj" secondAttribute="trailing" constant="16" id="hcK-2r-sRn"/>
                             <constraint firstItem="sBE-ZI-nV7" firstAttribute="top" secondItem="Jhb-fC-iOX" secondAttribute="bottom" constant="32" id="lK9-yN-vCJ"/>
                             <constraint firstItem="kFS-lf-D81" firstAttribute="top" secondItem="GHr-ce-tRj" secondAttribute="bottom" id="nLm-E8-kIm"/>
-                            <constraint firstItem="139-Fh-co6" firstAttribute="top" secondItem="bKV-hv-tz5" secondAttribute="top" id="opK-S1-YRq"/>
+                            <constraint firstItem="139-Fh-co6" firstAttribute="top" secondItem="bKV-hv-tz5" secondAttribute="top" constant="-2" id="opK-S1-YRq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pib-ER-Neo">

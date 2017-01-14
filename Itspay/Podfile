@@ -14,6 +14,7 @@ pod 'CardIO'
 pod ‘VHBoomMenuButton’, ‘~> 1.0.2’
 pod 'CryptoSwift'
 pod 'PARTagPicker'
+pod 'OneSignal'
 
 end
 

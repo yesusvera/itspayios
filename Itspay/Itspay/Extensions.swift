@@ -261,8 +261,8 @@ extension String {
         return (false, "CPF INVÁLIDO.")
     }
     
-    func isPasswordValid() -> Bool {
-        if self == "" || self.characters.count < 8 || self.characters.count > 30 {
+    func isPasswordValid(min : Int, max : Int) -> Bool {
+        if self == "" || self.characters.count < min || self.characters.count > max {
             return false
         }
         
@@ -375,5 +375,22 @@ extension UILabel {
         self.layer.shadowOffset = offset
         self.layer.shadowOpacity = opacity
         self.layer.shadowRadius = radius
+    }
+}
+
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
     }
 }

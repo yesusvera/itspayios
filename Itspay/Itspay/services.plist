@@ -80,5 +80,7 @@
 	<string>issuer/api/mktplace/portador/parcelas</string>
 	<key>makeOrder</key>
 	<string>issuer/api/mktplace/portador/pedido</string>
+	<key>enableNotifications</key>
+	<string>issuer/api/portador-dispositivo/habilitar-receber-notificacao</string>
 </dict>
 </plist>

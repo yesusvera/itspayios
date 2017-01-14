@@ -114,7 +114,7 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
             return false
         }
         
-        if !newPasswordValidation.isPasswordValid() {
+        if !newPasswordValidation.isPasswordValid(min: 6, max: 30) {
             AlertComponent.showSimpleAlert(title: "Erro", message: "Nova Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres.", viewController: self)
             return false
         }

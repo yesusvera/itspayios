@@ -7,20 +7,43 @@
 //
 
 import UIKit
+import OneSignal
+
+let appDelegate = UIApplication.shared.delegate!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
-
+    
+    var launchOptions : [UIApplicationLaunchOptionsKey: Any]?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.launchOptions = launchOptions
+        
         Location.sharedInstance.startUpdating()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.registerNotifications), name: NSNotification.Name(rawValue: "registerNotifications"), object: nil)
+        
+        if let isNotificationsOn = UserDefaults.standard.object(forKey: "isNotificationsOn") as? Bool {
+            if isNotificationsOn {
+                registerNotifications()
+            }
+        } else {
+            UserDefaults.standard.set(false, forKey: "isNotificationsOn")
+        }
         
         configureNavigationBar()
         
         return true
+    }
+    
+    func registerNotifications() {
+        OneSignal.initWithLaunchOptions(launchOptions, appId: ONE_SIGNAL_APP_ID)
+        
+        OneSignal.idsAvailable { (userId, token) in
+            LoginController.sharedInstance.oneSignalUserId = userId
+            LoginController.sharedInstance.oneSignalToken = token
+        }
     }
     
     func configureNavigationBar() {

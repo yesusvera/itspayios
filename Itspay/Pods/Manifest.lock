@@ -3,6 +3,7 @@ PODS:
   - CardIO (5.4.1)
   - CryptoSwift (0.6.6)
   - ObjectMapper (2.2.2)
+  - OneSignal (2.3.4)
   - PARTagPicker (1.2.3)
   - PickerFieldsDataHelper (0.1.0)
   - SideMenu (2.0.7)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - CardIO
   - CryptoSwift
   - ObjectMapper (~> 2.2)
+  - OneSignal
   - PARTagPicker
   - PickerFieldsDataHelper
   - SideMenu
@@ -37,6 +39,7 @@ SPEC CHECKSUMS:
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   CryptoSwift: 88592381b73f36e192124539390a7c9bacda76af
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
+  OneSignal: c8f0d08ffa30fcf751c97a29639725877027e788
   PARTagPicker: 3107679f0e67534ae65678b19a1f261771ccef00
   PickerFieldsDataHelper: 5b9ab3dec6bde85d9736d06a78692ce30bd373f5
   SideMenu: c5d3c3bc855b96bc2059e0b1ec346ecb54e80447
@@ -44,6 +47,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   VHBoomMenuButton: 5fdd6b5180140b5b96b0827c7052a08ecd61ee96
 
-PODFILE CHECKSUM: eb9acb33b8f46d72927698902dbd8a1076123160
+PODFILE CHECKSUM: 78d69ec094158c0192e8fb12f9967f87afd6393b
 
 COCOAPODS: 1.2.0.beta.3

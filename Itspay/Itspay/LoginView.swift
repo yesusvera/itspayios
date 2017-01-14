@@ -195,7 +195,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
             return false
         }
         
-        if !passwordValidation.isPasswordValid() {
+        if !passwordValidation.isPasswordValid(min: 6, max: 30) {
             labelErrorPassword.text = "Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres."
             return false
         }

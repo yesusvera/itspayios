@@ -232,6 +232,7 @@
 		ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		ED9291B51E0233AF00F00F00 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED9291B71E02349300F00F00 /* RegisterLoginObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterLoginObject.swift; sourceTree = "<group>"; };
+		ED93BF611E2A899F00F2C48A /* Itspay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Itspay.entitlements; sourceTree = "<group>"; };
 		EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequestObject.swift; sourceTree = "<group>"; };
 		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
@@ -571,6 +572,7 @@
 		ED8AF3731DFF85C100EBB73F /* Itspay */ = {
 			isa = PBXGroup;
 			children = (
+				ED93BF611E2A899F00F2C48A /* Itspay.entitlements */,
 				ED8AF3A91DFF863A00EBB73F /* Utils */,
 				ED8AF3A81DFF863400EBB73F /* Service */,
 				EDAB8A761E007D3100C91453 /* Controller */,
@@ -884,6 +886,14 @@
 						DevelopmentTeam = XXT2XJVDAC;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					ED8AF3861DFF85C100EBB73F = {
 						CreatedOnToolsVersion = 8.1;
@@ -1302,13 +1312,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XXT2XJVDAC;
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.mobilecomplab.itspay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilecomplab.bahamasTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1325,13 +1336,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XXT2XJVDAC;
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.mobilecomplab.itspay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobilecomplab.bahamasTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
