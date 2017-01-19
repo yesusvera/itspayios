@@ -99,6 +99,21 @@ extension UIColor {
 }
 
 extension String {
+    var height : CGFloat {
+        get {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 44))
+            
+            label.numberOfLines = 100
+            label.text = self
+            label.sizeToFit()
+                
+            return label.frame.height
+        }
+        set {
+            
+        }
+    }
+    
     func formatCurrency(range : NSRange, string : String) -> String {
         let oldText = self as NSString
         let newText = oldText.replacingCharacters(in: range, with: string)
@@ -371,6 +386,21 @@ extension Array {
 }
 
 extension UILabel {
+    var stringHeight : CGFloat {
+        get {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 44))
+            
+            label.numberOfLines = 100
+            label.font = self.font
+            label.text = self.text
+            label.sizeToFit()
+            
+            return label.frame.height
+        }
+        set {
+            
+        }
+    }
     func addShadow(with offset : CGSize, opacity : Float, radius : CGFloat) {
         self.layer.shadowOffset = offset
         self.layer.shadowOpacity = opacity

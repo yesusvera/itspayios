@@ -14,6 +14,8 @@ class ShippingItemView: UITableViewController {
     
     var isBuying = true
     
+    var height = CGFloat(0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,40 @@ class ShippingItemView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isBuying {
+            let reference = arrayCartProducts[indexPath.row]
+            
+            if let product = reference.product, let value = product.nomeProduto {
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 290, height: 44))
+                label.text = "\(value)"
+                
+                let height = label.stringHeight
+                
+                if height > 80 {
+                    self.height += height
+                    
+                    return height
+                }
+            }
+        } else {
+            let shippingItem = arrayShippingItens[indexPath.row]
+         
+            if let value = shippingItem.nomeProduto {
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 290, height: 44))
+                label.text = "\(value)"
+                
+                let height = label.stringHeight
+                
+                if height > 80 {
+                    self.height += height
+                    
+                    return height
+                }
+            }
+        }
+        
+        self.height += 80
+        
         return 80
     }
 

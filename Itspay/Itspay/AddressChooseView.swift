@@ -51,6 +51,18 @@ class AddressChooseView: UITableViewController {
         return MarketPlaceController.sharedInstance.arrayAddresses.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let address = MarketPlaceController.sharedInstance.arrayAddresses[indexPath.row]
+        
+        let height = address.fullDescription().height
+        
+        if height > 44 {
+            return height
+        }
+        
+        return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddressChooseCellIdentifier", for: indexPath)
         

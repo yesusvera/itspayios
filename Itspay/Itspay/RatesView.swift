@@ -41,6 +41,8 @@ class RatesView: UITableViewController {
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? NSDictionary {
                     if let array = value["perfilsTarifarios"] as? [Any] {
+                        self.arrayTariffs = [Tariff]()
+                        
                         for object in array {
                             let tariff = Tariff(object: object)
                             
@@ -63,6 +65,10 @@ class RatesView: UITableViewController {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

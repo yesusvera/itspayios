@@ -89,6 +89,25 @@ class CartView: UITableViewController {
         return nil
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let array = arrayCart[indexPath.section]
+        
+        let reference = array[indexPath.row]
+        
+        if let product = reference.product, let value = product.nomeProduto {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 210, height: 44))
+            label.text = "\(value)"
+            
+            let height = label.stringHeight
+            
+            if height > 80 {
+                return height + 16
+            }
+        }
+        
+        return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCellIdentifier", for: indexPath)
         

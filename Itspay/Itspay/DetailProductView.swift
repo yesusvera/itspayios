@@ -118,8 +118,17 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height = labelProductName.stringHeight + 32
+        
+        if height < 44 {
+            height = 44
+        }
+        
+        if indexPath.row == 0 {
+            return height
+        }
         if indexPath.row == 3 {
-            return SCREEN_HEIGHT - viewHeader.frame.height-carouselProducts.frame.height-viewFooter.frame.height-44-44-44-100
+            return SCREEN_HEIGHT - viewHeader.frame.height-carouselProducts.frame.height-viewFooter.frame.height-44-44-height-100
         }
         
         return super.tableView(tableView, heightForRowAt: indexPath)

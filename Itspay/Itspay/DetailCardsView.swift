@@ -14,11 +14,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     @IBOutlet var segmentedControlValue: UISegmentedControl!
     @IBOutlet var buttonMenuValue: UIButton!
 
-    @IBOutlet weak var imageViewCard: UIImageView!
-    
-    @IBOutlet weak var labelBalance: UILabel!
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelCardNumber: UILabel!
+    @IBOutlet weak var cardInfoView: CardInfoView!
     
     @IBOutlet var viewHeader: UIView!
     
@@ -275,38 +271,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     }
     
     func updateViewInfo() {
-        CardsController.openPlastics(virtualCard, in: imageViewCard, showLoading: false)
-        
-        if let object = virtualCard.saldo {
-            labelBalance.text = "\(object)".formatToCurrencyReal()
-            labelBalance.layer.shadowOffset = CGSize(width: 0, height: 0)
-            labelBalance.layer.shadowOpacity = 1
-            labelBalance.layer.shadowRadius = 6
-
-            labelCurrentBalance.text = "\(object)".formatToCurrencyReal()
-        }
-        
-        if let object = virtualCard.dataValidadeFmt {
-            labelTransactionDate.text = "\(object)"
-        }
-        
-        if let object = virtualCard.nomeImpresso {
-            labelName.text = "\(object)"
-            labelName.layer.shadowOffset = CGSize(width: 0, height: 0)
-            labelName.layer.shadowOpacity = 1
-            labelName.layer.shadowRadius = 6
-        }
-        
-        if let object = virtualCard.credencialMascarada {
-            labelCardNumber.text = "\(object)"
-            labelCardNumber.layer.shadowOffset = CGSize(width: 0, height: 0)
-            labelCardNumber.layer.shadowOpacity = 1
-            labelCardNumber.layer.shadowRadius = 6
-        }
-        
-        if let object = virtualCard.nomeProduto {
-            self.title = object
-        }
+        cardInfoView.updateView(with: virtualCard)
     }
     
     func configMenuNavigationController() {

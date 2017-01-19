@@ -37,17 +37,12 @@ class ProductReferencesView: UITableViewController {
                         text += " \(valor)"
                     }
                 }
-                
-                let label = UILabel(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 70))
-                label.numberOfLines = 10
-                label.text = text
-                label.sizeToFit()
-                
-                if label.frame.height < 44 {
+            
+                if text.height < 44 {
                     return 44
                 }
                 
-                return label.frame.height
+                return text.height
             }
             
         }

@@ -86,6 +86,12 @@ class CardsTabBarController: UITabBarController {
     }
     
     @IBAction func buttonSairAction(_ sender: UIButton) {
-        LoginController.logout(self)
+        let yes = UIAlertAction(title: "Sim", style: .default) { (completion) in
+            LoginController.logout(self)
+        }
+        let no = UIAlertAction(title: "Não", style: .default) { (completion) in
+        }
+
+        AlertComponent.showAlert(title: "Atenção", message: "Deseja realmente sair?", actions: [yes, no], viewController: self)
     }
 }

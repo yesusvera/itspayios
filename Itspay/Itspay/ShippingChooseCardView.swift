@@ -79,30 +79,8 @@ class ShippingChooseCardView: UITableViewController {
 
         let virtualCard = arrayVirtualCards[indexPath.row]
         
-        if let imageView = cell.viewWithTag(1) as? UIImageView {
-            if Repository.isMockOn() {
-                imageView.image = UIImage(named: "Card\(indexPath.row+1)")
-            } else {
-                CardsController.openPlastics(virtualCard, in: imageView, showLoading: true)
-            }
-        }
-        
-        if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCard.saldo {
-            label.text = "\(value)".formatToCurrencyReal()
-            
-            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
-        }
-        
-        if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCard.nomeImpresso {
-            label.text = "\(value)"
-            
-            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
-        }
-        
-        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCard.credencialMascarada {
-            label.text = "\(value)"
-            
-            label.addShadow(with: CGSize(width: 0, height: 0), opacity: 1, radius: 6)
+        if let cardInfoView = cell.viewWithTag(1) as? CardInfoView {
+            cardInfoView.updateView(with: virtualCard)
         }
 
         return cell

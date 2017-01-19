@@ -44,13 +44,15 @@ class RequestVirtualCardsView: UITableViewController {
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? NSDictionary {
                     if let array = value["credenciais"] as? [Any] {
-                        self.arrayVirtualCards = [Credenciais]()
+                        var arrayCards = [Credenciais]()
                         
                         for object in array {
                             let virtualCard = Credenciais(object: object)
                             
-                            self.arrayVirtualCards.append(virtualCard)
+                            arrayCards.append(virtualCard)
                         }
+                        
+                        self.arrayVirtualCards = arrayCards.reversed()
                         
                         if self.arrayVirtualCards.count == 0 {
                             self.errorView.msgError = "Você ainda não possui cartões. Quando solicitá-los, eles aparecerão aqui"

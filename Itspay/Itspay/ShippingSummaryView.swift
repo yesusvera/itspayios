@@ -75,12 +75,15 @@ class ShippingSummaryView: UITableViewController {
         }
         
         shippingItemView.arrayCartProducts = MarketPlaceController.sharedInstance.cartProductsReferences
+        shippingItemView.height = 0
         shippingItemView.tableView.reloadData()
+        
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return CGFloat(80 * MarketPlaceController.sharedInstance.cartProductsReferences.count)
+            return shippingItemView.height
         }
         
         return super.tableView(tableView, heightForRowAt: indexPath)

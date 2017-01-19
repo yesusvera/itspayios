@@ -90,6 +90,8 @@
 		ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8AF3CC1DFF8B1300EBB73F /* Repository.swift */; };
 		ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9291B51E0233AF00F00F00 /* Constants.swift */; };
 		ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9291B71E02349300F00F00 /* RegisterLoginObject.swift */; };
+		ED9B8A651E2D3F1100BF8632 /* CardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED9B8A641E2D3F1100BF8632 /* CardInfoView.xib */; };
+		ED9B8A671E2D3F6300BF8632 /* CardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B8A661E2D3F6300BF8632 /* CardInfoView.swift */; };
 		EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */; };
 		EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A781E007D5600C91453 /* LoginController.swift */; };
 		EDAB8A7C1E007E6100C91453 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAB8A7B1E007E6100C91453 /* System.swift */; };
@@ -233,6 +235,8 @@
 		ED9291B51E0233AF00F00F00 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED9291B71E02349300F00F00 /* RegisterLoginObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterLoginObject.swift; sourceTree = "<group>"; };
 		ED93BF611E2A899F00F2C48A /* Itspay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Itspay.entitlements; sourceTree = "<group>"; };
+		ED9B8A641E2D3F1100BF8632 /* CardInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardInfoView.xib; sourceTree = "<group>"; };
+		ED9B8A661E2D3F6300BF8632 /* CardInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardInfoView.swift; sourceTree = "<group>"; };
 		EDAB8A731E007A8D00C91453 /* LoginRequestObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequestObject.swift; sourceTree = "<group>"; };
 		EDAB8A781E007D5600C91453 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		EDAB8A7B1E007E6100C91453 /* System.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
@@ -691,6 +695,8 @@
 				ED8AF3B11DFF86DF00EBB73F /* CardsView.swift */,
 				ED5322A31E05B291005ACBD2 /* DetailCardsView.swift */,
 				ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */,
+				ED9B8A661E2D3F6300BF8632 /* CardInfoView.swift */,
+				ED9B8A641E2D3F1100BF8632 /* CardInfoView.xib */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -946,6 +952,7 @@
 				ED8AF3811DFF85C100EBB73F /* LaunchScreen.storyboard in Resources */,
 				ED5260111E22742500881184 /* ErrorView.xib in Resources */,
 				ED52600F1E226EE500881184 /* kredit front.ttf in Resources */,
+				ED9B8A651E2D3F1100BF8632 /* CardInfoView.xib in Resources */,
 				ED8AF37E1DFF85C100EBB73F /* Assets.xcassets in Resources */,
 				ED8AF37C1DFF85C100EBB73F /* Cards.storyboard in Resources */,
 				ED52600D1E226A9900881184 /* HALTER__.ttf in Resources */,
@@ -1098,6 +1105,7 @@
 				ED525FF61E1DE64B00881184 /* ShippingFormsView.swift in Sources */,
 				EDFB60FC1E15F06500C24A4E /* Referencias.swift in Sources */,
 				ED52600A1E208E3E00881184 /* MyRequestDetailView.swift in Sources */,
+				ED9B8A671E2D3F6300BF8632 /* CardInfoView.swift in Sources */,
 				EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */,
 				EDB8CADC1E119A5F00BC8089 /* ChargeView.swift in Sources */,
 				EDFB60F81E15F06500C24A4E /* Imagens.swift in Sources */,

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Location.sharedInstance.startUpdating()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.registerNotifications), name: NSNotification.Name(rawValue: "registerNotifications"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.registerNotifications), name: NSNotification.Name(rawValue: "registerNotifications"), object: nil)
         
         if let isNotificationsOn = UserDefaults.standard.object(forKey: "isNotificationsOn") as? Bool {
             if isNotificationsOn {

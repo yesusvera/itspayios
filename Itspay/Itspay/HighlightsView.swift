@@ -61,6 +61,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         tagPicker.view.autoresizingMask = .flexibleWidth
         tagPicker.delegate = self
         tagPicker.visibilityState = .topAndBottom
+        tagPicker.shouldAutomaticallyChangeVisibilityState = false
         
         tagPicker.allowsNewTags = true
         
