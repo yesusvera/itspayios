@@ -33,6 +33,9 @@ class MyRequestsView: UITableViewController {
         LoadingProgress.startAnimatingInWindow()
         Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
             LoadingProgress.stopAnimating()
+            
+            self.refreshControl?.endRefreshing()
+            
             if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
                 if let array = dataResponse.result.value as? [Any] {
                     self.arrayMyRequests = [MyRequest]()
