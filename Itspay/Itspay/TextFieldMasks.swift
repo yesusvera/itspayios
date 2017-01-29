@@ -240,6 +240,8 @@ class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
                 appendString = "."
             case 14:
                 appendString = "."
+            case 19:
+                appendString = "."
             default:
                 break
             }
@@ -247,7 +249,7 @@ class TextFieldCardNumberMask: UITextField, UITextFieldDelegate {
         
         text?.append(appendString)
         
-        if text?.characters.count > 18 && range.length == 0 {
+        if text?.characters.count > 22 && range.length == 0 {
             return false
         }
         

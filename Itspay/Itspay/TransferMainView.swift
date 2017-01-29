@@ -11,6 +11,8 @@ import UIKit
 class TransferMainView: UITableViewController {
     var virtualCard : Credenciais!
     
+    var cardViewController : UIViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,9 +23,11 @@ class TransferMainView: UITableViewController {
         if segue.identifier == "TransferFinancialCardSegue" {
             let viewController = segue.destination as! TransferFinancialCard
             viewController.virtualCard = virtualCard
+            viewController.cardViewController = cardViewController
         } else if segue.identifier == "TransferOtherAccountSegue" {
             let viewController = segue.destination as! TransferOtherAccount
             viewController.virtualCard = virtualCard
+            viewController.cardViewController = cardViewController
         }
     }
 }

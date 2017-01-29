@@ -15,6 +15,8 @@ class TransferFinancialCard: UITableViewController, TextFieldMaskDelegate {
     @IBOutlet weak var textFieldTariff: TextFieldCurrencyMask!
     @IBOutlet weak var textFieldPassword: UITextField!
     
+    var cardViewController : UIViewController!
+    
     var virtualCard : Credenciais!
     
     var carrierInfo : CarrierInfo?
@@ -37,6 +39,14 @@ class TransferFinancialCard: UITableViewController, TextFieldMaskDelegate {
     }
     
     func updateViewInfo() {
+        if let value = virtualCard.saldo {
+            self.title = "Saldo: \("\(value)".formatToCurrencyReal())"
+        }
+        
+        if let value = virtualCard.nomeImpresso {
+            textFieldName.text = "\(value)"
+        }
+        
         if let carrierInfo = carrierInfo {
             if let object = carrierInfo.nome {
                 textFieldName.text = "\(object)"
@@ -90,11 +100,25 @@ class TransferFinancialCard: UITableViewController, TextFieldMaskDelegate {
             
             let parameters = CardsController.createCardTransferParameters(virtualCard, cardNumber: cardNumber, password : password, price: price)
             
+            LoadingProgress.startAnimatingInWindow()
             Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
-                if !validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                LoadingProgress.stopAnimating()
+                if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                     let message = getDataResponseMessage(dataResponse)
                     
-                    AlertComponent.showSimpleAlert(title: "Sucesso", message: message, viewController: self)
+                    if message.lowercased().contains("sucesso") {
+                        let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                            guard let _ = self.navigationController?.popToViewController(self.cardViewController, animated: true) else {
+                                return
+                            }
+                        })
+                        
+                        AlertComponent.showAlert(title: "Sucesso", message: message, actions: [buttonOk], viewController: self)
+                    } else {
+                        AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
+                    }
+                } else {
+                    let _ = validateDataResponse(dataResponse, showAlert: true, viewController: self)
                 }
             }
         }
@@ -111,9 +135,19 @@ class TransferFinancialCard: UITableViewController, TextFieldMaskDelegate {
             return false
         }
         
+        if priceValidation == "" {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Valor inválido.", viewController: self)
+            return false
+        }
+        
         price = priceValidation
         
         guard let passwordValidation = textFieldPassword.text else {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Senha inválida.", viewController: self)
+            return false
+        }
+        
+        if passwordValidation == "" {
             AlertComponent.showSimpleAlert(title: "Erro", message: "Senha inválida.", viewController: self)
             return false
         }
@@ -125,6 +159,10 @@ class TransferFinancialCard: UITableViewController, TextFieldMaskDelegate {
     
     func isCardNumberValid() -> Bool {
         guard let cardNumberValidation = textFieldCardNumber.text else {
+            return false
+        }
+        
+        if cardNumberValidation == "" {
             return false
         }
         

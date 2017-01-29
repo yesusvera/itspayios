@@ -40,20 +40,20 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         
         configBoomMenuButton()
         
-        getDetailVirtualCards()
-        getVirtualCardsStatement()
         configMenuNavigationController()
         updateViewInfo()
         
         self.refreshControl = UIRefreshControl(frame: CGRect.zero)
         
-        self.refreshControl?.addTarget(self, action: #selector(self.getVirtualCardsStatement), for: .valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(self.getDetailVirtualCards), for: .valueChanged)
         
         self.tableView.addSubview(self.refreshControl!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        getDetailVirtualCards()
         
         configBoomMenuButton()
     }
@@ -81,6 +81,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         
         boomMenuButton.boomEnum = .parabola_3
         boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        boomMenuButton.buttonPressedColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
         boomMenuButton.boomDelegate = self
         boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
         
@@ -314,6 +315,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 if let value = dataResponse.result.value {
                     self.virtualCard = Credenciais(object: value)
                     
+                    self.getVirtualCardsStatement()
+                    
                     self.updateViewInfo()
                 }
             }
@@ -463,6 +466,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         if segue.identifier == "TransferSegue" {
             let viewController = segue.destination as! TransferMainView
             viewController.virtualCard = virtualCard
+            viewController.cardViewController = self
         } else if segue.identifier == "ChargeSegue" {
             let viewController = segue.destination as! ChargeView
             viewController.virtualCard = virtualCard

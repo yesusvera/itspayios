@@ -101,9 +101,9 @@ class CardsController {
         var url = Repository.createServiceURLFromPListValue(.services, key: "bankTransfer")
         
         url += "/\(agency)"
-        url += "/conta/\(account)"
+        url += "/conta/\(account.replacingOccurrences(of: "-", with: ""))"
         url += "/banco/\(idBank)"
-        url += "/valorTransferencia/\(price)"
+        url += "/valorTransferencia/\(price.getCurrencyString().replacingOccurrences(of: ".", with: ","))"
         
         return url
     }
@@ -137,12 +137,16 @@ class CardsController {
             dictionary["idCredencialOrigem"] = value
         }
         
-        if let data = cardNumber.data(using: .utf8) {
+        if let data = cardNumber.replacingOccurrences(of: ".", with: "").data(using: .utf8) {
             dictionary["credencialDestino"] = data.sha512().toHexString()
         }
         
-        if let data = password.data(using: .utf8) {
-            dictionary["pinCredencialOrigem"] = data.sha512().toHexString()
+        if let token = LoginController.sharedInstance.loginResponseObject.token {
+            let passwordConcatenated = password + token
+            
+            if let data = passwordConcatenated.data(using: .utf8) {
+                dictionary["pinCredencialOrigem"] = data.sha512().toHexString()
+            }
         }
         
         dictionary["valorTransferencia"] = price.getCurrencyDouble()

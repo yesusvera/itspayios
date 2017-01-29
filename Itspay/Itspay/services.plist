@@ -11,76 +11,76 @@
 	<key>thirdServer</key>
 	<string>http://tst.issuer.itspay.com.br</string>
 	<key>login</key>
-	<string>issuer/api/portador/login/auth</string>
+	<string>api/api/portador/login/auth</string>
 	<key>register</key>
-	<string>issuer/api/portador/login</string>
+	<string>api/api/portador/login</string>
 	<key>logout</key>
-	<string>issuer/api/portador/login/logout</string>
+	<string>api/api/portador/login/logout</string>
 	<key>credencial</key>
-	<string>issuer/api/portador/credencial</string>
+	<string>api/api/portador/credencial</string>
 	<key>newVirtualCard</key>
-	<string>issuer/api/gerador/credencial</string>
+	<string>api/api/gerador/credencial</string>
 	<key>images</key>
-	<string>issuer/api/imagem/abrir</string>
+	<string>api/api/imagem/abrir</string>
 	<key>searchTariff</key>
-	<string>issuer/api/portador/conta/buscar-tarifas/conta</string>
+	<string>api/api/portador/conta/buscar-tarifas/conta</string>
 	<key>tariffProfile</key>
-	<string>issuer/api/perfiltarifario/conta</string>
+	<string>api/api/perfiltarifario/conta</string>
 	<key>banks</key>
-	<string>issuer/api/banco</string>
+	<string>api/api/banco</string>
 	<key>cardTransfer</key>
-	<string>issuer/api/portador/conta/transferencia</string>
+	<string>api/api/portador/conta/transferencia</string>
 	<key>carrierInfo</key>
-	<string>issuer/api/portador/credencial/info-portador</string>
+	<string>api/api/portador/credencial/info-portador</string>
 	<key>bankTransfer</key>
-	<string>issuer/api/agencia</string>
+	<string>api/api/agencia</string>
 	<key>openPlastic</key>
-	<string>issuer/api/plastico/abrir/mobile</string>
+	<string>api/api/plastico/abrir/mobile</string>
 	<key>email</key>
-	<string>issuer/api/portador/login/10/101/buscar-email</string>
+	<string>api/api/portador/login/10/101/buscar-email</string>
 	<key>changeEmail</key>
-	<string>issuer/api/portador/login/trocar-email</string>
+	<string>api/api/portador/login/trocar-email</string>
 	<key>changePassword</key>
-	<string>issuer/api/portador/login/trocar-senha</string>
+	<string>api/api/portador/login/trocar-senha</string>
 	<key>recoverPassword</key>
-	<string>issuer/api/portador/login/recuperar-senha</string>
+	<string>api/api/portador/login/recuperar-senha</string>
 	<key>generateTicketCharge</key>
-	<string>issuer/api/boleto/carga/gerar-linha-digitavel</string>
+	<string>api/api/boleto/carga/gerar-linha-digitavel</string>
 	<key>sendTicketEmail</key>
-	<string>issuer/api/boleto/carga/enviar-boleto-email</string>
+	<string>api/api/boleto/carga/enviar-boleto-email</string>
 	<key>virtualCardsAccount</key>
-	<string>issuer/api/portador/credencial/virtual/conta</string>
+	<string>api/api/portador/credencial/virtual/conta</string>
 	<key>securitySettings</key>
-	<string>issuer/api/portador/credencial/status-habilitacao</string>
+	<string>api/api/portador/credencial/status-habilitacao</string>
 	<key>securitySettingsChangeState</key>
-	<string>issuer/api/portador/credencial/trocar-estado</string>
+	<string>api/api/portador/credencial/trocar-estado</string>
 	<key>comunicateLost</key>
-	<string>issuer/api/portador/credencial/avisar-perda</string>
+	<string>api/api/portador/credencial/avisar-perda</string>
 	<key>comunicateSteal</key>
-	<string>issuer/api/portador/credencial/avisar-roubo</string>
+	<string>api/api/portador/credencial/avisar-roubo</string>
 	<key>addresses</key>
-	<string>issuer/api/endereco</string>
+	<string>api/api/endereco</string>
 	<key>productPartner</key>
-	<string>issuer/api/mktplace/portador/parceiro-produto</string>
+	<string>api/api/mktplace/portador/parceiro-produto</string>
 	<key>productImage</key>
-	<string>issuer/api/mktplace/administrativo/imagem/sku</string>
+	<string>api/api/mktplace/administrativo/imagem/sku</string>
 	<key>shippingForms</key>
-	<string>issuer/api/mktplace/portador/formas-envio</string>
+	<string>api/api/mktplace/portador/formas-envio</string>
 	<key>shippingCredencial</key>
-	<string>issuer/api/mktplace/portador/pedido/credencial</string>
+	<string>api/api/mktplace/portador/pedido/credencial</string>
 	<key>shippingAccount</key>
-	<string>issuer/api/mktplace/portador/pedido/conta</string>
+	<string>api/api/mktplace/portador/pedido/conta</string>
 	<key>myRequests</key>
-	<string>issuer/api/mktplace/portador/pedido/pessoa</string>
+	<string>api/api/mktplace/portador/pedido/pessoa</string>
 	<key>myRequestDetails</key>
-	<string>issuer/api/mktplace/portador/pedido</string>
+	<string>api/api/mktplace/portador/pedido</string>
 	<key>unlockedCards</key>
-	<string>issuer/api/portador/credencial</string>
+	<string>api/api/portador/credencial</string>
 	<key>installmentPayment</key>
-	<string>issuer/api/mktplace/portador/parcelas</string>
+	<string>api/api/mktplace/portador/parcelas</string>
 	<key>makeOrder</key>
-	<string>issuer/api/mktplace/portador/pedido</string>
+	<string>api/api/mktplace/portador/pedido</string>
 	<key>enableNotifications</key>
-	<string>issuer/api/portador-dispositivo/habilitar-receber-notificacao</string>
+	<string>api/api/portador-dispositivo/habilitar-receber-notificacao</string>
 </dict>
 </plist>
