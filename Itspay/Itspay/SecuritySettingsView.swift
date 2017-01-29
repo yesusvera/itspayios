@@ -264,35 +264,33 @@ class SecuritySettingsView: UITableViewController {
         })
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    @IBAction func buttonChangePasswordAction(_ sender: UIButton) {
+        isUpdateCardPasswordOpen = !isUpdateCardPasswordOpen
         
-        if indexPath.row == 0 {
-            isUpdateCardPasswordOpen = !isUpdateCardPasswordOpen
-            
-            self.tableView.beginUpdates()
-            self.tableView.reloadData()
-            self.tableView.endUpdates()
-        } else if indexPath.row == 10 {
-            isComunicateLostStealingOpen = !isComunicateLostStealingOpen
-            
-            self.tableView.beginUpdates()
-            self.tableView.reloadData()
-            self.tableView.endUpdates()
-        }
+        self.tableView.beginUpdates()
+        self.tableView.reloadData()
+        self.tableView.endUpdates()
+    }
+    
+    @IBAction func buttonComunicateLostStealingAction(_ sender: UIButton) {
+        isComunicateLostStealingOpen = !isComunicateLostStealingOpen
+        
+        self.tableView.beginUpdates()
+        self.tableView.reloadData()
+        self.tableView.endUpdates()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let idProduto = virtualCard.idProduto {
             if idProduto == 2 || idProduto == 3 {
-                if indexPath.row > 6 && indexPath.row <= 9 {
+                if indexPath.row > 1 && indexPath.row <= 4 {
                     return 0
                 }
             }
         }
         
         if !isUpdateCardPasswordOpen {
-            if indexPath.row > 0 && indexPath.row < 5 {
+            if indexPath.row > 5 && indexPath.row <= 9 {
                 return 0
             }
         }

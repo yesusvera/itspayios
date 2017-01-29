@@ -19,6 +19,12 @@ class MyRequestsView: UITableViewController {
         self.title = "Meus Pedidos"
         
         getMyRequests()
+        
+        self.refreshControl = UIRefreshControl(frame: CGRect.zero)
+        
+        self.refreshControl?.addTarget(self, action: #selector(self.getMyRequests), for: .valueChanged)
+        
+        self.tableView.addSubview(self.refreshControl!)
     }
     
     func getMyRequests() {

@@ -433,7 +433,7 @@ class MarketPlaceController {
                         }
                     }
                     
-                    if !found {
+                    /*if !found {
                         if let categories = product.categorias {
                             for category in categories {
                                 if let value = category.descricao {
@@ -447,7 +447,7 @@ class MarketPlaceController {
                                 }
                             }
                         }
-                    }
+                    }*/
                 }
             }
             

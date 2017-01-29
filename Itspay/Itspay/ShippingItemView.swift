@@ -27,6 +27,8 @@ class ShippingItemView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.height = 0
+        
         if isBuying {
             return arrayCartProducts.count
         }
