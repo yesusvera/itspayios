@@ -41,7 +41,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Cadastro"
+        self.title = "Cadastro Login"
         
         CardIOUtilities.preloadCardIO()
         
@@ -68,6 +68,8 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     
     @IBAction func buttonCameraAction(_ sender: UIButton) {
         if let paymentViewController = CardIOPaymentViewController.init(paymentDelegate: self) {
+            paymentViewController.useCardIOLogo = true
+            paymentViewController.hideCardIOLogo = true
             self.present(paymentViewController, animated: true, completion: nil)
         }
     }
