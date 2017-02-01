@@ -889,7 +889,7 @@
 				TargetAttributes = {
 					ED8AF3701DFF85C000EBB73F = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = XXT2XJVDAC;
+						DevelopmentTeam = G5VUHQ58JL;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1323,11 +1323,11 @@
 				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = XXT2XJVDAC;
+				DEVELOPMENT_TEAM = G5VUHQ58JL;
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilecomplab.bahamasTest;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay.bahamascard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1347,11 +1347,11 @@
 				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = XXT2XJVDAC;
+				DEVELOPMENT_TEAM = G5VUHQ58JL;
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobilecomplab.bahamasTest;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay.bahamascard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
