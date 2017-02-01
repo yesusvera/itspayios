@@ -14,7 +14,7 @@
         <scene sceneID="BHc-NX-2e0">
             <objects>
                 <collectionViewController storyboardIdentifier="HighlightsView" id="1H5-9r-h2B" customClass="HighlightsView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="UeX-UP-b30">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UeX-UP-b30">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -376,7 +376,6 @@
                         <outlet property="labelProductPaymentInstallments" destination="0mg-YH-572" id="YfE-7w-pfS"/>
                         <outlet property="labelRescue" destination="4cv-Ep-xIA" id="bVB-pB-ANi"/>
                         <outlet property="labelTotal" destination="k3c-tN-WyZ" id="fkc-Wa-Nnu"/>
-                        <outlet property="mtableView" destination="Io2-Kr-91D" id="7zg-Tn-mbD"/>
                         <outlet property="pageControl" destination="0Kz-h4-0Xc" id="G1K-v0-wWG"/>
                         <outlet property="stepperAmount" destination="457-f1-CvN" id="cUV-KZ-LOf"/>
                         <outlet property="viewFooter" destination="BGH-aF-uPf" id="Hq0-f9-Ffw"/>

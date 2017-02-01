@@ -40,19 +40,19 @@ class ChargeView: UITableViewController {
     }
     
     func updateViewInfo() {
-        self.title = "Inserir Carga"
+        self.title = "Boleto de Carga"
         
         textFieldTariff.text = "\(tariffProfile)".formatToCurrencyReal()
     }
     
     func updateViewTicketGenerated() {
-        self.title = "Carga Inserida"
+        self.title = "Boleto Gerado"
         
         textFieldResultPrice.text = price
         
         if let ticket = self.ticket {
             if let value = ticket.dataVencimentoFmtMes {
-                textFieldResultDate.text = "\(value)"
+                textFieldResultDate.text = "R$"+"\(value)"
             }
             
             if let value = ticket.linhaDigitavel {
@@ -152,17 +152,5 @@ class ChargeView: UITableViewController {
         }
         
         return super.tableView(tableView, heightForRowAt: indexPath)
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if !isTicketGenerated {
-            if let value = virtualCard.saldo {
-                return "Saldo: \("\(value)".formatToCurrencyReal())"
-            }
-            
-            return nil
-        }
-        
-        return super.tableView(tableView, titleForHeaderInSection: section)
     }
 }

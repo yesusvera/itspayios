@@ -34,7 +34,6 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pickerFieldsDataHelper.delegate = self
         
         pickerFieldsDataHelper.doneButtonTitle = "OK"
@@ -44,18 +43,19 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
         updateViewInfo()
         getTariffProfile()
         getBanksList()
+        
+        textFieldCPF.text = LoginController.sharedInstance.loginResponseObject.cpf?.cpfFormatted()
+        textFieldCPF.endEditing(false)
+        textFieldCPF.isUserInteractionEnabled = false
     }
     
     func updateViewInfo() {
-        if let value = virtualCard.saldo {
-            self.title = "Saldo: \("\(value)".formatToCurrencyReal())"
-        }
         
         if let object = virtualCard.nomeImpresso {
             textFieldName.text = "\(object)"
         }
         
-        textFieldTariff.text = "\(tariffProfile)".formatToLocalCurrency()
+        textFieldTariff.text = "R$ "+"\(tariffProfile)".formatToLocalCurrency()
     }
     
     func getTariffProfile() {
@@ -164,4 +164,14 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
         
         return true
     }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+           if let value = virtualCard.saldo {
+                return "Saldo: \("\(value)".formatToCurrencyReal())"
+            }
+    
+        return super.tableView(tableView, titleForHeaderInSection: section)
+    }
+
 }

@@ -1119,6 +1119,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l6F-9s-taM">
                                                     <rect key="frame" x="531" y="19" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.67130917310000005" green="0.46496230360000002" blue="0.17440781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="aceptTerms:" destination="hai-Ca-cjI" eventType="valueChanged" id="wxF-aP-ZON"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -1247,6 +1250,6 @@
         <image name="camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HPq-jk-izp"/>
+        <segue reference="Oht-7W-me4"/>
     </inferredMetricsTieBreakers>
 </document>

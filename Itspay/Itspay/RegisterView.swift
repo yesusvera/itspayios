@@ -37,6 +37,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     var birthday : String!
     var cpf : String!
     var password : String!
+    var switchBollean = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,16 +54,25 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         pickerFieldsDataHelper.initWithTodayDate = true
     }
     
+
+    @IBAction func aceptTerms(_ sender: UISwitch) {
+        switchBollean = sender.isOn
+    }
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
-            let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : birthday, cpf: cpf, password: password)
-            let url = Repository.createServiceURLFromPListValue(.services, key: "register")
+            if switchBollean {
+                let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : birthday, cpf: cpf, password: password)
+                let url = Repository.createServiceURLFromPListValue(.services, key: "register")
             
-            Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
-                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                    self.performSegue(withIdentifier: "CardsSegue", sender: self)
-                }
-            })
+                Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
+                    if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                        self.performSegue(withIdentifier: "CardsSegue", sender: self)
+                    }
+                })
+        
+            }else{
+                AlertComponent.showSimpleAlert(title: "Atenção", message: "Aceite os termos para criar login ", viewController: self)
+            }
         }
     }
     
@@ -87,6 +97,14 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     }
     
     func isFormValid() -> Bool {
+        var ErrorCardNumber = false
+        var ErrorBirthday = false
+        var ErrorCPF = false
+        var ErrorEmail = false
+        var ErrorEmailConfirmation = false
+        var ErrorPassword = false
+        var ErrorPasswordConfirmation = false
+        
         labelErrorCardNumber.isHidden = false
         labelErrorBirthday.isHidden = false
         labelErrorCPF.isHidden = false
@@ -95,117 +113,129 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         labelErrorPassword.isHidden = false
         labelErrorPasswordConfirmation.isHidden = false
         
+        //guards
         guard let cardNumberForm = textFieldCardNumber.text else {
             return false
         }
-        
-        if cardNumberForm.isEmptyOrWhitespace() || !cardNumberForm.isCardNumber() {
-            return false
-        }
-        
-        cardNumber = cardNumberForm
-        labelErrorCardNumber.isHidden = true
-        
-        guard let birthdayForm = textFieldCPF.text else {
+        guard let birthdayForm = textFieldBirthday.text else {
             labelErrorBirthday.text = "Data de nascimento vazia."
             return false
         }
-        
-        if birthdayForm.isEmptyOrWhitespace() {
-            labelErrorBirthday.text = "Data de nascimento vazia."
-            return false
-        }
-        
-        birthday = birthdayForm
-        labelErrorBirthday.isHidden = true
-        
         guard let cpfForm = textFieldCPF.text else {
             labelErrorCPF.text = "CPF vazio."
             return false
         }
-        
-        if cpfForm.isEmptyOrWhitespace() {
-            labelErrorCPF.text = "CPF vazio."
-            return false
-        }
-        
-        let cpfValidation = cpfForm.isCPFValid()
-        
-        if !cpfValidation.value {
-            labelErrorCPF.text = cpfValidation.message
-            return false
-        }
-        
-        cpf = cpfForm
-        labelErrorCPF.isHidden = true
-        
         guard let emailForm = textFieldEmail.text else {
             labelErrorEmail.text = "Email vazio."
             return false
         }
-        
-        if emailForm.isEmptyOrWhitespace() {
-            labelErrorEmail.text = "Email vazio."
-            return false
-        }
-        
-        if !emailForm.isEmail() {
-            labelErrorEmail.text = "Email inválido."
-            return false
-        }
-        
-        labelErrorEmail.isHidden = true
-        
         guard let emailConfirmation = textFieldEmailConfirmation.text else {
             labelErrorEmailConfirmation.text = "Confirmação de Email vazia."
             return false
         }
-        
-        if emailConfirmation.isEmptyOrWhitespace() {
-            labelErrorEmailConfirmation.text = "Confirmação de Email vazia."
-            return false
-        }
-        
-        if emailForm != emailConfirmation {
-            labelErrorEmailConfirmation.text = "Confirmação de Email inválida."
-            return false
-        }
-        
-        email = emailForm
-        labelErrorEmailConfirmation.isHidden = true
-        
         guard let passwordForm = textFieldPassword.text else {
             labelErrorPassword.text = "Senha vazia."
             return false
         }
-        
-        if !passwordForm.isPasswordValid(min: 6, max: 30) {
-            labelErrorPassword.text = "Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres."
-            return false
-        }
-        
-        labelErrorPassword.isHidden = true
         
         guard let passwordConfirmation = textFieldPasswordConfirmation.text else {
             labelErrorPasswordConfirmation.text = "Confirmação de Senha vazia."
             return false
         }
         
+        //Cartao
+        if cardNumberForm.isEmptyOrWhitespace() || !cardNumberForm.isCardNumber() {
+            ErrorCardNumber = true
+        }else{
+            cardNumber = cardNumberForm
+            ErrorCardNumber = false
+            labelErrorCardNumber.isHidden = true
+        }
+        
+        //Aniversário
+        if birthdayForm.isEmptyOrWhitespace() {
+            labelErrorBirthday.text = "Data de nascimento vazia."
+            ErrorBirthday = true
+        } else{
+            ErrorBirthday = false
+            birthday = birthdayForm
+            labelErrorBirthday.isHidden = true
+        }
+        
+        //CPF
+        let cpfValidation = cpfForm.isCPFValid()
+        
+        if cpfForm.isEmptyOrWhitespace() {
+            labelErrorCPF.text = "CPF vazio."
+            ErrorCPF = true
+        }else if !cpfValidation.value {
+            labelErrorCPF.text = cpfValidation.message
+            ErrorCPF = true
+        }else{
+            ErrorCPF = false
+            cpf = cpfForm
+            labelErrorCPF.isHidden = true
+        }
+        
+        //Email
+        if emailForm.isEmptyOrWhitespace() {
+            ErrorEmail = true
+            labelErrorEmail.text = "Email vazio."
+        }else if !emailForm.isEmail() {
+            ErrorEmail = true
+            labelErrorEmail.text = "Email inválido."
+        }else{
+            ErrorEmail = false
+            labelErrorEmail.isHidden = true
+        }
+        
+        //Confima Email
+        if emailConfirmation.isEmptyOrWhitespace() {
+            labelErrorEmailConfirmation.text = "Confirmação de Email vazia."
+            ErrorEmailConfirmation = true
+        }else if emailForm != emailConfirmation {
+            labelErrorEmailConfirmation.text = "Confirmação de Email inválida."
+            ErrorEmailConfirmation = true
+        }else{
+            email = emailForm
+            labelErrorEmailConfirmation.isHidden = true
+            ErrorEmailConfirmation = false
+        }
+        
+        //Senha
+        if !passwordForm.isPasswordValid(min: 6, max: 30) {
+            labelErrorPassword.text = "Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres."
+            ErrorPassword = true
+        }else{
+            labelErrorPassword.isHidden = true
+            ErrorPassword = false
+        }
+        
+        //Conrifme Senha
         if passwordConfirmation.isEmptyOrWhitespace() {
             labelErrorPasswordConfirmation.text = "Confirmação de Senha vazia."
-            return false
-        }
-        
-        if passwordForm != passwordConfirmation {
+            ErrorPasswordConfirmation = true
+        }else if passwordForm != passwordConfirmation {
             labelErrorPasswordConfirmation.text = "Confirmação de Senha inválida."
-            return false
+            ErrorPasswordConfirmation = true
+        }else{
+            password = passwordForm
+            labelErrorPasswordConfirmation.isHidden = true
+            ErrorPasswordConfirmation = false
         }
         
-        password = passwordForm
-        labelErrorPasswordConfirmation.isHidden = true
+        /////////////////////////////////////////////////////////////////////////
         
-        return true
+        
+        if ErrorCardNumber || ErrorBirthday || ErrorCPF || ErrorEmail || ErrorEmailConfirmation ||
+            ErrorPassword || ErrorPasswordConfirmation {
+            return false
+        }else{
+            return true
+        }
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showWebViewSegue" {

@@ -222,15 +222,15 @@ class SecuritySettingsView: UITableViewController {
     }
     
     @IBAction func buttonComunicateAction(_ sender: UIButton) {
-        var message = "Deseja realmente criar um aviso de "
+        var message = "Deseja realmente informar "
         
         if segmentedControlLostStealingValue.selectedSegmentIndex == 0 {
-            message += "perda? "
+            message += "a perda dece cartão?"
         } else {
-            message += "roubo? "
+            message += "o roubo dece cartão? "
         }
         
-        message += "Este cartão será bloqueado e geraremos um novo cartão para você"
+        message += "Este cartão será cancelado e um novo cartão será emitido."
         
         let yesAction = UIAlertAction(title: "Sim", style: .default) { (action) in
             if self.segmentedControlLostStealingValue.selectedSegmentIndex == 0 {

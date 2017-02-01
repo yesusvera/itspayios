@@ -17,6 +17,7 @@ class RequestNewVirtualCardTermsView: UIViewController {
     
     var cardName = ""
     var months = 0
+    var validTerm = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,27 +26,41 @@ class RequestNewVirtualCardTermsView: UIViewController {
     }
     
     @IBAction func buttonRequestAction(_ sender: Button) {
-        let url = CardsController.createNewVirtualCardURLPath(virtualCard)
-        
-        let parameters = CardsController.createNewVirtualCardParameters(virtualCard, cardName: cardName, months: months)
-        
-        LoadingProgress.startAnimatingInWindow()
-        Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
-            LoadingProgress.stopAnimating()
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                if let value = dataResponse.result.value {
-                    self.generatedVirtualCard = NewVirtualCard(object: value)
-                    
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: { (result) in
-                        guard let _ = self.navigationController?.popToViewController(self.requestCardViewController, animated: true) else {
-                            return 
-                        }
-                    })
-                    
-                    AlertComponent.showAlert(title: "Sucesso", message: "Novo cartão virtual foi gerado.", actions: [okAction], viewController: self)
+        if validTerm {
+            let url = CardsController.createNewVirtualCardURLPath(virtualCard)
+            
+            let parameters = CardsController.createNewVirtualCardParameters(virtualCard, cardName: cardName, months: months)
+            
+            LoadingProgress.startAnimatingInWindow()
+            Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
+                LoadingProgress.stopAnimating()
+                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                    if let value = dataResponse.result.value {
+                        self.generatedVirtualCard = NewVirtualCard(object: value)
+                        
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (result) in
+                            guard let _ = self.navigationController?.popToViewController(self.requestCardViewController, animated: true) else {
+                                return
+                            }
+                        })
+                        
+                        AlertComponent.showAlert(title: "Sucesso", message: "Novo cartão virtual foi gerado.", actions: [okAction], viewController: self)
+                    }
                 }
-            }
-        })
+            })
+
+        }else{
+            AlertComponent.showSimpleAlert(title: "Aletra", message: "Para finalizar aceite os termos.",viewController: self)
+            
+        }
+    }
+    
+    @IBAction func aceptTerms(_ sender: UISwitch) {
+       if sender.isOn{
+            validTerm = true
+        }else{
+            validTerm = false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
