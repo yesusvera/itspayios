@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CryptoSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SideMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,22 +77,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0169AE0919D3F5614456862ABFF360DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18DDE22AB7B77ACAA6797CB88717B269</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3ADEBA7536201104F6F70D238F504792</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5A47D26B609C34204433EEE10AA83233</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66C4B2F7FDBD7B0B9F100FD177C6DEA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +92,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>77C6E133C13C03B508BFDD6A688F64CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>817E776CCB6FA148815038E446EA2E0E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>86E83E70A4128DA1A0D30467A4D21640</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F5669D0ECE8ACBCF27697094C865889</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,12 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D59229657934FCC0F24F5A3C029311F1</key>
+		<key>E40C0E50E420C81A12C69E06ED0930F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DAAD1A68F67A9D4A61AF6FB6C5434110</key>
+		<key>E9C942B1CA6AA52FDF7839E9ADCDA680</key>
 		<dict>
 			<key>primary</key>
 			<true/>
