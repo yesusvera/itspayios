@@ -9,6 +9,8 @@
 
 import UIKit
 import CryptoSwift
+import SDWebImage
+import AlamofireImage
 
 class CardsController {
     static let sharedInstance = CardsController()
@@ -255,36 +257,27 @@ class CardsController {
     static func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView, showLoading : Bool) {
         let url = CardsController.createOpenPlasticURLPath(virtualCard)
         
-        var superview = UIView()
-        
-        if showLoading {
-            if let view = imageView.superview {
-                superview = view
-            } else {
-                superview = imageView
-            }
-            
-            LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
+        if let data = UserDefaults.standard.object(forKey: url) as? Data {
+            imageView.image = UIImage(data: data)
+            return
         }
         
+        imageView.setShowActivityIndicator(showLoading)
+        imageView.setIndicatorStyle(.gray)
+        
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
-            if showLoading {
-                LoadingProgress.stopAnimating(in: superview)
-            }
-            
             if let data = dataResponse {
                 if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
                     if dataImage.base64EncodedString().characters.count > 0 {
+                        UserDefaults.standard.set(dataImage, forKey: url)
+                        
                         imageView.image = UIImage(data: dataImage)
-                    } else {
-                        imageView.image = UIImage(named: "CardDefault")
+                            
+                        return
                     }
-                } else {
-                    imageView.image = UIImage(named: "CardDefault")
                 }
-            } else {
-                imageView.image = UIImage(named: "CardDefault")
             }
+            imageView.image = UIImage(named: "CardDefault")
         })
     }
 

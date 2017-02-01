@@ -11,10 +11,12 @@ pod 'ObjectMapper', '~> 2.2'
 pod 'PickerFieldsDataHelper'
 pod 'SideMenu'
 pod 'CardIO'
-pod ‘VHBoomMenuButton’, ‘~> 1.0.2’
+pod 'VHBoomMenuButton', '~> 1.0.2'
 pod 'CryptoSwift'
 pod 'PARTagPicker'
 pod 'OneSignal'
+pod 'SDWebImage'
+pod 'AlamofireImage'
 
 end
 
