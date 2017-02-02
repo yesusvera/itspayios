@@ -217,28 +217,28 @@ class MarketPlaceController {
             if let image = image, let idImagem = image.idImagem {
                 let url = MarketPlaceController.createProductImageURLPath("\(idImagem)")
                 
-                var superview = UIView()
-                
-                if showLoading {
-                    if let view = imageView.superview {
-                        superview = view
-                    } else {
-                        superview = imageView
-                    }
-                    
-                    LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
+                if let data = ImageStorage.imageData(from: url) {
+                    imageView.image = UIImage(data: data)
+                    return
                 }
                 
+                imageView.setShowActivityIndicator(showLoading)
+                imageView.setIndicatorStyle(.gray)
+                
                 Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
-                    if showLoading {
-                        LoadingProgress.stopAnimating(in: superview)
-                    }
-                    
                     if let data = dataResponse {
                         if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
-                            imageView.image = UIImage(data: dataImage)
+                            if dataImage.base64EncodedString().characters.count > 0 {
+                                ImageStorage.storeImage(data: dataImage, at: url)
+                                
+                                imageView.image = UIImage(data: dataImage)
+                                
+                                return
+                            }
                         }
                     }
+                    
+                    ImageStorage.removeImage(at: url)
                 })
             }
         }
@@ -250,28 +250,28 @@ class MarketPlaceController {
         if let idImagem = image.idImagem {
             let url = MarketPlaceController.createProductImageURLPath("\(idImagem)")
             
-            var superview = UIView()
-            
-            if showLoading {
-                if let view = imageView.superview {
-                    superview = view
-                } else {
-                    superview = imageView
-                }
-                
-                LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
+            if let data = ImageStorage.imageData(from: url) {
+                imageView.image = UIImage(data: data)
+                return
             }
             
+            imageView.setShowActivityIndicator(showLoading)
+            imageView.setIndicatorStyle(.gray)
+            
             Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
-                if showLoading {
-                    LoadingProgress.stopAnimating(in: superview)
-                }
-                
                 if let data = dataResponse {
                     if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
-                        imageView.image = UIImage(data: dataImage)
+                        if dataImage.base64EncodedString().characters.count > 0 {
+                            ImageStorage.storeImage(data: dataImage, at: url)
+                            
+                            imageView.image = UIImage(data: dataImage)
+                            
+                            return
+                        }
                     }
                 }
+                
+                ImageStorage.removeImage(at: url)
             })
         }
     }
@@ -281,28 +281,28 @@ class MarketPlaceController {
         
         let url = MarketPlaceController.createProductImageURLPath("\(idImage)")
         
-        var superview = UIView()
-        
-        if showLoading {
-            if let view = imageView.superview {
-                superview = view
-            } else {
-                superview = imageView
-            }
-            
-            LoadingProgress.startAnimating(in: superview, isAlphaReduced: false)
+        if let data = ImageStorage.imageData(from: url) {
+            imageView.image = UIImage(data: data)
+            return
         }
         
+        imageView.setShowActivityIndicator(showLoading)
+        imageView.setIndicatorStyle(.gray)
+        
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
-            if showLoading {
-                LoadingProgress.stopAnimating(in: superview)
-            }
-            
             if let data = dataResponse {
                 if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
-                    imageView.image = UIImage(data: dataImage)
+                    if dataImage.base64EncodedString().characters.count > 0 {
+                        ImageStorage.storeImage(data: dataImage, at: url)
+                        
+                        imageView.image = UIImage(data: dataImage)
+                        
+                        return
+                    }
                 }
             }
+            
+            ImageStorage.removeImage(at: url)
         })
     }
     

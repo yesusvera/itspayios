@@ -32,6 +32,7 @@
 		ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */; };
 		ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02EF1E0C5889000BCE53 /* RatesView.swift */; };
 		ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A02F11E0C6AD5000BCE53 /* Bank.swift */; };
+		ED40D2741E43CAF500BD713C /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40D2731E43CAF500BD713C /* ImageStorage.swift */; };
 		ED4F9F6A1E19653C00F99162 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */; };
 		ED4F9F6C1E19705700F99162 /* ProductReferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */; };
 		ED4F9F6F1E19C68C00F99162 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F9F6E1E19C68C00F99162 /* Button.swift */; };
@@ -169,6 +170,7 @@
 		ED3A02EC1E0C4E27000BCE53 /* SecuritySettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuritySettingsView.swift; sourceTree = "<group>"; };
 		ED3A02EF1E0C5889000BCE53 /* RatesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
 		ED3A02F11E0C6AD5000BCE53 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		ED40D2731E43CAF500BD713C /* ImageStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		ED4F9F691E19653C00F99162 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		ED4F9F6B1E19705700F99162 /* ProductReferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductReferencesView.swift; sourceTree = "<group>"; };
 		ED4F9F6E1E19C68C00F99162 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -423,6 +425,14 @@
 			name = Rates;
 			sourceTree = "<group>";
 		};
+		ED40D2721E43CACD00BD713C /* ImageStorage */ = {
+			isa = PBXGroup;
+			children = (
+				ED40D2731E43CAF500BD713C /* ImageStorage.swift */,
+			);
+			name = ImageStorage;
+			sourceTree = "<group>";
+		};
 		ED4B3CA01E143E7700D4C1CE /* MarketPlace */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +651,7 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ED40D2721E43CACD00BD713C /* ImageStorage */,
 				ED525FED1E1BFB6700881184 /* iCarousel */,
 				ED4F9F6D1E19C67D00F99162 /* Button */,
 				ED3913391E0AE148001B506D /* AlertComponent */,
@@ -1146,6 +1157,7 @@
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
 				ED36D9EF1E246018002EA07F /* InstallmentPayment.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
+				ED40D2741E43CAF500BD713C /* ImageStorage.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,
 				ED8AF3AE1DFF86B600EBB73F /* LoginView.swift in Sources */,
 				EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */,

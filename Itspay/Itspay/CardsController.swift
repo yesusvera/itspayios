@@ -257,7 +257,7 @@ class CardsController {
     static func openPlastics(_ virtualCard : Credenciais, in imageView : UIImageView, showLoading : Bool) {
         let url = CardsController.createOpenPlasticURLPath(virtualCard)
         
-        if let data = UserDefaults.standard.object(forKey: url) as? Data {
+        if let data = ImageStorage.imageData(from: url) {
             imageView.image = UIImage(data: data)
             return
         }
@@ -269,7 +269,7 @@ class CardsController {
             if let data = dataResponse {
                 if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
                     if dataImage.base64EncodedString().characters.count > 0 {
-                        UserDefaults.standard.set(dataImage, forKey: url)
+                        ImageStorage.storeImage(data: dataImage, at: url)
                         
                         imageView.image = UIImage(data: dataImage)
                             
@@ -277,6 +277,9 @@ class CardsController {
                     }
                 }
             }
+            
+            ImageStorage.removeImage(at: url)
+            
             imageView.image = UIImage(named: "CardDefault")
         })
     }
