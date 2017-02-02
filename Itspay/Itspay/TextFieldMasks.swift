@@ -119,7 +119,7 @@ class TextFieldCPFMask: UITextField, UITextFieldDelegate {
 }
 
 class TextFieldBankMask: UITextField, UITextFieldDelegate {
-    @IBInspectable var maxCharacteres = 5
+    @IBInspectable var maxCharacteres = 50
     @IBInspectable var isDigitAvaiable = true
     
     override func awakeFromNib() {

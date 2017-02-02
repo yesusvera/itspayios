@@ -139,16 +139,46 @@ class SecuritySettingsView: UITableViewController {
         changeState(tipoEstado: TIPO_ESTADO_NOTIFICATOINS_ALERT)
     }
     
+    // Switch Block Card
     @IBAction func switchCardBlockAction(_ sender: UISwitch) {
         if !sender.isOn {
-            labelCardBlock.text = "Desbloqueado"
-            labelCardBlock.textColor = UIColor.colorFrom(hex: COLOR_GREEN_HEX)
+            self.labekBlockCard(verific: false)
+            buttonComunicateAction(sender , menssageInfo: "desbloquear este cartão")
         } else {
-            labelCardBlock.text = "Bloqueado"
-            labelCardBlock.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+            self.labekBlockCard(verific: true)
+            buttonComunicateAction(sender , menssageInfo: "bloquear este cartão")
+        }
+    }
+    
+    func buttonComunicateAction(_ sender: UISwitch , menssageInfo: String) {
+        let message = "Deseja realmente " + menssageInfo + " ?"
+        
+        let yesAction = UIAlertAction(title: "Sim", style: .default) { (action) in
+            
+            self.changeState(tipoEstado: TIPO_ESTADO_CARD_BLOCK)
         }
         
-        changeState(tipoEstado: TIPO_ESTADO_CARD_BLOCK)
+        let noAction = UIAlertAction(title: "Não", style: .default) { (action) in
+            if !sender.isOn{
+                sender.setOn(true, animated: true)
+                self.labekBlockCard(verific: true)
+            }else{
+                sender.setOn(false, animated: true)
+                self.labekBlockCard(verific: false)
+            }
+        }
+        
+        AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController: self)
+    }
+    
+    func labekBlockCard(verific: Bool){
+        if !verific {
+            self.labelCardBlock.text = "Desbloqueado"
+            self.labelCardBlock.textColor = UIColor.colorFrom(hex: COLOR_GREEN_HEX)
+        }else {
+           self.labelCardBlock.text = "Bloqueado"
+           self.labelCardBlock.textColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        }
     }
     
     @IBAction func switchUseAbroadAction(_ sender: UISwitch) {
@@ -192,15 +222,15 @@ class SecuritySettingsView: UITableViewController {
     }
     
     @IBAction func buttonComunicateAction(_ sender: UIButton) {
-        var message = "Deseja realmente criar um aviso de "
+        var message = "Deseja realmente informar "
         
         if segmentedControlLostStealingValue.selectedSegmentIndex == 0 {
-            message += "perda? "
+            message += "a perda dece cartão?"
         } else {
-            message += "roubo? "
+            message += "o roubo dece cartão? "
         }
         
-        message += "Este cartão será bloqueado e geraremos um novo cartão para você"
+        message += "Este cartão será cancelado e um novo cartão será emitido."
         
         let yesAction = UIAlertAction(title: "Sim", style: .default) { (action) in
             if self.segmentedControlLostStealingValue.selectedSegmentIndex == 0 {
@@ -281,9 +311,13 @@ class SecuritySettingsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let idProduto = virtualCard.idProduto {
+        if let idProduto = virtualCard.idProdutoPlataforma {
             if idProduto == 2 || idProduto == 3 {
                 if indexPath.row > 1 && indexPath.row <= 4 {
+                    return 0
+                }
+            } else if idProduto == 4 {
+                if indexPath.row > 2 && indexPath.row <= 4 {
                     return 0
                 }
             }

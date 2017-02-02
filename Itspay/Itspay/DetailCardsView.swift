@@ -88,7 +88,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         boomMenuButton.buttonEnum = .VHButtonTextInsideCircle
         boomMenuButton.boomButtonBuilders = NSMutableArray()
         
-        if let idProduto = virtualCard.idProduto {
+        if let idProduto = virtualCard.idProdutoPlataforma {
             if idProduto == 2 || idProduto == 3 {
                 boomMenuButton.piecePlaceEnum = .DOT_2_1
                 boomMenuButton.buttonPlaceEnum = .SC_2_1
@@ -127,7 +127,64 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
-            } else {
+            }else if idProduto == 4{
+                
+                boomMenuButton.piecePlaceEnum = .DOT_3_1
+                boomMenuButton.buttonPlaceEnum = .SC_3_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "card"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Cartões"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+
+            }else {
                 boomMenuButton.piecePlaceEnum = .DOT_6_1
                 boomMenuButton.buttonPlaceEnum = .SC_6_1
                 
@@ -238,14 +295,25 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     }
     
     func onBoomClicked(_ index: Int32) {
-        if let idProduto = virtualCard.idProduto {
+        if let idProduto = virtualCard.idProdutoPlataforma {
             if idProduto == 2 || idProduto == 3 {
                 if index.hashValue == 0 {
                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
                 } else {
                     LoginController.logout(self)
                 }
-            } else {
+            }  else if idProduto == 4 {
+                
+                if index.hashValue == 0 {
+                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                } else if index.hashValue == 1{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == 2 {
+//                    LoginController.logout(self)
+                    buttonComunicateAction()
+                }
+                
+            }else {
                 if index.hashValue == SideMenuType.transfer.rawValue {
                     self.performSegue(withIdentifier: "TransferSegue", sender: self)
                 } else if index.hashValue == SideMenuType.charge.rawValue {
@@ -257,7 +325,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 } else if index.hashValue == SideMenuType.rates.rawValue {
                     self.performSegue(withIdentifier: "RatesSegue", sender: self)
                 } else if index.hashValue == SideMenuType.logout.rawValue {
-                    LoginController.logout(self)
+//                    LoginController.logout(self)
+                    buttonComunicateAction()
                 }
             }
         }
@@ -286,11 +355,15 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         
         var arraySideMenuObjects = [SideMenuObject]()
         
-        if let idProduto = virtualCard.idProduto {
+        if let idProduto = virtualCard.idProdutoPlataforma {
             if idProduto == 2 || idProduto == 3 {
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
-            } else {
+            }else if idProduto == 4 {
+                arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
+                arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
+                arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+            }else {
                 arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
                 arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
                 arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
@@ -371,9 +444,23 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             } else if object.menuType == .rates {
                 self.performSegue(withIdentifier: "RatesSegue", sender: self)
             } else if object.menuType == .logout {
-                LoginController.logout(self)
+//                LoginController.logout(self)
+                buttonComunicateAction()
             }
         }
+    }
+    
+    //Alert Logout
+    func buttonComunicateAction() {
+        let message = "Deseja realmente Sair?"
+    
+        let yesAction = UIAlertAction(title: "Sim", style: .default) { (action) in
+        LoginController.logout(self)
+        }
+        
+        let noAction = UIAlertAction(title: "Não", style: .default) { (action) in }
+        
+        AlertComponent.showAlert(title: "Atenção", message: message, actions: [yesAction, noAction], viewController: self)
     }
     
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
