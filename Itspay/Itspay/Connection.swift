@@ -114,7 +114,13 @@ class Connection {
     }
     
     static func removeSession() {
+        for cookie in (Alamofire.SessionManager.default.session.configuration.httpCookieStorage?.cookies)! {
+            Alamofire.SessionManager.default.session.configuration.httpCookieStorage?.deleteCookie(cookie)
+        }
+        
         Connection.sharedConnection.headers = nil
         LoginController.sharedInstance.loginResponseObject = nil
+        Connection.sharedConnection.cookies = [HTTPCookie]()
+        Connection.sharedConnection.stringCookies = ""
     }
 }
