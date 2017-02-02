@@ -80,6 +80,8 @@
 	<string>api/api/mktplace/portador/parcelas</string>
 	<key>makeOrder</key>
 	<string>api/api/mktplace/portador/pedido</string>
+	<key>changePin</key>
+	<string>api/api/portador/credencial/trocar-pin</string>
 	<key>enableNotifications</key>
 	<string>api/api/portador-dispositivo/habilitar-receber-notificacao</string>
 </dict>

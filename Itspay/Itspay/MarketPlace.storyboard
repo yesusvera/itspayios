@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +13,7 @@
         <scene sceneID="BHc-NX-2e0">
             <objects>
                 <collectionViewController storyboardIdentifier="HighlightsView" id="1H5-9r-h2B" customClass="HighlightsView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UeX-UP-b30">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="UeX-UP-b30">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1242,7 +1241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Jax-Sg-Rus">
-                            <rect key="frame" x="0.0" y="154" width="375" height="90"/>
+                            <rect key="frame" x="0.0" y="154" width="375" height="151"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSP-fh-5LX">
@@ -1260,7 +1259,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRq-G9-uCt" customClass="Button" customModule="Itspay" customModuleProvider="target">
                                     <rect key="frame" x="16" y="33" width="343" height="44"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="Jrm-wE-kPZ"/>
+                                        <constraint firstAttribute="height" constant="44" id="EOd-vX-J8M"/>
                                     </constraints>
                                     <state key="normal" title="Continuar"/>
                                     <userDefinedRuntimeAttributes>
@@ -1270,16 +1269,27 @@
                                         <action selector="buttonContinueAction:" destination="CrX-eh-C2g" eventType="touchUpInside" id="YwK-NQ-NLu"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FI4-sQ-BP9" customClass="Button" customModule="Itspay" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="94" width="343" height="44"/>
+                                    <state key="normal" title="Limpar a Lista"/>
+                                    <connections>
+                                        <action selector="clearAllList:" destination="CrX-eh-C2g" eventType="touchUpInside" id="uoM-Ai-0Ym"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="0te-Dq-s45" secondAttribute="trailing" constant="16" id="2aJ-7U-aTu"/>
-                                <constraint firstItem="aSP-fh-5LX" firstAttribute="centerY" secondItem="0te-Dq-s45" secondAttribute="centerY" id="E2x-XV-qLr"/>
-                                <constraint firstItem="lRq-G9-uCt" firstAttribute="leading" secondItem="Jax-Sg-Rus" secondAttribute="leading" constant="16" id="FBi-GT-4Ff"/>
-                                <constraint firstAttribute="trailing" secondItem="lRq-G9-uCt" secondAttribute="trailing" constant="16" id="dzR-w1-nUx"/>
-                                <constraint firstItem="lRq-G9-uCt" firstAttribute="top" secondItem="aSP-fh-5LX" secondAttribute="bottom" constant="8" id="eXg-uv-MJk"/>
-                                <constraint firstItem="0te-Dq-s45" firstAttribute="leading" secondItem="aSP-fh-5LX" secondAttribute="trailing" constant="2" id="x8G-MS-b1r"/>
-                                <constraint firstItem="0te-Dq-s45" firstAttribute="top" secondItem="Jax-Sg-Rus" secondAttribute="top" constant="8" id="xww-87-1VT"/>
+                                <constraint firstItem="FI4-sQ-BP9" firstAttribute="top" secondItem="lRq-G9-uCt" secondAttribute="bottom" constant="17" id="ERo-NL-QLj"/>
+                                <constraint firstItem="lRq-G9-uCt" firstAttribute="leading" secondItem="FI4-sQ-BP9" secondAttribute="leading" id="FFk-dS-hib"/>
+                                <constraint firstItem="lRq-G9-uCt" firstAttribute="centerX" secondItem="Jax-Sg-Rus" secondAttribute="centerX" id="J9z-yT-Cry"/>
+                                <constraint firstItem="aSP-fh-5LX" firstAttribute="baseline" secondItem="0te-Dq-s45" secondAttribute="baseline" id="Og3-1b-yRg"/>
+                                <constraint firstItem="lRq-G9-uCt" firstAttribute="leading" secondItem="Jax-Sg-Rus" secondAttribute="leading" constant="16" id="PRX-Kh-Qps"/>
+                                <constraint firstItem="lRq-G9-uCt" firstAttribute="trailing" secondItem="FI4-sQ-BP9" secondAttribute="trailing" id="VW4-gw-ect"/>
+                                <constraint firstItem="aSP-fh-5LX" firstAttribute="top" secondItem="Jax-Sg-Rus" secondAttribute="topMargin" id="bLC-J5-wbc"/>
+                                <constraint firstAttribute="bottom" secondItem="FI4-sQ-BP9" secondAttribute="bottom" constant="13" id="bPo-R9-nDU"/>
+                                <constraint firstItem="0te-Dq-s45" firstAttribute="leading" secondItem="aSP-fh-5LX" secondAttribute="trailing" constant="2" id="kDn-Df-0mu"/>
+                                <constraint firstItem="0te-Dq-s45" firstAttribute="trailing" secondItem="lRq-G9-uCt" secondAttribute="trailing" id="rYq-bT-ScF"/>
+                                <constraint firstItem="lRq-G9-uCt" firstAttribute="top" secondItem="aSP-fh-5LX" secondAttribute="bottom" constant="8" symbolic="YES" id="xsB-MK-vnD"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -1390,7 +1400,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-250" y="1204"/>
+            <point key="canvasLocation" x="-250.5" y="1203.5"/>
         </scene>
         <!--My Requests View-->
         <scene sceneID="Ttv-6V-YNt">

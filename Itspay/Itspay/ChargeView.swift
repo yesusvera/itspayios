@@ -17,6 +17,7 @@ class ChargeView: UITableViewController {
     
     @IBOutlet weak var textViewBarCode: UITextView!
     
+    @IBOutlet weak var btnCopiarBoleto: UIButton!
     @IBOutlet weak var buttonValue: UIButton!
     
     var ticket : Ticket?
@@ -33,6 +34,7 @@ class ChargeView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnCopiarBoleto.isHidden = true
 
         updateViewInfo()
         
@@ -56,6 +58,7 @@ class ChargeView: UITableViewController {
             }
             
             if let value = ticket.linhaDigitavel {
+                btnCopiarBoleto.isHidden = false
                 textViewBarCode.text = "\(value)"
                 
                 barCode = value
@@ -92,41 +95,53 @@ class ChargeView: UITableViewController {
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
-        if !isTicketGenerated {
-            if isFormValid() {
-                let url = CardsController.createGenerateTicketChargeURLPath()
+        if textFieldPrice.text != ""{
+        
+            if !isTicketGenerated {
+                if isFormValid() {
+                    let url = CardsController.createGenerateTicketChargeURLPath()
                 
-                let parameters = CardsController.createGenerateTicketChargeParameters(virtualCard, price : price)
+                    let parameters = CardsController.createGenerateTicketChargeParameters(virtualCard, price : price)
                 
-                LoadingProgress.startAnimatingInWindow()
-                Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
-                    LoadingProgress.stopAnimating()
-                    if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
-                        if let value = dataResponse.result.value {
-                            self.isTicketGenerated = true
+                    LoadingProgress.startAnimatingInWindow()
+                    Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
+                        LoadingProgress.stopAnimating()
+                        if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                            if let value = dataResponse.result.value {
+                                self.isTicketGenerated = true
                             
-                            self.ticket = Ticket(object: value)
+                                self.ticket = Ticket(object: value)
                             
-                            self.updateViewTicketGenerated()
+                                self.updateViewTicketGenerated()
+                            }
                         }
                     }
                 }
-            }
-        } else {
-            let url = CardsController.createSendTicketEmailURLPath()
+            } else {
+                let url = CardsController.createSendTicketEmailURLPath()
             
-            let parameters = CardsController.createGenerateTicketChargeParameters(virtualCard, price : price)
+                let parameters = CardsController.createGenerateTicketChargeParameters(virtualCard, price : price)
             
-            LoadingProgress.startAnimatingInWindow()
-            Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
-                LoadingProgress.stopAnimating()
-                if !validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                    let message = getDataResponseMessage(dataResponse)
+                LoadingProgress.startAnimatingInWindow()
+                Connection.request(url, method: .post, parameters: parameters) { (dataResponse) in
+                    LoadingProgress.stopAnimating()
+                    if !validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                        let message = getDataResponseMessage(dataResponse)
                     
-                    AlertComponent.showSimpleAlert(title: "Successo", message: message, viewController: self)
+                        AlertComponent.showSimpleAlert(title: "Successo", message: message, viewController: self)
+                    }
                 }
             }
+        }else{
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Valor de carga vazio.", viewController: self)
         }
+    }
+    
+    @IBAction func copyTicket(_ sender: Any) {
+        
+        UIPasteboard.general.string = textViewBarCode.text
+        AlertComponent.showSimpleAlert(title: "Boleto copiado.", message: "", viewController: self)
+        
     }
     
     func isFormValid() -> Bool {

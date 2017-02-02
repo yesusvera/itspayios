@@ -139,6 +139,7 @@ class CartView: UITableViewController {
             label.text = "\(total)".formatToCurrencyReal()
         }
         
+        
         return cell
     }
     
@@ -181,6 +182,23 @@ class CartView: UITableViewController {
         self.performSegue(withIdentifier: "ShippingFormsSegue", sender: self)
     }
     
+    @IBAction func clearAllList(_ sender: Any) {
+        
+        let btnConfirmTransferOK = UIAlertAction(title: "Sim", style: .default, handler: { (response) in
+            self.arrayCart.removeAll()
+            MarketPlaceController.sharedInstance.cartProductsReferences.removeAll()
+            self.reloadView()
+
+        })
+        
+        let btnConfirmTransferErro = UIAlertAction(title: "Não", style: .default, handler: { (response) in
+            
+        })
+        
+        AlertComponent.showAlert(title: "Atenção", message: "Você deseja limpar a lista completamente?", actions: [btnConfirmTransferOK ,btnConfirmTransferErro], viewController: self)
+        
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailProductSegue" {
             let viewController = segue.destination as! DetailProductView

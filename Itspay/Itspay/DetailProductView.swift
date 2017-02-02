@@ -182,4 +182,5 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
             viewController.amount = amount
         }
     }
+    
 }

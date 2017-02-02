@@ -315,6 +315,37 @@ class CardsController {
         return dictionary
     }
     
+    //Estou akiiiiiii
+    static func createChangePinURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "changePin")
+    }
+    
+    static func createGeneratePinChangeParameters(_ virtualCard : Credenciais ,senha : String, novaSenha : String) -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencial"] = value
+        }
+        
+        if let token = LoginController.sharedInstance.loginResponseObject.token {
+            let passwordConcatenated = novaSenha + token
+            
+            if let data = passwordConcatenated.data(using: .utf8) {
+                dictionary["novaSenha"] = data.sha512().toHexString()
+            }
+        }
+
+        if let token = LoginController.sharedInstance.loginResponseObject.token {
+            let passwordConcatenated = senha + token
+            
+            if let data = passwordConcatenated.data(using: .utf8) {
+                dictionary["senha"] = data.sha512().toHexString()
+            }
+        }
+        
+        return dictionary
+    }
+    
     static func createSendTicketEmailURLPath() -> String {
         return Repository.createServiceURLFromPListValue(.services, key: "sendTicketEmail")
     }
