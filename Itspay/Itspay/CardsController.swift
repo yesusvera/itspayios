@@ -1,10 +1,9 @@
-
 //
-//  CardsController.swift
-//  Itspay
+// CardsController.swift
+// Itspay
 //
-//  Created by Arthur Augusto Sousa Marques on 12/19/16.
-//  Copyright © 2016 Compilab. All rights reserved.
+// Created by Arthur Augusto Sousa Marques on 12/19/16.
+// Copyright © 2016 Compilab. All rights reserved.
 //
 
 import UIKit
@@ -26,7 +25,7 @@ class CardsController {
         
         return url
     }
-
+    
     static func createDetailVirtualCardsURLPath(_ credencial : Credenciais) -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "credencial")
         
@@ -46,7 +45,7 @@ class CardsController {
         
         return url
     }
-
+    
     static func createVirtualCardStatementURLPath(_ credencial : Credenciais, dataInicial : Date, dataFinal : Date) -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "credencial")
         
@@ -72,7 +71,7 @@ class CardsController {
         
         return url
     }
-
+    
     static func createSearchTariffURLPath(_ credencial : Credenciais) -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "searchTariff")
         
@@ -99,15 +98,33 @@ class CardsController {
         return Repository.createServiceURLFromPListValue(.services, key: "banks")
     }
     
-    static func createBankTransferURLPath(_ agency : String, account : String, idBank : Int, price : String) -> String {
-        var url = Repository.createServiceURLFromPListValue(.services, key: "bankTransfer")
+    static func createBankTransferParameters(_ virtualCard : Credenciais , contaCorrenteDestino: String, idAgenciaDestino : Int, idBancoDestino : Int,pinCredencialOrigem : String , valorTransferencia : Double) -> [String:Any] {
+        var dictionary = [String:Any]()
         
-        url += "/\(agency)"
-        url += "/conta/\(account.replacingOccurrences(of: "-", with: ""))"
-        url += "/banco/\(idBank)"
-        url += "/valorTransferencia/\(price.getCurrencyString().replacingOccurrences(of: ".", with: ","))"
+        dictionary["contaCorrenteDestino"] = contaCorrenteDestino
+        dictionary["idAgenciaDestino"] = idAgenciaDestino
+        dictionary["idBancoDestino"] = idBancoDestino
+        dictionary["valorTransferencia"] = valorTransferencia
         
-        return url
+        if let value = virtualCard.idCredencial {
+            dictionary["idCredencialOrigem"] = value
+        }
+        
+        if let token = LoginController.sharedInstance.loginResponseObject.token {
+            let passwordConcatenated = pinCredencialOrigem + token
+            
+            if let data = passwordConcatenated.data(using: .utf8) {
+                dictionary["pinCredencialOrigem"] = data.sha512().toHexString()
+            }
+        }
+        
+        dictionary["idInstituicaoOrigem"] = ID_INSTITUICAO
+        
+        return dictionary
+    }
+    
+    static func createBankTransferURLPath() -> String {
+        return Repository.createServiceURLFromPListValue(.services, key: "trasnferCorrentAccount")
     }
     
     static func createCarrierInfoURLPath() -> String {
@@ -116,7 +133,7 @@ class CardsController {
     
     static func createCarrierInfoParameters(cardNumber : String) -> [String:Any] {
         var dictionary = [String:Any]()
-    
+        
         if let data = cardNumber.data(using: .utf8) {
             dictionary["credencial"] = data.sha512().toHexString()
         }
@@ -177,7 +194,7 @@ class CardsController {
         if let value = virtualCard.idConta {
             dictionary["idConta"] = value
         }
-
+        
         if let value = virtualCard.idPessoa {
             dictionary["idPessoa"] = value
         }
@@ -262,8 +279,10 @@ class CardsController {
             return
         }
         
-        imageView.sd_setShowActivityIndicatorView(true)
-        imageView.sd_setIndicatorStyle(.gray)
+         imageView.sd_setShowActivityIndicatorView(true)
+//        imageView.setShowActivityIndicator(true)
+         imageView.sd_setIndicatorStyle(.gray)
+//        imageView.setIndicatorStyle(.gray)
         
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
             if let data = dataResponse {
@@ -272,7 +291,7 @@ class CardsController {
                         ImageStorage.storeImage(data: dataImage, at: url)
                         
                         imageView.image = UIImage(data: dataImage)
-                            
+                        
                         return
                     }
                 }
@@ -283,14 +302,14 @@ class CardsController {
             imageView.image = UIImage(named: "CardDefault")
         })
     }
-
+    
     static func createGenerateTicketChargeURLPath() -> String {
         return Repository.createServiceURLFromPListValue(.services, key: "generateTicketCharge")
     }
     
     static func createGenerateTicketChargeParameters(_ virtualCard : Credenciais, price : String) -> [String:Any] {
         var dictionary = [String:Any]()
-
+        
         if let value = virtualCard.contaPagamento {
             dictionary["contaPagamento"] = value
         }
@@ -314,11 +333,10 @@ class CardsController {
         dictionary["valor"] = price.getCurrencyDouble()
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
-
+        
         return dictionary
     }
     
-    //Estou akiiiiiii
     static func createChangePinURLPath() -> String {
         return Repository.createServiceURLFromPListValue(.services, key: "changePin")
     }
@@ -337,7 +355,7 @@ class CardsController {
                 dictionary["novaSenha"] = data.sha512().toHexString()
             }
         }
-
+        
         if let token = LoginController.sharedInstance.loginResponseObject.token {
             let passwordConcatenated = senha + token
             

@@ -82,6 +82,8 @@
 	<string>api/api/mktplace/portador/pedido</string>
 	<key>changePin</key>
 	<string>api/api/portador/credencial/trocar-pin</string>
+	<key>trasnferCorrentAccount</key>
+	<string>api/api/portador/conta/transferencia/conta/corrente</string>
 	<key>enableNotifications</key>
 	<string>api/api/portador-dispositivo/habilitar-receber-notificacao</string>
 </dict>

@@ -54,7 +54,7 @@ class ChargeView: UITableViewController {
         
         if let ticket = self.ticket {
             if let value = ticket.dataVencimentoFmtMes {
-                textFieldResultDate.text = "R$"+"\(value)"
+                textFieldResultDate.text = ""+"\(value)"
             }
             
             if let value = ticket.linhaDigitavel {

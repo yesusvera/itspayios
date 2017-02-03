@@ -1,9 +1,9 @@
 //
-//  TransferOtherAccount.swift
-//  Itspay
+// TransferOtherAccount.swift
+// Itspay
 //
-//  Created by Arthur Augusto Sousa Marques on 12/22/16.
-//  Copyright © 2016 Compilab. All rights reserved.
+// Created by Arthur Augusto Sousa Marques on 12/22/16.
+// Copyright © 2016 Compilab. All rights reserved.
 //
 
 import UIKit
@@ -30,7 +30,7 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
     var agency = ""
     var account = ""
     var idBank = 0
-    var price = ""
+    var price = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,30 +92,45 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
     
     @IBAction func buttonTransferAction(_ sender: UIButton) {
         if isFormValid() {
-            let url = CardsController.createBankTransferURLPath(agency, account: account, idBank: idBank, price: price)
-            
-            LoadingProgress.startAnimatingInWindow()
-            Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
-                LoadingProgress.stopAnimating()
+            let btnConfirmTransferOK = UIAlertAction(title: "Sim", style: .default, handler: { (response) in
                 
-                if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
-                    let message = getDataResponseMessage(dataResponse)
+                let url = CardsController.createBankTransferURLPath()
+                
+                let parameters = CardsController.createBankTransferParameters(self.virtualCard, contaCorrenteDestino: self.account, idAgenciaDestino: Int(self.agency)!, idBancoDestino: self.idBank, pinCredencialOrigem: self.textFieldPassword.text!, valorTransferencia: self.price)
+                
+                LoadingProgress.startAnimatingInWindow()
+                Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
+                    LoadingProgress.stopAnimating()
                     
-                    if message.lowercased().contains("sucesso") {
-                        let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
-                            guard let _ = self.navigationController?.popToViewController(self.cardViewController, animated: true) else {
-                                return
-                            }
-                        })
+                    if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                        let message = getDataResponseMessage(dataResponse)
                         
-                        AlertComponent.showAlert(title: "Sucesso", message: message, actions: [buttonOk], viewController: self)
+                        if message.lowercased().contains("sucesso") {
+                            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                                guard let _ = self.navigationController?.popToViewController(self.cardViewController, animated: true) else {
+                                    return
+                                }
+                            })
+                            
+                            AlertComponent.showAlert(title: "Sucesso", message: message, actions: [buttonOk], viewController: self)
+                        } else {
+                            AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
+                        }
                     } else {
-                        AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
+                        let _ = validateDataResponse(dataResponse, showAlert: true, viewController: self)
+                        let message = getDataResponseMessage(dataResponse)
+                        AlertComponent.showSimpleAlert(title: "Erro", message: message , viewController: self)
+                        
                     }
-                } else {
-                    let _ = validateDataResponse(dataResponse, showAlert: true, viewController: self)
-                }
+                })
+                
             })
+            
+            let btnConfirmTransferErro = UIAlertAction(title: "Não", style: .default, handler: { (response) in
+                
+            })
+            
+            AlertComponent.showAlert(title: "Atenção", message: "Você deseja completar a Transferencia?", actions: [btnConfirmTransferOK ,btnConfirmTransferErro], viewController: self)
         } else {
             AlertComponent.showSimpleAlert(title: "Erro", message: "* Preencha todos os campos obrigatórios.", viewController: self)
         }
@@ -140,12 +155,12 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
             return false
         }
         
-        account = accountValidation
+        account = accountValidation.replacingOccurrences(of: "-", with: "")
         
         guard let bank = pickerFieldsDataHelper.selectedObjectForTextField(textFieldBank) as? Bank else {
             return false
         }
-
+        
         guard let idBankValidation = bank.idBanco else {
             return false
         }
@@ -159,19 +174,17 @@ class TransferOtherAccount: UITableViewController, PickerFieldsDataHelperDelegat
         if priceValidation == "" {
             return false
         }
-        
-        price = priceValidation.formatToLocalCurrency()
+        price = Double(priceValidation.formatToLocalCurrency().replacingOccurrences(of: "R$", with: "").replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: ""))!
         
         return true
     }
     
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-           if let value = virtualCard.saldo {
-                return "Saldo: \("\(value)".formatToCurrencyReal())"
-            }
-    
+        if let value = virtualCard.saldo {
+            return "Saldo: \("\(value)".formatToCurrencyReal())"
+        }
+        
         return super.tableView(tableView, titleForHeaderInSection: section)
     }
-
+    
 }
