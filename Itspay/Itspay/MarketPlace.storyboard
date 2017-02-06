@@ -441,7 +441,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwj-FR-hXs" customClass="Button" customModule="Itspay" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwj-FR-hXs" customClass="ButtonAction" customModule="Itspay" customModuleProvider="target">
                             <rect key="frame" x="152" y="13" width="202" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="JtB-8C-7Oi"/>

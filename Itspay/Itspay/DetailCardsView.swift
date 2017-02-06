@@ -80,7 +80,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         }
         
         boomMenuButton.boomEnum = .parabola_3
-        boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         boomMenuButton.buttonPressedColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
         boomMenuButton.boomDelegate = self
         boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
@@ -96,7 +96,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "lock"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -113,7 +113,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "logout"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -135,7 +135,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "card"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -152,7 +152,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "lock"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -169,7 +169,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "logout"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -191,7 +191,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "transfer"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -208,7 +208,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "charge"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -226,7 +226,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "card"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -243,7 +243,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "cash"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -260,7 +260,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "lock"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -277,7 +277,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "logout"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
                     builder?.textPressedColor = UIColor.white
@@ -496,7 +496,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         header.backgroundColor = UIColor.white
         
         segmentedControlValue.frame = CGRect(x: 8, y: 8, width: header.frame.width-16, height: segmentedControlValue.frame.height)
-        segmentedControlValue.tintColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        segmentedControlValue.tintColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         
         header.addSubview(segmentedControlValue)
         

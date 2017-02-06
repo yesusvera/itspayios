@@ -25,7 +25,7 @@ class CardsTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tabBar.tintColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+        self.tabBar.tintColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         
         configureNavigationBar()
         

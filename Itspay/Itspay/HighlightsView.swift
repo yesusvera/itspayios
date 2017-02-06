@@ -89,13 +89,13 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     func useTagsCustomColors() {
         let myColors = PARTagColorReference()
         
-        myColors.chosenTagBorderColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-        myColors.chosenTagBackgroundColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-        myColors.chosenTagTextColor = UIColor.white
+        myColors.chosenTagBorderColor = UIColor.colorFrom(hex: COLOR_TAG_SELECTED_ITEM)
+        myColors.chosenTagBackgroundColor = UIColor.colorFrom(hex: COLOR_TAG_SELECTED_ITEM)
+        myColors.chosenTagTextColor = UIColor.colorFrom(hex: TEXT_COLOR_TAG)
         
-        myColors.defaultTagBorderColor = UIColor.colorFrom(hex: COLOR_YELLOW_HEX)
-        myColors.defaultTagBackgroundColor = UIColor.colorFrom(hex: COLOR_YELLOW_HEX)
-        myColors.defaultTagTextColor = UIColor.white
+        myColors.defaultTagBorderColor = UIColor.colorFrom(hex: COLOR_TAG_ITEM)
+        myColors.defaultTagBackgroundColor = UIColor.colorFrom(hex: COLOR_TAG_ITEM)
+        myColors.defaultTagTextColor = UIColor.colorFrom(hex: TEXT_COLOR_TAG_2)
         
         tagPicker.tagColorRef = myColors
     }

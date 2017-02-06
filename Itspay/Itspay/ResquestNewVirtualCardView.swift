@@ -24,6 +24,8 @@ class ResquestNewVirtualCardView: UITableViewController {
         super.viewDidLoad()
 
         self.title = "Cartão Virtual"
+        
+        segmentedControlValue.tintColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
     }
 
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {

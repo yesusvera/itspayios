@@ -335,15 +335,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opa-NY-ner">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opa-NY-ner" customClass="ButtonAction" customModule="Itspay" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="8" width="560" height="44"/>
-                                                    <color key="backgroundColor" red="0.67130917310000005" green="0.46496230360000002" blue="0.17440781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.6705882352941176" green="0.46666666666666667" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="boW-70-Phk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <state key="normal" title="Login">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -411,7 +411,7 @@
                             <rect key="frame" x="0.0" y="167" width="600" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-ku-gMb">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-ku-gMb" customClass="ButtonAction" customModule="Itspay" customModuleProvider="target">
                                     <rect key="frame" x="8" y="8" width="584" height="44"/>
                                     <color key="backgroundColor" red="0.67130917310000005" green="0.46496230360000002" blue="0.17440781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -543,7 +543,7 @@
                             <rect key="frame" x="0.0" y="870" width="600" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dq-5M-7zE">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dq-5M-7zE" customClass="ButtonAction" customModule="Itspay" customModuleProvider="target">
                                     <rect key="frame" x="8" y="8" width="584" height="44"/>
                                     <color key="backgroundColor" red="0.67130917310000005" green="0.46496230360000002" blue="0.17440781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
