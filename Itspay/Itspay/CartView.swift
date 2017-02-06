@@ -177,6 +177,22 @@ class CartView: UITableViewController {
         
         return [removeItem, editItem]
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        let array = self.arrayCart[indexPath.section]
+        
+        let reference = array[indexPath.row]
+        
+        if let productPartner = reference.productPartner, let product = reference.product {
+            MarketPlaceController.sharedInstance.referenceEditing = reference
+            
+            self.productPartnerEdit = productPartner
+            self.productEdit = product
+            
+            self.performSegue(withIdentifier: "DetailProductSegue", sender: self)
+        }
+
+    }
     
     @IBAction func buttonContinueAction(_ sender: Button) {
         self.performSegue(withIdentifier: "ShippingFormsSegue", sender: self)

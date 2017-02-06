@@ -222,6 +222,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "card"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)

@@ -1818,8 +1818,8 @@
         <image name="image_placeholder" width="86" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KdR-24-58W"/>
-        <segue reference="PSd-Ai-AJY"/>
         <segue reference="cWS-2l-Xvd"/>
+        <segue reference="UKK-Fh-o7u"/>
+        <segue reference="KdR-24-58W"/>
     </inferredMetricsTieBreakers>
 </document>
