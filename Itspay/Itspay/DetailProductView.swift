@@ -32,6 +32,7 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     
     var productPartner : ProductPartner!
     var product : Produtos!
+    var ammount : Int! = 0
         
     var price = Double(0) {
         didSet {
@@ -56,6 +57,16 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
 
         updateViewInfo()
         configureCarousel()
+        
+        if ammount != 0 && ammount != nil {
+            
+            labelAmount.text = String(ammount)
+            
+        }else{
+            labelAmount.text = "\(1)"
+        }
+        
+        
         
         if let array = product.imagens {
             pageControl.numberOfPages = array.count

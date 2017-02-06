@@ -386,13 +386,20 @@ class MarketPlaceController {
             if let products = productPartner.produtos {
                 for product in products {
                     if let value = product.tipoProduto {
-                        allTags.append(value)
+//                        if allTags.contains(value){
+//                        }else{
+//                            allTags.append(value)
+//                        }
+
                     }
                     
                     if let categories = product.categorias {
                         for category in categories {
                             if let value = category.descricao {
-                                allTags.append(value)
+                                if allTags.contains(value){
+                                }else{
+                                    allTags.append(value)
+                                }
                             }
                         }
                     }
@@ -438,7 +445,7 @@ class MarketPlaceController {
                         }
                     }
                     
-                    /*if !found {
+                    if !found {
                         if let categories = product.categorias {
                             for category in categories {
                                 if let value = category.descricao {
@@ -452,7 +459,7 @@ class MarketPlaceController {
                                 }
                             }
                         }
-                    }*/
+                    }
                 }
             }
             

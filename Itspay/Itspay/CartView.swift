@@ -15,6 +15,8 @@ class CartView: UITableViewController {
     
     @IBOutlet weak var viewFooter: UIView!
     
+    var amount : Int = 0
+    
     var totalPrice = Double(0) {
         didSet {
             labelTotal.text = "\(totalPrice)".formatToCurrencyReal()
@@ -169,6 +171,8 @@ class CartView: UITableViewController {
                 self.productPartnerEdit = productPartner
                 self.productEdit = product
                 
+                self.amount = reference.quantidade!
+                
                 self.performSegue(withIdentifier: "DetailProductSegue", sender: self)
             }
         }
@@ -189,6 +193,8 @@ class CartView: UITableViewController {
             self.productPartnerEdit = productPartner
             self.productEdit = product
             
+            self.amount = reference.quantidade!
+
             self.performSegue(withIdentifier: "DetailProductSegue", sender: self)
         }
 
@@ -220,6 +226,9 @@ class CartView: UITableViewController {
             let viewController = segue.destination as! DetailProductView
             viewController.productPartner = productPartnerEdit
             viewController.product = productEdit
+            if amount != nil{
+                viewController.ammount = amount
+            }
         } else if segue.identifier == "ShippingFormsSegue" {
             
         }

@@ -255,6 +255,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
             let viewController = segue.destination as! DetailProductView
             viewController.productPartner = selectedProductPartner
             viewController.product = selectedProduct
+            viewController.ammount = 0
         }
     }
 }
