@@ -6,7 +6,7 @@
 //  Copyright © 2017 Compilab. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ButtonAction: UIButton {
     @IBInspectable var isActionButton : Bool = true {
