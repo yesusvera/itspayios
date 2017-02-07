@@ -32,19 +32,19 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     
     var productPartner : ProductPartner!
     var product : Produtos!
-    var ammount : Int! = 0
-        
+    
     var price = Double(0) {
         didSet {
             updateTotal()
         }
     }
     
-    var amount = 1 {
+    var ammount = 1 {
         didSet {
-            labelAmount.text = "\(amount)"
+            labelAmount.text = String(ammount)
         }
     }
+
     
     var total = Double(0) {
         didSet {
@@ -61,13 +61,15 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
         if ammount != 0 && ammount != nil {
             
             labelAmount.text = String(ammount)
+            stepperAmount.value = Double(ammount)
             
         }else{
-            labelAmount.text = "\(1)"
+            ammount = 1
+            labelAmount.text = String(1)
+            stepperAmount.value = Double(1)
         }
         
-        
-        
+        updateTotal()
         if let array = product.imagens {
             pageControl.numberOfPages = array.count
         }
@@ -177,20 +179,20 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     }
     
     @IBAction func stepperAmountAction(_ sender: UIStepper) {
-        amount = Int(sender.value)
+        ammount = Int(sender.value)
         
         updateTotal()
     }
     
     func updateTotal() {
-        total = Double(amount) * price
+        total = Double(ammount) * price
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProductReferencesSegue" {
             let viewController = segue.destination as! ProductReferencesView
             viewController.product = product
-            viewController.amount = amount
+            viewController.amount = ammount
         }
     }
     

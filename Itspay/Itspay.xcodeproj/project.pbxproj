@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
+		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
 		ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */; };
@@ -142,6 +143,7 @@
 		00EC758617B7E9C8A3FE21FF /* Pods-Itspay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5160D1E1FA73682CD5145B /* Pods-ItspayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.release.xcconfig"; sourceTree = "<group>"; };
+		713B163B1E491C1B0074B547 /* ButtonAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		7D3086FF01FA91BB2DF7F6C2 /* Pods-ItspayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.release.xcconfig"; sourceTree = "<group>"; };
 		99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItspayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itspay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -470,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				ED4F9F6E1E19C68C00F99162 /* Button.swift */,
+				713B163B1E491C1B0074B547 /* ButtonAction.swift */,
 			);
 			name = Button;
 			sourceTree = "<group>";
@@ -1101,6 +1104,7 @@
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED36D9ED1E245F05002EA07F /* InstallmentPaymentChooseView.swift in Sources */,
+				713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */,
 				ED36D9F71E250BB0002EA07F /* ShippingPaymentView.swift in Sources */,
 				ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */,
 				ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */,
