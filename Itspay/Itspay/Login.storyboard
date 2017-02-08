@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,6 +105,10 @@
                     <navigationItem key="navigationItem" id="pib-ER-Neo">
                         <barButtonItem key="backBarButtonItem" title=" " id="fuV-KI-eST"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ivBackGround" destination="139-Fh-co6" id="G8g-lP-QPg"/>
+                        <outlet property="ivLogoClient" destination="Jhb-fC-iOX" id="Ud2-jg-ynJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vh3-m4-nTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1249,6 +1254,6 @@
         <image name="camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HPq-jk-izp"/>
+        <segue reference="Oht-7W-me4"/>
     </inferredMetricsTieBreakers>
 </document>

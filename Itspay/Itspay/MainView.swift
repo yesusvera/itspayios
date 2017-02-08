@@ -9,11 +9,20 @@
 import UIKit
 
 class MainView: UIViewController {
+    
+    @IBOutlet weak var ivLogoClient: UIImageView!
+    @IBOutlet weak var ivBackGround: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let launchScreenView = instantiateFrom("General", identifier: "LaunchScreenView") as! LaunchScreenView
         launchScreenView.startLaunchScreen(in: self)
+        
+        ivLogoClient.image = UIImage(named: LOGO_CLIENT)
+        ivBackGround.image = UIImage(named: BACKGROUND_CLIENT)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

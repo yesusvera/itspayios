@@ -41,6 +41,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        congigureView()
         
         self.title = "Cadastro Login"
         
@@ -52,6 +53,18 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         
         pickerFieldsDataHelper.doneButtonTitle = "OK"
         pickerFieldsDataHelper.initWithTodayDate = true
+    }
+    
+    func congigureView(){
+        switchConfirmationValue.onTintColor =  UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorCardNumber.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorBirthday.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorCPF.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorEmail.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorEmailConfirmation.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorPassword.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        labelErrorPasswordConfirmation.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
+        buttonCameraValue.tintColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
     }
     
 

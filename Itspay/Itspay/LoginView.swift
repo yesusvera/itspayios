@@ -19,6 +19,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     @IBOutlet weak var labelTouchId: UILabel!
     @IBOutlet weak var switchTouchIdValue: UISwitch!
     
+//    COLOR_BUTTON_PRINCIPAL_HEX
+    
     var isTouchIdOn = false
     
     var cpf : String!
@@ -31,6 +33,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
             isTouchIdOn = isTouchID
             
             switchTouchIdValue.isOn = isTouchIdOn
+            switchTouchIdValue.onTintColor =  UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         }
     }
     

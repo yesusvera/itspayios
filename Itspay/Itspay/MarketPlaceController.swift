@@ -180,7 +180,13 @@ class MarketPlaceController {
             dictionary["valorFrete"] = 0
         }
         
-        dictionary["senhaCredencial"] = password
+        if let token = LoginController.sharedInstance.loginResponseObject.token {
+            let passwordConcatenated = password + token
+            
+            if let data = passwordConcatenated.data(using: .utf8) {
+                dictionary["senhaCredencial"] = data.sha512().toHexString()
+            }
+        }
         
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
