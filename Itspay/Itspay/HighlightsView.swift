@@ -66,7 +66,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         tagPicker.allowsNewTags = true
         
         tagPicker.placeholderText = "Adicione um item"
-        tagPicker.textfieldPlaceholderTextColor = UIColor.colorFrom(hex: COLOR_TAG_SELECTED_ITEM)
+        tagPicker.textfieldPlaceholderTextColor = UIColor.white
         
         tagPicker.font = UIFont.systemFont(ofSize: 14)
         

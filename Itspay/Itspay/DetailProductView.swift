@@ -140,10 +140,10 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
         if indexPath.row == 0 {
             return height
         }
-        if indexPath.row == 3 {
-            return SCREEN_HEIGHT - viewHeader.frame.height-carouselProducts.frame.height-viewFooter.frame.height-44-44-height-100
+        if indexPath.row == 2 {
+             height = labelProductDescription.stringHeight + 32
+            return height;
         }
-        
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
