@@ -31,6 +31,14 @@ class CardsView: UITableViewController {
         self.tableView.addSubview(self.refreshControl!)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let isTouchID = UserDefaults.standard.object(forKey: "isGoMarktplace") as? Bool{
+            if(!isTouchID){
+                CustomToastNotification().showNotification(view: view)
+            }
+        }
+    }
+    
     func getVirtualCards() {
         if Repository.isMockOn() {
             arrayVirtualCards = [Credenciais]()

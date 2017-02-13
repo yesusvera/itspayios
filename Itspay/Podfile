@@ -17,6 +17,7 @@ pod 'PARTagPicker'
 pod 'OneSignal'
 pod 'SDWebImage'
 pod 'AlamofireImage'
+pod 'BRYXBanner'
 
 end
 

@@ -45,6 +45,10 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UserDefaults.standard.set(true, forKey: "isGoMarktplace")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if !possuiMarketPlace {
             configureErrorMessageView("Você não possui acesso à loja.")

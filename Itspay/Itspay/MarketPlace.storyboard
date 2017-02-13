@@ -1821,8 +1821,8 @@
         <image name="image_placeholder" width="86" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PSd-Ai-AJY"/>
-        <segue reference="Tde-Ls-JKR"/>
         <segue reference="QYu-6h-Dux"/>
+        <segue reference="Tde-Ls-JKR"/>
+        <segue reference="PSd-Ai-AJY"/>
     </inferredMetricsTieBreakers>
 </document>
