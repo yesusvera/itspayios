@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
+		71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442461E54CDA200E7E584 /* BRYXBanner.framework */; };
 		71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */; };
 		71AA00B51E51EF0400132F38 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AC1E51EF0400132F38 /* Banner.swift */; };
 		71AA00B61E51EF0400132F38 /* BRYXBanner.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 71AA00AE1E51EF0400132F38 /* BRYXBanner.xcconfig */; };
@@ -149,6 +150,8 @@
 		4D5160D1E1FA73682CD5145B /* Pods-ItspayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.release.xcconfig"; sourceTree = "<group>"; };
 		713B163B1E491C1B0074B547 /* ButtonAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
+		71A442461E54CDA200E7E584 /* BRYXBanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BRYXBanner.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Itspay-cozzahyqyvodtxegketdzeqjiphd/Build/Products/Debug-iphoneos/BRYXBanner/BRYXBanner.framework"; sourceTree = "<group>"; };
+		71A442481E54CDA900E7E584 /* Instructions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instructions.framework; path = "Pods/../build/Debug-iphoneos/Instructions/Instructions.framework"; sourceTree = "<group>"; };
 		71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomToastNotification.swift; sourceTree = "<group>"; };
 		71AA00AC1E51EF0400132F38 /* Banner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Banner.swift; path = Pod/Classes/Banner.swift; sourceTree = "<group>"; };
 		71AA00AD1E51EF0400132F38 /* BRYXBanner.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = BRYXBanner.modulemap; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */,
 				EDD681581E00EC9F00E9017F /* CoreLocation.framework in Frameworks */,
 				ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */,
 				111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */,
@@ -313,6 +317,8 @@
 		6AFE2308BDDE2C4EFED1B727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71A442481E54CDA900E7E584 /* Instructions.framework */,
+				71A442461E54CDA200E7E584 /* BRYXBanner.framework */,
 				EDD681571E00EC9F00E9017F /* CoreLocation.framework */,
 				ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */,
 				C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */,
@@ -1392,6 +1398,10 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = G5VUHQ58JL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Instructions",
+				);
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1416,6 +1426,10 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = G5VUHQ58JL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Instructions",
+				);
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

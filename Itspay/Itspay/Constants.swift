@@ -22,9 +22,13 @@ var TEXT_COLOR_TAG_2 = "FFFFFF"
 var LOGO_CLIENT = "BahamasLogo"
 var BACKGROUND_CLIENT = "BackBahamas"
 
+var PHONE_SAC = "3232294950"
+var PHONE_OUVIDORIA = "3208002859632"
+var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
+
 
 //    Financial
-////    Build Indentifier = br.com.dis.itspay.financial
+//   Build Indentifier = br.com.dis.itspay.financial
 //var ONE_SIGNAL_APP_ID = "b7eb2b60-b76a-4412-a98d-cacae05f070e"
 //
 //var COLOR_BUTTON_HEX = "072E4E"
@@ -36,6 +40,10 @@ var BACKGROUND_CLIENT = "BackBahamas"
 //var TEXT_COLOR_TAG_2 = "FFFFFF"
 //var LOGO_CLIENT = "financialLogo"
 //var BACKGROUND_CLIENT = "BackFinancial"
+
+//var PHONE_SAC = "08009406020"
+//var PHONE_OUVIDORIA = "(37)35129797"
+//var EMAIL_SAC = "sac@financialcartoes.com.br"
 
 
 var COLOR_BLUE_HEX = "072E4E"
@@ -70,7 +78,3 @@ var ID_TARIFAS_TRANSFERENCIA_CARD = 211
 var ID_TARIFAS_TRANSFERENCIA_OTHER_BANK = 212
 var ID_TARIFAS_CHARGE = 204
 
-var PHONE_SAC = "08009406020"
-var PHONE_OUVIDORIA = "(37)35129797"
-
-var EMAIL_SAC = "sac@financialcartoes.com.br"

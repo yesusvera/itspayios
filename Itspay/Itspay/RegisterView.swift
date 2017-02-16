@@ -93,6 +93,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         if let paymentViewController = CardIOPaymentViewController.init(paymentDelegate: self) {
             paymentViewController.useCardIOLogo = true
             paymentViewController.hideCardIOLogo = true
+            paymentViewController.navigationBarTintColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
             self.present(paymentViewController, animated: true, completion: nil)
         }
     }

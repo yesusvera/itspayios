@@ -112,6 +112,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     }
     
     func configureCollectionViewLayout() {
+        
         let layout = UICollectionViewFlowLayout()
         
         layout.sectionInset = UIEdgeInsets(top: COLLECTION_VIEW_HEIGHT+32, left: 0, bottom: 0, right: 0)
@@ -130,7 +131,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         } else if state == .topOnly {
             newHeight = COLLECTION_VIEW_HEIGHT
         }
-        
+    
         var frame = self.tagPicker.view.frame
         
         frame.size.height = newHeight
@@ -204,7 +205,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         if let array = productPartner.produtos {
             return array.count
         }
-        
+    
         return 0
     }
     
