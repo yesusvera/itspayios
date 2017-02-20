@@ -20,6 +20,7 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
     @IBOutlet weak var labelProductOldPrice: UILabel!
     @IBOutlet weak var labelProductPaymentInstallments: UILabel!
     @IBOutlet weak var labelProductCurrentPrice: UILabel!
+    @IBOutlet weak var parceiroLabel: UILabel!
     
     @IBOutlet weak var labelTotal: UILabel!
 
@@ -100,6 +101,11 @@ class DetailProductView: UITableViewController, iCarouselDataSource, iCarouselDe
                 
                 if let value = productPartner.quantMaxParcelaSemJuros {
                     labelProductPaymentInstallments.text = "em até \(value) vezes"
+                }
+                
+                if let value = productPartner.nomeParceiro {
+                    parceiroLabel.text = value
+                
                 }
             }
         }

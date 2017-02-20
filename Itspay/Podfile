@@ -18,6 +18,7 @@ pod 'OneSignal'
 pod 'SDWebImage'
 pod 'AlamofireImage'
 pod 'BRYXBanner'
+pod 'Instructions', '~> 0.5'
 
 end
 

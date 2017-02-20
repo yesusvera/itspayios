@@ -119,7 +119,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         layout.itemSize = CGSize(width: SCREEN_WIDTH/2, height: 220)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        
+
         collectionView!.collectionViewLayout = layout
     }
     
@@ -209,6 +209,32 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         return 0
     }
     
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        var height = labelProductName.stringHeight + 32
+//        
+//        if height < 44 {
+//            height = 44
+//        }
+//        
+//        if indexPath.row == 0 {
+//            return height
+//        }
+//        if indexPath.row == 2 {
+//            height = labelProductDescription.stringHeight + 32
+//            return height;
+//        }
+//        return super.tableView(tableView, heightForRowAt: indexPath)
+//    }
+//    
+//    func numberOfItems(in carousel: iCarousel) -> Int {
+//        if let array = product.imagens {
+//            return array.count
+//        }
+//        
+//        return 0
+//    }
+//    
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HighlightsCellIdentifier", for: indexPath)
         
@@ -217,7 +243,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         let arrayProducts = productPartner.produtos!
         
         let product = arrayProducts[indexPath.row]
-        
+      
         if let label = cell.viewWithTag(1) as? UILabel, let value = product.nomeProduto {
             label.text = "\(value)"
         }

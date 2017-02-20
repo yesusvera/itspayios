@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Instructions
 
 enum TabBarItemType : Int {
     case cards = 1
@@ -21,6 +22,8 @@ class CardsTabBarController: UITabBarController {
     var barButtonSair = UIBarButtonItem()
     
     var titleBar = "Meus Cartões"
+    // MARK: - Public properties
+    var coachMarksController: CoachMarksController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +35,26 @@ class CardsTabBarController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateCartBadges), name: NSNotification.Name.init("updateCartBadges"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.selectTabBarIndexObsever), name: NSNotification.Name.init("selectTabBarIndexObsever"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.expiredSessionObserver), name: NSNotification.Name.init("expiredSessionObserver"), object: nil)
+        
+        self.coachMarksController = CoachMarksController()
+        self.coachMarksController?.overlay.allowTap = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        startInstructions()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.coachMarksController?.stop(immediately: true)
+    }
+    
+    func startInstructions() {
+        self.coachMarksController?.startOn(parentViewController: self)
+    }
     func updateCartBadges() {
         if let items = self.tabBar.items {
             let tabBarItem = items[3]
