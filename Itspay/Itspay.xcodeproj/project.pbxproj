@@ -9,86 +9,9 @@
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
-		71575B3D1E5B76DE00C6A18C /* BlurEffectViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B111E5B76DE00C6A18C /* BlurEffectViewHelper.swift */; };
-		71575B3E1E5B76DE00C6A18C /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B121E5B76DE00C6A18C /* CoachMark.swift */; };
-		71575B3F1E5B76DE00C6A18C /* CoachMarkArrowDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B131E5B76DE00C6A18C /* CoachMarkArrowDefaultView.swift */; };
-		71575B401E5B76DE00C6A18C /* CoachMarkArrowOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B141E5B76DE00C6A18C /* CoachMarkArrowOrientation.swift */; };
-		71575B411E5B76DE00C6A18C /* CoachMarkArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B151E5B76DE00C6A18C /* CoachMarkArrowView.swift */; };
-		71575B421E5B76DE00C6A18C /* CoachMarkBodyDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B161E5B76DE00C6A18C /* CoachMarkBodyDefaultView.swift */; };
-		71575B431E5B76DE00C6A18C /* CoachMarkBodyDefaultViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B171E5B76DE00C6A18C /* CoachMarkBodyDefaultViewHelper.swift */; };
-		71575B441E5B76DE00C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B181E5B76DE00C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift */; };
-		71575B451E5B76DE00C6A18C /* CoachMarkBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B191E5B76DE00C6A18C /* CoachMarkBodyView.swift */; };
-		71575B461E5B76DE00C6A18C /* CoachMarkDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B1A1E5B76DE00C6A18C /* CoachMarkDisplayManager.swift */; };
-		71575B471E5B76DE00C6A18C /* CoachMarkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B1B1E5B76DE00C6A18C /* CoachMarkHelper.swift */; };
-		71575B481E5B76DE00C6A18C /* CoachMarkInnerLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B1C1E5B76DE00C6A18C /* CoachMarkInnerLayoutHelper.swift */; };
-		71575B491E5B76DE00C6A18C /* CoachMarkLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B1D1E5B76DE00C6A18C /* CoachMarkLayoutHelper.swift */; };
-		71575B4A1E5B76DE00C6A18C /* CoachMarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B1E1E5B76DE00C6A18C /* CoachMarkPosition.swift */; };
-		71575B4B1E5B76DE00C6A18C /* CoachMarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B1F1E5B76DE00C6A18C /* CoachMarksController.swift */; };
-		71575B4C1E5B76DE00C6A18C /* CoachMarksController+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B201E5B76DE00C6A18C /* CoachMarksController+Deprecated.swift */; };
-		71575B4D1E5B76DE00C6A18C /* CoachMarksController+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B211E5B76DE00C6A18C /* CoachMarksController+Proxy.swift */; };
-		71575B4E1E5B76DE00C6A18C /* CoachMarksControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B221E5B76DE00C6A18C /* CoachMarksControllerDataSource.swift */; };
-		71575B4F1E5B76DE00C6A18C /* CoachMarksControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B231E5B76DE00C6A18C /* CoachMarksControllerDelegate.swift */; };
-		71575B501E5B76DE00C6A18C /* CoachMarkSkipDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B241E5B76DE00C6A18C /* CoachMarkSkipDefaultView.swift */; };
-		71575B511E5B76DE00C6A18C /* CoachMarkSkipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B251E5B76DE00C6A18C /* CoachMarkSkipView.swift */; };
-		71575B521E5B76DE00C6A18C /* CoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B261E5B76DE00C6A18C /* CoachMarksViewController.swift */; };
-		71575B531E5B76DE00C6A18C /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B271E5B76DE00C6A18C /* CoachMarkView.swift */; };
-		71575B541E5B76DE00C6A18C /* CoachMarkViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B281E5B76DE00C6A18C /* CoachMarkViewControllerDelegate.swift */; };
-		71575B551E5B76DE00C6A18C /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B291E5B76DE00C6A18C /* DummyView.swift */; };
-		71575B561E5B76DE00C6A18C /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B2A1E5B76DE00C6A18C /* FlowManager.swift */; };
-		71575B571E5B76DE00C6A18C /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B2B1E5B76DE00C6A18C /* Instructions.swift */; };
-		71575B581E5B76DE00C6A18C /* InstructionsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B2C1E5B76DE00C6A18C /* InstructionsRootView.swift */; };
-		71575B591E5B76DE00C6A18C /* MainViewsLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B2D1E5B76DE00C6A18C /* MainViewsLayoutHelper.swift */; };
-		71575B5A1E5B76DE00C6A18C /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B2E1E5B76DE00C6A18C /* OverlayView.swift */; };
-		71575B5B1E5B76DE00C6A18C /* OverlayViewLayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B2F1E5B76DE00C6A18C /* OverlayViewLayerManager.swift */; };
-		71575B5C1E5B76DE00C6A18C /* SkipViewDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B301E5B76DE00C6A18C /* SkipViewDisplayManager.swift */; };
-		71575B5D1E5B76DE00C6A18C /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B311E5B76DE00C6A18C /* UIImage+Bundle.swift */; };
-		71575B5E1E5B76DE00C6A18C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71575B321E5B76DE00C6A18C /* Images.xcassets */; };
-		71575B5F1E5B76DE00C6A18C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71575B351E5B76DE00C6A18C /* Info.plist */; };
-		71575B601E5B76DE00C6A18C /* Instructions.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 71575B371E5B76DE00C6A18C /* Instructions.xcconfig */; };
-		71575B611E5B76DE00C6A18C /* Instructions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71575B381E5B76DE00C6A18C /* Instructions-dummy.m */; };
-		71575B8E1E5B775200C6A18C /* BlurEffectViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B621E5B775200C6A18C /* BlurEffectViewHelper.swift */; };
-		71575B8F1E5B775200C6A18C /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B631E5B775200C6A18C /* CoachMark.swift */; };
-		71575B901E5B775200C6A18C /* CoachMarkArrowDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B641E5B775200C6A18C /* CoachMarkArrowDefaultView.swift */; };
-		71575B911E5B775200C6A18C /* CoachMarkArrowOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B651E5B775200C6A18C /* CoachMarkArrowOrientation.swift */; };
-		71575B921E5B775200C6A18C /* CoachMarkArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B661E5B775200C6A18C /* CoachMarkArrowView.swift */; };
-		71575B931E5B775200C6A18C /* CoachMarkBodyDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B671E5B775200C6A18C /* CoachMarkBodyDefaultView.swift */; };
-		71575B941E5B775200C6A18C /* CoachMarkBodyDefaultViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B681E5B775200C6A18C /* CoachMarkBodyDefaultViewHelper.swift */; };
-		71575B951E5B775200C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B691E5B775200C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift */; };
-		71575B961E5B775200C6A18C /* CoachMarkBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B6A1E5B775200C6A18C /* CoachMarkBodyView.swift */; };
-		71575B971E5B775200C6A18C /* CoachMarkDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B6B1E5B775200C6A18C /* CoachMarkDisplayManager.swift */; };
-		71575B981E5B775200C6A18C /* CoachMarkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B6C1E5B775200C6A18C /* CoachMarkHelper.swift */; };
-		71575B991E5B775200C6A18C /* CoachMarkInnerLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B6D1E5B775200C6A18C /* CoachMarkInnerLayoutHelper.swift */; };
-		71575B9A1E5B775200C6A18C /* CoachMarkLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B6E1E5B775200C6A18C /* CoachMarkLayoutHelper.swift */; };
-		71575B9B1E5B775200C6A18C /* CoachMarkPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B6F1E5B775200C6A18C /* CoachMarkPosition.swift */; };
-		71575B9C1E5B775200C6A18C /* CoachMarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B701E5B775200C6A18C /* CoachMarksController.swift */; };
-		71575B9D1E5B775200C6A18C /* CoachMarksController+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B711E5B775200C6A18C /* CoachMarksController+Deprecated.swift */; };
-		71575B9E1E5B775200C6A18C /* CoachMarksController+Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B721E5B775200C6A18C /* CoachMarksController+Proxy.swift */; };
-		71575B9F1E5B775200C6A18C /* CoachMarksControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B731E5B775200C6A18C /* CoachMarksControllerDataSource.swift */; };
-		71575BA01E5B775200C6A18C /* CoachMarksControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B741E5B775200C6A18C /* CoachMarksControllerDelegate.swift */; };
-		71575BA11E5B775200C6A18C /* CoachMarkSkipDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B751E5B775200C6A18C /* CoachMarkSkipDefaultView.swift */; };
-		71575BA21E5B775200C6A18C /* CoachMarkSkipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B761E5B775200C6A18C /* CoachMarkSkipView.swift */; };
-		71575BA31E5B775200C6A18C /* CoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B771E5B775200C6A18C /* CoachMarksViewController.swift */; };
-		71575BA41E5B775200C6A18C /* CoachMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B781E5B775200C6A18C /* CoachMarkView.swift */; };
-		71575BA51E5B775200C6A18C /* CoachMarkViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B791E5B775200C6A18C /* CoachMarkViewControllerDelegate.swift */; };
-		71575BA61E5B775200C6A18C /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B7A1E5B775200C6A18C /* DummyView.swift */; };
-		71575BA71E5B775200C6A18C /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B7B1E5B775200C6A18C /* FlowManager.swift */; };
-		71575BA81E5B775200C6A18C /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B7C1E5B775200C6A18C /* Instructions.swift */; };
-		71575BA91E5B775200C6A18C /* InstructionsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B7D1E5B775200C6A18C /* InstructionsRootView.swift */; };
-		71575BAA1E5B775200C6A18C /* MainViewsLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B7E1E5B775200C6A18C /* MainViewsLayoutHelper.swift */; };
-		71575BAB1E5B775200C6A18C /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B7F1E5B775200C6A18C /* OverlayView.swift */; };
-		71575BAC1E5B775200C6A18C /* OverlayViewLayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B801E5B775200C6A18C /* OverlayViewLayerManager.swift */; };
-		71575BAD1E5B775200C6A18C /* SkipViewDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B811E5B775200C6A18C /* SkipViewDisplayManager.swift */; };
-		71575BAE1E5B775200C6A18C /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71575B821E5B775200C6A18C /* UIImage+Bundle.swift */; };
-		71575BAF1E5B775200C6A18C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71575B831E5B775200C6A18C /* Images.xcassets */; };
-		71575BB01E5B775200C6A18C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71575B861E5B775200C6A18C /* Info.plist */; };
-		71575BB11E5B775200C6A18C /* Instructions.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 71575B881E5B775200C6A18C /* Instructions.xcconfig */; };
-		71575BB21E5B775200C6A18C /* Instructions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71575B891E5B775200C6A18C /* Instructions-dummy.m */; };
-		71575BB31E5B77FF00C6A18C /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442481E54CDA900E7E584 /* Instructions.framework */; };
-		71575BB41E5B77FF00C6A18C /* Instructions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442481E54CDA900E7E584 /* Instructions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442461E54CDA200E7E584 /* BRYXBanner.framework */; };
 		71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */; };
 		71AA00B51E51EF0400132F38 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AC1E51EF0400132F38 /* Banner.swift */; };
-		71AA00B61E51EF0400132F38 /* BRYXBanner.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 71AA00AE1E51EF0400132F38 /* BRYXBanner.xcconfig */; };
 		71AA00B71E51EF0400132F38 /* BRYXBanner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AF1E51EF0400132F38 /* BRYXBanner-dummy.m */; };
 		71AA00B81E51EF0400132F38 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71AA00B21E51EF0400132F38 /* Info.plist */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
@@ -202,6 +125,10 @@
 		EDFB60FF1E15F10000C24A4E /* MarketPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */; };
 		EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB61001E17E2EF00C24A4E /* DetailProductView.swift */; };
 		F0A284C27688A3D5CB14C2F9 /* Pods_ItspayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */; };
+		FBE27E591E5CF97A00435F1A /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE27E541E5CF97000435F1A /* Instructions.framework */; };
+		FBE27E5A1E5CF97A00435F1A /* Instructions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBE27E541E5CF97000435F1A /* Instructions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FBE27E681E5CFE9E00435F1A /* CustomCoachMarkArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE27E661E5CFE9E00435F1A /* CustomCoachMarkArrowView.swift */; };
+		FBE27E691E5CFE9E00435F1A /* CustomCoachMarkBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE27E671E5CFE9E00435F1A /* CustomCoachMarkBodyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +146,34 @@
 			remoteGlobalIDString = ED8AF3701DFF85C000EBB73F;
 			remoteInfo = Itspay;
 		};
+		FBE27E531E5CF97000435F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64FB2E91BB6CA8A0081E5B6;
+			remoteInfo = Instructions;
+		};
+		FBE27E551E5CF97000435F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6417E331D291A8A004D13EA;
+			remoteInfo = InstructionsAppExtensions;
+		};
+		FBE27E571E5CF97000435F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64FB2F31BB6CA8A0081E5B6;
+			remoteInfo = InstructionsTests;
+		};
+		FBE27E5B1E5CF97A00435F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C64FB2E81BB6CA8A0081E5B6;
+			remoteInfo = Instructions;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -228,7 +183,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				71575BB41E5B77FF00C6A18C /* Instructions.framework in Embed Frameworks */,
+				FBE27E5A1E5CF97A00435F1A /* Instructions.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,88 +195,7 @@
 		4D5160D1E1FA73682CD5145B /* Pods-ItspayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.release.xcconfig"; sourceTree = "<group>"; };
 		713B163B1E491C1B0074B547 /* ButtonAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
-		71575B111E5B76DE00C6A18C /* BlurEffectViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlurEffectViewHelper.swift; path = Sources/Helpers/BlurEffectViewHelper.swift; sourceTree = "<group>"; };
-		71575B121E5B76DE00C6A18C /* CoachMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMark.swift; path = Sources/Controllers/Public/CoachMark.swift; sourceTree = "<group>"; };
-		71575B131E5B76DE00C6A18C /* CoachMarkArrowDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowDefaultView.swift; path = "Sources/Extra/Default Views/CoachMarkArrowDefaultView.swift"; sourceTree = "<group>"; };
-		71575B141E5B76DE00C6A18C /* CoachMarkArrowOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowOrientation.swift; path = Sources/Extra/Enums/CoachMarkArrowOrientation.swift; sourceTree = "<group>"; };
-		71575B151E5B76DE00C6A18C /* CoachMarkArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowView.swift; path = Sources/Protocols/Public/CoachMarkArrowView.swift; sourceTree = "<group>"; };
-		71575B161E5B76DE00C6A18C /* CoachMarkBodyDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultView.swift; path = "Sources/Extra/Default Views/CoachMarkBodyDefaultView.swift"; sourceTree = "<group>"; };
-		71575B171E5B76DE00C6A18C /* CoachMarkBodyDefaultViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultViewHelper.swift; path = Sources/Helpers/CoachMarkBodyDefaultViewHelper.swift; sourceTree = "<group>"; };
-		71575B181E5B76DE00C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyHighlightArrowDelegate.swift; path = Sources/Protocols/Public/CoachMarkBodyHighlightArrowDelegate.swift; sourceTree = "<group>"; };
-		71575B191E5B76DE00C6A18C /* CoachMarkBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyView.swift; path = Sources/Protocols/Public/CoachMarkBodyView.swift; sourceTree = "<group>"; };
-		71575B1A1E5B76DE00C6A18C /* CoachMarkDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkDisplayManager.swift; path = Sources/Managers/CoachMarkDisplayManager.swift; sourceTree = "<group>"; };
-		71575B1B1E5B76DE00C6A18C /* CoachMarkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkHelper.swift; path = Sources/Helpers/CoachMarkHelper.swift; sourceTree = "<group>"; };
-		71575B1C1E5B76DE00C6A18C /* CoachMarkInnerLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkInnerLayoutHelper.swift; path = Sources/Helpers/CoachMarkInnerLayoutHelper.swift; sourceTree = "<group>"; };
-		71575B1D1E5B76DE00C6A18C /* CoachMarkLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkLayoutHelper.swift; path = Sources/Helpers/CoachMarkLayoutHelper.swift; sourceTree = "<group>"; };
-		71575B1E1E5B76DE00C6A18C /* CoachMarkPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkPosition.swift; path = Sources/Extra/Enums/CoachMarkPosition.swift; sourceTree = "<group>"; };
-		71575B1F1E5B76DE00C6A18C /* CoachMarksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksController.swift; path = Sources/Controllers/Public/CoachMarksController.swift; sourceTree = "<group>"; };
-		71575B201E5B76DE00C6A18C /* CoachMarksController+Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoachMarksController+Deprecated.swift"; path = "Sources/Controllers/Public/CoachMarksController+Deprecated.swift"; sourceTree = "<group>"; };
-		71575B211E5B76DE00C6A18C /* CoachMarksController+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoachMarksController+Proxy.swift"; path = "Sources/Controllers/Public/CoachMarksController+Proxy.swift"; sourceTree = "<group>"; };
-		71575B221E5B76DE00C6A18C /* CoachMarksControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDataSource.swift; path = Sources/Protocols/Public/CoachMarksControllerDataSource.swift; sourceTree = "<group>"; };
-		71575B231E5B76DE00C6A18C /* CoachMarksControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDelegate.swift; path = Sources/Protocols/Public/CoachMarksControllerDelegate.swift; sourceTree = "<group>"; };
-		71575B241E5B76DE00C6A18C /* CoachMarkSkipDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipDefaultView.swift; path = "Sources/Extra/Default Views/CoachMarkSkipDefaultView.swift"; sourceTree = "<group>"; };
-		71575B251E5B76DE00C6A18C /* CoachMarkSkipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipView.swift; path = Sources/Protocols/Public/CoachMarkSkipView.swift; sourceTree = "<group>"; };
-		71575B261E5B76DE00C6A18C /* CoachMarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksViewController.swift; path = Sources/Controllers/CoachMarksViewController.swift; sourceTree = "<group>"; };
-		71575B271E5B76DE00C6A18C /* CoachMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkView.swift; path = Sources/Views/CoachMarkView.swift; sourceTree = "<group>"; };
-		71575B281E5B76DE00C6A18C /* CoachMarkViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkViewControllerDelegate.swift; path = Sources/Protocols/CoachMarkViewControllerDelegate.swift; sourceTree = "<group>"; };
-		71575B291E5B76DE00C6A18C /* DummyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DummyView.swift; path = Sources/Views/DummyView.swift; sourceTree = "<group>"; };
-		71575B2A1E5B76DE00C6A18C /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowManager.swift; path = Sources/Managers/FlowManager.swift; sourceTree = "<group>"; };
-		71575B2B1E5B76DE00C6A18C /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Instructions.swift; path = Sources/Instructions.swift; sourceTree = "<group>"; };
-		71575B2C1E5B76DE00C6A18C /* InstructionsRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstructionsRootView.swift; path = Sources/Views/InstructionsRootView.swift; sourceTree = "<group>"; };
-		71575B2D1E5B76DE00C6A18C /* MainViewsLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewsLayoutHelper.swift; path = Sources/Helpers/MainViewsLayoutHelper.swift; sourceTree = "<group>"; };
-		71575B2E1E5B76DE00C6A18C /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverlayView.swift; path = Sources/Views/OverlayView.swift; sourceTree = "<group>"; };
-		71575B2F1E5B76DE00C6A18C /* OverlayViewLayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverlayViewLayerManager.swift; path = Sources/Managers/OverlayViewLayerManager.swift; sourceTree = "<group>"; };
-		71575B301E5B76DE00C6A18C /* SkipViewDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipViewDisplayManager.swift; path = Sources/Managers/SkipViewDisplayManager.swift; sourceTree = "<group>"; };
-		71575B311E5B76DE00C6A18C /* UIImage+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Bundle.swift"; path = "Sources/Extra/Extensions/UIImage+Bundle.swift"; sourceTree = "<group>"; };
-		71575B321E5B76DE00C6A18C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Sources/Supporting Files/Images.xcassets"; sourceTree = "<group>"; };
-		71575B351E5B76DE00C6A18C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71575B361E5B76DE00C6A18C /* Instructions.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = Instructions.modulemap; sourceTree = "<group>"; };
-		71575B371E5B76DE00C6A18C /* Instructions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Instructions.xcconfig; sourceTree = "<group>"; };
-		71575B381E5B76DE00C6A18C /* Instructions-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Instructions-dummy.m"; sourceTree = "<group>"; };
-		71575B391E5B76DE00C6A18C /* Instructions-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Instructions-prefix.pch"; sourceTree = "<group>"; };
-		71575B3A1E5B76DE00C6A18C /* Instructions-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Instructions-umbrella.h"; sourceTree = "<group>"; };
-		71575B621E5B775200C6A18C /* BlurEffectViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlurEffectViewHelper.swift; path = Sources/Helpers/BlurEffectViewHelper.swift; sourceTree = "<group>"; };
-		71575B631E5B775200C6A18C /* CoachMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMark.swift; path = Sources/Controllers/Public/CoachMark.swift; sourceTree = "<group>"; };
-		71575B641E5B775200C6A18C /* CoachMarkArrowDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowDefaultView.swift; path = "Sources/Extra/Default Views/CoachMarkArrowDefaultView.swift"; sourceTree = "<group>"; };
-		71575B651E5B775200C6A18C /* CoachMarkArrowOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowOrientation.swift; path = Sources/Extra/Enums/CoachMarkArrowOrientation.swift; sourceTree = "<group>"; };
-		71575B661E5B775200C6A18C /* CoachMarkArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkArrowView.swift; path = Sources/Protocols/Public/CoachMarkArrowView.swift; sourceTree = "<group>"; };
-		71575B671E5B775200C6A18C /* CoachMarkBodyDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultView.swift; path = "Sources/Extra/Default Views/CoachMarkBodyDefaultView.swift"; sourceTree = "<group>"; };
-		71575B681E5B775200C6A18C /* CoachMarkBodyDefaultViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyDefaultViewHelper.swift; path = Sources/Helpers/CoachMarkBodyDefaultViewHelper.swift; sourceTree = "<group>"; };
-		71575B691E5B775200C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyHighlightArrowDelegate.swift; path = Sources/Protocols/Public/CoachMarkBodyHighlightArrowDelegate.swift; sourceTree = "<group>"; };
-		71575B6A1E5B775200C6A18C /* CoachMarkBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkBodyView.swift; path = Sources/Protocols/Public/CoachMarkBodyView.swift; sourceTree = "<group>"; };
-		71575B6B1E5B775200C6A18C /* CoachMarkDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkDisplayManager.swift; path = Sources/Managers/CoachMarkDisplayManager.swift; sourceTree = "<group>"; };
-		71575B6C1E5B775200C6A18C /* CoachMarkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkHelper.swift; path = Sources/Helpers/CoachMarkHelper.swift; sourceTree = "<group>"; };
-		71575B6D1E5B775200C6A18C /* CoachMarkInnerLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkInnerLayoutHelper.swift; path = Sources/Helpers/CoachMarkInnerLayoutHelper.swift; sourceTree = "<group>"; };
-		71575B6E1E5B775200C6A18C /* CoachMarkLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkLayoutHelper.swift; path = Sources/Helpers/CoachMarkLayoutHelper.swift; sourceTree = "<group>"; };
-		71575B6F1E5B775200C6A18C /* CoachMarkPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkPosition.swift; path = Sources/Extra/Enums/CoachMarkPosition.swift; sourceTree = "<group>"; };
-		71575B701E5B775200C6A18C /* CoachMarksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksController.swift; path = Sources/Controllers/Public/CoachMarksController.swift; sourceTree = "<group>"; };
-		71575B711E5B775200C6A18C /* CoachMarksController+Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoachMarksController+Deprecated.swift"; path = "Sources/Controllers/Public/CoachMarksController+Deprecated.swift"; sourceTree = "<group>"; };
-		71575B721E5B775200C6A18C /* CoachMarksController+Proxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CoachMarksController+Proxy.swift"; path = "Sources/Controllers/Public/CoachMarksController+Proxy.swift"; sourceTree = "<group>"; };
-		71575B731E5B775200C6A18C /* CoachMarksControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDataSource.swift; path = Sources/Protocols/Public/CoachMarksControllerDataSource.swift; sourceTree = "<group>"; };
-		71575B741E5B775200C6A18C /* CoachMarksControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksControllerDelegate.swift; path = Sources/Protocols/Public/CoachMarksControllerDelegate.swift; sourceTree = "<group>"; };
-		71575B751E5B775200C6A18C /* CoachMarkSkipDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipDefaultView.swift; path = "Sources/Extra/Default Views/CoachMarkSkipDefaultView.swift"; sourceTree = "<group>"; };
-		71575B761E5B775200C6A18C /* CoachMarkSkipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkSkipView.swift; path = Sources/Protocols/Public/CoachMarkSkipView.swift; sourceTree = "<group>"; };
-		71575B771E5B775200C6A18C /* CoachMarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarksViewController.swift; path = Sources/Controllers/CoachMarksViewController.swift; sourceTree = "<group>"; };
-		71575B781E5B775200C6A18C /* CoachMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkView.swift; path = Sources/Views/CoachMarkView.swift; sourceTree = "<group>"; };
-		71575B791E5B775200C6A18C /* CoachMarkViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachMarkViewControllerDelegate.swift; path = Sources/Protocols/CoachMarkViewControllerDelegate.swift; sourceTree = "<group>"; };
-		71575B7A1E5B775200C6A18C /* DummyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DummyView.swift; path = Sources/Views/DummyView.swift; sourceTree = "<group>"; };
-		71575B7B1E5B775200C6A18C /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowManager.swift; path = Sources/Managers/FlowManager.swift; sourceTree = "<group>"; };
-		71575B7C1E5B775200C6A18C /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Instructions.swift; path = Sources/Instructions.swift; sourceTree = "<group>"; };
-		71575B7D1E5B775200C6A18C /* InstructionsRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstructionsRootView.swift; path = Sources/Views/InstructionsRootView.swift; sourceTree = "<group>"; };
-		71575B7E1E5B775200C6A18C /* MainViewsLayoutHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewsLayoutHelper.swift; path = Sources/Helpers/MainViewsLayoutHelper.swift; sourceTree = "<group>"; };
-		71575B7F1E5B775200C6A18C /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverlayView.swift; path = Sources/Views/OverlayView.swift; sourceTree = "<group>"; };
-		71575B801E5B775200C6A18C /* OverlayViewLayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverlayViewLayerManager.swift; path = Sources/Managers/OverlayViewLayerManager.swift; sourceTree = "<group>"; };
-		71575B811E5B775200C6A18C /* SkipViewDisplayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkipViewDisplayManager.swift; path = Sources/Managers/SkipViewDisplayManager.swift; sourceTree = "<group>"; };
-		71575B821E5B775200C6A18C /* UIImage+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Bundle.swift"; path = "Sources/Extra/Extensions/UIImage+Bundle.swift"; sourceTree = "<group>"; };
-		71575B831E5B775200C6A18C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Sources/Supporting Files/Images.xcassets"; sourceTree = "<group>"; };
-		71575B861E5B775200C6A18C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71575B871E5B775200C6A18C /* Instructions.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = Instructions.modulemap; sourceTree = "<group>"; };
-		71575B881E5B775200C6A18C /* Instructions.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Instructions.xcconfig; sourceTree = "<group>"; };
-		71575B891E5B775200C6A18C /* Instructions-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Instructions-dummy.m"; sourceTree = "<group>"; };
-		71575B8A1E5B775200C6A18C /* Instructions-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Instructions-prefix.pch"; sourceTree = "<group>"; };
-		71575B8B1E5B775200C6A18C /* Instructions-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Instructions-umbrella.h"; sourceTree = "<group>"; };
 		71A442461E54CDA200E7E584 /* BRYXBanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BRYXBanner.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Itspay-cozzahyqyvodtxegketdzeqjiphd/Build/Products/Debug-iphoneos/BRYXBanner/BRYXBanner.framework"; sourceTree = "<group>"; };
-		71A442481E54CDA900E7E584 /* Instructions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Instructions.framework; path = "Pods/../build/Debug-iphoneos/Instructions/Instructions.framework"; sourceTree = "<group>"; };
 		71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomToastNotification.swift; sourceTree = "<group>"; };
 		71AA00AC1E51EF0400132F38 /* Banner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Banner.swift; path = Pod/Classes/Banner.swift; sourceTree = "<group>"; };
 		71AA00AD1E51EF0400132F38 /* BRYXBanner.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = BRYXBanner.modulemap; sourceTree = "<group>"; };
@@ -452,6 +326,9 @@
 		EDFB60F41E15F06500C24A4E /* Unidades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unidades.swift; sourceTree = "<group>"; };
 		EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPlaceController.swift; sourceTree = "<group>"; };
 		EDFB61001E17E2EF00C24A4E /* DetailProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductView.swift; sourceTree = "<group>"; };
+		FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Instructions.xcodeproj; path = "libs/Instructions-master/Instructions.xcodeproj"; sourceTree = "<group>"; };
+		FBE27E661E5CFE9E00435F1A /* CustomCoachMarkArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCoachMarkArrowView.swift; sourceTree = "<group>"; };
+		FBE27E671E5CFE9E00435F1A /* CustomCoachMarkBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCoachMarkBodyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,7 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71575BB31E5B77FF00C6A18C /* Instructions.framework in Frameworks */,
+				FBE27E591E5CF97A00435F1A /* Instructions.framework in Frameworks */,
 				71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */,
 				EDD681581E00EC9F00E9017F /* CoreLocation.framework in Frameworks */,
 				ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */,
@@ -488,7 +365,7 @@
 		6AFE2308BDDE2C4EFED1B727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71A442481E54CDA900E7E584 /* Instructions.framework */,
+				FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */,
 				71A442461E54CDA200E7E584 /* BRYXBanner.framework */,
 				EDD681571E00EC9F00E9017F /* CoreLocation.framework */,
 				ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */,
@@ -496,152 +373,6 @@
 				99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		71575B331E5B76DE00C6A18C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				71575B321E5B76DE00C6A18C /* Images.xcassets */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		71575B341E5B76DE00C6A18C /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				71575B111E5B76DE00C6A18C /* BlurEffectViewHelper.swift */,
-				71575B121E5B76DE00C6A18C /* CoachMark.swift */,
-				71575B131E5B76DE00C6A18C /* CoachMarkArrowDefaultView.swift */,
-				71575B141E5B76DE00C6A18C /* CoachMarkArrowOrientation.swift */,
-				71575B151E5B76DE00C6A18C /* CoachMarkArrowView.swift */,
-				71575B161E5B76DE00C6A18C /* CoachMarkBodyDefaultView.swift */,
-				71575B171E5B76DE00C6A18C /* CoachMarkBodyDefaultViewHelper.swift */,
-				71575B181E5B76DE00C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift */,
-				71575B191E5B76DE00C6A18C /* CoachMarkBodyView.swift */,
-				71575B1A1E5B76DE00C6A18C /* CoachMarkDisplayManager.swift */,
-				71575B1B1E5B76DE00C6A18C /* CoachMarkHelper.swift */,
-				71575B1C1E5B76DE00C6A18C /* CoachMarkInnerLayoutHelper.swift */,
-				71575B1D1E5B76DE00C6A18C /* CoachMarkLayoutHelper.swift */,
-				71575B1E1E5B76DE00C6A18C /* CoachMarkPosition.swift */,
-				71575B1F1E5B76DE00C6A18C /* CoachMarksController.swift */,
-				71575B201E5B76DE00C6A18C /* CoachMarksController+Deprecated.swift */,
-				71575B211E5B76DE00C6A18C /* CoachMarksController+Proxy.swift */,
-				71575B221E5B76DE00C6A18C /* CoachMarksControllerDataSource.swift */,
-				71575B231E5B76DE00C6A18C /* CoachMarksControllerDelegate.swift */,
-				71575B241E5B76DE00C6A18C /* CoachMarkSkipDefaultView.swift */,
-				71575B251E5B76DE00C6A18C /* CoachMarkSkipView.swift */,
-				71575B261E5B76DE00C6A18C /* CoachMarksViewController.swift */,
-				71575B271E5B76DE00C6A18C /* CoachMarkView.swift */,
-				71575B281E5B76DE00C6A18C /* CoachMarkViewControllerDelegate.swift */,
-				71575B291E5B76DE00C6A18C /* DummyView.swift */,
-				71575B2A1E5B76DE00C6A18C /* FlowManager.swift */,
-				71575B2B1E5B76DE00C6A18C /* Instructions.swift */,
-				71575B2C1E5B76DE00C6A18C /* InstructionsRootView.swift */,
-				71575B2D1E5B76DE00C6A18C /* MainViewsLayoutHelper.swift */,
-				71575B2E1E5B76DE00C6A18C /* OverlayView.swift */,
-				71575B2F1E5B76DE00C6A18C /* OverlayViewLayerManager.swift */,
-				71575B301E5B76DE00C6A18C /* SkipViewDisplayManager.swift */,
-				71575B311E5B76DE00C6A18C /* UIImage+Bundle.swift */,
-				71575B331E5B76DE00C6A18C /* Resources */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		71575B3B1E5B76DE00C6A18C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				71575B351E5B76DE00C6A18C /* Info.plist */,
-				71575B361E5B76DE00C6A18C /* Instructions.modulemap */,
-				71575B371E5B76DE00C6A18C /* Instructions.xcconfig */,
-				71575B381E5B76DE00C6A18C /* Instructions-dummy.m */,
-				71575B391E5B76DE00C6A18C /* Instructions-prefix.pch */,
-				71575B3A1E5B76DE00C6A18C /* Instructions-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Instructions";
-			sourceTree = "<group>";
-		};
-		71575B3C1E5B76DE00C6A18C /* Instructions */ = {
-			isa = PBXGroup;
-			children = (
-				71575B341E5B76DE00C6A18C /* Core */,
-				71575B3B1E5B76DE00C6A18C /* Support Files */,
-			);
-			name = Instructions;
-			path = ../Pods/Instructions;
-			sourceTree = "<group>";
-		};
-		71575B841E5B775200C6A18C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				71575B831E5B775200C6A18C /* Images.xcassets */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		71575B851E5B775200C6A18C /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				71575B621E5B775200C6A18C /* BlurEffectViewHelper.swift */,
-				71575B631E5B775200C6A18C /* CoachMark.swift */,
-				71575B641E5B775200C6A18C /* CoachMarkArrowDefaultView.swift */,
-				71575B651E5B775200C6A18C /* CoachMarkArrowOrientation.swift */,
-				71575B661E5B775200C6A18C /* CoachMarkArrowView.swift */,
-				71575B671E5B775200C6A18C /* CoachMarkBodyDefaultView.swift */,
-				71575B681E5B775200C6A18C /* CoachMarkBodyDefaultViewHelper.swift */,
-				71575B691E5B775200C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift */,
-				71575B6A1E5B775200C6A18C /* CoachMarkBodyView.swift */,
-				71575B6B1E5B775200C6A18C /* CoachMarkDisplayManager.swift */,
-				71575B6C1E5B775200C6A18C /* CoachMarkHelper.swift */,
-				71575B6D1E5B775200C6A18C /* CoachMarkInnerLayoutHelper.swift */,
-				71575B6E1E5B775200C6A18C /* CoachMarkLayoutHelper.swift */,
-				71575B6F1E5B775200C6A18C /* CoachMarkPosition.swift */,
-				71575B701E5B775200C6A18C /* CoachMarksController.swift */,
-				71575B711E5B775200C6A18C /* CoachMarksController+Deprecated.swift */,
-				71575B721E5B775200C6A18C /* CoachMarksController+Proxy.swift */,
-				71575B731E5B775200C6A18C /* CoachMarksControllerDataSource.swift */,
-				71575B741E5B775200C6A18C /* CoachMarksControllerDelegate.swift */,
-				71575B751E5B775200C6A18C /* CoachMarkSkipDefaultView.swift */,
-				71575B761E5B775200C6A18C /* CoachMarkSkipView.swift */,
-				71575B771E5B775200C6A18C /* CoachMarksViewController.swift */,
-				71575B781E5B775200C6A18C /* CoachMarkView.swift */,
-				71575B791E5B775200C6A18C /* CoachMarkViewControllerDelegate.swift */,
-				71575B7A1E5B775200C6A18C /* DummyView.swift */,
-				71575B7B1E5B775200C6A18C /* FlowManager.swift */,
-				71575B7C1E5B775200C6A18C /* Instructions.swift */,
-				71575B7D1E5B775200C6A18C /* InstructionsRootView.swift */,
-				71575B7E1E5B775200C6A18C /* MainViewsLayoutHelper.swift */,
-				71575B7F1E5B775200C6A18C /* OverlayView.swift */,
-				71575B801E5B775200C6A18C /* OverlayViewLayerManager.swift */,
-				71575B811E5B775200C6A18C /* SkipViewDisplayManager.swift */,
-				71575B821E5B775200C6A18C /* UIImage+Bundle.swift */,
-				71575B841E5B775200C6A18C /* Resources */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		71575B8C1E5B775200C6A18C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				71575B861E5B775200C6A18C /* Info.plist */,
-				71575B871E5B775200C6A18C /* Instructions.modulemap */,
-				71575B881E5B775200C6A18C /* Instructions.xcconfig */,
-				71575B891E5B775200C6A18C /* Instructions-dummy.m */,
-				71575B8A1E5B775200C6A18C /* Instructions-prefix.pch */,
-				71575B8B1E5B775200C6A18C /* Instructions-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Instructions";
-			sourceTree = "<group>";
-		};
-		71575B8D1E5B775200C6A18C /* Instructions */ = {
-			isa = PBXGroup;
-			children = (
-				71575B851E5B775200C6A18C /* Core */,
-				71575B8C1E5B775200C6A18C /* Support Files */,
-			);
-			name = Instructions;
-			path = ../Pods/Instructions;
 			sourceTree = "<group>";
 		};
 		71AA00A91E51EC1C00132F38 /* CustomToastNotification */ = {
@@ -959,7 +690,6 @@
 			isa = PBXGroup;
 			children = (
 				ED93BF611E2A899F00F2C48A /* Itspay.entitlements */,
-				71575B8D1E5B775200C6A18C /* Instructions */,
 				ED8AF3A91DFF863A00EBB73F /* Utils */,
 				ED8AF3A81DFF863400EBB73F /* Service */,
 				EDAB8A761E007D3100C91453 /* Controller */,
@@ -1024,7 +754,7 @@
 		ED8AF3A91DFF863A00EBB73F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				71575B3C1E5B76DE00C6A18C /* Instructions */,
+				FBE27E5D1E5CFCAE00435F1A /* Tutorial */,
 				71AA00A91E51EC1C00132F38 /* CustomToastNotification */,
 				ED40D2721E43CACD00BD713C /* ImageStorage */,
 				ED525FED1E1BFB6700881184 /* iCarousel */,
@@ -1201,6 +931,25 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		FBE27E4E1E5CF97000435F1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBE27E541E5CF97000435F1A /* Instructions.framework */,
+				FBE27E561E5CF97000435F1A /* InstructionsAppExtensions.framework */,
+				FBE27E581E5CF97000435F1A /* InstructionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBE27E5D1E5CFCAE00435F1A /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				FBE27E661E5CFE9E00435F1A /* CustomCoachMarkArrowView.swift */,
+				FBE27E671E5CFE9E00435F1A /* CustomCoachMarkBodyView.swift */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1219,6 +968,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FBE27E5C1E5CF97A00435F1A /* PBXTargetDependency */,
 			);
 			name = Itspay;
 			productName = Itspay;
@@ -1271,7 +1021,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Compilab;
 				TargetAttributes = {
 					ED8AF3701DFF85C000EBB73F = {
@@ -1315,6 +1065,12 @@
 			mainGroup = ED8AF3681DFF85C000EBB73F;
 			productRefGroup = ED8AF3721DFF85C100EBB73F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FBE27E4E1E5CF97000435F1A /* Products */;
+					ProjectRef = FBE27E4D1E5CF97000435F1A /* Instructions.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ED8AF3701DFF85C000EBB73F /* Itspay */,
@@ -1324,33 +1080,50 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		FBE27E541E5CF97000435F1A /* Instructions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Instructions.framework;
+			remoteRef = FBE27E531E5CF97000435F1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FBE27E561E5CF97000435F1A /* InstructionsAppExtensions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = InstructionsAppExtensions.framework;
+			remoteRef = FBE27E551E5CF97000435F1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FBE27E581E5CF97000435F1A /* InstructionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = InstructionsTests.xctest;
+			remoteRef = FBE27E571E5CF97000435F1A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		ED8AF36F1DFF85C000EBB73F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				71AA00B81E51EF0400132F38 /* Info.plist in Resources */,
-				71575BAF1E5B775200C6A18C /* Images.xcassets in Resources */,
 				ED8AF3A51DFF862500EBB73F /* Login.storyboard in Resources */,
-				71575B5F1E5B76DE00C6A18C /* Info.plist in Resources */,
 				ED3913321E09868B001B506D /* MarketPlace.storyboard in Resources */,
 				ED3A02E11E0B0E91000BCE53 /* Settings.bundle in Resources */,
 				ED791B6A1E00629A002C4A70 /* General.storyboard in Resources */,
 				ED5322A01E056C25005ACBD2 /* mocks.plist in Resources */,
 				ED791B6C1E0066FA002C4A70 /* services.plist in Resources */,
 				ED5322A21E056CD4005ACBD2 /* config.plist in Resources */,
-				71AA00B61E51EF0400132F38 /* BRYXBanner.xcconfig in Resources */,
 				ED8AF3811DFF85C100EBB73F /* LaunchScreen.storyboard in Resources */,
 				ED5260111E22742500881184 /* ErrorView.xib in Resources */,
-				71575B5E1E5B76DE00C6A18C /* Images.xcassets in Resources */,
-				71575B601E5B76DE00C6A18C /* Instructions.xcconfig in Resources */,
 				ED52600F1E226EE500881184 /* kredit front.ttf in Resources */,
 				ED9B8A651E2D3F1100BF8632 /* CardInfoView.xib in Resources */,
-				71575BB11E5B775200C6A18C /* Instructions.xcconfig in Resources */,
 				ED8AF37E1DFF85C100EBB73F /* Assets.xcassets in Resources */,
 				ED8AF37C1DFF85C100EBB73F /* Cards.storyboard in Resources */,
 				ED52600D1E226A9900881184 /* HALTER__.ttf in Resources */,
-				71575BB01E5B775200C6A18C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1468,7 +1241,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71575B9B1E5B775200C6A18C /* CoachMarkPosition.swift in Sources */,
 				ED6FC3731E12DCB000AD4562 /* SecuritySettings.swift in Sources */,
 				ED525FFA1E203BE000881184 /* TipoEndereco.swift in Sources */,
 				ED4F9F6F1E19C68C00F99162 /* Button.swift in Sources */,
@@ -1476,41 +1248,20 @@
 				ED5260131E22749700881184 /* ErrorView.swift in Sources */,
 				ED36D9E91E22AFE7002EA07F /* ShippingItemView.swift in Sources */,
 				ED3A02E81E0C00F8000BCE53 /* TransferFinancialCard.swift in Sources */,
-				71575B3F1E5B76DE00C6A18C /* CoachMarkArrowDefaultView.swift in Sources */,
-				71575BAB1E5B775200C6A18C /* OverlayView.swift in Sources */,
 				ED3A02E51E0C00B7000BCE53 /* TransferMainView.swift in Sources */,
-				71575B9F1E5B775200C6A18C /* CoachMarksControllerDataSource.swift in Sources */,
-				71575B5A1E5B76DE00C6A18C /* OverlayView.swift in Sources */,
-				71575BA31E5B775200C6A18C /* CoachMarksViewController.swift in Sources */,
-				71575BA81E5B775200C6A18C /* Instructions.swift in Sources */,
-				71575B991E5B775200C6A18C /* CoachMarkInnerLayoutHelper.swift in Sources */,
 				ED8AF3CD1DFF8B1300EBB73F /* Repository.swift in Sources */,
 				EDFB60F51E15F06500C24A4E /* Caracteristicas.swift in Sources */,
 				ED713DF31E031F0E00E4D8E1 /* DataValidade.swift in Sources */,
-				71575B4C1E5B76DE00C6A18C /* CoachMarksController+Deprecated.swift in Sources */,
-				71575B9D1E5B775200C6A18C /* CoachMarksController+Deprecated.swift in Sources */,
-				71575B561E5B76DE00C6A18C /* FlowManager.swift in Sources */,
 				EDAB8A7C1E007E6100C91453 /* System.swift in Sources */,
 				71AA00B51E51EF0400132F38 /* Banner.swift in Sources */,
-				71575B491E5B76DE00C6A18C /* CoachMarkLayoutHelper.swift in Sources */,
 				ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */,
-				71575B941E5B775200C6A18C /* CoachMarkBodyDefaultViewHelper.swift in Sources */,
-				71575B501E5B76DE00C6A18C /* CoachMarkSkipDefaultView.swift in Sources */,
-				71575BA91E5B775200C6A18C /* InstructionsRootView.swift in Sources */,
-				71575BA21E5B775200C6A18C /* CoachMarkSkipView.swift in Sources */,
 				ED525FF41E1D85C600881184 /* ForgotPassowordView.swift in Sources */,
-				71575BA41E5B775200C6A18C /* CoachMarkView.swift in Sources */,
-				71575B971E5B775200C6A18C /* CoachMarkDisplayManager.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
-				71575BAC1E5B775200C6A18C /* OverlayViewLayerManager.swift in Sources */,
 				ED36D9ED1E245F05002EA07F /* InstallmentPaymentChooseView.swift in Sources */,
-				71575B3D1E5B76DE00C6A18C /* BlurEffectViewHelper.swift in Sources */,
 				713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */,
-				71575B571E5B76DE00C6A18C /* Instructions.swift in Sources */,
 				ED36D9F71E250BB0002EA07F /* ShippingPaymentView.swift in Sources */,
 				ED3A02F01E0C5889000BCE53 /* RatesView.swift in Sources */,
-				71575BA01E5B775200C6A18C /* CoachMarksControllerDelegate.swift in Sources */,
 				ED6FC3711E12D84100AD4562 /* Tariff.swift in Sources */,
 				EDFB60FA1E15F06500C24A4E /* ProductPartner.swift in Sources */,
 				ED713DF21E031F0E00E4D8E1 /* DataHoraInclusao.swift in Sources */,
@@ -1524,11 +1275,8 @@
 				ED525FF61E1DE64B00881184 /* ShippingFormsView.swift in Sources */,
 				EDFB60FC1E15F06500C24A4E /* Referencias.swift in Sources */,
 				ED52600A1E208E3E00881184 /* MyRequestDetailView.swift in Sources */,
-				71575B901E5B775200C6A18C /* CoachMarkArrowDefaultView.swift in Sources */,
 				ED9B8A671E2D3F6300BF8632 /* CardInfoView.swift in Sources */,
-				71575BAD1E5B775200C6A18C /* SkipViewDisplayManager.swift in Sources */,
 				EDC9F8201E07EF5800B0DD37 /* SideMenuTableViewController.swift in Sources */,
-				71575B921E5B775200C6A18C /* CoachMarkArrowView.swift in Sources */,
 				EDB8CADC1E119A5F00BC8089 /* ChargeView.swift in Sources */,
 				EDFB60F81E15F06500C24A4E /* Imagens.swift in Sources */,
 				ED9291B61E0233AF00F00F00 /* Constants.swift in Sources */,
@@ -1536,99 +1284,58 @@
 				ED713DF11E031F0E00E4D8E1 /* Credenciais.swift in Sources */,
 				EDC9F8251E07F70700B0DD37 /* CardsController.swift in Sources */,
 				ED39132E1E098607001B506D /* CartView.swift in Sources */,
-				71575B5D1E5B76DE00C6A18C /* UIImage+Bundle.swift in Sources */,
 				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
-				71575B931E5B775200C6A18C /* CoachMarkBodyDefaultView.swift in Sources */,
 				ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */,
 				ED3913291E088899001B506D /* VirtualCardStatement.swift in Sources */,
 				ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */,
 				ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */,
 				ED5260021E20488600881184 /* ShippingForm.swift in Sources */,
-				71575B951E5B775200C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift in Sources */,
-				71575B981E5B775200C6A18C /* CoachMarkHelper.swift in Sources */,
-				71575B911E5B775200C6A18C /* CoachMarkArrowOrientation.swift in Sources */,
-				71575BA61E5B775200C6A18C /* DummyView.swift in Sources */,
-				71575B5C1E5B76DE00C6A18C /* SkipViewDisplayManager.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED3913281E088899001B506D /* DataTransacao.swift in Sources */,
 				EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
-				71575B421E5B76DE00C6A18C /* CoachMarkBodyDefaultView.swift in Sources */,
-				71575B611E5B76DE00C6A18C /* Instructions-dummy.m in Sources */,
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,
-				71575B461E5B76DE00C6A18C /* CoachMarkDisplayManager.swift in Sources */,
-				71575B431E5B76DE00C6A18C /* CoachMarkBodyDefaultViewHelper.swift in Sources */,
 				ED3A02EA1E0C011B000BCE53 /* TransferOtherAccount.swift in Sources */,
 				ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */,
 				ED6FC3641E11BF7200AD4562 /* Ticket.swift in Sources */,
 				ED8AF3751DFF85C100EBB73F /* AppDelegate.swift in Sources */,
+				FBE27E681E5CFE9E00435F1A /* CustomCoachMarkArrowView.swift in Sources */,
 				EDFB60F91E15F06500C24A4E /* PalavrasChaves.swift in Sources */,
-				71575B4F1E5B76DE00C6A18C /* CoachMarksControllerDelegate.swift in Sources */,
-				71575B8F1E5B775200C6A18C /* CoachMark.swift in Sources */,
 				ED36D9EB1E245480002EA07F /* ShippingChooseCardView.swift in Sources */,
 				ED8AF3B91DFF89F600EBB73F /* DateFormatterComponent.swift in Sources */,
 				ED525FFE1E2040F300881184 /* ShippingFormsChooseView.swift in Sources */,
-				71575BB21E5B775200C6A18C /* Instructions-dummy.m in Sources */,
 				ED525FF21E1D45CF00881184 /* RequestNewVirtualCardTermsView.swift in Sources */,
 				ED36D9F11E24F3DF002EA07F /* ShippingSummaryView.swift in Sources */,
 				71AA00B71E51EF0400132F38 /* BRYXBanner-dummy.m in Sources */,
 				EDD681521E00E3C300E9017F /* FieldErrors.swift in Sources */,
-				71575B9E1E5B775200C6A18C /* CoachMarksController+Proxy.swift in Sources */,
 				ED4F9F6A1E19653C00F99162 /* LaunchScreenView.swift in Sources */,
-				71575B471E5B76DE00C6A18C /* CoachMarkHelper.swift in Sources */,
 				EDFB60F71E15F06500C24A4E /* DataHoraStatus.swift in Sources */,
-				71575B4A1E5B76DE00C6A18C /* CoachMarkPosition.swift in Sources */,
-				71575B411E5B76DE00C6A18C /* CoachMarkArrowView.swift in Sources */,
-				71575B481E5B76DE00C6A18C /* CoachMarkInnerLayoutHelper.swift in Sources */,
-				71575B521E5B76DE00C6A18C /* CoachMarksViewController.swift in Sources */,
-				71575B581E5B76DE00C6A18C /* InstructionsRootView.swift in Sources */,
 				EDFB60FB1E15F06500C24A4E /* Produtos.swift in Sources */,
-				71575B5B1E5B76DE00C6A18C /* OverlayViewLayerManager.swift in Sources */,
 				ED8AF3C51DFF8A8D00EBB73F /* Session.swift in Sources */,
 				71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */,
+				FBE27E691E5CFE9E00435F1A /* CustomCoachMarkBodyView.swift in Sources */,
 				ED36D9E71E22AD3A002EA07F /* MyRequestDetail.swift in Sources */,
 				EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */,
-				71575BAE1E5B775200C6A18C /* UIImage+Bundle.swift in Sources */,
-				71575B451E5B76DE00C6A18C /* CoachMarkBodyView.swift in Sources */,
-				71575B4D1E5B76DE00C6A18C /* CoachMarksController+Proxy.swift in Sources */,
-				71575B8E1E5B775200C6A18C /* BlurEffectViewHelper.swift in Sources */,
-				71575BA51E5B775200C6A18C /* CoachMarkViewControllerDelegate.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
-				71575B541E5B76DE00C6A18C /* CoachMarkViewControllerDelegate.swift in Sources */,
-				71575B4E1E5B76DE00C6A18C /* CoachMarksControllerDataSource.swift in Sources */,
 				ED36D9EF1E246018002EA07F /* InstallmentPayment.swift in Sources */,
-				71575B591E5B76DE00C6A18C /* MainViewsLayoutHelper.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
 				ED40D2741E43CAF500BD713C /* ImageStorage.swift in Sources */,
-				71575B511E5B76DE00C6A18C /* CoachMarkSkipView.swift in Sources */,
-				71575BA71E5B775200C6A18C /* FlowManager.swift in Sources */,
-				71575B531E5B76DE00C6A18C /* CoachMarkView.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,
 				ED8AF3AE1DFF86B600EBB73F /* LoginView.swift in Sources */,
-				71575B401E5B76DE00C6A18C /* CoachMarkArrowOrientation.swift in Sources */,
-				71575B9C1E5B775200C6A18C /* CoachMarksController.swift in Sources */,
 				EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */,
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
 				ED8AF3B61DFF89D800EBB73F /* Extensions.swift in Sources */,
 				ED525FF01E1BFBD000881184 /* iCarousel.m in Sources */,
-				71575BA11E5B775200C6A18C /* CoachMarkSkipDefaultView.swift in Sources */,
 				ED4F9F6C1E19705700F99162 /* ProductReferencesView.swift in Sources */,
 				ED5260041E204CC000881184 /* MyRequestsView.swift in Sources */,
-				71575B9A1E5B775200C6A18C /* CoachMarkLayoutHelper.swift in Sources */,
 				ED5260001E2044F000881184 /* AddressChooseView.swift in Sources */,
 				ED5260071E208CFE00881184 /* DataHoraPedido.swift in Sources */,
-				71575B3E1E5B76DE00C6A18C /* CoachMark.swift in Sources */,
 				ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */,
 				EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */,
-				71575BAA1E5B775200C6A18C /* MainViewsLayoutHelper.swift in Sources */,
-				71575B441E5B76DE00C6A18C /* CoachMarkBodyHighlightArrowDelegate.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
 				ED3913301E09865B001B506D /* HighlightsView.swift in Sources */,
 				EDAB8A741E007A8D00C91453 /* LoginRequestObject.swift in Sources */,
-				71575B961E5B775200C6A18C /* CoachMarkBodyView.swift in Sources */,
-				71575B4B1E5B76DE00C6A18C /* CoachMarksController.swift in Sources */,
-				71575B551E5B76DE00C6A18C /* DummyView.swift in Sources */,
 				ED6FC3691E11F95600AD4562 /* RequestVirtualCardsView.swift in Sources */,
 				ED6FC36D1E12061900AD4562 /* NewVirtualCard.swift in Sources */,
 				ED713DF61E03E62300E4D8E1 /* LoadingProgress.swift in Sources */,
@@ -1663,6 +1370,11 @@
 			isa = PBXTargetDependency;
 			target = ED8AF3701DFF85C000EBB73F /* Itspay */;
 			targetProxy = ED8AF3931DFF85C100EBB73F /* PBXContainerItemProxy */;
+		};
+		FBE27E5C1E5CF97A00435F1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Instructions;
+			targetProxy = FBE27E5B1E5CF97A00435F1A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1785,16 +1497,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00EC758617B7E9C8A3FE21FF /* Pods-Itspay.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = G5VUHQ58JL;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Instructions",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1812,16 +1522,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = G5VUHQ58JL;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Instructions",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

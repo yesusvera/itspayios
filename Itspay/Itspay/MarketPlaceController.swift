@@ -228,10 +228,10 @@ class MarketPlaceController {
                     return
                 }
                 
-                imageView.setShowActivityIndicator(showLoading)
-//                imageView.sd_setShowActivityIndicatorView(showLoading)
-                imageView.setIndicatorStyle(.gray)
-//                imageView.sd_setIndicatorStyle(.gray)
+//                imageView.setShowActivityIndicator(showLoading)
+                imageView.sd_setShowActivityIndicatorView(showLoading)
+//                imageView.setIndicatorStyle(.gray)
+                imageView.sd_setIndicatorStyle(.gray)
                 
                 Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
                     if let data = dataResponse {
@@ -263,10 +263,10 @@ class MarketPlaceController {
                 return
             }
             
-            imageView.setShowActivityIndicator(showLoading)
-//            imageView.sd_setShowActivityIndicatorView(showLoading)
-            imageView.setIndicatorStyle(.gray)
-//            imageView.sd_setIndicatorStyle(.gray)
+//            imageView.setShowActivityIndicator(showLoading)
+            imageView.sd_setShowActivityIndicatorView(showLoading)
+//            imageView.setIndicatorStyle(.gray)
+            imageView.sd_setIndicatorStyle(.gray)
             Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
                 if let data = dataResponse {
                     if let dataImage = Data(base64Encoded: data.base64EncodedString()) {
@@ -295,10 +295,10 @@ class MarketPlaceController {
             return
         }
         
-          imageView.setShowActivityIndicator(showLoading)
-//        imageView.sd_setShowActivityIndicatorView(showLoading)
-          imageView.setIndicatorStyle(.gray)
-//        imageView.sd_setIndicatorStyle(.gray)
+//          imageView.setShowActivityIndicator(showLoading)
+        imageView.sd_setShowActivityIndicatorView(showLoading)
+//          imageView.setIndicatorStyle(.gray)
+        imageView.sd_setIndicatorStyle(.gray)
         
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
             if let data = dataResponse {
