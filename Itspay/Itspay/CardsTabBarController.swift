@@ -155,21 +155,15 @@ extension CardsTabBarController: CoachMarksControllerDataSource {
         var coachMark : CoachMark
     
         
-        coachMark = coachMarksController.helper.makeCoachMark(for: self.tabBar)
+        var view = self.tabBar.items![1].value(forKey: "view")
         
-//        var item: UITabBarItem = self.tabBar.items![0]
-//        
-//        coachMark = coachMarksController.helper.makeCoachMark(for: item.image) { (frame: CGRect) -> UIBezierPath in
-//            // This will create a circular cutoutPath, perfect for the circular avatar!
-//            return UIBezierPath(ovalIn: frame.insetBy(dx: -4, dy: -4))
-//        }
-
+        coachMark = coachMarksController.helper.makeCoachMark(for: view as! UIView?)
+        
         coachMark.arrowOrientation = CoachMarkArrowOrientation.top
         
         coachMark.gapBetweenCoachMarkAndCutoutPath = 6.0
         
         return coachMark
-
     }
     
     /// Asks for the views defining the coach mark that will be displayed in
@@ -191,17 +185,13 @@ extension CardsTabBarController: CoachMarksControllerDataSource {
         
         var width: CGFloat = 0.0
         
-        switch(index) {
-        case 0:
-            coachMarkBodyView.hintLabel.text = "teste"
-            coachMarkBodyView.nextButton.setTitle("teste proximo", for: UIControlState())
-            
-//            if let avatar = self.tabBar.itemWidth {
-                width = self.tabBar.itemWidth
-//            }
-        default: break
-        }
+        coachMarkBodyView.hintLabel.text = "teste"
+        coachMarkBodyView.nextButton.setTitle("teste proximo", for: UIControlState())
         
+         var view = self.tabBar.items![1].value(forKey: "view") as! UIView
+        
+         width = view.bounds.width
+
         // We create an arrow only if an orientation is provided (i. e., a cutoutPath is provided).
         // For that custom coachmark, we'll need to update a bit the arrow, so it'll look like
         // it fits the width of the view.
