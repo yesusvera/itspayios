@@ -32,11 +32,11 @@ class CardsView: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let isTouchID = UserDefaults.standard.object(forKey: "isGoMarktplace") as? Bool{
-            if(!isTouchID){
+         let isGoMarktplace :Bool = (UserDefaults.standard.object(forKey: "isGoMarktplace") != nil)
+            if(!isGoMarktplace){
                 CustomToastNotification().showNotification(view: view)
             }
-        }
+
     }
     
     func getVirtualCards() {

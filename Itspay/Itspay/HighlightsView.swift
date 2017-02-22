@@ -9,18 +9,21 @@
 import UIKit
 import PARTagPicker
 
-class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
+class HighlightsView: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, PARTagPickerDelegate {
+    
     @IBOutlet var viewHeader: UIView!
     
     @IBOutlet var errorView: ErrorView!
     
     var tagPicker = PARTagPickerViewController()
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var allTags = [String]()
     
     var arrayProductPartner = [ProductPartner]()
     var arrayProductPartnerFiltered = [ProductPartner]()
-
+    
     var selectedProductPartner : ProductPartner!
     var selectedProduct : Produtos!
     
@@ -112,14 +115,14 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
     }
     
     func configureCollectionViewLayout() {
-        
+        //
         let layout = UICollectionViewFlowLayout()
-        
-        layout.sectionInset = UIEdgeInsets(top: COLLECTION_VIEW_HEIGHT+32, left: 0, bottom: 0, right: 0)
+        //
+        //        layout.sectionInset = UIEdgeInsets(top: COLLECTION_VIEW_HEIGHT+32, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: SCREEN_WIDTH/2, height: 220)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-
+        
         collectionView!.collectionViewLayout = layout
     }
     
@@ -131,7 +134,7 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         } else if state == .topOnly {
             newHeight = COLLECTION_VIEW_HEIGHT
         }
-    
+        
         var frame = self.tagPicker.view.frame
         
         frame.size.height = newHeight
@@ -195,59 +198,50 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
         }
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return arrayProductPartnerFiltered.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let productPartner = arrayProductPartnerFiltered[section]
         
         if let array = productPartner.produtos {
             return array.count
         }
-    
+        
         return 0
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        var height = labelProductName.stringHeight + 32
-//        
-//        if height < 44 {
-//            height = 44
-//        }
-//        
-//        if indexPath.row == 0 {
-//            return height
-//        }
-//        if indexPath.row == 2 {
-//            height = labelProductDescription.stringHeight + 32
-//            return height;
-//        }
-//        return super.tableView(tableView, heightForRowAt: indexPath)
-//    }
-//    
-//    func numberOfItems(in carousel: iCarousel) -> Int {
-//        if let array = product.imagens {
-//            return array.count
-//        }
-//        
-//        return 0
-//    }
-//    
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    var hideHeader: Bool = true
+    func outroMetodo(){
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: SCREEN_WIDTH/2, height: 220)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        collectionView?.collectionViewLayout = layout
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HighlightsCellIdentifier", for: indexPath)
+        
+        
         
         let productPartner = arrayProductPartnerFiltered[indexPath.section]
         
         let arrayProducts = productPartner.produtos!
         
         let product = arrayProducts[indexPath.row]
-      
+        
         if let label = cell.viewWithTag(1) as? UILabel, let value = product.nomeProduto {
             label.text = "\(value)"
         }
-
+        
         if let imageView = cell.viewWithTag(2) as? UIImageView {
             MarketPlaceController.getMainProductImage(product, in: imageView, showLoading: true)
         }
@@ -267,11 +261,10 @@ class HighlightsView: UICollectionViewController, PARTagPickerDelegate {
                 }
             }
         }
-        
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let productPartner = arrayProductPartnerFiltered[indexPath.section]
         
         let arrayProducts = productPartner.produtos!
