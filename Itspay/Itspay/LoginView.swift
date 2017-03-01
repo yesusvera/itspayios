@@ -29,11 +29,12 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        switchTouchIdValue.onTintColor =  UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+        
         if let isTouchID = UserDefaults.standard.object(forKey: "isTouchIdOn") as? Bool {
             isTouchIdOn = isTouchID
             
             switchTouchIdValue.isOn = isTouchIdOn
-            switchTouchIdValue.onTintColor =  UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         }
     }
     

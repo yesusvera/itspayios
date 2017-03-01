@@ -1,46 +1,33 @@
 //
-//  RegisterView.swift
+//  FinishUserLoginView.swift
 //  Itspay
 //
-//  Created by Arthur Augusto Sousa Marques on 12/12/16.
-//  Copyright © 2016 Compilab. All rights reserved.
+//  Created by Junior Braga on 28/02/17.
+//  Copyright © 2017 Compilab. All rights reserved.
 //
-
-
-
-//Teste primeiro Registro
-
 
 import UIKit
 import PickerFieldsDataHelper
 
-class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardIOPaymentViewControllerDelegate {
-    @IBOutlet weak var labelErrorCardNumber: UILabel!
-    @IBOutlet weak var labelErrorBirthday: UILabel!
-    @IBOutlet weak var labelErrorCPF: UILabel!
+class FinishUserLoginView: UITableViewController {
+    
     @IBOutlet weak var labelErrorEmail: UILabel!
     @IBOutlet weak var labelErrorEmailConfirmation: UILabel!
     @IBOutlet weak var labelErrorPassword: UILabel!
     @IBOutlet weak var labelErrorPasswordConfirmation: UILabel!
     
-    @IBOutlet weak var textFieldBirthday: UITextField!
-    @IBOutlet weak var textFieldCPF: TextFieldCPFMask!
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldEmailConfirmation: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldPasswordConfirmation: UITextField!
-    @IBOutlet weak var textFieldCardNumber: TextFieldCardNumberMask!
     
     @IBOutlet weak var switchConfirmationValue: UISwitch!
     
-    @IBOutlet weak var buttonCameraValue: UIButton!
+    
     
     let pickerFieldsDataHelper = PickerFieldsDataHelper()
     
-    var cardNumber : String!
     var email : String!
-    var birthday : String!
-    var cpf : String!
     var password : String!
     var switchBollean = false
     
@@ -49,103 +36,53 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         configureView()
         
         self.title = "Cadastro Login"
-        
-        CardIOUtilities.preloadCardIO()
-        
-        pickerFieldsDataHelper.delegate = self
-        
-        pickerFieldsDataHelper.addDataHelpers([textFieldBirthday], isDateType: true)
-        
-        pickerFieldsDataHelper.doneButtonTitle = "OK"
-        pickerFieldsDataHelper.initWithTodayDate = true
     }
     
     func configureView(){
         switchConfirmationValue.onTintColor =  UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
-        labelErrorCardNumber.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
-        labelErrorBirthday.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
-        labelErrorCPF.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorEmail.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorEmailConfirmation.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorPassword.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorPasswordConfirmation.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
-        buttonCameraValue.tintColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
     }
     
-
+    
     @IBAction func aceptTerms(_ sender: UISwitch) {
         switchBollean = sender.isOn
     }
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
             if switchBollean {
-                let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : birthday, cpf: cpf, password: password)
+                let registerLoginObject = LoginController.createRegisterLoginObject()
                 let url = Repository.createServiceURLFromPListValue(.services, key: "register")
-            
+                
                 Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
                     if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
                         self.performSegue(withIdentifier: "CardsSegue", sender: self)
                     }
                 })
-        
+                
             }else{
                 AlertComponent.showSimpleAlert(title: "Atenção", message: "Aceite os termos para criar login ", viewController: self)
             }
         }
     }
     
-    @IBAction func buttonCameraAction(_ sender: UIButton) {
-        if let paymentViewController = CardIOPaymentViewController.init(paymentDelegate: self) {
-            paymentViewController.useCardIOLogo = true
-            paymentViewController.hideCardIOLogo = true
-            paymentViewController.navigationBarTintColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
-            self.present(paymentViewController, animated: true, completion: nil)
-        }
-    }
-    
-    func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
-        paymentViewController.dismiss(animated: true, completion: nil)
-    }
-    
-    func userDidProvide(_ cardInfo: CardIOCreditCardInfo!, in paymentViewController: CardIOPaymentViewController!) {
-        print("Received card info. Number: \(cardInfo.redactedCardNumber), expiry: \(cardInfo.expiryMonth)/\(cardInfo.expiryYear), cvv: \(cardInfo.cvv)")
-        
-        textFieldCardNumber.text = cardInfo.redactedCardNumber
-        
-        paymentViewController.dismiss(animated: true, completion: nil)
-    }
     
     func isFormValid() -> Bool {
-        var ErrorCardNumber = false
-        var ErrorBirthday = false
-        var ErrorCPF = false
         var ErrorEmail = false
         var ErrorEmailConfirmation = false
         var ErrorPassword = false
         var ErrorPasswordConfirmation = false
         
-        labelErrorCardNumber.isHidden = false
-        labelErrorBirthday.isHidden = false
-        labelErrorCPF.isHidden = false
         labelErrorEmail.isHidden = false
         labelErrorEmailConfirmation.isHidden = false
         labelErrorPassword.isHidden = false
         labelErrorPasswordConfirmation.isHidden = false
         
         var cadastro : CadastroSingleton = CadastroSingleton.sharedInstance
-
-        //guards
-        guard let cardNumberForm = textFieldCardNumber.text else {
-            return false
-        }
-        guard let birthdayForm = textFieldBirthday.text else {
-            labelErrorBirthday.text = "Data de nascimento vazia."
-            return false
-        }
-        guard let cpfForm = textFieldCPF.text else {
-            labelErrorCPF.text = "CPF vazio."
-            return false
-        }
+        
+        
         guard let emailForm = textFieldEmail.text else {
             labelErrorEmail.text = "Email vazio."
             return false
@@ -162,40 +99,6 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         guard let passwordConfirmation = textFieldPasswordConfirmation.text else {
             labelErrorPasswordConfirmation.text = "Confirmação de Senha vazia."
             return false
-        }
-        
-        //Cartao
-        if cardNumberForm.isEmptyOrWhitespace() || !cardNumberForm.isCardNumber() {
-            ErrorCardNumber = true
-        }else{
-            cardNumber = cardNumberForm
-            ErrorCardNumber = false
-            labelErrorCardNumber.isHidden = true
-        }
-        
-        //Aniversário
-        if birthdayForm.isEmptyOrWhitespace() {
-            labelErrorBirthday.text = "Data de nascimento vazia."
-            ErrorBirthday = true
-        } else{
-            ErrorBirthday = false
-            birthday = birthdayForm
-            labelErrorBirthday.isHidden = true
-        }
-        
-        //CPF
-        let cpfValidation = cpfForm.isCPFValid()
-        
-        if cpfForm.isEmptyOrWhitespace() {
-            labelErrorCPF.text = "CPF vazio."
-            ErrorCPF = true
-        }else if !cpfValidation.value {
-            labelErrorCPF.text = cpfValidation.message
-            ErrorCPF = true
-        }else{
-            ErrorCPF = false
-            cpf = cpfForm
-            labelErrorCPF.isHidden = true
         }
         
         //Email
@@ -221,6 +124,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
             email = emailForm
             labelErrorEmailConfirmation.isHidden = true
             ErrorEmailConfirmation = false
+            cadastro.email = email
         }
         
         //Senha
@@ -243,12 +147,13 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
             password = passwordForm
             labelErrorPasswordConfirmation.isHidden = true
             ErrorPasswordConfirmation = false
+            cadastro.password = password
         }
         
         /////////////////////////////////////////////////////////////////////////
         
         
-        if ErrorCardNumber || ErrorBirthday || ErrorCPF || ErrorEmail || ErrorEmailConfirmation ||
+        if ErrorEmail || ErrorEmailConfirmation ||
             ErrorPassword || ErrorPasswordConfirmation {
             return false
         }else{

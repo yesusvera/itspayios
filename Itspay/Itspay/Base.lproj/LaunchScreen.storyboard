@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,13 +21,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackBahamas" translatesAutoresizingMaskIntoConstraints="NO" id="1xb-gm-NsX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackFinancial" translatesAutoresizingMaskIntoConstraints="NO" id="1xb-gm-NsX">
                                 <rect key="frame" x="-2" y="-2" width="379" height="671"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01o-Eo-GZD">
                                 <rect key="frame" x="0.0" y="228" width="375" height="211"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BahamasLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fuF-Av-1Wj">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="financialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fuF-Av-1Wj">
                                         <rect key="frame" x="52.5" y="51.5" width="270" height="108"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="270" id="BfL-fr-YZ1"/>
@@ -60,7 +61,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackBahamas" width="757" height="1343"/>
-        <image name="BahamasLogo" width="473" height="189"/>
+        <image name="BackFinancial" width="640" height="1136"/>
+        <image name="financialLogo" width="289" height="100"/>
     </resources>
 </document>

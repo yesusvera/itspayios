@@ -193,7 +193,7 @@
         <scene sceneID="8sm-h9-1vm">
             <objects>
                 <navigationController storyboardIdentifier="SideMenuNavigationController" id="BdS-3b-P5S" customClass="UISideMenuNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z5A-dx-AQR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z5A-dx-AQR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -524,7 +524,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="creditoecobranca@bahamascard.com.br" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-6u-fsS">
-                                                    <rect key="frame" x="102" y="11" width="257" height="21"/>
+                                                    <rect key="frame" x="102" y="1" width="257" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

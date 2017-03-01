@@ -10,40 +10,40 @@ import UIKit
 
 //Bahamas
 //Build Indentifier = br.com.itspay.bahamascard
-var ONE_SIGNAL_APP_ID = "38968233-20ea-4d71-bab7-51e4a8017553"
-
-var COLOR_BUTTON_HEX = "EF3D3C"
-var COLOR_NAVIGATION_BAR_HEX = "072E4E"
-var COLOR_BUTTON_PRINCIPAL_HEX = "AB772C"
-var COLOR_TAG_SELECTED_ITEM = "EF3D3C"
-var COLOR_TAG_ITEM = "AB772C"
-var TEXT_COLOR_TAG = "FFFFFF"
-var TEXT_COLOR_TAG_2 = "FFFFFF"
-var LOGO_CLIENT = "BahamasLogo"
-var BACKGROUND_CLIENT = "BackBahamas"
-
-var PHONE_SAC = "3232294950"
-var PHONE_OUVIDORIA = "3208002859632"
-var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
+//var ONE_SIGNAL_APP_ID = "38968233-20ea-4d71-bab7-51e4a8017553"
+//
+//var COLOR_BUTTON_HEX = "EF3D3C"
+//var COLOR_NAVIGATION_BAR_HEX = "072E4E"
+//var COLOR_BUTTON_PRINCIPAL_HEX = "AB772C"
+//var COLOR_TAG_SELECTED_ITEM = "EF3D3C"
+//var COLOR_TAG_ITEM = "AB772C"
+//var TEXT_COLOR_TAG = "FFFFFF"
+//var TEXT_COLOR_TAG_2 = "FFFFFF"
+//var LOGO_CLIENT = "BahamasLogo"
+//var BACKGROUND_CLIENT = "BackBahamas"
+//
+//var PHONE_SAC = "3232294950"
+//var PHONE_OUVIDORIA = "3208002859632"
+//var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
 
 
 //    Financial
 //   Build Indentifier = br.com.dis.itspay.financial
-//var ONE_SIGNAL_APP_ID = "b7eb2b60-b76a-4412-a98d-cacae05f070e"
-//
-//var COLOR_BUTTON_HEX = "072E4E"
-//var COLOR_NAVIGATION_BAR_HEX = "EF3D3C"
-//var COLOR_BUTTON_PRINCIPAL_HEX = "EF3D3C"
-//var COLOR_TAG_SELECTED_ITEM = "E6E6E6"
-//var COLOR_TAG_ITEM = "072E4E"
-//var TEXT_COLOR_TAG = "072E4E"
-//var TEXT_COLOR_TAG_2 = "FFFFFF"
-//var LOGO_CLIENT = "financialLogo"
-//var BACKGROUND_CLIENT = "BackFinancial"
+var ONE_SIGNAL_APP_ID = "b7eb2b60-b76a-4412-a98d-cacae05f070e"
 
-//var PHONE_SAC = "08009406020"
-//var PHONE_OUVIDORIA = "(37)35129797"
-//var EMAIL_SAC = "sac@financialcartoes.com.br"
+var COLOR_BUTTON_HEX = "072E4E"
+var COLOR_NAVIGATION_BAR_HEX = "EF3D3C"
+var COLOR_BUTTON_PRINCIPAL_HEX = "EF3D3C"
+var COLOR_TAG_SELECTED_ITEM = "E6E6E6"
+var COLOR_TAG_ITEM = "072E4E"
+var TEXT_COLOR_TAG = "072E4E"
+var TEXT_COLOR_TAG_2 = "FFFFFF"
+var LOGO_CLIENT = "financialLogo"
+var BACKGROUND_CLIENT = "BackFinancial"
+
+var PHONE_SAC = "08009406020"
+var PHONE_OUVIDORIA = "(37)35129797"
+var EMAIL_SAC = "sac@financialcartoes.com.br"
 
 
 var COLOR_BLUE_HEX = "072E4E"

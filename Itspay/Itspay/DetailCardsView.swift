@@ -133,6 +133,63 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 boomMenuButton.buttonPlaceEnum = .SC_3_1
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                    
+                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                        builder?.imageNormal = "change_key"
+                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                        builder?.textNormalColor = UIColor.white
+                        builder?.textPressedColor = UIColor.white
+                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                        builder?.lines = 2
+                        builder?.lineBreakMode = .byClipping
+                        builder?.textContent = "Senha do Cartão"
+                        builder?.rotateImage = true
+                        builder?.rotateText = true
+                        builder?.shadowOffset = CGSize(width: 5, height: 5)
+                        builder?.shadowOpacity = 0
+                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+            }else if idProduto == 4{
+                
+                boomMenuButton.piecePlaceEnum = .DOT_4_1
+                boomMenuButton.buttonPlaceEnum = .SC_4_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "virtual_card"
                     builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
                     builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
@@ -182,10 +239,28 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "change_key"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Senha do Cartão"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
 
             }else {
-                boomMenuButton.piecePlaceEnum = .DOT_6_1
-                boomMenuButton.buttonPlaceEnum = .SC_6_1
+                boomMenuButton.piecePlaceEnum = .DOT_7_1
+                boomMenuButton.buttonPlaceEnum = .SC_7_1
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "transfer"
@@ -289,6 +364,24 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "change_key"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Senha do Cartão"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)})
             }
         }
     }
@@ -298,8 +391,10 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             if idProduto == 2 || idProduto == 3 {
                 if index.hashValue == 0 {
                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-                } else {
+                } else if index.hashValue == 1 {
                     LoginController.logout(self)
+                }else{
+                    customAlertPassword()
                 }
             }  else if idProduto == 4 {
                 
@@ -310,6 +405,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 } else if index.hashValue == 2 {
 //                    LoginController.logout(self)
                     buttonComunicateAction()
+                }else{
+                    customAlertPassword()
                 }
                 
             }else {
@@ -326,6 +423,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 } else if index.hashValue == SideMenuType.logout.rawValue {
 //                    LoginController.logout(self)
                     buttonComunicateAction()
+                }else{
+                    customAlertPassword()
                 }
             }
         }
@@ -358,10 +457,12 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             if idProduto == 2 || idProduto == 3 {
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+                arraySideMenuObjects.append(SideMenuObject(title: "Nova Senha",imagePath: "card",menuType: .newPassword))
             }else if idProduto == 4 {
                 arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+                arraySideMenuObjects.append(SideMenuObject(title: "Nova Senha",imagePath: "card",menuType: .newPassword))
             }else {
                 arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
                 arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
@@ -369,6 +470,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Tarifas", imagePath: "cash", menuType: .rates))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+                arraySideMenuObjects.append(SideMenuObject(title: "Nova Senha",imagePath: "card",menuType: .newPassword))
             }
         }
         
@@ -445,8 +547,56 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             } else if object.menuType == .logout {
 //                LoginController.logout(self)
                 buttonComunicateAction()
+            }else if object.menuType == .newPassword {
+               customAlertPassword()
             }
         }
+    }
+    
+    func customAlertPassword(){
+        
+        let alert = UIAlertController(title: "Alterar Senha",
+                                      message: "Para alterar senha do cartão digite a senha de acesso",
+                                      preferredStyle: .alert)
+        
+        // Cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
+        
+        // Add 1 textField and customize it
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .default
+            textField.autocorrectionType = .default
+            textField.placeholder = "Senha de acesso ao aplicativo"
+            textField.clearButtonMode = .whileEditing
+            textField.isSecureTextEntry = true
+            textField.enablesReturnKeyAutomatically = true
+        }
+        
+        // Submit button
+        let submitAction = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            print(textField.text!)
+            
+            
+            var password = ""
+            if let value = UserDefaults.standard.object(forKey: "lastPasswordLogged") as? String {
+                password = value
+            }
+            
+            if textField.text == password {
+                
+                self.performSegue(withIdentifier: "changePasswordCard", sender: self)
+            }else{
+                AlertComponent.showSimpleAlert(title: "Alerta", message: "Senha Invalida", viewController: self)
+            }
+        })
+        
+        // Add action buttons and present the Alert
+        alert.addAction(submitAction)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
     }
     
     //Alert Logout
@@ -565,6 +715,10 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         } else if segue.identifier == "SecuritySettingsSegue" {
             let viewController = segue.destination as! SecuritySettingsView
             viewController.virtualCard = virtualCard
+        }else if segue.identifier == "changePasswordCard"{
+            let viewController = segue.destination as! ChangePasswordCardView
+            viewController.virtualCard = virtualCard
+            
         }
     }
 }

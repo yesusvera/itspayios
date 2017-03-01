@@ -279,10 +279,10 @@ class CardsController {
             return
         }
         
-         imageView.sd_setShowActivityIndicatorView(true)
-//        imageView.setShowActivityIndicator(true)
-         imageView.sd_setIndicatorStyle(.gray)
-//        imageView.setIndicatorStyle(.gray)
+//         imageView.sd_setShowActivityIndicatorView(true)
+        imageView.setShowActivityIndicator(true)
+//         imageView.sd_setIndicatorStyle(.gray)
+        imageView.setIndicatorStyle(.gray)
         
         Connection.requestData(url, method: .get, parameters: nil, dataResponse: { (dataResponse) in
             if let data = dataResponse {

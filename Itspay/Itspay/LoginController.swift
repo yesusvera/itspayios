@@ -42,11 +42,31 @@ class LoginController {
     
     static func createRegisterLoginObject(_ email : String, birthday : String, cpf : String, password : String) -> LoginRequestObject {
         var dictionary = [String:Any]()
-        
+         
         dictionary["email"] = email
         dictionary["dataNascimento"] = birthday
         dictionary["cpf"] = cpf.onlyNumbers()
         dictionary["senha"] = password
+        dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
+        dictionary["credencial"] = CREDENCIAL
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        print("Create Register Object: \(dictionary)")
+        
+        return LoginRequestObject(object: dictionary)
+    }
+    
+    
+    static func createRegisterLoginObject() -> LoginRequestObject {
+        var dictionary = [String:Any]()
+        
+        let cadastro : CadastroSingleton = CadastroSingleton.sharedInstance
+        
+        dictionary["email"] = cadastro.email
+        dictionary["dataNascimento"] = cadastro.burthday
+        dictionary["cpf"] = cadastro.cpf.onlyNumbers()
+        dictionary["senha"] = cadastro.password
         dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
         dictionary["credencial"] = CREDENCIAL
         dictionary["idInstituicao"] = ID_INSTITUICAO

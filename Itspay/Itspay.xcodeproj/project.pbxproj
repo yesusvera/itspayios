@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
-		7158147F1E5E1C640048A988 /* Teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7158147E1E5E1C640048A988 /* Teste.swift */; };
 		71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442461E54CDA200E7E584 /* BRYXBanner.framework */; };
 		71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */; };
 		71AA00B51E51EF0400132F38 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AC1E51EF0400132F38 /* Banner.swift */; };
 		71AA00B71E51EF0400132F38 /* BRYXBanner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AF1E51EF0400132F38 /* BRYXBanner-dummy.m */; };
 		71AA00B81E51EF0400132F38 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71AA00B21E51EF0400132F38 /* Info.plist */; };
+		71CD56AD1E66A5C0005EB668 /* UserRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD56AC1E66A5C0005EB668 /* UserRegisterView.swift */; };
+		71CD56AF1E66A637005EB668 /* CadastroSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD56AE1E66A637005EB668 /* CadastroSingleton.swift */; };
+		71CD56B11E66A658005EB668 /* TokenCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD56B01E66A658005EB668 /* TokenCheckView.swift */; };
+		71CD56B31E66A67F005EB668 /* FinishUserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD56B21E66A67F005EB668 /* FinishUserLoginView.swift */; };
+		71CD56B51E66A711005EB668 /* ChangePasswordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CD56B41E66A711005EB668 /* ChangePasswordCardView.swift */; };
 		ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A3A021DFFA73100D9C878 /* TextFieldMasks.swift */; };
 		ED1A3A061DFFA90100D9C878 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1A3A051DFFA90100D9C878 /* LocalAuthentication.framework */; };
 		ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36D9E41E22AD3A002EA07F /* ItensPedido.swift */; };
@@ -206,6 +210,11 @@
 		71AA00B01E51EF0400132F38 /* BRYXBanner-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRYXBanner-prefix.pch"; sourceTree = "<group>"; };
 		71AA00B11E51EF0400132F38 /* BRYXBanner-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRYXBanner-umbrella.h"; sourceTree = "<group>"; };
 		71AA00B21E51EF0400132F38 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71CD56AC1E66A5C0005EB668 /* UserRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterView.swift; sourceTree = "<group>"; };
+		71CD56AE1E66A637005EB668 /* CadastroSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CadastroSingleton.swift; sourceTree = "<group>"; };
+		71CD56B01E66A658005EB668 /* TokenCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenCheckView.swift; sourceTree = "<group>"; };
+		71CD56B21E66A67F005EB668 /* FinishUserLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishUserLoginView.swift; sourceTree = "<group>"; };
+		71CD56B41E66A711005EB668 /* ChangePasswordCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordCardView.swift; sourceTree = "<group>"; };
 		7D3086FF01FA91BB2DF7F6C2 /* Pods-ItspayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.release.xcconfig"; sourceTree = "<group>"; };
 		99503E89C7FEC046AF52FBE5 /* Pods_ItspayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItspayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itspay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -408,6 +417,17 @@
 			);
 			name = BRYXBanner;
 			path = ../Pods/BRYXBanner;
+			sourceTree = "<group>";
+		};
+		71CD56A91E66A59E005EB668 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				71CD56AC1E66A5C0005EB668 /* UserRegisterView.swift */,
+				71CD56AE1E66A637005EB668 /* CadastroSingleton.swift */,
+				71CD56B01E66A658005EB668 /* TokenCheckView.swift */,
+				71CD56B21E66A67F005EB668 /* FinishUserLoginView.swift */,
+			);
+			name = Register;
 			sourceTree = "<group>";
 		};
 		B0DC71CE05DB5A7FFF901FB2 /* Pods */ = {
@@ -663,6 +683,7 @@
 				ED791B691E00629A002C4A70 /* General.storyboard */,
 				ED5260121E22749700881184 /* ErrorView.swift */,
 				ED5260101E22742500881184 /* ErrorView.xib */,
+				71CD56B41E66A711005EB668 /* ChangePasswordCardView.swift */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -797,6 +818,7 @@
 		ED8AF3AB1DFF866D00EBB73F /* Login & Register */ = {
 			isa = PBXGroup;
 			children = (
+				71CD56A91E66A59E005EB668 /* Register */,
 				EDBBDCCF1DFFAD0000EB469A /* MainView.swift */,
 				ED8AF3AD1DFF86B600EBB73F /* LoginView.swift */,
 				ED8AF3AF1DFF86C100EBB73F /* RegisterView.swift */,
@@ -1260,6 +1282,7 @@
 				ED5322A41E05B291005ACBD2 /* DetailCardsView.swift in Sources */,
 				ED525FF41E1D85C600881184 /* ForgotPassowordView.swift in Sources */,
 				ED791B681E006292002C4A70 /* WebView.swift in Sources */,
+				71CD56AD1E66A5C0005EB668 /* UserRegisterView.swift in Sources */,
 				ED8AF3B21DFF86DF00EBB73F /* CardsView.swift in Sources */,
 				ED36D9ED1E245F05002EA07F /* InstallmentPaymentChooseView.swift in Sources */,
 				713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */,
@@ -1272,6 +1295,7 @@
 				EDC9F8231E07F00900B0DD37 /* SideMenuObject.swift in Sources */,
 				ED5260081E208CFE00881184 /* MyRequest.swift in Sources */,
 				ED39133B1E0AE1F7001B506D /* AlertComponent.swift in Sources */,
+				71CD56B11E66A658005EB668 /* TokenCheckView.swift in Sources */,
 				ED525FF91E203BE000881184 /* Address.swift in Sources */,
 				ED9291B81E02349300F00F00 /* RegisterLoginObject.swift in Sources */,
 				EDD681551E00EB9A00E9017F /* General.swift in Sources */,
@@ -1289,12 +1313,12 @@
 				ED39132E1E098607001B506D /* CartView.swift in Sources */,
 				EDD6815A1E00ED1A00E9017F /* Location.swift in Sources */,
 				ED1A3A041DFFA73100D9C878 /* TextFieldMasks.swift in Sources */,
+				71CD56AF1E66A637005EB668 /* CadastroSingleton.swift in Sources */,
 				ED713DEA1E02FA6800E4D8E1 /* CardsTabBarController.swift in Sources */,
 				ED3913291E088899001B506D /* VirtualCardStatement.swift in Sources */,
 				ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */,
 				ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */,
 				ED5260021E20488600881184 /* ShippingForm.swift in Sources */,
-				7158147F1E5E1C640048A988 /* Teste.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED3913281E088899001B506D /* DataTransacao.swift in Sources */,
 				EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */,
@@ -1326,6 +1350,7 @@
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,
 				ED40D2741E43CAF500BD713C /* ImageStorage.swift in Sources */,
 				ED8AF3CA1DFF8ABC00EBB73F /* TouchID.swift in Sources */,
+				71CD56B51E66A711005EB668 /* ChangePasswordCardView.swift in Sources */,
 				ED8AF3AE1DFF86B600EBB73F /* LoginView.swift in Sources */,
 				EDD681511E00E3C300E9017F /* ErrorObject.swift in Sources */,
 				EDBBDCD01DFFAD0000EB469A /* MainView.swift in Sources */,
@@ -1335,6 +1360,7 @@
 				ED5260041E204CC000881184 /* MyRequestsView.swift in Sources */,
 				ED5260001E2044F000881184 /* AddressChooseView.swift in Sources */,
 				ED5260071E208CFE00881184 /* DataHoraPedido.swift in Sources */,
+				71CD56B31E66A67F005EB668 /* FinishUserLoginView.swift in Sources */,
 				ED36D9E61E22AD3A002EA07F /* ItensPedido.swift in Sources */,
 				EDFB60F61E15F06500C24A4E /* Categorias.swift in Sources */,
 				ED599DCB1E007537004EC753 /* LoginResponseObject.swift in Sources */,
@@ -1502,7 +1528,7 @@
 			baseConfigurationReference = 00EC758617B7E9C8A3FE21FF /* Pods-Itspay.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFinancial;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
@@ -1512,7 +1538,7 @@
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay.bahamascard;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dis.itspay.financial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1527,7 +1553,7 @@
 			baseConfigurationReference = 550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconFinancial;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Itspay/Itspay.entitlements;
 				CODE_SIGN_IDENTITY = "";
@@ -1537,7 +1563,7 @@
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay.bahamascard;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dis.itspay.financial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

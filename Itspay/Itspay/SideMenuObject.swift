@@ -15,6 +15,7 @@ enum SideMenuType : Int {
     case rates
     case security
     case logout
+    case newPassword
 }
 
 class SideMenuObject {
