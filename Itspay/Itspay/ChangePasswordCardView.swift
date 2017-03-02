@@ -14,7 +14,7 @@ class ChangePasswordCardView: UITableViewController {
     @IBOutlet weak var textFieldNewPassword: UITextField!
     @IBOutlet weak var textFieldNewPasswordConfirmation: UITextField!
     
-    var cardViewController : UIViewController!
+    var cardViewController : UITableViewController!
     
     var virtualCard : Credenciais!
     
@@ -33,7 +33,12 @@ class ChangePasswordCardView: UITableViewController {
     
     //    Action Update Password
     @IBAction func buttonUpdatePasswordAction(_ sender: UIButton) {
-        
+        toastNotification()
+        customAlertPassword()
+    }
+    
+    
+    func showService(){
         let url = CardsController.createChangePinURLPath()
         if (textFieldNewPassword.text?.isEqual(textFieldNewPasswordConfirmation.text))!{
             
@@ -70,7 +75,64 @@ class ChangePasswordCardView: UITableViewController {
             AlertComponent.showSimpleAlert(title: "Erro", message: "Senhas nao condizem.", viewController: self)
         }
     }
+    func customAlertPassword(){
+        
+        let alert = UIAlertController(title: "Alterar Senha",
+                                      message: "Para alterar senha do cartão digite a chave de acesso",
+                                      preferredStyle: .alert)
+        
+        // Add 1 textField and customize it
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .default
+            textField.autocorrectionType = .default
+            textField.placeholder = "digite a nchave de acesso"
+            textField.clearButtonMode = .whileEditing
+            textField.isSecureTextEntry = true
+            textField.enablesReturnKeyAutomatically = true
+        }
+        
+        // Submit button
+        let submitAction = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            print(textField.text!)
+            
+            
+            var password = "123"
+            if textField.text == password {
+                self.showService()
+            }else{
+                AlertComponent.showSimpleAlert(title: "Alerta", message: "Senha Invalida", viewController: self)
+            }
+        })
+        
+        //New Code
+        let submitRequestCode = UIAlertAction(title: "Reenviar Código", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            print(textField.text!)
+            
+            self.toastNotification()
+            self.customAlertPassword()
+            
+        })
+        
+        // Cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
+        
+        // Add action buttons and present the Alert
+        alert.addAction(submitAction)
+        alert.addAction(submitRequestCode)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
     
+    func toastNotification(){
+        CustomToastNotification().showNotificationTop(title: "Financial", menssage: "Chave de ascesso é : 123", nameImage: "AppIconFinancial")
+
+    }
+
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return super.tableView(tableView, heightForRowAt: indexPath)

@@ -90,8 +90,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         
         if let idProduto = virtualCard.idProdutoPlataforma {
             if idProduto == 2 || idProduto == 3 {
-                boomMenuButton.piecePlaceEnum = .DOT_2_1
-                boomMenuButton.buttonPlaceEnum = .SC_2_1
+                boomMenuButton.piecePlaceEnum = .DOT_3_1
+                boomMenuButton.buttonPlaceEnum = .SC_3_1
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "lock"
@@ -127,10 +127,48 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "change_key"
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.imageNormalTintColor = UIColor.white
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+
             }else if idProduto == 4{
                 
-                boomMenuButton.piecePlaceEnum = .DOT_3_1
-                boomMenuButton.buttonPlaceEnum = .SC_3_1
+                boomMenuButton.piecePlaceEnum = .DOT_4_1
+                boomMenuButton.buttonPlaceEnum = .SC_4_1
+                
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "virtual_card"
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "lock"
@@ -169,7 +207,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     
                     boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                         builder?.imageNormal = "change_key"
-                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                        builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                        builder?.imageNormalTintColor = UIColor.white
                         builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                         builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                         builder?.textNormalColor = UIColor.white
@@ -177,7 +216,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                         builder?.font = UIFont.boldSystemFont(ofSize: 11)
                         builder?.lines = 2
                         builder?.lineBreakMode = .byClipping
-                        builder?.textContent = "Senha do Cartão"
                         builder?.rotateImage = true
                         builder?.rotateText = true
                         builder?.shadowOffset = CGSize(width: 5, height: 5)
@@ -242,7 +280,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "change_key"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.imageNormalTintColor = UIColor.white
                     builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
@@ -250,7 +289,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.font = UIFont.boldSystemFont(ofSize: 11)
                     builder?.lines = 2
                     builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Senha do Cartão"
                     builder?.rotateImage = true
                     builder?.rotateText = true
                     builder?.shadowOffset = CGSize(width: 5, height: 5)
@@ -368,7 +406,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "change_key"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.imageNormalTintColor = UIColor.white
                     builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
                     builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
                     builder?.textNormalColor = UIColor.white
@@ -376,7 +415,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.font = UIFont.boldSystemFont(ofSize: 11)
                     builder?.lines = 2
                     builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Senha do Cartão"
                     builder?.rotateImage = true
                     builder?.rotateText = true
                     builder?.shadowOffset = CGSize(width: 5, height: 5)
@@ -721,4 +759,5 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             
         }
     }
+
 }

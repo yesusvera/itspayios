@@ -363,7 +363,7 @@ class SecuritySettingsView: UITableViewController {
         }
         
         if !isUpdateCardPasswordOpen {
-            if indexPath.row > 5 && indexPath.row <= 9 {
+            if indexPath.row > 4 && indexPath.row <= 9 {
                 return 0
             }
         }

@@ -1426,7 +1426,7 @@
         <scene sceneID="7GI-2v-dzU">
             <objects>
                 <tableViewController id="v7l-Nw-uIc" customClass="ChangePasswordCardView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="am9-eA-vVX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="am9-eA-vVX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1447,6 +1447,10 @@
                                 <constraint firstItem="PXe-qD-n7u" firstAttribute="trailing" secondItem="U6y-LE-oJ3" secondAttribute="trailingMargin" id="p9B-v0-Rcf"/>
                                 <constraint firstItem="PXe-qD-n7u" firstAttribute="leading" secondItem="U6y-LE-oJ3" secondAttribute="leadingMargin" id="wer-T1-gge"/>
                             </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="SL9-xv-Jz6">
+                            <rect key="frame" x="0.0" y="442" width="375" height="154"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <sections>
                             <tableViewSection id="Rst-Lo-guK">
@@ -1597,7 +1601,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EsP-DL-3a0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3388" y="-367.46626686656674"/>
+            <point key="canvasLocation" x="3356" y="-352"/>
         </scene>
         <!--Transfer Main View-->
         <scene sceneID="Cp1-Yp-4Bg">
