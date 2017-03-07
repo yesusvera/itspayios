@@ -184,43 +184,48 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 })
 
             }else {
-                boomMenuButton.piecePlaceEnum = .DOT_6_1
-                boomMenuButton.buttonPlaceEnum = .SC_6_1
+//                boomMenuButton.piecePlaceEnum = .DOT_6_1
+//                boomMenuButton.buttonPlaceEnum = .SC_6_1
+//                
                 
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "transfer"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Transferir"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "charge"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Carga"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
+//                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+//                    builder?.imageNormal = "transfer"
+//                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+//                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+//                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+//                    builder?.textNormalColor = UIColor.white
+//                    builder?.textPressedColor = UIColor.white
+//                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+//                    builder?.lines = 2
+//                    builder?.lineBreakMode = .byClipping
+//                    builder?.textContent = "Transferir"
+//                    builder?.rotateImage = true
+//                    builder?.rotateText = true
+//                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+//                    builder?.shadowOpacity = 0
+//                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+//                })
+//                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+//                    builder?.imageNormal = "charge"
+//                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+//                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+//                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+//                    builder?.textNormalColor = UIColor.white
+//                    builder?.textPressedColor = UIColor.white
+//                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+//                    builder?.lines = 2
+//                    builder?.lineBreakMode = .byClipping
+//                    builder?.textContent = "Carga"
+//                    builder?.rotateImage = true
+//                    builder?.rotateText = true
+//                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+//                    builder?.shadowOpacity = 0
+//                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+//                })
+//                
+
+                boomMenuButton.piecePlaceEnum = .DOT_3_1
+                boomMenuButton.buttonPlaceEnum = .SC_3_1
                 
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "virtual_card"
@@ -238,23 +243,23 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "cash"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Tarifas"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
+//                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+//                    builder?.imageNormal = "cash"
+//                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+//                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+//                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+//                    builder?.textNormalColor = UIColor.white
+//                    builder?.textPressedColor = UIColor.white
+//                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+//                    builder?.lines = 2
+//                    builder?.lineBreakMode = .byClipping
+//                    builder?.textContent = "Tarifas"
+//                    builder?.rotateImage = true
+//                    builder?.rotateText = true
+//                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+//                    builder?.shadowOpacity = 0
+//                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+//                })
                 boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
                     builder?.imageNormal = "lock"
                     builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
@@ -313,20 +318,30 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 }
                 
             }else {
-                if index.hashValue == SideMenuType.transfer.rawValue {
-                    self.performSegue(withIdentifier: "TransferSegue", sender: self)
-                } else if index.hashValue == SideMenuType.charge.rawValue {
-                    self.performSegue(withIdentifier: "ChargeSegue", sender: self)
-                } else if index.hashValue == SideMenuType.card.rawValue {
+                
+                if index.hashValue == 0 {
                     self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-                } else if index.hashValue == SideMenuType.security.rawValue {
+                } else if index.hashValue == 1{
                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-                } else if index.hashValue == SideMenuType.rates.rawValue {
-                    self.performSegue(withIdentifier: "RatesSegue", sender: self)
-                } else if index.hashValue == SideMenuType.logout.rawValue {
-//                    LoginController.logout(self)
+                } else if index.hashValue == 2 {
+                    //                    LoginController.logout(self)
                     buttonComunicateAction()
                 }
+
+//                if index.hashValue == SideMenuType.transfer.rawValue {
+//                    self.performSegue(withIdentifier: "TransferSegue", sender: self)
+//                } else if index.hashValue == SideMenuType.charge.rawValue {
+//                    self.performSegue(withIdentifier: "ChargeSegue", sender: self)
+//                } else if index.hashValue == SideMenuType.card.rawValue {
+//                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+//                } else if index.hashValue == SideMenuType.security.rawValue {
+//                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+//                } else if index.hashValue == SideMenuType.rates.rawValue {
+//                    self.performSegue(withIdentifier: "RatesSegue", sender: self)
+//                } else if index.hashValue == SideMenuType.logout.rawValue {
+////                    LoginController.logout(self)
+//                    buttonComunicateAction()
+//                }
             }
         }
     }
@@ -363,11 +378,11 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
             }else {
-                arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
-                arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
+//                arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
+//                arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
                 arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
-                arraySideMenuObjects.append(SideMenuObject(title: "Tarifas", imagePath: "cash", menuType: .rates))
+//                arraySideMenuObjects.append(SideMenuObject(title: "Tarifas", imagePath: "cash", menuType: .rates))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
             }
         }
