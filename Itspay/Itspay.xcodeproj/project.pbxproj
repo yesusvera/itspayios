@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
 		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
-		7158147F1E5E1C640048A988 /* Teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7158147E1E5E1C640048A988 /* Teste.swift */; };
 		71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442461E54CDA200E7E584 /* BRYXBanner.framework */; };
 		71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */; };
 		71AA00B51E51EF0400132F38 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AC1E51EF0400132F38 /* Banner.swift */; };
@@ -1294,7 +1293,6 @@
 				ED3A02ED1E0C4E27000BCE53 /* SecuritySettingsView.swift in Sources */,
 				ED39132B1E0971A8001B506D /* PreferencesView.swift in Sources */,
 				ED5260021E20488600881184 /* ShippingForm.swift in Sources */,
-				7158147F1E5E1C640048A988 /* Teste.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED3913281E088899001B506D /* DataTransacao.swift in Sources */,
 				EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */,
