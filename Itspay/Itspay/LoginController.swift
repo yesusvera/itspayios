@@ -13,6 +13,8 @@ class LoginController {
     
     var loginResponseObject : LoginResponseObject!
     
+    var pemissionMarketPlace : Bool? = true
+    
     var oneSignalUserId : String?
     var oneSignalToken : String?
     
@@ -63,6 +65,8 @@ class LoginController {
     
     static func createEmailURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "email")
+        
+          url += "\(ID_PROCESSADORA)/\(ID_INSTITUICAO)/buscar-email"
         
         if let value = LoginController.sharedInstance.loginResponseObject.cpf {
             url += "/\(value)"
