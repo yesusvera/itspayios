@@ -43,7 +43,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         super.viewDidLoad()
         congigureView()
         
-        self.title = "Cadastro Login"
+        self.title = "Cadastro de Login de Acesso"
         
         CardIOUtilities.preloadCardIO()
         
