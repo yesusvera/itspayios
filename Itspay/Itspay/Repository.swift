@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-let serviceMainServerKey = "mainServer"
+//let serviceMainServerKey = "mainServer"
+let serviceMainServerKey = "mainServerProducao"
 let serviceSecondServerKey = "secondServer"
 let serviceThirdServerKey = "thirdServer"
 let serviceMainRootCustomUrlKey = "customUrl"
