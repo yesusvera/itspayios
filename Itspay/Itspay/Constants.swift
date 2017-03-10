@@ -26,6 +26,11 @@ import UIKit
 //var PHONE_OUVIDORIA = "3208002859632"
 //var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
 
+
+var PHONE_SAC = "3232294950"
+var PHONE_OUVIDORIA = "3208002859632"
+var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
+
 //Produçao
 //var ID_INSTITUICAO = 1201
 
@@ -43,10 +48,6 @@ var TEXT_COLOR_TAG = "072E4E"
 var TEXT_COLOR_TAG_2 = "FFFFFF"
 var LOGO_CLIENT = "financialLogo"
 var BACKGROUND_CLIENT = "BackFinancial"
-
-var PHONE_SAC = "08009406020"
-var PHONE_OUVIDORIA = "(37)35129797"
-var EMAIL_SAC = "sac@financialcartoes.com.br"
 
 //Produçao
 //var ID_INSTITUICAO = 1401

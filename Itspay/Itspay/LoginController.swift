@@ -44,7 +44,12 @@ class LoginController {
     
     static func createRegisterLoginObject(_ email : String, birthday : String, cpf : String, password : String, cardNumber : String) -> [String:Any]  {
         var dictionary = [String:Any]()
-         
+        
+        
+        if let data = cardNumber.replacingOccurrences(of: ".", with: "").data(using: .utf8) {
+            dictionary["credencial"] = data.sha512().toHexString()
+        }
+        
         dictionary["email"] = email
         dictionary["dataNascimento"] = birthday
         dictionary["cpf"] = cpf.onlyNumbers()
