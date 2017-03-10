@@ -147,6 +147,8 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
                             Connection.setHeadersAuthorization(with: token)
                         }
                         
+                        LoginController.sharedInstance.pemissionMarketPlace = LoginController.sharedInstance.loginResponseObject.possuiMarketPlace
+                        
                         self.performSegue(withIdentifier: "CardsSegue", sender: self)
                     })
                 }

@@ -13,6 +13,8 @@ class LoginController {
     
     var loginResponseObject : LoginResponseObject!
     
+    var pemissionMarketPlace : Bool? = true
+    
     var oneSignalUserId : String?
     var oneSignalToken : String?
     
@@ -40,7 +42,7 @@ class LoginController {
         return LoginRequestObject(object: dictionary)
     }
     
-    static func createRegisterLoginObject(_ email : String, birthday : String, cpf : String, password : String) -> LoginRequestObject {
+    static func createRegisterLoginObject(_ email : String, birthday : String, cpf : String, password : String, cardNumber : String) -> [String:Any]  {
         var dictionary = [String:Any]()
          
         dictionary["email"] = email
@@ -48,13 +50,12 @@ class LoginController {
         dictionary["cpf"] = cpf.onlyNumbers()
         dictionary["senha"] = password
         dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
-        dictionary["credencial"] = CREDENCIAL
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
         
         print("Create Register Object: \(dictionary)")
         
-        return LoginRequestObject(object: dictionary)
+        return dictionary
     }
     
     
@@ -79,6 +80,8 @@ class LoginController {
     
     static func createEmailURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "email")
+        
+          url += "\(ID_PROCESSADORA)/\(ID_INSTITUICAO)/buscar-email"
         
         if let value = LoginController.sharedInstance.loginResponseObject.cpf {
             url += "/\(value)"

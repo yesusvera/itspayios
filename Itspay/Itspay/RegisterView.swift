@@ -48,7 +48,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         super.viewDidLoad()
         configureView()
         
-        self.title = "Cadastro Login"
+        self.title = "Cadastro de Login de Acesso"
         
         CardIOUtilities.preloadCardIO()
         
@@ -79,19 +79,40 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
             if switchBollean {
-                let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : birthday, cpf: cpf, password: password)
+               
+                let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : GetDateFromString(DateStr: birthday), cpf: cpf, password: password, cardNumber: cardNumber)
+                
                 let url = Repository.createServiceURLFromPListValue(.services, key: "register")
             
-                Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
+                Connection.request(url, method: .post, parameters: registerLoginObject){ (dataResponse) in
                     if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
                         self.performSegue(withIdentifier: "CardsSegue", sender: self)
                     }
-                })
+                }
         
             }else{
                 AlertComponent.showSimpleAlert(title: "Atenção", message: "Aceite os termos para criar login ", viewController: self)
             }
         }
+    }
+    
+    func GetDateFromString(DateStr: String)-> String {
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+        let DateArray = DateStr.components(separatedBy: "/")
+        let components = NSDateComponents()
+        components.year = Int(DateArray[2])!
+        components.month = Int(DateArray[1])!
+        components.day = Int(DateArray[0])!
+        
+        let date = calendar?.date(from: components as DateComponents)
+        
+        let dateFormate = DateFormatter()
+        dateFormate.dateFormat = "yyyy-MM-dd"
+        
+        let stringOfDate = dateFormate.string(from: date!)
+        print(stringOfDate)
+        
+        return stringOfDate
     }
     
     @IBAction func buttonCameraAction(_ sender: UIButton) {
@@ -224,7 +245,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         }
         
         //Senha
-        if !passwordForm.isPasswordValid(min: 6, max: 30) {
+        if !passwordForm.isPasswordValid(min: 8, max: 30) {
             labelErrorPassword.text = "Senha inválida. A senha deve possuir letras e números e ter entre 8 e 30 caracteres."
             ErrorPassword = true
         }else{
