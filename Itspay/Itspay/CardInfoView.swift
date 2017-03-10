@@ -56,6 +56,7 @@ class CardInfoView: UIView {
         
         if let value = virtualCard.nomeProduto {
             labelCardName.text = "\(value)"
+            labelCardName.isHidden = true
         }
         
         if let value = virtualCard.credencialMascarada {

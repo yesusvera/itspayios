@@ -39,7 +39,7 @@
 	<key>openPlastic</key>
 	<string>api/api/plastico/abrir/mobile</string>
 	<key>email</key>
-	<string>api/api/portador/login/10/101/buscar-email</string>
+	<string>api/api/portador/login/</string>
 	<key>changeEmail</key>
 	<string>api/api/portador/login/trocar-email</string>
 	<key>changePassword</key>
