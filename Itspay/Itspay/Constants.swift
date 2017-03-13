@@ -26,6 +26,9 @@ var PHONE_SAC = "3232294950"
 var PHONE_OUVIDORIA = "3208002859632"
 var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
 
+//Produçao
+//var ID_INSTITUICAO = 1201
+
 
 //    Financial
 //   Build Indentifier = br.com.dis.itspay.financial
@@ -45,6 +48,12 @@ var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
 //var PHONE_OUVIDORIA = "(37)35129797"
 //var EMAIL_SAC = "sac@financialcartoes.com.br"
 
+//Produçao
+//var ID_INSTITUICAO = 1401
+
+
+//Desenv
+var ID_INSTITUICAO = 101
 
 var COLOR_BLUE_HEX = "072E4E"
 var COLOR_YELLOW_HEX = "AB772C"

@@ -51,6 +51,17 @@ class CardsTabBarController: UITabBarController {
         
         self.coachMarksController?.dataSource = self
         self.coachMarksController?.overlay.allowTap = true
+        
+        if !LoginController.sharedInstance.pemissionMarketPlace! {
+            
+            let loja = 1 //0 to 5
+            viewControllers?.remove(at: loja)
+            let meusPedidos = 1 //0 to 5
+            viewControllers?.remove(at: meusPedidos)
+            let carrinho = 1 //0 to 5
+            viewControllers?.remove(at: carrinho)
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
