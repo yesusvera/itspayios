@@ -33,7 +33,7 @@ class CardsView: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
          let isGoMarktplace :Bool = (UserDefaults.standard.object(forKey: "isGoMarktplace") != nil)
-            if(!isGoMarktplace){
+            if(!isGoMarktplace && LoginController.sharedInstance.pemissionMarketPlace!){
                 CustomToastNotification().showNotification(view: view)
             }
 
