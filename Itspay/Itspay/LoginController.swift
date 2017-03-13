@@ -66,8 +66,6 @@ class LoginController {
     static func createEmailURLPath() -> String {
         
         var url = Repository.createServiceURLFromPListValue(.services, key: "email")
-
-        url += "\(ID_PROCESSADORA)/\(ID_INSTITUICAO)/buscar-email"
         
           url += "\(ID_PROCESSADORA)/\(ID_INSTITUICAO)/buscar-email"
         
