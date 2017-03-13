@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import PickerFieldsDataHelper
 
-class ForgotPassowordView: UITableViewController {
+
+class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate{
     
     @IBOutlet weak var textFieldCPF: TextFieldCPFMask!
+    @IBOutlet weak var textFieldBirthday: UITextField!
     
+    
+    @IBOutlet weak var labelErrorBirthday: UILabel!
     @IBOutlet weak var labelErrorCPF: UILabel!
     
     var cpf = ""
+    var birthday : String!
+    
+    let pickerFieldsDataHelper = PickerFieldsDataHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Esqueci a Senha"
+        
+        
+        pickerFieldsDataHelper.delegate = self
+        
+        pickerFieldsDataHelper.addDataHelpers([textFieldBirthday], isDateType: true)
+        
+        pickerFieldsDataHelper.doneButtonTitle = "OK"
+        pickerFieldsDataHelper.initWithTodayDate = true
+
     }
     
     @IBAction func buttonRequestAction(_ sender: UIButton) {
@@ -38,25 +55,70 @@ class ForgotPassowordView: UITableViewController {
         }
     }
     
+    
+    func GetDateFromString(DateStr: String)-> String {
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+        let DateArray = DateStr.components(separatedBy: "/")
+        let components = NSDateComponents()
+        components.year = Int(DateArray[2])!
+        components.month = Int(DateArray[1])!
+        components.day = Int(DateArray[0])!
+        
+        let date = calendar?.date(from: components as DateComponents)
+        
+        let dateFormate = DateFormatter()
+        dateFormate.dateFormat = "yyyy-MM-dd"
+        
+        let stringOfDate = dateFormate.string(from: date!)
+        print(stringOfDate)
+        
+        return stringOfDate
+    }
+    
+    
     func isFormValid() -> Bool {
         labelErrorCPF.isHidden = false
+        labelErrorBirthday.isHidden = false
+        
+        var cpfError = false
+        var birthdayError = false
         
         guard let cpfForm = textFieldCPF.text else {
             labelErrorCPF.text = "CPF vazio."
             return false
         }
         
+        guard let birthdayForm = textFieldBirthday.text else {
+            labelErrorBirthday.text = "Data de nascimento vazia."
+            return false
+        }
+        
         if cpfForm.isEmptyOrWhitespace() {
             labelErrorCPF.text = "CPF vazio."
-            return false
+            
         }
         
         let cpfValidation = cpfForm.isCPFValid()
         
         if !cpfValidation.value {
             labelErrorCPF.text = cpfValidation.message
+            
+        }else {
+            labelErrorCPF.isHidden = true
+        }
+        
+        //Aniversário
+        if birthdayForm.isEmptyOrWhitespace() {
+            labelErrorBirthday.text = "Data de nascimento vazia."
+        } else{
+            birthday = birthdayForm
+            labelErrorBirthday.isHidden = true
+        }
+        
+        if !cpfError || !birthdayError {
             return false
         }
+
         
         cpf = cpfForm
         labelErrorCPF.isHidden = true

@@ -14,7 +14,7 @@
         <scene sceneID="cfB-CC-hVZ">
             <objects>
                 <navigationController id="Qqn-Wh-3qN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0a-g8-nvr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0a-g8-nvr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -393,7 +393,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZJ-sz-HCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2105.5999999999999" y="-59.370314842578715"/>
+            <point key="canvasLocation" x="1973" y="-79"/>
         </scene>
         <!--Cards-->
         <scene sceneID="2HD-Fu-bed">
@@ -407,12 +407,12 @@
         <scene sceneID="WA7-8Z-1vA">
             <objects>
                 <tableViewController storyboardIdentifier="ForgotPassowordView" id="BAJ-BF-T1I" customClass="ForgotPassowordView" customModule="Itspay" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Sxe-Cr-MM4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Sxe-Cr-MM4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="57d-dg-S4s">
-                            <rect key="frame" x="0.0" y="167" width="600" height="150"/>
+                            <rect key="frame" x="0.0" y="295" width="600" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTE-ku-gMb" customClass="ButtonAction" customModule="Itspay" customModuleProvider="target">
@@ -517,6 +517,69 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="3Mz-Zk-0ZR">
+                                        <rect key="frame" x="0.0" y="149" width="600" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Mz-Zk-0ZR" id="RWJ-Ki-SHb">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data de Nascimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNd-XT-mks">
+                                                    <rect key="frame" x="22" y="22" width="159" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capo esta vazio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQp-Xr-BRW">
+                                                    <rect key="frame" x="189" y="24" width="103" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.67130917310000005" green="0.46496230360000002" blue="0.17440781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="QhM-gK-T73">
+                                        <rect key="frame" x="0.0" y="213" width="600" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QhM-gK-T73" id="JvG-rq-Mlb">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BPp-JP-VTz">
+                                                    <rect key="frame" x="571" y="0.0" width="9" height="64"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Informe a sua Data de Nascimento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Jg-zT-AY1" customClass="TextFieldCPFMask" customModule="Itspay" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="4" width="560" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="cQ1-bl-cXp"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="maskShow" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="mask" value="{ddd}.{ddd}.{ddd}-{dd}"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="BAJ-BF-T1I" id="4ST-dz-jGg"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Jg-zT-AY1" firstAttribute="leading" secondItem="JvG-rq-Mlb" secondAttribute="leading" constant="20" symbolic="YES" id="19E-hW-LZi"/>
+                                                <constraint firstAttribute="bottom" secondItem="BPp-JP-VTz" secondAttribute="bottom" id="Kp6-L8-t4T"/>
+                                                <constraint firstItem="7Jg-zT-AY1" firstAttribute="top" secondItem="JvG-rq-Mlb" secondAttribute="top" constant="4" id="N3N-IU-t2I"/>
+                                                <constraint firstAttribute="trailing" secondItem="BPp-JP-VTz" secondAttribute="trailing" constant="20" symbolic="YES" id="PM0-RO-t9f"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Jg-zT-AY1" secondAttribute="trailing" constant="20" symbolic="YES" id="VBq-2q-mN5"/>
+                                                <constraint firstItem="BPp-JP-VTz" firstAttribute="top" secondItem="JvG-rq-Mlb" secondAttribute="top" id="cci-bi-vCQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -526,13 +589,15 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="labelErrorBirthday" destination="WQp-Xr-BRW" id="eyd-6w-6Is"/>
                         <outlet property="labelErrorCPF" destination="g5F-tc-CVa" id="uwE-Ty-7h0"/>
+                        <outlet property="textFieldBirthday" destination="7Jg-zT-AY1" id="csf-6I-Mfv"/>
                         <outlet property="textFieldCPF" destination="j7I-GX-Xe0" id="kD0-Rm-XFz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TC-V9-UeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3270" y="-388"/>
+            <point key="canvasLocation" x="2956.8000000000002" y="-389.5052473763119"/>
         </scene>
         <!--WebView-->
         <scene sceneID="ZsZ-eW-cy1">
