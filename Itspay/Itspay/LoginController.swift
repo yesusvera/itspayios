@@ -192,10 +192,11 @@ class LoginController {
         return dictionary
     }
     
-    static func createRecoverPasswordParameters(_ cpf : String) -> [String:Any] {
+    static func createRecoverPasswordParameters(_ cpf : String,birthday : String) -> [String:Any] {
         var dictionary = [String:Any]()
         
         dictionary["documento"] = cpf
+        dictionary["dataNascimento"] = birthday
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
         

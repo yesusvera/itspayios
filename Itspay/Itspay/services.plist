@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>useTerms</key>
-	<string>http://www.financialcartoes.com.br/Download/CONTRATO_DE_CONCESSAO_DE_CREDITO_CARTAO_INDIVIDUAL_COMPLETO_080115.pdf</string>
+	<string>https://bahamascard.itspay.com.br/assets/termos.pdf</string>
 	<key>mainServerProducao</key>
 	<string>https://bahamascard.itspay.com.br</string>
 	<key>mainServer</key>
