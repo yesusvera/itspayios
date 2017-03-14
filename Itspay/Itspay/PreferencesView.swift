@@ -78,7 +78,8 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         Connection.request(url, method: .put, parameters: LoginController.createChangePasswordParametersDictionary(password, newPassword: newPassword), dataResponseJSON: { (dataResponse) in
             if validateDataResponse(dataResponse, showAlert: true, viewController: self) {    }
             
-            UserDefaults.standard.set(self.newPassword, forKey: "lastPasswordLogged")
+            UserDefaults.standard.set(true, forKey: "isModifiedPassword")
+
             
             self.clearAllFields()
         })

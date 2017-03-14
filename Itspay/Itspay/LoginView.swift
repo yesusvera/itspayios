@@ -29,12 +29,28 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+            }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        switchTouchIdValue.onTintColor =  UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+        
+        var isModifiedPassword: Bool = false
+        if let value = UserDefaults.standard.object(forKey: "isModifiedPassword") as? Bool {
+            isModifiedPassword = value
+        }
+        
+        if isModifiedPassword {
+            UserDefaults.standard.set(false, forKey: "isTouchIdOn")
+            UserDefaults.standard.set(false, forKey: "isModifiedPassword")
+            AlertComponent.showSimpleAlert(title: "Atenção", message: "Sua Senha foi Alterada , acesse o aplicativo com a nova senha.", viewController: self)
+        }
+        
         if let isTouchID = UserDefaults.standard.object(forKey: "isTouchIdOn") as? Bool {
             isTouchIdOn = isTouchID
             
             switchTouchIdValue.isOn = isTouchIdOn
-            switchTouchIdValue.onTintColor =  UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +93,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     
     @IBAction func switchTouchIdAction(_ sender: UISwitch) {
         if sender.isOn {
-            AlertComponent.showSimpleAlert(title: "Atenção", message: "Para ativar o TouchID você deve primeiro realizar o login com a sua senha para que a partir do próximo login neste dispositivo este possa ser feito pelo TouchID.", viewController: self)
+            AlertComponent.showSimpleAlert(title: "Atenção", message: "Para ativar o TouchID você deve primeiro realizar o login com a sua senha para que a partir do próximo login utilizar o TouchID.", viewController: self)
         } else {
             isTouchIdOn = false
             
