@@ -36,6 +36,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
             
             switchTouchIdValue.isOn = isTouchIdOn
         }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +79,7 @@ class LoginView: UITableViewController, CLLocationManagerDelegate {
     
     @IBAction func switchTouchIdAction(_ sender: UISwitch) {
         if sender.isOn {
-            AlertComponent.showSimpleAlert(title: "Atenção", message: "Para ativar o TouchID você deve primeiro realizar o login com a sua senha para que a partir do próximo login neste dispositivo este possa ser feito pelo TouchID.", viewController: self)
+            AlertComponent.showSimpleAlert(title: "Atenção", message: "Para ativar o TouchID você deve primeiro realizar o login com a sua senha para que a partir do próximo login utilizar o TouchID.", viewController: self)
         } else {
             isTouchIdOn = false
             
