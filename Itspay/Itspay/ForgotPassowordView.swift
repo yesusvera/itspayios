@@ -43,7 +43,7 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
         if isFormValid() {
             let url = Repository.createServiceURLFromPListValue(.services, key: "recoverPassword")
             
-            let parameters = LoginController.createRecoverPasswordParameters(cpf)
+            let parameters = LoginController.createRecoverPasswordParameters(cpf,birthday: GetDateFromString(DateStr: textFieldBirthday.text!))
             
             Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
                 if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
