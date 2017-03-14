@@ -63,26 +63,6 @@ class LoginController {
         return dictionary
     }
     
-    
-    static func createRegisterLoginObject() -> LoginRequestObject {
-        var dictionary = [String:Any]()
-        
-        let cadastro : CadastroSingleton = CadastroSingleton.sharedInstance
-        
-        dictionary["email"] = cadastro.email
-        dictionary["dataNascimento"] = cadastro.burthday
-        dictionary["cpf"] = cadastro.cpf.onlyNumbers()
-        dictionary["senha"] = cadastro.password
-        dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
-        dictionary["credencial"] = CREDENCIAL
-        dictionary["idInstituicao"] = ID_INSTITUICAO
-        dictionary["idProcessadora"] = ID_PROCESSADORA
-        
-        print("Create Register Object: \(dictionary)")
-        
-        return LoginRequestObject(object: dictionary)
-    }
-    
     static func createEmailURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "email")
         
