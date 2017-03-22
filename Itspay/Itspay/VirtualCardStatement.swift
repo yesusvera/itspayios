@@ -25,7 +25,7 @@ public final class VirtualCardStatement: NSCoding {
 
   // MARK: Properties
   public var sinal: Int?
-  public var idTransacao: Int?
+  public var idTransacao: String?
   public var descLocal: String?
   public var dataTransacao: DataTransacao?
   public var dataTransacaoFmt: String?
@@ -48,7 +48,7 @@ public final class VirtualCardStatement: NSCoding {
   /// - parameter json: JSON object from SwiftyJSON.
   public required init(json: JSON) {
     sinal = json[SerializationKeys.sinal].int
-    idTransacao = json[SerializationKeys.idTransacao].int
+    idTransacao = json[SerializationKeys.idTransacao].string
     descLocal = json[SerializationKeys.descLocal].string
     dataTransacao = DataTransacao(json: json[SerializationKeys.dataTransacao])
     dataTransacaoFmt = json[SerializationKeys.dataTransacaoFmt].string
@@ -78,7 +78,7 @@ public final class VirtualCardStatement: NSCoding {
   // MARK: NSCoding Protocol
   required public init(coder aDecoder: NSCoder) {
     self.sinal = aDecoder.decodeObject(forKey: SerializationKeys.sinal) as? Int
-    self.idTransacao = aDecoder.decodeObject(forKey: SerializationKeys.idTransacao) as? Int
+    self.idTransacao = aDecoder.decodeObject(forKey: SerializationKeys.idTransacao) as? String
     self.descLocal = aDecoder.decodeObject(forKey: SerializationKeys.descLocal) as? String
     self.dataTransacao = aDecoder.decodeObject(forKey: SerializationKeys.dataTransacao) as? DataTransacao
     self.dataTransacaoFmt = aDecoder.decodeObject(forKey: SerializationKeys.dataTransacaoFmt) as? String

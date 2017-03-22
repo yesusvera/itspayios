@@ -48,7 +48,7 @@ class CardsView: UITableViewController {
                 
                 let credenciais = Credenciais(object: virtualCardsJSON)
                 
-                credenciais.saldo = Int(arc4random_uniform(100000) + 1)
+                credenciais.saldo = Double(arc4random_uniform(100000) + 1)
                 credenciais.nomeImpresso = "Virtual Card \(i)"
                 credenciais.urlImagemProduto = "Card\(i)"
                 

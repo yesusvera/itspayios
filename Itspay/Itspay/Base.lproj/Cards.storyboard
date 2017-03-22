@@ -370,7 +370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpa-X5-Yxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="0zs-3D-4FS">
-                    <rect key="frame" x="0.0" y="-1" width="370" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="15 Dias"/>

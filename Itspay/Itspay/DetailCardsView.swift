@@ -469,7 +469,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         let message = "Deseja realmente Sair?"
     
         let yesAction = UIAlertAction(title: "Sim", style: .default) { (action) in
-        LoginController.logout(self)
+            LoginController.logout(self)
         }
         
         let noAction = UIAlertAction(title: "Não", style: .default) { (action) in }
