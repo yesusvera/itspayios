@@ -34,6 +34,10 @@
 	<string>api/api/portador/credencial/info-portador</string>
 	<key>bankTransfer</key>
 	<string>api/api/agencia</string>
+	<key>requestToken</key>
+	<string>api/api/token-acesso/enviar/token-cadastro-login</string>
+	<key>validTokenService</key>
+	<string>api/api/token-acesso/usar</string>
 	<key>openPlastic</key>
 	<string>api/api/plastico/abrir/mobile</string>
 	<key>email</key>

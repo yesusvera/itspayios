@@ -18,6 +18,5 @@ public class CadastroSingleton{
     var email:String = ""
     var password: String = ""
     var celular:String = ""
-    
-    
+    var chaveToken :String = ""
 }

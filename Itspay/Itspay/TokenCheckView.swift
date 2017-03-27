@@ -12,7 +12,7 @@ class TokenCheckView:  UIViewController {
     
     @IBOutlet weak var code: UITextField!
     @IBOutlet weak var codeErrorLabel: UILabel!
-    var codeAcess = "123"
+    var codeAcess : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,26 +20,60 @@ class TokenCheckView:  UIViewController {
         codeErrorLabel.isHidden = true
         
         self.title = "Esqueci a Senha"
+       
+        let registerLoginObject = LoginController.createRequestTokenParameters()
+        let url = Repository.createServiceURLFromPListValue(.services, key: "requestToken")
         
-        CustomToastNotification().showNotification(view: view, title: "Financial", menssage: "Chave de ascesso é : 123", nameImage: "AppIconFinancial")
-        
+        Connection.request(url, method: .post, parameters: registerLoginObject, dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                
+            }
+        })
     }
     
     @IBAction func requestNewCode(_ sender: Any) {
-        CustomToastNotification().showNotification(view: view, title: "Financial", menssage: "Chave de ascesso é : 123", nameImage: "AppIconFinancial")
+        
+        let registerLoginObject = LoginController.createRequestTokenParameters()
+        let url = Repository.createServiceURLFromPListValue(.services, key: "requestToken")
+        
+        Connection.request(url, method: .post, parameters: registerLoginObject, dataResponseJSON: { (dataResponse) in
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+            }
+        })
+    }
+
+
+    
+    func isFormValid() -> Bool {
+        
+        codeErrorLabel.isHidden = false
+        
+        //guards
+        guard let codeTokenForm = code.text else {
+            return false
+        }
+
+        if codeTokenForm.isEmptyOrWhitespace() {
+           return false
+        }else{
+            codeAcess = codeTokenForm
+            codeErrorLabel.isHidden = true
+            return true
+        }
     }
     
+
     
     @IBAction func checkCode(_ sender: Any) {
-        
-        if (code.text?.isEmpty)! {
-            codeErrorLabel.isHidden = false
-        }else if (code.text != codeAcess) {
-            codeErrorLabel.isHidden = false
-        }else{
-            codeErrorLabel.isHidden = true
-            self.performSegue(withIdentifier: "Checkout", sender: self)
+        if isFormValid() {
+            let registerLoginObject = LoginController.createValidTokenParameters(chaveExterna: codeAcess)
+            let url = Repository.createServiceURLFromPListValue(.services, key: "validTokenService")
+            
+            Connection.request(url, method: .put, parameters: registerLoginObject, dataResponseJSON: { (dataResponse) in
+                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                    self.performSegue(withIdentifier: "validToken", sender: self)
+                }
+            })
         }
-        
     }
 }

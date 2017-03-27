@@ -113,7 +113,7 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
             labelErrorCPF.text = "CPF vazio."
             return false
         }
-        guard let phoneNumber = textFieldCardNumber.text else {
+        guard let phoneNumber = textFieldCelular.text else {
             labelErrorCelular.text = "Número Invalido"
             return false
         }
@@ -163,7 +163,7 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
             ErrorPhoneNumber = false
             numberPhone = phoneNumber
             labelErrorCelular.isHidden = true
-            cadastro.burthday = birthdayForm
+            cadastro.celular = phoneNumber.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: " ", with: "")
         }
         
         /////////////////////////////////////////////////////////////////////////

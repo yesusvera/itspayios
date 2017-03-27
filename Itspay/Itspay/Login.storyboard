@@ -1091,12 +1091,12 @@
                     <connections>
                         <outlet property="code" destination="2at-zJ-Atp" id="CcI-ic-dKm"/>
                         <outlet property="codeErrorLabel" destination="rRW-gY-ETI" id="AJS-ug-Blg"/>
-                        <segue destination="bfo-9A-uYH" kind="show" identifier="Checkout" id="hf5-fT-ZnL"/>
+                        <segue destination="bfo-9A-uYH" kind="show" identifier="validToken" id="hf5-fT-ZnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWi-oK-ayC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="1065"/>
+            <point key="canvasLocation" x="1665" y="1065"/>
         </scene>
         <!--Finish User Login View-->
         <scene sceneID="dbG-pV-e5U">
@@ -1582,6 +1582,6 @@
         <image name="financialLogo" width="289" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oht-7W-me4"/>
+        <segue reference="Vt1-QL-PYv"/>
     </inferredMetricsTieBreakers>
 </document>

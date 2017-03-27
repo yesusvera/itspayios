@@ -56,7 +56,7 @@ class FinishUserLoginView: UITableViewController {
                 let registerLoginObject = LoginController.createRegisterLoginObject()
                 let url = Repository.createServiceURLFromPListValue(.services, key: "register")
                 
-                Connection.request(url, method: .post, parameters: registerLoginObject.dictionaryRepresentation(), dataResponseJSON: { (dataResponse) in
+                Connection.request(url, method: .post, parameters: registerLoginObject, dataResponseJSON: { (dataResponse) in
                     if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
                         self.performSegue(withIdentifier: "CardsSegue", sender: self)
                     }

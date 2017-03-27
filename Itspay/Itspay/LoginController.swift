@@ -63,6 +63,30 @@ class LoginController {
         return dictionary
     }
     
+    static func createRegisterLoginObject() -> [String:Any]  {
+        var dictionary = [String:Any]()
+        
+        var cadastro : CadastroSingleton = CadastroSingleton.sharedInstance
+
+        
+        if let data = cadastro.numberCard.replacingOccurrences(of: ".", with: "").data(using: .utf8) {
+            dictionary["credencial"] = data.toHexString()
+        }
+        
+        dictionary["email"] = cadastro.email
+        dictionary["dataNascimento"] = cadastro.burthday
+        dictionary["cpf"] = cadastro.cpf.onlyNumbers()
+        dictionary["senha"] = cadastro.password
+        dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        print("Create Register Object: \(dictionary)")
+        
+        return dictionary
+    }
+    
+    
     static func createEmailURLPath() -> String {
         var url = Repository.createServiceURLFromPListValue(.services, key: "email")
         
@@ -199,6 +223,31 @@ class LoginController {
         dictionary["dataNascimento"] = birthday
         dictionary["idInstituicao"] = ID_INSTITUICAO
         dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        return dictionary
+    }
+    
+    static func createRequestTokenParameters() -> [String:Any] {
+        var dictionary = [String:Any]()
+        
+        let currentDate = NSDate()
+        var dateAsString = String(describing: currentDate)
+
+        CadastroSingleton.sharedInstance.chaveToken =  CadastroSingleton.sharedInstance.celular + dateAsString
+        
+        dictionary["chave"] = CadastroSingleton.sharedInstance.chaveToken
+        dictionary["celular"] = CadastroSingleton.sharedInstance.celular
+        dictionary["idInstituicao"] = ID_INSTITUICAO
+        dictionary["idProcessadora"] = ID_PROCESSADORA
+        
+        return dictionary
+    }
+    
+    static func createValidTokenParameters(chaveExterna:String) -> [String:Any] {
+        var dictionary = [String:Any]()   
+        
+        dictionary["token"] = chaveExterna
+        dictionary["chaveExterna"] = CadastroSingleton.sharedInstance.chaveToken
         
         return dictionary
     }

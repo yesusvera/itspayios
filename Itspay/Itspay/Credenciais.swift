@@ -54,7 +54,7 @@ public final class Credenciais: NSCoding {
   public var descStatus: String?
   public var credencialMascarada: String?
   public var dataHoraInclusao: DataHoraInclusao?
-  public var saldo: Int?
+  public var saldo: Double?
   public var idProduto: Int?
   public var contaPagamento: String?
   public var idProdutoPlataforma: Int?
@@ -97,7 +97,7 @@ public final class Credenciais: NSCoding {
     descStatus = json[SerializationKeys.descStatus].string
     credencialMascarada = json[SerializationKeys.credencialMascarada].string
     dataHoraInclusao = DataHoraInclusao(json: json[SerializationKeys.dataHoraInclusao])
-    saldo = json[SerializationKeys.saldo].int
+    saldo = json[SerializationKeys.saldo].double
     idProduto = json[SerializationKeys.idProduto].int
     contaPagamento = json[SerializationKeys.contaPagamento].string
     idProdutoPlataforma = json[SerializationKeys.idProdutoPlataforma].int
@@ -167,7 +167,7 @@ public final class Credenciais: NSCoding {
     self.descStatus = aDecoder.decodeObject(forKey: SerializationKeys.descStatus) as? String
     self.credencialMascarada = aDecoder.decodeObject(forKey: SerializationKeys.credencialMascarada) as? String
     self.dataHoraInclusao = aDecoder.decodeObject(forKey: SerializationKeys.dataHoraInclusao) as? DataHoraInclusao
-    self.saldo = aDecoder.decodeObject(forKey: SerializationKeys.saldo) as? Int
+    self.saldo = aDecoder.decodeObject(forKey: SerializationKeys.saldo) as? Double
     self.idProduto = aDecoder.decodeObject(forKey: SerializationKeys.idProduto) as? Int
     self.contaPagamento = aDecoder.decodeObject(forKey: SerializationKeys.contaPagamento) as? String
     self.idProdutoPlataforma = aDecoder.decodeObject(forKey: SerializationKeys.idProdutoPlataforma) as? Int
