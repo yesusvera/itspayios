@@ -49,7 +49,11 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
                 if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                     let message = getDataResponseMessage(dataResponse)
                     
-                    AlertComponent.showSimpleAlert(title: "Sucesso", message: message, viewController: self)
+                    if(message == "Login de acesso não identificado. "){
+                        AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
+                    }else{
+                        AlertComponent.showSimpleAlert(title: "Sucesso", message: message, viewController: self)
+                    }
                 }
             })
         }
@@ -74,7 +78,6 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
         
         return stringOfDate
     }
-    
     
     func isFormValid() -> Bool {
         labelErrorCPF.isHidden = false
@@ -104,6 +107,7 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
             labelErrorCPF.text = cpfValidation.message
             
         }else {
+            cpfError = true
             labelErrorCPF.isHidden = true
         }
         
@@ -111,14 +115,16 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
         if birthdayForm.isEmptyOrWhitespace() {
             labelErrorBirthday.text = "Data de nascimento vazia."
         } else{
+            birthdayError = true
             birthday = birthdayForm
             labelErrorBirthday.isHidden = true
         }
         
+        
         if !cpfError || !birthdayError {
             return false
         }
-
+        
         
         cpf = cpfForm
         labelErrorCPF.isHidden = true
