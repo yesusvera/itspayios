@@ -539,7 +539,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             label.adjustsFontSizeToFitWidth = true
         }
         
-        if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCardStatement.descLocal {
+        if let label = cell.viewWithTag(2) as? UILabel, let value = virtualCardStatement.descTransacao {
             label.text = "\(value)"
             label.adjustsFontSizeToFitWidth = true
         }
