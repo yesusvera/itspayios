@@ -346,7 +346,7 @@
                                                         <constraint firstAttribute="height" constant="44" id="boW-70-Phk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <state key="normal" title="Login">
+                                                    <state key="normal" title="Acessar">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -1319,6 +1319,6 @@
         <image name="camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HPq-jk-izp"/>
+        <segue reference="Oht-7W-me4"/>
     </inferredMetricsTieBreakers>
 </document>

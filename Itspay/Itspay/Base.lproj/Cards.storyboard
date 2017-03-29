@@ -1135,20 +1135,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRh-dw-0Q6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="444.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="444"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="sVO-vl-LX6" kind="embed" identifier="showWebViewSegue" id="tU4-vY-JLp"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Concordo com os Termos de Uso do Cartão Virtual" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtZ-18-Haa">
-                                <rect key="frame" x="8" y="516.5" width="302" height="33.5"/>
+                                <rect key="frame" x="8" y="516" width="302" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4EU-LD-J7b">
-                                <rect key="frame" x="318" y="518.5" width="51" height="31"/>
+                                <rect key="frame" x="318" y="518" width="51" height="31"/>
                                 <connections>
                                     <action selector="aceptTerms:" destination="ftQ-cg-8vB" eventType="valueChanged" id="9CC-Tb-gIF"/>
                                 </connections>
