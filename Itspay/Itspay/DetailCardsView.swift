@@ -547,9 +547,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 label.text = virtualCardStatement.descLocal
             }
             
-//            label.adjustsFontSizeToFitWidth = true
+            //            label.adjustsFontSizeToFitWidth = true
         }
-
         
         if let label = cell.viewWithTag(3) as? UILabel, let value = virtualCardStatement.valorTransacao, let signal = virtualCardStatement.sinal {
             if signal >= 0 {
@@ -562,8 +561,14 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             label.adjustsFontSizeToFitWidth = true
         }
         
-        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCardStatement.descSeguimento {
-            label.text = "\(value)"
+//        if let label = cell.viewWithTag(4) as? UILabel, let value = virtualCardStatement.descSeguimento {
+//            label.text = "\(value)"
+//            label.adjustsFontSizeToFitWidth = true
+//            label.isHidden = true
+//        }
+        
+        if let label = cell.viewWithTag(4) as? UILabel {
+            label.text = ""
             label.adjustsFontSizeToFitWidth = true
             label.isHidden = true
         }
