@@ -571,8 +571,7 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             label.text = ""
             label.adjustsFontSizeToFitWidth = true
             label.isHidden = true
-        }
-        
+        }        
         return cell
     }
     
