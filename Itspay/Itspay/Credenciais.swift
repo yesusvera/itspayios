@@ -34,6 +34,7 @@ public final class Credenciais: NSCoding {
         static let urlImagemProduto = "urlImagemProduto"
         static let status = "status"
         static let limiteDisponivel = "limiteDisponivel"
+        static let limite = "limite"
         static let idCredencial = "idCredencial"
         static let credencialMascaradaReduzida = "credencialMascaradaReduzida"
         static let preparaDataSaldo = "preparaDataSaldo"
@@ -65,7 +66,8 @@ public final class Credenciais: NSCoding {
     public var nomeImpresso: String?
     public var urlImagemProduto: String?
     public var status: Int?
-    public var limiteDisponivel: Int?
+    public var limiteDisponivel: Double?
+    public var limite: Double?
     public var idCredencial: Int?
     public var credencialMascaradaReduzida: String?
     public var preparaDataSaldo: String?
@@ -108,7 +110,8 @@ public final class Credenciais: NSCoding {
         nomeImpresso = json[SerializationKeys.nomeImpresso].string
         urlImagemProduto = json[SerializationKeys.urlImagemProduto].string
         status = json[SerializationKeys.status].int
-        limiteDisponivel = json[SerializationKeys.limiteDisponivel].int
+        limiteDisponivel = json[SerializationKeys.limiteDisponivel].double
+        limite = json[SerializationKeys.limite].double
         idCredencial = json[SerializationKeys.idCredencial].int
         credencialMascaradaReduzida = json[SerializationKeys.credencialMascaradaReduzida].string
         preparaDataSaldo = json[SerializationKeys.preparaDataSaldo].string
@@ -145,6 +148,7 @@ public final class Credenciais: NSCoding {
         if let value = urlImagemProduto { dictionary[SerializationKeys.urlImagemProduto] = value }
         if let value = status { dictionary[SerializationKeys.status] = value }
         if let value = limiteDisponivel { dictionary[SerializationKeys.limiteDisponivel] = value }
+        if let value = limite { dictionary[SerializationKeys.limite] = value }
         if let value = idCredencial { dictionary[SerializationKeys.idCredencial] = value }
         if let value = credencialMascaradaReduzida { dictionary[SerializationKeys.credencialMascaradaReduzida] = value }
         if let value = preparaDataSaldo { dictionary[SerializationKeys.preparaDataSaldo] = value }
@@ -178,7 +182,8 @@ public final class Credenciais: NSCoding {
         self.nomeImpresso = aDecoder.decodeObject(forKey: SerializationKeys.nomeImpresso) as? String
         self.urlImagemProduto = aDecoder.decodeObject(forKey: SerializationKeys.urlImagemProduto) as? String
         self.status = aDecoder.decodeObject(forKey: SerializationKeys.status) as? Int
-        self.limiteDisponivel = aDecoder.decodeObject(forKey: SerializationKeys.limiteDisponivel) as? Int
+        self.limiteDisponivel = aDecoder.decodeObject(forKey: SerializationKeys.limiteDisponivel) as? Double
+        self.limite = aDecoder.decodeObject(forKey: SerializationKeys.limite) as? Double
         self.idCredencial = aDecoder.decodeObject(forKey: SerializationKeys.idCredencial) as? Int
         self.credencialMascaradaReduzida = aDecoder.decodeObject(forKey: SerializationKeys.credencialMascaradaReduzida) as? String
         self.preparaDataSaldo = aDecoder.decodeObject(forKey: SerializationKeys.preparaDataSaldo) as? String
@@ -211,6 +216,7 @@ public final class Credenciais: NSCoding {
         aCoder.encode(urlImagemProduto, forKey: SerializationKeys.urlImagemProduto)
         aCoder.encode(status, forKey: SerializationKeys.status)
         aCoder.encode(limiteDisponivel, forKey: SerializationKeys.limiteDisponivel)
+        aCoder.encode(limite, forKey: SerializationKeys.limite)
         aCoder.encode(idCredencial, forKey: SerializationKeys.idCredencial)
         aCoder.encode(credencialMascaradaReduzida, forKey: SerializationKeys.credencialMascaradaReduzida)
         aCoder.encode(preparaDataSaldo, forKey: SerializationKeys.preparaDataSaldo)
