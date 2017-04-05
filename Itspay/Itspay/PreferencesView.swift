@@ -76,10 +76,9 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         let url = LoginController.createChangePasswordURLPath()
         
         Connection.request(url, method: .put, parameters: LoginController.createChangePasswordParametersDictionary(password, newPassword: newPassword), dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {    }
-            
-            UserDefaults.standard.set(true, forKey: "isModifiedPassword")
-
+            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                UserDefaults.standard.set(true, forKey: "isModifiedPassword")
+            }
             
             self.clearAllFields()
         })
@@ -94,6 +93,14 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
     func isEmailFormValid() -> Bool {
         guard let emailValidation = textFieldEmail.text else {
             AlertComponent.showSimpleAlert(title: "Erro", message: "Email inválido.", viewController: self)
+            return false
+        }
+        
+        //Email
+        if emailValidation.isEmptyOrWhitespace() {
+            AlertComponent.showSimpleAlert(title: "Erro", message: "Email inválido.", viewController: self)
+            return false
+        }else if !emailValidation.isEmail() {AlertComponent.showSimpleAlert(title: "Erro", message: "Email inválido.", viewController: self)
             return false
         }
         

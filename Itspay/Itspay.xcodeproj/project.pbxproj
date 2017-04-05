@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
+		71261BAE1E94A31700030635 /* LimitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71261BAD1E94A31700030635 /* LimitsView.swift */; };
 		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
 		71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442461E54CDA200E7E584 /* BRYXBanner.framework */; };
 		71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */; };
@@ -194,6 +195,7 @@
 		00EC758617B7E9C8A3FE21FF /* Pods-Itspay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5160D1E1FA73682CD5145B /* Pods-ItspayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.release.xcconfig"; sourceTree = "<group>"; };
+		71261BAD1E94A31700030635 /* LimitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimitsView.swift; sourceTree = "<group>"; };
 		713B163B1E491C1B0074B547 /* ButtonAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		7158147E1E5E1C640048A988 /* Teste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teste.swift; sourceTree = "<group>"; };
 		71A442461E54CDA200E7E584 /* BRYXBanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BRYXBanner.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Itspay-cozzahyqyvodtxegketdzeqjiphd/Build/Products/Debug-iphoneos/BRYXBanner/BRYXBanner.framework"; sourceTree = "<group>"; };
@@ -815,6 +817,7 @@
 				ED8AF37A1DFF85C100EBB73F /* Cards.storyboard */,
 				ED9B8A661E2D3F6300BF8632 /* CardInfoView.swift */,
 				ED9B8A641E2D3F1100BF8632 /* CardInfoView.xib */,
+				71261BAD1E94A31700030635 /* LimitsView.swift */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -1295,6 +1298,7 @@
 				ED5260021E20488600881184 /* ShippingForm.swift in Sources */,
 				ED599DCA1E007537004EC753 /* DataHoraUltimoAcessso.swift in Sources */,
 				ED3913281E088899001B506D /* DataTransacao.swift in Sources */,
+				71261BAE1E94A31700030635 /* LimitsView.swift in Sources */,
 				EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,

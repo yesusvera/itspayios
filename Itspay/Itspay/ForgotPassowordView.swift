@@ -108,6 +108,7 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
             
         }else {
             cpfError = true
+            cpf = cpfForm
             labelErrorCPF.isHidden = true
         }
         

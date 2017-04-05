@@ -127,6 +127,30 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                if virtualCard.tipoConta == 2 {
+                    
+                    boomMenuButton.piecePlaceEnum = .DOT_3_1
+                    boomMenuButton.buttonPlaceEnum = .SC_3_1
+                    
+                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                        builder?.imageNormal = "cash"
+                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                        builder?.textNormalColor = UIColor.white
+                        builder?.textPressedColor = UIColor.white
+                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                        builder?.lines = 2
+                        builder?.lineBreakMode = .byClipping
+                        builder?.textContent = "Limites"
+                        builder?.rotateImage = true
+                        builder?.rotateText = true
+                        builder?.shadowOffset = CGSize(width: 5, height: 5)
+                        builder?.shadowOpacity = 0
+                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    })
+                }
+                
             }else if idProduto == 4{
                 
                 boomMenuButton.piecePlaceEnum = .DOT_3_1
@@ -182,6 +206,31 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                
+                if virtualCard.tipoConta == 2 {
+                    
+                    boomMenuButton.piecePlaceEnum = .DOT_4_1
+                    boomMenuButton.buttonPlaceEnum = .SC_4_1
+                    
+                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                        builder?.imageNormal = "cash"
+                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                        builder?.textNormalColor = UIColor.white
+                        builder?.textPressedColor = UIColor.white
+                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                        builder?.lines = 2
+                        builder?.lineBreakMode = .byClipping
+                        builder?.textContent = "Limites"
+                        builder?.rotateImage = true
+                        builder?.rotateText = true
+                        builder?.shadowOffset = CGSize(width: 5, height: 5)
+                        builder?.shadowOpacity = 0
+                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    })
+                }
+
 
             }else {
 //                boomMenuButton.piecePlaceEnum = .DOT_6_1
@@ -294,6 +343,31 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                     builder?.shadowOpacity = 0
                     builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
                 })
+                
+                if virtualCard.tipoConta == 2 {
+                    
+                    boomMenuButton.piecePlaceEnum = .DOT_7_1
+                    boomMenuButton.buttonPlaceEnum = .SC_7_1
+                    
+                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                        builder?.imageNormal = "cash"
+                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                        builder?.textNormalColor = UIColor.white
+                        builder?.textPressedColor = UIColor.white
+                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                        builder?.lines = 2
+                        builder?.lineBreakMode = .byClipping
+                        builder?.textContent = "Limites"
+                        builder?.rotateImage = true
+                        builder?.rotateText = true
+                        builder?.shadowOffset = CGSize(width: 5, height: 5)
+                        builder?.shadowOpacity = 0
+                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                    })
+                }
+
             }
         }
     }
@@ -303,8 +377,10 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             if idProduto == 2 || idProduto == 3 {
                 if index.hashValue == 0 {
                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-                } else {
+                } else if index.hashValue == 1 {
                     LoginController.logout(self)
+                }else{
+                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
                 }
             }  else if idProduto == 4 {
                 
@@ -313,8 +389,10 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 } else if index.hashValue == 1{
                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
                 } else if index.hashValue == 2 {
-//                    LoginController.logout(self)
+                    //                    LoginController.logout(self)
                     buttonComunicateAction()
+                }else{
+                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
                 }
                 
             }else {
@@ -326,6 +404,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 } else if index.hashValue == 2 {
                     //                    LoginController.logout(self)
                     buttonComunicateAction()
+                }else{
+                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
                 }
 
 //                if index.hashValue == SideMenuType.transfer.rawValue {
@@ -373,10 +453,19 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             if idProduto == 2 || idProduto == 3 {
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+               
+                if virtualCard.tipoConta == 2 {
+                    arraySideMenuObjects.append(SideMenuObject(title: "Limites", imagePath: "cash", menuType: .limits))
+                }
+                
             }else if idProduto == 4 {
                 arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+                
+                if virtualCard.tipoConta == 2 {
+                    arraySideMenuObjects.append(SideMenuObject(title: "Limites", imagePath: "cash", menuType: .limits))
+                    }
             }else {
 //                arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
 //                arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
@@ -384,6 +473,10 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
 //                arraySideMenuObjects.append(SideMenuObject(title: "Tarifas", imagePath: "cash", menuType: .rates))
                 arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
+                
+                if virtualCard.tipoConta == 2 {
+                    arraySideMenuObjects.append(SideMenuObject(title: "Limites", imagePath: "cash", menuType: .limits))
+                }
             }
         }
         
@@ -460,6 +553,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             } else if object.menuType == .logout {
 //                LoginController.logout(self)
                 buttonComunicateAction()
+            }else if object.menuType == .limits{
+                self.performSegue(withIdentifier: "LimitSegue", sender: self)
             }
         }
     }
@@ -591,6 +686,9 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
             viewController.virtualCard = virtualCard
         } else if segue.identifier == "SecuritySettingsSegue" {
             let viewController = segue.destination as! SecuritySettingsView
+            viewController.virtualCard = virtualCard
+        }else if segue.identifier == "LimitSegue" {
+            let viewController = segue.destination as! LimitsView
             viewController.virtualCard = virtualCard
         }
     }
