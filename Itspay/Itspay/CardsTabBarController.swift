@@ -107,10 +107,8 @@ class CardsTabBarController: UITabBarController {
             LoginController.logout(self)
         }
         
-        let ok = UIAlertAction(title: "Ok", style: .default) { (completion) in
-        }
         
-        AlertComponent.showAlert(title: "", message: "A Sessão expirou.", actions: [login, ok], viewController: self)
+        AlertComponent.showAlert(title: "", message: "A Sessão expirou.", actions: [login], viewController: self)
     }
     
     func configureNavigationBar() {
