@@ -23,6 +23,8 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     
     @IBOutlet weak var errorView: ErrorView!
     
+    var verificInitialView: Bool = false
+    
     var boomMenuButton = VHBoomMenuButton()
     
     var virtualCard : Credenciais!
@@ -32,15 +34,19 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        errorView.instantiate(in: self.view, addToView: false)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didSelectSideMenuItemObserver(_:)), name: NSNotification.Name.init("didSelectSideMenuItemObserver"), object: nil)
+        LoadingProgress.startAnimatingInWindow()
+        
+        errorView.instantiate(in: self.view, addToView: false)
         
         self.title = "Cartão"
         
-        configBoomMenuButton()
+        if virtualCard.tipoConta == 2 {
+            configureMenuBooMenuType2()
+        } else {
+            configBoomMenuButton()
+        }
         
-        configMenuNavigationController()
         updateViewInfo()
         
         self.refreshControl = UIRefreshControl(frame: CGRect.zero)
@@ -55,7 +61,11 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         
         getDetailVirtualCards()
         
-        configBoomMenuButton()
+        if virtualCard.tipoConta == 2 {
+            configureMenuBooMenuType2()
+        } else {
+            configBoomMenuButton()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,421 +80,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 }
             }
         }
-    }
-    
-    func configBoomMenuButton() {
-        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: SCREEN_WIDTH-50-16, y: SCREEN_HEIGHT-50-16, width: 50, height: 50))
-        
-        if let window = appDelegate.window {
-            window?.addSubview(boomMenuButton)
-        }
-        
-        boomMenuButton.boomEnum = .parabola_3
-        boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-        boomMenuButton.buttonPressedColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
-        boomMenuButton.boomDelegate = self
-        boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
-        
-        boomMenuButton.buttonEnum = .VHButtonTextInsideCircle
-        boomMenuButton.boomButtonBuilders = NSMutableArray()
-        
-        if let idProduto = virtualCard.idProdutoPlataforma {
-            if idProduto == 2 || idProduto == 3 {
-                boomMenuButton.piecePlaceEnum = .DOT_2_1
-                boomMenuButton.buttonPlaceEnum = .SC_2_1
-                
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "lock"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Ajustes"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "logout"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Sair"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                if virtualCard.tipoConta == 2 {
-                    
-                    boomMenuButton.piecePlaceEnum = .DOT_3_1
-                    boomMenuButton.buttonPlaceEnum = .SC_3_1
-                    
-                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                        builder?.imageNormal = "cash"
-                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                        builder?.textNormalColor = UIColor.white
-                        builder?.textPressedColor = UIColor.white
-                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                        builder?.lines = 2
-                        builder?.lineBreakMode = .byClipping
-                        builder?.textContent = "Limites"
-                        builder?.rotateImage = true
-                        builder?.rotateText = true
-                        builder?.shadowOffset = CGSize(width: 5, height: 5)
-                        builder?.shadowOpacity = 0
-                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                    })
-                }
-                
-            }else if idProduto == 4{
-                
-                boomMenuButton.piecePlaceEnum = .DOT_3_1
-                boomMenuButton.buttonPlaceEnum = .SC_3_1
-                
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "virtual_card"
-                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "lock"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Ajustes"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "logout"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Sair"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                
-                if virtualCard.tipoConta == 2 {
-                    
-                    boomMenuButton.piecePlaceEnum = .DOT_4_1
-                    boomMenuButton.buttonPlaceEnum = .SC_4_1
-                    
-                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                        builder?.imageNormal = "cash"
-                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                        builder?.textNormalColor = UIColor.white
-                        builder?.textPressedColor = UIColor.white
-                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                        builder?.lines = 2
-                        builder?.lineBreakMode = .byClipping
-                        builder?.textContent = "Limites"
-                        builder?.rotateImage = true
-                        builder?.rotateText = true
-                        builder?.shadowOffset = CGSize(width: 5, height: 5)
-                        builder?.shadowOpacity = 0
-                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                    })
-                }
-
-
-            }else {
-//                boomMenuButton.piecePlaceEnum = .DOT_6_1
-//                boomMenuButton.buttonPlaceEnum = .SC_6_1
-//                
-                
-//                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-//                    builder?.imageNormal = "transfer"
-//                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-//                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-//                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-//                    builder?.textNormalColor = UIColor.white
-//                    builder?.textPressedColor = UIColor.white
-//                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-//                    builder?.lines = 2
-//                    builder?.lineBreakMode = .byClipping
-//                    builder?.textContent = "Transferir"
-//                    builder?.rotateImage = true
-//                    builder?.rotateText = true
-//                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-//                    builder?.shadowOpacity = 0
-//                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-//                })
-//                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-//                    builder?.imageNormal = "charge"
-//                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-//                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-//                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-//                    builder?.textNormalColor = UIColor.white
-//                    builder?.textPressedColor = UIColor.white
-//                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-//                    builder?.lines = 2
-//                    builder?.lineBreakMode = .byClipping
-//                    builder?.textContent = "Carga"
-//                    builder?.rotateImage = true
-//                    builder?.rotateText = true
-//                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-//                    builder?.shadowOpacity = 0
-//                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-//                })
-//                
-
-                boomMenuButton.piecePlaceEnum = .DOT_3_1
-                boomMenuButton.buttonPlaceEnum = .SC_3_1
-                
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "virtual_card"
-                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-//                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-//                    builder?.imageNormal = "cash"
-//                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-//                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-//                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-//                    builder?.textNormalColor = UIColor.white
-//                    builder?.textPressedColor = UIColor.white
-//                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-//                    builder?.lines = 2
-//                    builder?.lineBreakMode = .byClipping
-//                    builder?.textContent = "Tarifas"
-//                    builder?.rotateImage = true
-//                    builder?.rotateText = true
-//                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-//                    builder?.shadowOpacity = 0
-//                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-//                })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "lock"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Ajustes"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                    builder?.imageNormal = "logout"
-                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                    builder?.textNormalColor = UIColor.white
-                    builder?.textPressedColor = UIColor.white
-                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                    builder?.lines = 2
-                    builder?.lineBreakMode = .byClipping
-                    builder?.textContent = "Sair"
-                    builder?.rotateImage = true
-                    builder?.rotateText = true
-                    builder?.shadowOffset = CGSize(width: 5, height: 5)
-                    builder?.shadowOpacity = 0
-                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                })
-                
-                if virtualCard.tipoConta == 2 {
-                    
-                    boomMenuButton.piecePlaceEnum = .DOT_7_1
-                    boomMenuButton.buttonPlaceEnum = .SC_7_1
-                    
-                    boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
-                        builder?.imageNormal = "cash"
-                        builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
-                        builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
-                        builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
-                        builder?.textNormalColor = UIColor.white
-                        builder?.textPressedColor = UIColor.white
-                        builder?.font = UIFont.boldSystemFont(ofSize: 11)
-                        builder?.lines = 2
-                        builder?.lineBreakMode = .byClipping
-                        builder?.textContent = "Limites"
-                        builder?.rotateImage = true
-                        builder?.rotateText = true
-                        builder?.shadowOffset = CGSize(width: 5, height: 5)
-                        builder?.shadowOpacity = 0
-                        builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
-                    })
-                }
-
-            }
-        }
-    }
-    
-    func onBoomClicked(_ index: Int32) {
-        if let idProduto = virtualCard.idProdutoPlataforma {
-            if idProduto == 2 || idProduto == 3 {
-                if index.hashValue == 0 {
-                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-                } else if index.hashValue == 1 {
-                    LoginController.logout(self)
-                }else{
-                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
-                }
-            }  else if idProduto == 4 {
-                
-                if index.hashValue == 0 {
-                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-                } else if index.hashValue == 1{
-                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-                } else if index.hashValue == 2 {
-                    //                    LoginController.logout(self)
-                    buttonComunicateAction()
-                }else{
-                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
-                }
-                
-            }else {
-                
-                if index.hashValue == 0 {
-                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-                } else if index.hashValue == 1{
-                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-                } else if index.hashValue == 2 {
-                    //                    LoginController.logout(self)
-                    buttonComunicateAction()
-                }else{
-                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
-                }
-
-//                if index.hashValue == SideMenuType.transfer.rawValue {
-//                    self.performSegue(withIdentifier: "TransferSegue", sender: self)
-//                } else if index.hashValue == SideMenuType.charge.rawValue {
-//                    self.performSegue(withIdentifier: "ChargeSegue", sender: self)
-//                } else if index.hashValue == SideMenuType.card.rawValue {
-//                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-//                } else if index.hashValue == SideMenuType.security.rawValue {
-//                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-//                } else if index.hashValue == SideMenuType.rates.rawValue {
-//                    self.performSegue(withIdentifier: "RatesSegue", sender: self)
-//                } else if index.hashValue == SideMenuType.logout.rawValue {
-////                    LoginController.logout(self)
-//                    buttonComunicateAction()
-//                }
-            }
-        }
-    }
-    
-    func onBoomWillShow() {
-        
-    }
-    
-    func onBoomWillHide() {
-        
-    }
-    
-    func updateViewInfo() {
-        cardInfoView.updateView(with: virtualCard)
-    }
-    
-    func configMenuNavigationController() {
-        let sideMenuTableViewController = instantiateFrom("General", identifier: "SideMenuTableViewController") as! SideMenuTableViewController
-        
-        let sideNavigationController = UISideMenuNavigationController(rootViewController: sideMenuTableViewController)
-        
-        sideNavigationController.leftSide = false
-        
-        SideMenuManager.menuRightNavigationController = sideNavigationController
-        
-        var arraySideMenuObjects = [SideMenuObject]()
-        
-        if let idProduto = virtualCard.idProdutoPlataforma {
-            if idProduto == 2 || idProduto == 3 {
-                arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
-                arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
-               
-                if virtualCard.tipoConta == 2 {
-                    arraySideMenuObjects.append(SideMenuObject(title: "Limites", imagePath: "cash", menuType: .limits))
-                }
-                
-            }else if idProduto == 4 {
-                arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
-                arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
-                arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
-                
-                if virtualCard.tipoConta == 2 {
-                    arraySideMenuObjects.append(SideMenuObject(title: "Limites", imagePath: "cash", menuType: .limits))
-                    }
-            }else {
-//                arraySideMenuObjects.append(SideMenuObject(title: "Transferir", imagePath: "transfer", menuType: .transfer))
-//                arraySideMenuObjects.append(SideMenuObject(title: "Inserir Carga", imagePath: "charge", menuType: .charge))
-                arraySideMenuObjects.append(SideMenuObject(title: "Cartões Virtuais", imagePath: "card", menuType: .card))
-                arraySideMenuObjects.append(SideMenuObject(title: "Ajustes de Segurança", imagePath: "lock", menuType: .security))
-//                arraySideMenuObjects.append(SideMenuObject(title: "Tarifas", imagePath: "cash", menuType: .rates))
-                arraySideMenuObjects.append(SideMenuObject(title: "Sair", imagePath: "logout", menuType: .logout))
-                
-                if virtualCard.tipoConta == 2 {
-                    arraySideMenuObjects.append(SideMenuObject(title: "Limites", imagePath: "cash", menuType: .limits))
-                }
-            }
-        }
-        
-        sideMenuTableViewController.arraySideMenuObjects = arraySideMenuObjects
-        sideMenuTableViewController.tableView.reloadData()
-        
-        SideMenuManager.menuAddPanGestureToPresent(toView: sideNavigationController.navigationBar)
-        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: sideNavigationController.view)
     }
     
     func getDetailVirtualCards() {
@@ -506,13 +101,17 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
     func getVirtualCardsStatement() {
         let daysAgo = (15 * (segmentedControlValue.selectedSegmentIndex+1)) * -1
         
+        if verificInitialView {
+            LoadingProgress.startAnimatingInWindow()
+        }
+        
         let url = CardsController.createVirtualCardStatementURLPath(virtualCard, dataInicial: Date().addDays(daysAgo), dataFinal: Date())
         
-        LoadingProgress.startAnimatingInWindow()
         Connection.request(url, method: .get, parameters: nil, dataResponseJSON: { (dataResponse) in
             self.refreshControl?.endRefreshing()
             
             LoadingProgress.stopAnimating()
+            self.verificInitialView = true
             
             if validateDataResponse(dataResponse, showAlert: false, viewController: self) {
                 if let value = dataResponse.result.value as? [Any] {
@@ -534,29 +133,6 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
                 }
             }
         })
-    }
-    
-    func didSelectSideMenuItemObserver(_ notification : Notification) {
-        dismiss(animated: true, completion: nil)
-        
-        if let object = notification.object as? SideMenuObject {
-            if object.menuType == .transfer {
-                self.performSegue(withIdentifier: "TransferSegue", sender: self)
-            } else if object.menuType == .charge {
-                self.performSegue(withIdentifier: "ChargeSegue", sender: self)
-            } else if object.menuType == .card {
-                self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
-            } else if object.menuType == .security {
-                self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
-            } else if object.menuType == .rates {
-                self.performSegue(withIdentifier: "RatesSegue", sender: self)
-            } else if object.menuType == .logout {
-//                LoginController.logout(self)
-                buttonComunicateAction()
-            }else if object.menuType == .limits{
-                self.performSegue(withIdentifier: "LimitSegue", sender: self)
-            }
-        }
     }
     
     //Alert Logout
@@ -690,6 +266,646 @@ class DetailCardsView: UITableViewController, VHBoomDelegate {
         }else if segue.identifier == "LimitSegue" {
             let viewController = segue.destination as! LimitsView
             viewController.virtualCard = virtualCard
+        }
+    }
+    
+    
+    //Configure MenuBoom
+    
+    func configBoomMenuButton() {
+        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: SCREEN_WIDTH-50-16, y: SCREEN_HEIGHT-50-16, width: 50, height: 50))
+        
+        if let window = appDelegate.window {
+            window?.addSubview(boomMenuButton)
+        }
+        
+        boomMenuButton.boomEnum = .parabola_3
+        boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+        boomMenuButton.buttonPressedColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
+        boomMenuButton.boomDelegate = self
+        boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
+        
+        boomMenuButton.buttonEnum = .VHButtonTextInsideCircle
+        boomMenuButton.boomButtonBuilders = NSMutableArray()
+        
+        if let idProduto = virtualCard.idProdutoPlataforma {
+            if idProduto == 2 || idProduto == 3 {
+                boomMenuButton.piecePlaceEnum = .DOT_2_1
+                boomMenuButton.buttonPlaceEnum = .SC_2_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+              
+                
+            }else if idProduto == 4{
+                
+                boomMenuButton.piecePlaceEnum = .DOT_3_1
+                boomMenuButton.buttonPlaceEnum = .SC_3_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "virtual_card"
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                
+            }else {
+                //                boomMenuButton.piecePlaceEnum = .DOT_6_1
+                //                boomMenuButton.buttonPlaceEnum = .SC_6_1
+                //
+                
+                //                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                //                    builder?.imageNormal = "transfer"
+                //                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                //                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                //                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                //                    builder?.textNormalColor = UIColor.white
+                //                    builder?.textPressedColor = UIColor.white
+                //                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                //                    builder?.lines = 2
+                //                    builder?.lineBreakMode = .byClipping
+                //                    builder?.textContent = "Transferir"
+                //                    builder?.rotateImage = true
+                //                    builder?.rotateText = true
+                //                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                //                    builder?.shadowOpacity = 0
+                //                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                //                })
+                //                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                //                    builder?.imageNormal = "charge"
+                //                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                //                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                //                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                //                    builder?.textNormalColor = UIColor.white
+                //                    builder?.textPressedColor = UIColor.white
+                //                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                //                    builder?.lines = 2
+                //                    builder?.lineBreakMode = .byClipping
+                //                    builder?.textContent = "Carga"
+                //                    builder?.rotateImage = true
+                //                    builder?.rotateText = true
+                //                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                //                    builder?.shadowOpacity = 0
+                //                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                //                })
+                //
+                
+                boomMenuButton.piecePlaceEnum = .DOT_3_1
+                boomMenuButton.buttonPlaceEnum = .SC_3_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "virtual_card"
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                //                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                //                    builder?.imageNormal = "cash"
+                //                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                //                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                //                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                //                    builder?.textNormalColor = UIColor.white
+                //                    builder?.textPressedColor = UIColor.white
+                //                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                //                    builder?.lines = 2
+                //                    builder?.lineBreakMode = .byClipping
+                //                    builder?.textContent = "Tarifas"
+                //                    builder?.rotateImage = true
+                //                    builder?.rotateText = true
+                //                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                //                    builder?.shadowOpacity = 0
+                //                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                //                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+            }
+        }
+    }
+    
+    func configureMenuBooMenuType2() {
+        boomMenuButton = VHBoomMenuButton(frame: CGRect(x: SCREEN_WIDTH-50-16, y: SCREEN_HEIGHT-50-16, width: 50, height: 50))
+        
+        if let window = appDelegate.window {
+            window?.addSubview(boomMenuButton)
+        }
+        
+        boomMenuButton.boomEnum = .parabola_3
+        boomMenuButton.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+        boomMenuButton.buttonPressedColor = UIColor.colorFrom(hex: COLOR_NAVIGATION_BAR_HEX)
+        boomMenuButton.boomDelegate = self
+        boomMenuButton.dimColor = UIColor.black.withAlphaComponent(0.5)
+        
+        boomMenuButton.buttonEnum = .VHButtonTextInsideCircle
+        boomMenuButton.boomButtonBuilders = NSMutableArray()
+        
+        if let idProduto = virtualCard.idProdutoPlataforma {
+            if idProduto == 2 || idProduto == 3 {
+                
+                boomMenuButton.piecePlaceEnum = .DOT_3_1
+                boomMenuButton.buttonPlaceEnum = .SC_3_1
+                
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "cash"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Limites"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                
+            }else if idProduto == 4{
+                
+                boomMenuButton.piecePlaceEnum = .DOT_4_1
+                boomMenuButton.buttonPlaceEnum = .SC_4_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "virtual_card"
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "cash"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Limites"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                
+                
+            }else {
+                //                boomMenuButton.piecePlaceEnum = .DOT_6_1
+                //                boomMenuButton.buttonPlaceEnum = .SC_6_1
+                //
+                
+                //                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                //                    builder?.imageNormal = "transfer"
+                //                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                //                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                //                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                //                    builder?.textNormalColor = UIColor.white
+                //                    builder?.textPressedColor = UIColor.white
+                //                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                //                    builder?.lines = 2
+                //                    builder?.lineBreakMode = .byClipping
+                //                    builder?.textContent = "Transferir"
+                //                    builder?.rotateImage = true
+                //                    builder?.rotateText = true
+                //                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                //                    builder?.shadowOpacity = 0
+                //                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                //                })
+                //                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                //                    builder?.imageNormal = "charge"
+                //                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                //                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                //                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                //                    builder?.textNormalColor = UIColor.white
+                //                    builder?.textPressedColor = UIColor.white
+                //                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                //                    builder?.lines = 2
+                //                    builder?.lineBreakMode = .byClipping
+                //                    builder?.textContent = "Carga"
+                //                    builder?.rotateImage = true
+                //                    builder?.rotateText = true
+                //                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                //                    builder?.shadowOpacity = 0
+                //                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                //                })
+                //
+                
+                boomMenuButton.piecePlaceEnum = .DOT_4_1
+                boomMenuButton.buttonPlaceEnum = .SC_4_1
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "virtual_card"
+                    builder?.imageFrame = CGRect(x: 15, y: 20, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                //                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                //                    builder?.imageNormal = "cash"
+                //                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                //                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                //                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                //                    builder?.textNormalColor = UIColor.white
+                //                    builder?.textPressedColor = UIColor.white
+                //                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                //                    builder?.lines = 2
+                //                    builder?.lineBreakMode = .byClipping
+                //                    builder?.textContent = "Tarifas"
+                //                    builder?.rotateImage = true
+                //                    builder?.rotateText = true
+                //                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                //                    builder?.shadowOpacity = 0
+                //                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                //                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "lock"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Ajustes"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "cash"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Limites"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+                boomMenuButton.addText(insideCircleButtonBuilderBlock: { (builder) in
+                    builder?.imageNormal = "logout"
+                    builder?.imageFrame = CGRect(x: 15, y: 8, width: self.boomMenuButton.frame.width, height: self.boomMenuButton.frame.width)
+                    builder?.buttonNormalColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+                    builder?.buttonPressedColor = UIColor.colorFrom(hex: COLOR_LIGHT_GRAY_HEX)
+                    builder?.textNormalColor = UIColor.white
+                    builder?.textPressedColor = UIColor.white
+                    builder?.font = UIFont.boldSystemFont(ofSize: 11)
+                    builder?.lines = 2
+                    builder?.lineBreakMode = .byClipping
+                    builder?.textContent = "Sair"
+                    builder?.rotateImage = true
+                    builder?.rotateText = true
+                    builder?.shadowOffset = CGSize(width: 5, height: 5)
+                    builder?.shadowOpacity = 0
+                    builder?.shadowColor = UIColor.colorFrom(hex: COLOR_RED_HEX)
+                })
+            }
+        }
+    }
+    
+    func onBoomClicked(_ index: Int32) {
+        
+        if virtualCard.tipoConta == 2 {
+            onclickBoomMenuTipe2(index)
+        } else {
+            onclickBoomMenu(index)
+        }
+    }
+    
+    func onBoomWillShow() {
+        
+    }
+    
+    func onBoomWillHide() {
+        
+    }
+    
+    func updateViewInfo() {
+        cardInfoView.updateView(with: virtualCard)
+    }
+    
+    func onclickBoomMenu(_ index: Int32)  {
+        
+        if let idProduto = virtualCard.idProdutoPlataforma {
+            if idProduto == 2 || idProduto == 3 {
+                if index.hashValue == SideMenuTypePrduto2.security.rawValue{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == SideMenuTypePrduto2.logout.rawValue{
+                    buttonComunicateAction()
+                }
+                
+            }  else if idProduto == 4 {
+                
+                if index.hashValue == SideMenuTypePrduto4.card.rawValue{
+                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                } else if index.hashValue == SideMenuTypePrduto4.security.rawValue{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == SideMenuTypePrduto4.logout.rawValue{
+                    buttonComunicateAction()
+                }
+                
+            }else {
+                
+                if index.hashValue == SideMenuTypePrduto4.card.rawValue{
+                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                } else if index.hashValue == SideMenuTypePrduto4.security.rawValue{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == SideMenuTypePrduto4.logout.rawValue{
+                    buttonComunicateAction()
+                }
+                
+                
+                //                if index.hashValue == SideMenuType.transfer.rawValue {
+                //                    self.performSegue(withIdentifier: "TransferSegue", sender: self)
+                //                } else if index.hashValue == SideMenuType.charge.rawValue {
+                //                    self.performSegue(withIdentifier: "ChargeSegue", sender: self)
+                //                } else if index.hashValue == SideMenuType.card.rawValue {
+                //                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                //                } else if index.hashValue == SideMenuType.security.rawValue {
+                //                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                //                } else if index.hashValue == SideMenuType.rates.rawValue {
+                //                    self.performSegue(withIdentifier: "RatesSegue", sender: self)
+                //                } else if index.hashValue == SideMenuType.logout.rawValue {
+                ////                    LoginController.logout(self)
+                //                    buttonComunicateAction()
+                //                }
+            }
+        }
+    }
+    
+    
+    //clicked for menu tipoConta = 2
+    func onclickBoomMenuTipe2(_ index: Int32)  {
+        
+        if let idProduto = virtualCard.idProdutoPlataforma {
+            if idProduto == 2 || idProduto == 3 {
+                if index.hashValue == MenuType2Prduto2.security.rawValue{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == MenuType2Prduto2.limits.rawValue{
+                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
+                }else if index.hashValue == MenuType2Prduto2.logout.rawValue{
+                    buttonComunicateAction()
+                }
+                
+            }  else if idProduto == 4 {
+                if index.hashValue == MenuType2Prduto4.card.rawValue{
+                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                } else if index.hashValue == MenuType2Prduto4.security.rawValue{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == MenuType2Prduto4.limits.rawValue{
+                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
+                }else if index.hashValue == MenuType2Prduto4.logout.rawValue{
+                    buttonComunicateAction()
+                }
+                
+            }else {
+                
+                if index.hashValue == MenuType2Prduto4.card.rawValue{
+                    self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                } else if index.hashValue == MenuType2Prduto4.security.rawValue{
+                    self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                } else if index.hashValue == MenuType2Prduto4.limits.rawValue{
+                    self.performSegue(withIdentifier: "LimitSegue", sender: self)
+                }else if index.hashValue == MenuType2Prduto4.logout.rawValue{
+                    buttonComunicateAction()
+                }
+                
+                
+                //                   if index.hashValue == MenuType2Full.transfer.rawValue {
+                //                      self.performSegue(withIdentifier: "TransferSegue", sender: self)
+                //                   } else if index.hashValue == MenuType2Full.charge.rawValue {
+                //                      self.performSegue(withIdentifier: "ChargeSegue", sender: self)
+                //                   } else if index.hashValue == MenuType2Full.card.rawValue {
+                //                     self.performSegue(withIdentifier: "RequestCardSegue", sender: self)
+                //                   } else if index.hashValue == MenuType2Full.security.rawValue {
+                //                     self.performSegue(withIdentifier: "SecuritySettingsSegue", sender: self)
+                //                   } else if index.hashValue == MenuType2Full.rates.rawValue {
+                //                     self.performSegue(withIdentifier: "RatesSegue", sender: self)
+                //                   }else if index.hashValue == MenuType2Full.limits.rawValue {
+                //                     self.performSegue(withIdentifier: "LimitSegue", sender: self)
+                //                   } else if index.hashValue == MenuType2Full.logout.rawValue {
+                //                     buttonComunicateAction()
+                //                   }
+            }
         }
     }
 }

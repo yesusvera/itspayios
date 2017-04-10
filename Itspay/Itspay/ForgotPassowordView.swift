@@ -41,19 +41,33 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
     
     @IBAction func buttonRequestAction(_ sender: UIButton) {
         if isFormValid() {
+            LoadingProgress.startAnimatingInWindow()
+            
             let url = Repository.createServiceURLFromPListValue(.services, key: "recoverPassword")
             
             let parameters = LoginController.createRecoverPasswordParameters(cpf,birthday: GetDateFromString(DateStr: textFieldBirthday.text!))
             
             Connection.request(url, method: .post, parameters: parameters, dataResponseJSON: { (dataResponse) in
                 if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                    
+                    LoadingProgress.stopAnimating()
                     let message = getDataResponseMessage(dataResponse)
                     
-                    if(message == "Login de acesso não identificado. "){
-                        AlertComponent.showSimpleAlert(title: "Erro", message: message, viewController: self)
-                    }else{
-                        AlertComponent.showSimpleAlert(title: "Sucesso", message: message, viewController: self)
+                    if message.lowercased().contains("sucesso") {
+                        
+                        let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                            
+                            self.performSegue(withIdentifier: "forgotLoginSegue", sender: self)
+                            
+                        })
+                        
+                        AlertComponent.showAlert(title: "Sucesso", message:message,    actions: [buttonOk], viewController: self)
+                    } else {
+                        AlertComponent.showSimpleAlert(title: "Erro", message:  message, viewController: self)
                     }
+                    
+                    
+                    
                 }
             })
         }

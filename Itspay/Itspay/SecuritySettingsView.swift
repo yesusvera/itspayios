@@ -128,7 +128,6 @@ class SecuritySettingsView: UITableViewController {
     
 //    Action Update Password
     @IBAction func buttonUpdatePasswordAction(_ sender: UIButton) {
-        
         let url = CardsController.createChangePinURLPath()
         if (textFieldNewPassword.text?.isEqual(textFieldNewPasswordConfirmation.text))!{
         

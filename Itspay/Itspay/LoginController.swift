@@ -28,7 +28,7 @@ class LoginController {
         dictionary["deviceId"] = System.getUDID()
         dictionary["sistemaOperacional"] = SISTEMA_OPERACIONAL
         dictionary["idInstituicao"] = ID_INSTITUICAO
-        dictionary["architectureInfo"] = ""
+        dictionary["architectureInfo"] = System.getCurrentDeviceModel()
         dictionary["model"] = System.getCurrentDeviceModel()
         dictionary["versaoInstalada"] = System.getAppVersion()
         dictionary["latitude"] = Location.sharedInstance.currentLocation.coordinate.latitude

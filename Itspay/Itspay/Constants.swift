@@ -23,11 +23,11 @@ var LOGO_CLIENT = "BahamasLogo"
 var BACKGROUND_CLIENT = "BackBahamas"
 
 var PHONE_SAC = "3232294950"
-var PHONE_OUVIDORIA = "3208002859632"
+var PHONE_OUVIDORIA = "08002859632"
 var EMAIL_SAC = "creditoecobranca@bahamascard.com.br"
 
 //Produçao
-//var ID_INSTITUICAO = 1201
+var ID_INSTITUICAO = 1201
 
 
 //    Financial
@@ -62,7 +62,6 @@ var COLOR_GREEN_HEX = "65AE42"
 var COLOR_LIGHT_GRAY_HEX = "E6E6E6"
 var COLOR_BLACK_HEX = "2A2A2A"
 
-var ID_INSTITUICAO = 1201
 var ID_PROCESSADORA = 10
 var ID_USUARIO = 999999
 

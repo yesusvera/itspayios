@@ -14,7 +14,7 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
     @IBOutlet weak var textFieldCurrentPassword: UITextField!
     @IBOutlet weak var textFieldNewPassword: UITextField!
     @IBOutlet weak var textFieldNewPasswordConfirmation: UITextField!
-
+    
     @IBOutlet weak var buttonValue: UIButton!
     
     var isEmailEditing = false
@@ -53,6 +53,7 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
+       LoadingProgress.startAnimatingInWindow()
         if isEmailEditing {
             if isEmailFormValid() {
                 updateEmail()
@@ -66,9 +67,30 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
     
     func updateEmail() {
         let url = LoginController.createChangeEmailURLPath()
-        
+
         Connection.request(url, method: .put, parameters: LoginController.createChangeEmailParametersDictionary(email), dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {    }
+            if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                LoadingProgress.stopAnimating()
+
+
+                let message = getDataResponseMessage(dataResponse)
+                
+                if message.lowercased().contains("sucesso") {
+                    
+                    let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                        self.isEmailEditing = false
+                        self.tableView.beginUpdates()
+                        self.tableView.reloadData()
+                        self.tableView.endUpdates()
+                        
+                    })
+                    
+                    AlertComponent.showAlert(title: "Sucesso", message:message,    actions: [buttonOk], viewController: self)
+                } else {
+                    AlertComponent.showSimpleAlert(title: "Erro", message:  message, viewController: self)
+                }
+            }
+            
         })
     }
     
@@ -76,10 +98,31 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         let url = LoginController.createChangePasswordURLPath()
         
         Connection.request(url, method: .put, parameters: LoginController.createChangePasswordParametersDictionary(password, newPassword: newPassword), dataResponseJSON: { (dataResponse) in
-            if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                UserDefaults.standard.set(true, forKey: "isModifiedPassword")
-            }
+            if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+
+            LoadingProgress.stopAnimating()
+                
+            let message = getDataResponseMessage(dataResponse)
             
+            if message.lowercased().contains("sucesso") {
+                
+                let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                    self.isPasswordEditing = false
+                    self.tableView.beginUpdates()
+                    self.tableView.reloadData()
+                    self.tableView.endUpdates()
+                    
+                })
+                
+                UserDefaults.standard.set(true, forKey: "isModifiedPassword")
+
+                AlertComponent.showAlert(title: "Sucesso", message:message,    actions: [buttonOk], viewController: self)
+            } else {
+                AlertComponent.showSimpleAlert(title: "Erro", message:  message, viewController: self)
+            }
+        
+
+            }
             self.clearAllFields()
         })
     }
@@ -168,9 +211,11 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 0 {
-                UIApplication.shared.openURL(URL(string: "tel://\(PHONE_SAC)")!)
+                //                UIApplication.shared.openURL(URL(string: "tel://\(PHONE_SAC)")!)
+                ligar(numero: PHONE_SAC)
             } else if indexPath.row == 1 {
-                UIApplication.shared.openURL(URL(string: "tel://\(PHONE_OUVIDORIA)")!)
+                //                UIApplication.shared.openURL(URL(string: "tel://\(PHONE_OUVIDORIA)")!)
+                ligar(numero: PHONE_OUVIDORIA)
             } else if indexPath.row == 2 {
                 let mailComposeViewController = configuredMailComposeViewController()
                 
@@ -183,6 +228,19 @@ class PreferencesView: UITableViewController, MFMailComposeViewControllerDelegat
         tableView.beginUpdates()
         tableView.reloadData()
         tableView.endUpdates()
+    }
+    
+    
+    func ligar(numero : String){
+        
+        let yes = UIAlertAction(title: "Sim", style: .default) { (completion) in
+            UIApplication.shared.openURL(URL(string: "tel://\(numero)")!)
+        }
+        let no = UIAlertAction(title: "Não", style: .default) { (completion) in
+        }
+        
+        AlertComponent.showAlert(title: "Atenção", message: "Deseja ligar para \(numero) ?", actions: [yes, no], viewController: self)
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

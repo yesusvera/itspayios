@@ -61,15 +61,17 @@ class CardsTabBarController: UITabBarController {
             let carrinho = 1 //0 to 5
             viewControllers?.remove(at: carrinho)
             
+        }else{
+            let isTutorialValid: Bool = (UserDefaults.standard.object(forKey: "isTutorialValid") != nil)
+        
+            if(!isTutorialValid){
+                startInstructions()
+            }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let isTutorialValid: Bool = (UserDefaults.standard.object(forKey: "isTutorialValid") != nil)
-        
-        if(!isTutorialValid){
-            startInstructions()
-        }
+       
     }
 
     override func viewWillDisappear(_ animated: Bool) {

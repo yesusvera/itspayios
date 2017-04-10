@@ -46,14 +46,14 @@
                                 <rect key="frame" x="-2" y="-2" width="379" height="671"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBE-ZI-nV7">
-                                <rect key="frame" x="16" y="220" width="343" height="355"/>
+                                <rect key="frame" x="16" y="176" width="343" height="399"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="ElF-OK-jsr" kind="embed" identifier="LoginSegue" id="eDd-eQ-gfU"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BahamasLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-fC-iOX">
-                                <rect key="frame" x="73" y="96" width="230" height="92"/>
+                                <rect key="frame" x="73" y="52" width="230" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="8tl-Po-kTI"/>
                                     <constraint firstAttribute="height" constant="92" id="E4r-hN-ERG"/>
@@ -393,7 +393,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZJ-sz-HCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="-79"/>
+            <point key="canvasLocation" x="1963" y="-342"/>
         </scene>
         <!--Cards-->
         <scene sceneID="2HD-Fu-bed">
@@ -401,7 +401,7 @@
                 <viewControllerPlaceholder storyboardName="Cards" id="Lhm-JY-1mg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6u-9F-4vT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2974" y="-38"/>
+            <point key="canvasLocation" x="2704" y="-343"/>
         </scene>
         <!--Forgot Passoword View-->
         <scene sceneID="WA7-8Z-1vA">
@@ -594,11 +594,12 @@
                         <outlet property="labelErrorCPF" destination="g5F-tc-CVa" id="uwE-Ty-7h0"/>
                         <outlet property="textFieldBirthday" destination="7Jg-zT-AY1" id="csf-6I-Mfv"/>
                         <outlet property="textFieldCPF" destination="j7I-GX-Xe0" id="kD0-Rm-XFz"/>
+                        <segue destination="ngp-dh-vrP" kind="showDetail" identifier="forgotLoginSegue" id="UoR-Zs-OOq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TC-V9-UeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2956.8000000000002" y="-389.5052473763119"/>
+            <point key="canvasLocation" x="933" y="-342"/>
         </scene>
         <!--Register View-->
         <scene sceneID="WLq-ao-G8m">
@@ -1297,12 +1298,12 @@
                         <outlet property="textFieldEmailConfirmation" destination="Z0T-eH-T1p" id="8ej-9d-0da"/>
                         <outlet property="textFieldPassword" destination="fGg-lV-W7d" id="dnk-Rd-bIO"/>
                         <outlet property="textFieldPasswordConfirmation" destination="BEL-jT-dpG" id="HSZ-dh-BpG"/>
-                        <segue destination="Lhm-JY-1mg" kind="show" identifier="CardsSegue" id="HPq-jk-izp"/>
+                        <segue destination="ngp-dh-vrP" kind="showDetail" identifier="CardsSegue" id="xZN-rr-lqg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eU-Cm-fJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2105.5999999999999" y="807.79610194902557"/>
+            <point key="canvasLocation" x="1989" y="488"/>
         </scene>
         <!--WebView-->
         <scene sceneID="ZsZ-eW-cy1">
@@ -1310,7 +1311,7 @@
                 <viewControllerPlaceholder storyboardName="General" referencedIdentifier="WebView" id="RKy-dl-gMG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lnv-Ra-8wi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2885" y="830"/>
+            <point key="canvasLocation" x="2704" y="488"/>
         </scene>
     </scenes>
     <resources>
@@ -1319,6 +1320,6 @@
         <image name="camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Oht-7W-me4"/>
+        <segue reference="UoR-Zs-OOq"/>
     </inferredMetricsTieBreakers>
 </document>

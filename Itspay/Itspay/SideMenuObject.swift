@@ -15,7 +15,17 @@ enum SideMenuType : Int {
     case rates
     case security
     case logout
-    case limits
+}
+
+enum SideMenuTypePrduto4 : Int {
+    case card
+    case security
+    case logout
+}
+
+enum SideMenuTypePrduto2 : Int {
+    case security
+    case logout
 }
 
 class SideMenuObject {
@@ -28,4 +38,30 @@ class SideMenuObject {
         self.imagePath = imagePath
         self.menuType = menuType
     }
+    
+}
+    
+    
+//Tipo Conta 2
+enum MenuType2Full : Int {
+    case transfer
+    case charge
+    case card
+    case rates
+    case security
+    case limits
+    case logout
+}
+
+enum MenuType2Prduto4 : Int {
+    case card
+    case security
+    case limits
+    case logout
+}
+
+enum MenuType2Prduto2 : Int {
+    case security
+    case limits
+    case logout
 }

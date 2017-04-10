@@ -37,6 +37,10 @@ func validateDataResponse(_ dataResponse : Alamofire.DataResponse<Any>, showAler
             
             if msgError.contains("sucess") {
                 title = "Sucesso"
+            }else{
+                if dataResponse.response?.statusCode == 403 {
+                    NotificationCenter.default.post(name: NSNotification.Name.init("expiredSessionObserver"), object: nil)
+                }
             }
             
             AlertComponent.showSimpleAlert(title: title, message: msgError, viewController: viewController)

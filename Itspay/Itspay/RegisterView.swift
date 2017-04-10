@@ -72,16 +72,35 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
         switchBollean = sender.isOn
     }
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
+        
         if isFormValid() {
             if switchBollean {
-               
+                LoadingProgress.startAnimatingInWindow()
+
                 let registerLoginObject = LoginController.createRegisterLoginObject(email, birthday : GetDateFromString(DateStr: birthday), cpf: cpf, password: password, cardNumber: cardNumber)
                 
                 let url = Repository.createServiceURLFromPListValue(.services, key: "register")
             
                 Connection.request(url, method: .post, parameters: registerLoginObject){ (dataResponse) in
-                    if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
-                        self.performSegue(withIdentifier: "CardsSegue", sender: self)
+                    if !validateDataResponse(dataResponse, showAlert: false, viewController: self) {
+                    LoadingProgress.stopAnimating()
+
+                        let message = getDataResponseMessage(dataResponse)
+                        
+                        if message.lowercased().contains("sucesso") {
+                            
+                            let buttonOk = UIAlertAction(title: "OK", style: .default, handler: { (response) in
+                                
+                                self.performSegue(withIdentifier: "CardsSegue", sender: self)
+                                
+                            })
+                            
+                            AlertComponent.showAlert(title: "Sucesso", message:message,    actions: [buttonOk], viewController: self)
+                        } else {
+                            AlertComponent.showSimpleAlert(title: "Erro", message:  message, viewController: self)
+                        }
+                    
+
                     }
                 }
         
@@ -254,7 +273,7 @@ class RegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardI
             labelErrorPasswordConfirmation.text = "Confirmação de Senha vazia."
             ErrorPasswordConfirmation = true
         }else if passwordForm != passwordConfirmation {
-            labelErrorPasswordConfirmation.text = "Confirmação de Senha inválida."
+            labelErrorPasswordConfirmation.text = "Senhas Nao coincidem."
             ErrorPasswordConfirmation = true
         }else{
             password = passwordForm
