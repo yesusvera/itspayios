@@ -278,7 +278,7 @@
 		ED791B671E006292002C4A70 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		ED791B691E00629A002C4A70 /* General.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = General.storyboard; sourceTree = "<group>"; };
 		ED791B6B1E0066FA002C4A70 /* services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = services.plist; sourceTree = "<group>"; };
-		ED8AF3711DFF85C100EBB73F /* Itspay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itspay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8AF3711DFF85C100EBB73F /* Bahamas Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bahamas Card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8AF3741DFF85C100EBB73F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED8AF37B1DFF85C100EBB73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cards.storyboard; sourceTree = "<group>"; };
 		ED8AF37D1DFF85C100EBB73F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -683,7 +683,7 @@
 		ED8AF3721DFF85C100EBB73F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED8AF3711DFF85C100EBB73F /* Itspay.app */,
+				ED8AF3711DFF85C100EBB73F /* Bahamas Card.app */,
 				ED8AF3871DFF85C100EBB73F /* ItspayTests.xctest */,
 				ED8AF3921DFF85C100EBB73F /* ItspayUITests.xctest */,
 			);
@@ -958,9 +958,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ED8AF3701DFF85C000EBB73F /* Itspay */ = {
+		ED8AF3701DFF85C000EBB73F /* Bahamas Card */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED8AF39B1DFF85C100EBB73F /* Build configuration list for PBXNativeTarget "Itspay" */;
+			buildConfigurationList = ED8AF39B1DFF85C100EBB73F /* Build configuration list for PBXNativeTarget "Bahamas Card" */;
 			buildPhases = (
 				530516F44641A95A5B27CACC /* [CP] Check Pods Manifest.lock */,
 				ED8AF36D1DFF85C000EBB73F /* Sources */,
@@ -975,9 +975,9 @@
 			dependencies = (
 				FBE27E5C1E5CF97A00435F1A /* PBXTargetDependency */,
 			);
-			name = Itspay;
+			name = "Bahamas Card";
 			productName = Itspay;
-			productReference = ED8AF3711DFF85C100EBB73F /* Itspay.app */;
+			productReference = ED8AF3711DFF85C100EBB73F /* Bahamas Card.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED8AF3861DFF85C100EBB73F /* ItspayTests */ = {
@@ -1078,7 +1078,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				ED8AF3701DFF85C000EBB73F /* Itspay */,
+				ED8AF3701DFF85C000EBB73F /* Bahamas Card */,
 				ED8AF3861DFF85C100EBB73F /* ItspayTests */,
 				ED8AF3911DFF85C100EBB73F /* ItspayUITests */,
 			);
@@ -1369,12 +1369,12 @@
 /* Begin PBXTargetDependency section */
 		ED8AF3891DFF85C100EBB73F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ED8AF3701DFF85C000EBB73F /* Itspay */;
+			target = ED8AF3701DFF85C000EBB73F /* Bahamas Card */;
 			targetProxy = ED8AF3881DFF85C100EBB73F /* PBXContainerItemProxy */;
 		};
 		ED8AF3941DFF85C100EBB73F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ED8AF3701DFF85C000EBB73F /* Itspay */;
+			target = ED8AF3701DFF85C000EBB73F /* Bahamas Card */;
 			targetProxy = ED8AF3931DFF85C100EBB73F /* PBXContainerItemProxy */;
 		};
 		FBE27E5C1E5CF97A00435F1A /* PBXTargetDependency */ = {
@@ -1514,7 +1514,7 @@
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay.bahamascard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1539,7 +1539,7 @@
 				INFOPLIST_FILE = Itspay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.itspay.bahamascard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1620,7 +1620,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED8AF39B1DFF85C100EBB73F /* Build configuration list for PBXNativeTarget "Itspay" */ = {
+		ED8AF39B1DFF85C100EBB73F /* Build configuration list for PBXNativeTarget "Bahamas Card" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED8AF39C1DFF85C100EBB73F /* Debug */,

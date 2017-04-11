@@ -1,14 +1,15 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "Icon-xhdpi-20.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Icon-60.png",
+      "filename" : "Icon-xhdpi-20@3x.png",
       "scale" : "3x"
     },
     {
@@ -89,14 +90,15 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "Icon-xhdpi-40.png",
       "scale" : "1x"
     },
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Icon-40@2x.png",
+      "filename" : "Icon-xhdpi-40@2x.png",
       "scale" : "2x"
     },
     {
@@ -132,12 +134,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Icon-152.png",
+      "filename" : "Icon-xhdpi-76@2x.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "Icon-xhdpi-83.5@2x.png",
       "scale" : "2x"
     },
     {
@@ -184,6 +187,7 @@
     {
       "size" : "40x40",
       "idiom" : "watch",
+      "filename" : "Icon-xhdpi-20@2x.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "38mm"
