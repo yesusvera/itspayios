@@ -46,7 +46,7 @@ class CustomToastNotification {
         let color =  UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
         let image = UIImage(named: "cart")
         let title = "Loja"
-        let subtitle = "Conheça nossa as ofertas em nosaa loja                   "
+        let subtitle = "Conheça as ofertas em nossa loja                   "
         let banner = Banner(title: title, subtitle: subtitle, image: image, backgroundColor: color)
         banner.springiness = BannerSpringiness.none
         banner.position = BannerPosition.top
