@@ -7,6 +7,8 @@
 	<key>mainServerProducao</key>
 	<string>https://bahamascard.itspay.com.br</string>
 	<key>mainServer</key>
+	<string>https://bahamascard.itspay.com.br</string>
+	<key>mainServer-bkp</key>
 	<string>http://tst.api.itspay.com.br</string>
 	<key>secondServer</key>
 	<string>http://ppp.sinergico.com.br:8080</string>
