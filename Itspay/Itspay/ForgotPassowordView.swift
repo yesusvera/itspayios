@@ -104,6 +104,7 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
             labelErrorCPF.text = cpfValidation.message
             
         }else {
+            cpfError = true
             labelErrorCPF.isHidden = true
         }
         
@@ -112,6 +113,7 @@ class ForgotPassowordView: UITableViewController ,PickerFieldsDataHelperDelegate
             labelErrorBirthday.text = "Data de nascimento vazia."
         } else{
             birthday = birthdayForm
+            birthdayError = true
             labelErrorBirthday.isHidden = true
         }
         
