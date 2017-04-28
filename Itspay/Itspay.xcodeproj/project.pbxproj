@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		111883999DDBBA4FEC83C510 /* Pods_Itspay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE6E0A606FE404F2499742 /* Pods_Itspay.framework */; };
+		7126E3E01EB29CDA00E474AB /* RegisterLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126E3DF1EB29CDA00E474AB /* RegisterLoginController.swift */; };
+		7126E3E51EB2A38B00E474AB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7126E3E41EB2A38B00E474AB /* Utils.swift */; };
 		713B163C1E491C1B0074B547 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713B163B1E491C1B0074B547 /* ButtonAction.swift */; };
 		71A442471E54CDA200E7E584 /* BRYXBanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A442461E54CDA200E7E584 /* BRYXBanner.framework */; };
 		71AA00AB1E51EC7200132F38 /* CustomToastNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AA00AA1E51EC7200132F38 /* CustomToastNotification.swift */; };
@@ -199,6 +201,8 @@
 		00EC758617B7E9C8A3FE21FF /* Pods-Itspay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.debug.xcconfig"; sourceTree = "<group>"; };
 		4D5160D1E1FA73682CD5145B /* Pods-ItspayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItspayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItspayTests/Pods-ItspayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		550E2378031139046D303EB6 /* Pods-Itspay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itspay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itspay/Pods-Itspay.release.xcconfig"; sourceTree = "<group>"; };
+		7126E3DF1EB29CDA00E474AB /* RegisterLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterLoginController.swift; sourceTree = "<group>"; };
+		7126E3E41EB2A38B00E474AB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		713B163B1E491C1B0074B547 /* ButtonAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		7158147E1E5E1C640048A988 /* Teste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teste.swift; sourceTree = "<group>"; };
 		71A442461E54CDA200E7E584 /* BRYXBanner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BRYXBanner.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Itspay-cozzahyqyvodtxegketdzeqjiphd/Build/Products/Debug-iphoneos/BRYXBanner/BRYXBanner.framework"; sourceTree = "<group>"; };
@@ -797,6 +801,7 @@
 				ED8AF3B71DFF89DC00EBB73F /* DateFormatter */,
 				ED8AF3B41DFF89CC00EBB73F /* Extensions */,
 				ED3913351E0AD6EF001B506D /* Itspay-Bridging-Header.h */,
+				7126E3E41EB2A38B00E474AB /* Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -903,6 +908,7 @@
 				EDAB8A781E007D5600C91453 /* LoginController.swift */,
 				EDC9F8241E07F70700B0DD37 /* CardsController.swift */,
 				EDFB60FE1E15F10000C24A4E /* MarketPlaceController.swift */,
+				7126E3DF1EB29CDA00E474AB /* RegisterLoginController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1324,6 +1330,7 @@
 				EDFB60EB1E15845300C24A4E /* CarrierInfo.swift in Sources */,
 				ED8AF3B01DFF86C100EBB73F /* RegisterView.swift in Sources */,
 				EDAB8A791E007D5600C91453 /* LoginController.swift in Sources */,
+				7126E3E01EB29CDA00E474AB /* RegisterLoginController.swift in Sources */,
 				ED3A02EA1E0C011B000BCE53 /* TransferOtherAccount.swift in Sources */,
 				ED6FC36B1E11FB1600AD4562 /* ResquestNewVirtualCardView.swift in Sources */,
 				ED6FC3641E11BF7200AD4562 /* Ticket.swift in Sources */,
@@ -1345,6 +1352,7 @@
 				FBE27E691E5CFE9E00435F1A /* CustomCoachMarkBodyView.swift in Sources */,
 				ED36D9E71E22AD3A002EA07F /* MyRequestDetail.swift in Sources */,
 				EDFB61011E17E2EF00C24A4E /* DetailProductView.swift in Sources */,
+				7126E3E51EB2A38B00E474AB /* Utils.swift in Sources */,
 				ED3A02F21E0C6AD5000BCE53 /* Bank.swift in Sources */,
 				ED36D9EF1E246018002EA07F /* InstallmentPayment.swift in Sources */,
 				ED599DC41E0070D7004EC753 /* Connection.swift in Sources */,

@@ -74,7 +74,7 @@ class LoginController {
         }
         
         dictionary["email"] = cadastro.email
-        dictionary["dataNascimento"] = cadastro.burthday
+        dictionary["dataNascimento"] = Utils.GetDateFromString(DateStr: cadastro.burthday)
         dictionary["cpf"] = cadastro.cpf.onlyNumbers()
         dictionary["senha"] = cadastro.password
         dictionary["origemCadastroLogin"] = ORIGEM_CADASTRO_LOGIN
@@ -251,6 +251,8 @@ class LoginController {
         
         return dictionary
     }
+    
+    
     
     static func logout(_ viewController : UIViewController) {
         let url = Repository.createServiceURLFromPListValue(.services, key: "logout")

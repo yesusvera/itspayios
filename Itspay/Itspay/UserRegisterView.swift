@@ -61,7 +61,18 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
             
-            self.performSegue(withIdentifier: "RequestToken", sender: self)
+            let validUserObject = RegisterLoginController.createValidUser()
+
+
+            let url = Repository.createServiceURLFromPListValue(.services, key: "validUserRegister")
+            
+            Connection.request(url, method: .post, parameters: validUserObject, dataResponseJSON: { (dataResponse) in
+                if validateDataResponse(dataResponse, showAlert: true, viewController: self) {
+                    self.performSegue(withIdentifier: "RequestToken", sender: self)
+                }
+            })
+
+//            self.performSegue(withIdentifier: "RequestToken", sender: self)
             
         }
         
