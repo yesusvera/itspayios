@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import BEMCheckBox
 import PickerFieldsDataHelper
 
-class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardIOPaymentViewControllerDelegate {
+class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, CardIOPaymentViewControllerDelegate,BEMCheckBoxDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var labelErrorCardNumber: UILabel!
     @IBOutlet weak var labelErrorBirthday: UILabel!
@@ -22,6 +23,12 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
     @IBOutlet weak var textFieldCardNumber: TextFieldCardNumberMask!
     
     @IBOutlet weak var buttonCameraValue: UIButton!
+    
+    @IBOutlet weak var checkCpf: BEMCheckBox!
+    @IBOutlet weak var checkCnpj: BEMCheckBox!
+    @IBOutlet weak var cpfOrCnpjLabel: UILabel!
+    var isCpf: Bool!
+    
     
     let pickerFieldsDataHelper = PickerFieldsDataHelper()
     
@@ -46,17 +53,59 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
         
         pickerFieldsDataHelper.doneButtonTitle = "OK"
         pickerFieldsDataHelper.initWithTodayDate = true
+        
+        
+        isCpf = true
+        checkCpf.setOn(true, animated: true)
+        
+        configCheckBox(checkBox: checkCpf)
+        configCheckBox(checkBox: checkCnpj)
+        
+        textFieldCPF.delegate = self
+
+        
     }
     
+//     Custom CheckBox CPF or CNPJ
+    func configCheckBox(checkBox: BEMCheckBox){
+        
+        checkBox.delegate = self
+        
+        checkBox.onAnimationType = BEMAnimationType.bounce;
+        checkBox.offAnimationType = BEMAnimationType.bounce;
+        
+        checkBox.tintColor = UIColor.lightGray;
+        checkBox.onTintColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+        checkBox.onFillColor = UIColor.colorFrom(hex: COLOR_BUTTON_PRINCIPAL_HEX)
+        checkBox.onCheckColor = UIColor.white;
+        checkBox.lineWidth = 2;
+    }
+    
+    func didTap(_ checkBox: BEMCheckBox) {
+        print("Deus Certo")
+        
+        if isCpf{
+            cpfOrCnpjLabel.text = "CNPJ"
+            isCpf = false
+            checkCpf.setOn(false, animated: true)
+            checkCnpj.setOn(true, animated: true)
+        }else{
+            cpfOrCnpjLabel.text = "CPF"
+            isCpf = true
+            checkCnpj.setOn(false, animated: true)
+            checkCpf.setOn(true, animated: true)
+        }
+    }
+    
+    
+//    View Setings Config
     func configureView(){
         buttonCameraValue.tintColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorCardNumber.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorBirthday.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorCPF.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
         labelErrorCelular.textColor = UIColor.colorFrom(hex:COLOR_BUTTON_PRINCIPAL_HEX)
-        
     }
-    
     
     @IBAction func buttonDoLoginAction(_ sender: UIButton) {
         if isFormValid() {
@@ -71,9 +120,6 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
                     self.performSegue(withIdentifier: "RequestToken", sender: self)
                 }
             })
-
-//            self.performSegue(withIdentifier: "RequestToken", sender: self)
-            
         }
         
     }
@@ -121,7 +167,7 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
             return false
         }
         guard let cpfForm = textFieldCPF.text else {
-            labelErrorCPF.text = "CPF vazio."
+            labelErrorCPF.text = "\(String(describing: cpfOrCnpjLabel.text)) vazio."
             return false
         }
         guard let phoneNumber = textFieldCelular.text else {
@@ -197,4 +243,58 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
             viewController.selectedURL = url
         }
     }
+    
+    
+    
+//    mask CPF or Cnpj
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        var appendString = ""
+        
+        if isCpf {
+            if range.length == 0 {
+                switch range.location {
+                    case 3:
+                        appendString = "."
+                    case 7:
+                        appendString = "."
+                    case 11:
+                        appendString = "-"
+                    default:
+                    break
+                }
+            }
+        
+            textFieldCPF.text?.append(appendString)
+        
+            if (textFieldCPF.text?.characters.count)! > 13 && range.length == 0 {
+                return false
+            }
+        }else{
+//        ##.###.###/####-##"
+        
+            if range.length == 0 {
+                switch range.location {
+                case 2:
+                    appendString = "."
+                case 6:
+                    appendString = "."
+                case 10:
+                    appendString = "/"
+                case 15:
+                    appendString = "-"
+                default:
+                    break
+                }
+            }
+            
+            textFieldCPF.text?.append(appendString)
+            
+            if (textFieldCPF.text?.characters.count)! > 17 && range.length == 0 {
+                return false
+            }
+            
+        }
+        return true
+    }
+
 }

@@ -264,9 +264,9 @@ class SecuritySettingsView: UITableViewController {
         var message = "Deseja realmente informar "
         
         if segmentedControlLostStealingValue.selectedSegmentIndex == 0 {
-            message += "a perda dece cartão?"
+            message += "a perda deste cartão?"
         } else {
-            message += "o roubo dece cartão? "
+            message += "o roubo deste cartão? "
         }
         
         message += "Este cartão será cancelado e um novo cartão será emitido."
