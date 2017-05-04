@@ -36,7 +36,6 @@ class CardsView: UITableViewController {
             if(!isGoMarktplace && LoginController.sharedInstance.pemissionMarketPlace!){
                 CustomToastNotification().showNotification(view: view)
             }
-
     }
     
     func getVirtualCards() {
