@@ -16,7 +16,7 @@
         <scene sceneID="cfB-CC-hVZ">
             <objects>
                 <navigationController id="Qqn-Wh-3qN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="n0a-g8-nvr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n0a-g8-nvr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -54,7 +54,7 @@
                                     <segue destination="ElF-OK-jsr" kind="embed" identifier="LoginSegue" id="eDd-eQ-gfU"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="financialLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-fC-iOX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoFinPag" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-fC-iOX">
                                 <rect key="frame" x="73" y="96" width="230" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="8tl-Po-kTI"/>
@@ -1666,7 +1666,7 @@
     <resources>
         <image name="BackFinancial" width="640" height="1136"/>
         <image name="camera" width="32" height="32"/>
-        <image name="financialLogo" width="289" height="100"/>
+        <image name="logoFinPag" width="1725" height="570"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vt1-QL-PYv"/>

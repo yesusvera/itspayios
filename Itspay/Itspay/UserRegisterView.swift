@@ -197,19 +197,27 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
         }
         
         //CPF
-        let cpfValidation = cpfForm.isCPFValid()
-        
-        if cpfForm.isEmptyOrWhitespace() {
-            labelErrorCPF.text = "CPF vazio."
-            ErrorCPF = true
-        }else if !cpfValidation.value {
-            labelErrorCPF.text = cpfValidation.message
-            ErrorCPF = true
-        }else{
-            ErrorCPF = false
-            cpf = cpfForm
-            labelErrorCPF.isHidden = true
-            cadastro.cpf = cpfForm
+        if isCpf{
+            let cpfValidation = cpfForm.isCPFValid()
+            
+            if cpfForm.isEmptyOrWhitespace() {
+                labelErrorCPF.text = "CPF vazio."
+                ErrorCPF = true
+            }else if !cpfValidation.value {
+                labelErrorCPF.text = cpfValidation.message
+                ErrorCPF = true
+            }
+            
+        }else {
+            if cpfForm.isEmptyOrWhitespace() {
+                labelErrorCPF.text = "CPF vazio."
+                ErrorCPF = true
+            }else{
+                ErrorCPF = false
+                cpf = cpfForm
+                labelErrorCPF.isHidden = true
+                cadastro.cpf = cpfForm
+            }
         }
         
         //Phone Number
@@ -270,8 +278,6 @@ class UserRegisterView: UITableViewController, PickerFieldsDataHelperDelegate, C
                 return false
             }
         }else{
-//        ##.###.###/####-##"
-        
             if range.length == 0 {
                 switch range.location {
                 case 2:
